@@ -91,7 +91,7 @@ plugins = PluginManager()
 auth.settings.extra_fields['auth_user'] = [
     Field('first_name', 'string'),
     Field('last_name', 'string'),
-    Field('ssn', 'integer'),
+    Field('ssn', 'integer', label=T('ssn')),
     Field('birth_date', 'date'),
     Field('marital_status', requires = IS_IN_SET([T('single'),T('married'),T('divorced'),T('widowed')],
     zero=T('Choose one'))),
@@ -100,9 +100,8 @@ auth.settings.extra_fields['auth_user'] = [
     Field('address', 'string'),
     Field('city', 'string'),
     Field('province', 'string'),
-    Field('grade', 'string'),
+    Field('grade', 'string')
 ]
-
 
 
 auth.settings.login_userfield = 'ssn'        #the loginfield will be ssn instead of username
@@ -153,47 +152,70 @@ auth.settings.reset_password_requires_verification = False
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
 
-db.define_table('height',
-                Field('height','double')
+
+db.define_table('inscription',
+                Field('user_id',db.auth_user),
+                Field('created_on', 'datetime', default=request.now)
                 )
+
+
+db.define_table('height',
+                Field('inscription_id', db.inscription),
+                Field('height','double'),
+                Field('available','boolean')
+                )
+
+
 db.define_table('intellectual_exam',
+                Field('inscription_id', db.inscription),
                 Field('spanish_language','double'),
                 Field('history','double'),
-                Field('geography','double')
+                Field('geography','double'),
+                Field('available','boolean', default=False),
                 )
+
+
 db.define_table('medical_exam',
+                Field('inscription_id', db.inscription),
                 Field('exam_exam_result','boolean'),
-                Field('reason','string')
+                Field('reason','string'),
+                Field('available','boolean', default=False),
                 )
+
+
 db.define_table('physical_exam',
+                Field('inscription_id', db.inscription),
                 Field('abs_test','integer'),
                 Field('arms','integer'),
                 Field('aerobics','double'),
+                Field('available','boolean', default=False)
                 )
+
+
 db.define_table('groupal_psychological_examination',
+                Field('inscription_id', db.inscription),
                 Field('exam_result','boolean'),
-                Field('reason','string')
-                )
-db.define_table('phsycological_interview',
-                Field('exam_result','boolean'),
-                Field('reason','boolean')
+                Field('reason','string'),
+                Field('available','boolean', default=False)
                 )
 
-db.define_table('exam',
-                Field('form_id','integer', unique = True),
-                Field('exam_year','date',default=request.now, requires = IS_DATE(format=('%d-%m-%Y'))),
-                Field('height',db.height),
-                Field('intellectual_exam',db.intellectual_exam),
-                Field('medical_exam',db.medical_exam),
-                Field('physical_exam',db.physical_exam),
-                Field('groupal_psychological_examination',db.groupal_psychological_examination),
-                Field('phsycological_interview', db.phsycological_interview)
+
+db.define_table('psycological_interview',
+                Field('inscription_id', db.inscription),
+                Field('exam_result','boolean'),
+                Field('reason','string'),
+                Field('available','boolean', default=False)
                 )
 
-db.define_table('inscription',
-                Field('candidate_id',db.auth_user,default=auth.user_id),
-                Field('exam_id',db.exam),
-                Field('created_on', 'datetime', default=request.now)
+
+db.define_table('schedule',
+                Field('height_schedule', 'text'),
+                Field('intellectual_exam_schedule', 'text'),
+                Field('medical_exam_schedule', 'text'),
+                Field('physical_exam_schedule', 'text'),
+                Field('intellectual_exam_schedule', 'text'),
+                Field('groupal_psychological_examination_schedule', 'text'),
+                Field('psycological_interview_schedule', 'text')
                 )
 
 db.auth_user.username.readable = False

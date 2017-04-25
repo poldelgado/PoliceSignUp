@@ -1,0 +1,318 @@
+timestamp: 2017-04-23T01:22:48.783702
+CREATE TABLE auth_user(
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(128),
+    last_name VARCHAR(128),
+    email VARCHAR(512),
+    username VARCHAR(128),
+    password VARCHAR(512),
+    registration_key VARCHAR(512),
+    reset_password_key VARCHAR(512),
+    registration_id VARCHAR(512),
+    ssn INT,
+    birth_date DATE,
+    marital_status VARCHAR(512),
+    career VARCHAR(512),
+    phone VARCHAR(512),
+    address VARCHAR(512),
+    city VARCHAR(512),
+    province VARCHAR(512),
+    grade VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2017-04-23T01:22:48.784617
+CREATE TABLE auth_group(
+    id INT AUTO_INCREMENT NOT NULL,
+    role VARCHAR(512),
+    description LONGTEXT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2017-04-23T01:22:48.785416
+CREATE TABLE auth_membership(
+    id INT AUTO_INCREMENT NOT NULL,
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INT  , INDEX group_id__idx (group_id), FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2017-04-23T01:22:48.786397
+CREATE TABLE auth_permission(
+    id INT AUTO_INCREMENT NOT NULL,
+    group_id INT  , INDEX group_id__idx (group_id), FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE CASCADE,
+    name VARCHAR(512),
+    table_name VARCHAR(512),
+    record_id INT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2017-04-23T01:22:48.787534
+CREATE TABLE auth_event(
+    id INT AUTO_INCREMENT NOT NULL,
+    time_stamp DATETIME,
+    client_ip VARCHAR(512),
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin VARCHAR(512),
+    description LONGTEXT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2017-04-23T01:22:48.788566
+CREATE TABLE auth_cas(
+    id INT AUTO_INCREMENT NOT NULL,
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on DATETIME,
+    service VARCHAR(512),
+    ticket VARCHAR(512),
+    renew CHAR(1),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2017-04-23T01:26:20.857239
+ALTER TABLE auth_user DROP COLUMN username;
+faked!
+timestamp: 2017-04-23T01:41:14.562097
+CREATE TABLE auth_user(
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(128),
+    last_name VARCHAR(128),
+    email VARCHAR(512),
+    password VARCHAR(512),
+    registration_key VARCHAR(512),
+    reset_password_key VARCHAR(512),
+    registration_id VARCHAR(512),
+    ssn INTEGER,
+    birth_date DATE,
+    marital_status VARCHAR(512),
+    career VARCHAR(512),
+    phone VARCHAR(512),
+    address VARCHAR(512),
+    city VARCHAR(512),
+    province VARCHAR(512),
+    grade VARCHAR(512)
+);
+success!
+timestamp: 2017-04-23T01:41:14.587717
+CREATE TABLE auth_group(
+    id SERIAL PRIMARY KEY,
+    role VARCHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2017-04-23T01:41:14.617734
+CREATE TABLE auth_membership(
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-04-23T01:41:14.640378
+CREATE TABLE auth_permission(
+    id SERIAL PRIMARY KEY,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    name VARCHAR(512),
+    table_name VARCHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2017-04-23T01:41:14.670675
+CREATE TABLE auth_event(
+    id SERIAL PRIMARY KEY,
+    time_stamp TIMESTAMP,
+    client_ip VARCHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    origin VARCHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2017-04-23T01:41:14.690065
+CREATE TABLE auth_cas(
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service VARCHAR(512),
+    ticket VARCHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2017-04-23T02:38:13.838220
+ALTER TABLE auth_user ADD username VARCHAR(128);
+success!
+timestamp: 2017-04-23T20:05:35.767537
+CREATE TABLE inscription(
+    id SERIAL PRIMARY KEY,
+    inscription_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2017-04-23T20:05:35.818267
+CREATE TABLE exam(
+    id SERIAL PRIMARY KEY,
+    exam_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ,
+    exam_year DATE
+);
+success!
+timestamp: 2017-04-23T20:05:35.830126
+CREATE TABLE height(
+    id SERIAL PRIMARY KEY,
+    height_id INTEGER REFERENCES exam (id) ON DELETE CASCADE  ,
+    height FLOAT8,
+    available CHAR(1)
+);
+success!
+timestamp: 2017-04-23T20:05:35.852561
+CREATE TABLE intellectual_exam(
+    id SERIAL PRIMARY KEY,
+    intellectual_exam_id INTEGER REFERENCES exam (id) ON DELETE CASCADE  ,
+    spanish_language FLOAT8,
+    history FLOAT8,
+    geography FLOAT8,
+    available CHAR(1)
+);
+success!
+timestamp: 2017-04-23T20:05:35.865325
+CREATE TABLE medical_exam(
+    id SERIAL PRIMARY KEY,
+    medical_exam_id INTEGER REFERENCES exam (id) ON DELETE CASCADE  ,
+    exam_exam_result CHAR(1),
+    reason VARCHAR(512),
+    available CHAR(1)
+);
+success!
+timestamp: 2017-04-23T20:05:35.898037
+CREATE TABLE physical_exam(
+    id SERIAL PRIMARY KEY,
+    physical_exam_id INTEGER REFERENCES exam (id) ON DELETE CASCADE  ,
+    abs_test INTEGER,
+    arms INTEGER,
+    aerobics FLOAT8,
+    available CHAR(1)
+);
+success!
+timestamp: 2017-04-23T20:05:35.911950
+CREATE TABLE groupal_psychological_examination(
+    id SERIAL PRIMARY KEY,
+    groupal_psychological_examination_id INTEGER REFERENCES exam (id) ON DELETE CASCADE  ,
+    exam_result CHAR(1),
+    reason VARCHAR(512),
+    available CHAR(1)
+);
+success!
+timestamp: 2017-04-23T20:05:35.934869
+CREATE TABLE psycological_interview(
+    id SERIAL PRIMARY KEY,
+    psycological_interview_id INTEGER REFERENCES exam (id) ON DELETE CASCADE  ,
+    exam_result CHAR(1),
+    reason VARCHAR(512),
+    available CHAR(1)
+);
+success!
+timestamp: 2017-04-24T15:31:10.659132
+ALTER TABLE inscription ADD user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T15:31:10.697350
+ALTER TABLE inscription DROP COLUMN inscription_id;
+success!
+timestamp: 2017-04-24T15:31:10.725591
+ALTER TABLE height ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T15:31:10.730004
+ALTER TABLE height DROP COLUMN height_id;
+success!
+timestamp: 2017-04-24T15:32:02.972186
+ALTER TABLE intellectual_exam ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T15:32:02.976491
+ALTER TABLE intellectual_exam DROP COLUMN intellectual_exam_id;
+success!
+timestamp: 2017-04-24T15:32:02.999288
+ALTER TABLE medical_exam ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T15:32:03.002331
+ALTER TABLE medical_exam DROP COLUMN medical_exam_id;
+success!
+timestamp: 2017-04-24T15:32:03.009316
+ALTER TABLE physical_exam ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T15:32:03.012876
+ALTER TABLE physical_exam DROP COLUMN physical_exam_id;
+success!
+timestamp: 2017-04-24T15:32:03.018929
+ALTER TABLE groupal_psychological_examination ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T15:32:03.023001
+ALTER TABLE groupal_psychological_examination DROP COLUMN groupal_psychological_examination_id;
+success!
+timestamp: 2017-04-24T15:32:03.046129
+ALTER TABLE psycological_interview ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T15:32:03.050226
+ALTER TABLE psycological_interview DROP COLUMN psycological_interview_id;
+success!
+timestamp: 2017-04-24T17:44:45.219110
+ALTER TABLE height DROP COLUMN inscription_id;
+success!
+timestamp: 2017-04-24T17:44:45.300326
+ALTER TABLE intellectual_exam DROP COLUMN inscription_id;
+success!
+timestamp: 2017-04-24T17:44:45.306765
+ALTER TABLE medical_exam DROP COLUMN inscription_id;
+success!
+timestamp: 2017-04-24T17:44:45.318692
+ALTER TABLE physical_exam DROP COLUMN inscription_id;
+success!
+timestamp: 2017-04-24T17:44:45.325091
+ALTER TABLE groupal_psychological_examination DROP COLUMN inscription_id;
+success!
+timestamp: 2017-04-24T17:44:45.332128
+ALTER TABLE psycological_interview DROP COLUMN inscription_id;
+success!
+timestamp: 2017-04-24T17:44:45.338729
+ALTER TABLE inscription ADD height_id INTEGER REFERENCES height (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T17:44:45.345021
+ALTER TABLE inscription ADD intellectual_exam_id INTEGER REFERENCES intellectual_exam (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T17:44:45.346743
+ALTER TABLE inscription ADD physical_exam_id INTEGER REFERENCES physical_exam (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T17:44:45.349089
+ALTER TABLE inscription ADD medical_exam_id INTEGER REFERENCES medical_exam (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T17:44:45.350746
+ALTER TABLE inscription ADD psycological_interview_id INTEGER REFERENCES psycological_interview (id) ON DELETE CASCADE  ;
+timestamp: 2017-04-24T17:44:45.353155
+ALTER TABLE inscription ADD groupal_psychological_examination_id INTEGER REFERENCES groupal_psychological_examination (id) ON DELETE CASCADE  ;
+success!
+timestamp: 2017-04-24T18:23:51.327811
+ALTER TABLE inscription DROP COLUMN height_id;
+timestamp: 2017-04-24T18:23:51.329391
+ALTER TABLE inscription DROP COLUMN physical_exam_id;
+timestamp: 2017-04-24T18:23:51.330882
+ALTER TABLE inscription DROP COLUMN medical_exam_id;
+timestamp: 2017-04-24T18:23:51.333056
+ALTER TABLE inscription DROP COLUMN groupal_psychological_examination_id;
+timestamp: 2017-04-24T18:23:51.334550
+ALTER TABLE inscription DROP COLUMN psycological_interview_id;
+timestamp: 2017-04-24T18:23:51.335816
+ALTER TABLE inscription DROP COLUMN intellectual_exam_id;
+success!
+timestamp: 2017-04-24T18:23:51.341493
+ALTER TABLE height ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+success!
+timestamp: 2017-04-24T18:23:51.349345
+ALTER TABLE intellectual_exam ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+success!
+timestamp: 2017-04-24T18:23:51.362113
+ALTER TABLE medical_exam ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+success!
+timestamp: 2017-04-24T18:23:51.403780
+ALTER TABLE physical_exam ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+success!
+timestamp: 2017-04-24T18:23:51.412221
+ALTER TABLE groupal_psychological_examination ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+success!
+timestamp: 2017-04-24T18:23:51.419427
+ALTER TABLE psycological_interview ADD inscription_id INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+success!
+timestamp: 2017-04-25T08:58:10.515630
+CREATE TABLE schedule(
+    id SERIAL PRIMARY KEY,
+    height_schedule TEXT,
+    intellectual_exam_schedule TEXT,
+    medical_exam_schedule TEXT,
+    physical_exam_schedule TEXT,
+    groupal_psychological_examination_schedule TEXT,
+    psycological_interview_schedule TEXT
+);
+success!
