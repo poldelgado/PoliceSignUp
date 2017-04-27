@@ -22,8 +22,8 @@
               Verifique próximamente para saber sus fechas de examenes.
             </blockquote>
         {{else:}}
-        <strong>{{=T('Height:')}}</strong> {{=exams['height']['height']}}  <br>
-        <strong>{{=T('Status:')}}</strong> <span class="pass">
+        <strong>{{=T('Height')}}:</strong> {{=exams['height']['height']}}  <br>
+        <strong>{{=T('Status')}}:</strong> <span class="pass">
           {{if(exams['height']['height'] > 1.70):}}
           APTO
           {{else:}}
@@ -123,7 +123,7 @@
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4 class="">Psicologico Grupal</h4>
+      <h4 class="">{{=T('Groupal Psychological Interview')}}</h4>
     </div>
     <div class="panel-body">
       {{if(exams==None):}}
@@ -138,7 +138,7 @@
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4 class="">Entrevista Psicologica</h4>
+      <h4 class="">{{=T('Psychological Interview')}}</h4>
     </div>
     <div class="panel-body">
       {{if(exams==None):}}
