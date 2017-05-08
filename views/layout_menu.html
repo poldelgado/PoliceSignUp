@@ -1,0 +1,146 @@
+{{#hidden = None if auth.user else 'hidden'}}
+
+{{if auth.user and is_user_member('admin'):}}
+
+<ul class="sidebar-menu">
+
+    <li class="header">Exams</li>
+
+    <!-- <li class="treeview">
+    {{=sidebar_menu_item('Perros', icon='suitcase')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('Ver Perros', URL('dog', 'list'), icon='dog')}}
+        {{=sidebar_menu_item('Create Dog', URL('dog', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+ -->
+   <!--  <li class="treeview">
+    {{=sidebar_menu_item('Owners', icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View Owners', URL('person', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Create Owner', URL('person', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+ -->
+    <!-- <li class="treeview">
+    {{=sidebar_menu_item('Dog Owners', icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View Dog Owners', URL('dog_owner', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Create Dog Owner', URL('dog_owner', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li> -->
+
+    <!-- <li class="treeview">
+    {{=sidebar_menu_item(T('Product'), icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View Products', URL('product', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Create Product', URL('product', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li> -->
+
+    <li class="treeview">
+    {{=sidebar_menu_item(T('Candidate'), icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View Candidates', URL('candidate', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Create Candidate', URL('candidate', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+
+    <li class="treeview">
+    {{=sidebar_menu_item(T('Inscription'), icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View Inscriptions', URL('inscription', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Create Inscription', URL('inscription', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+
+    <li class="treeview">
+    {{=sidebar_menu_item(T('Height'), icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View Heights Exams', URL('height', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Insert Heights Results', URL('height', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+
+    <li class="treeview">
+    {{=sidebar_menu_item(T('Intellectual Exam'), icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View Intellectuals Exams', URL('intellectual_exam', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Insert Intellectual Exams Results', URL('intellectual_exam', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+
+    <li class="treeview">
+    {{=sidebar_menu_item(T('Medical Exam'), icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View Medical Exams', URL('medical_exam', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Insert Medical Exam Results', URL('medical_exam', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+
+    <li class="treeview">
+    {{=sidebar_menu_item(T('Physical Exam'), icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View Physicals Exams', URL('physical_exam', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Insert Physicals Results', URL('physical_exam', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+
+    <li class="treeview">
+    {{=sidebar_menu_item(T('GPE'), icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View GPE', URL('groupal_psychological_examination', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Insert GPE Results', URL('groupal_psychological_examination', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+
+     <li class="treeview">
+    {{=sidebar_menu_item(T('Psychological Interview'), icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View ', URL('psychological_interview', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Insert Psychological Interview Results', URL('psychological_interview', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+
+     <li class="treeview">
+    {{=sidebar_menu_item(T('Exams Schedule'), icon='university')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('View Schedules', URL('schedule', 'list'), icon='list')}}
+        {{=sidebar_menu_item('Insert New Schedule', URL('schedule', 'create'), icon='pencil-square-o')}}
+        </ul>
+    </li>
+
+
+
+    <li class="treeview {{=user_visibility('Admin')}}">
+    {{=sidebar_menu_item('Admin', icon='gears')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('Manage Content', URL('content','list'), icon='file-text-o')}}
+          {{=sidebar_menu_item('Manage Users', URL('appadmin','manage/users'), icon='users')}}
+        </ul>
+    </li>
+
+    <li class="treeview {{=user_visibility('Admin')}}">
+    {{=sidebar_menu_item('Super Admin', icon='gears')}}
+        <ul class="treeview-menu">
+        {{=sidebar_menu_item('Manage Auth', URL('appadmin','manage/auth'), icon='wrench')}}
+          {{=sidebar_menu_item('Manage Database', URL('appadmin','manage/db'), icon='database')}}
+          {{=sidebar_menu_item('Super Admin!', URL('appadmin','#'), icon='cog')}}
+        </ul>
+    </li>
+
+</ul>
+
+{{pass}}
+
+<!-- Company Info for Guests -->
+
+<ul class="sidebar-menu">
+
+    <li class="header">COMPANY</li>
+
+{{=sidebar_menu_item('About', URL('default', 'about'), icon='book')}}
+{{=sidebar_menu_item('Privacy', URL('default', 'privacy'), icon='book')}}
+{{=sidebar_menu_item('Terms of Use', URL('default', 'tou'), icon='book')}}
+
+</ul>

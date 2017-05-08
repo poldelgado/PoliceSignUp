@@ -87,30 +87,10 @@ auth = Auth(db, host_names=myconf.get('host.names'))
 service = Service()
 plugins = PluginManager()
 
-
-auth.settings.extra_fields['auth_user'] = [
-    Field('first_name', 'string'),
-    Field('last_name', 'string'),
-    Field('ssn', 'integer', label=T('ssn')),
-    Field('birth_date', 'date'),
-    Field('marital_status', requires = IS_IN_SET([T('single'),T('married'),T('divorced'),T('widowed')],
-    zero=T('Choose one'))),
-    Field('career', requires = IS_IN_SET([T('First Year Cadet Candidate'),T('Penitentiary Service Candidate')],zero=T('Choose one'))),
-    Field('phone', 'string'),
-    Field('address', 'string'),
-    Field('city', 'string'),
-    Field('province', 'string'),
-    Field('grade', 'string')
-]
-
-
-auth.settings.login_userfield = 'ssn'        #the loginfield will be ssn instead of username
-
-
 # -------------------------------------------------------------------------
 # create all tables needed by auth if not custom tables
 # -------------------------------------------------------------------------
-auth.define_tables(username=True, signature=False)
+auth.define_tables(username=False, signature=False)
 
 # -------------------------------------------------------------------------
 # configure email
@@ -127,8 +107,7 @@ mail.settings.ssl = myconf.get('smtp.ssl') or False
 # -------------------------------------------------------------------------
 auth.settings.registration_requires_verification = False
 auth.settings.registration_requires_approval = False
-auth.settings.reset_password_requires_verification = False
-
+auth.settings.reset_password_requires_verification = True
 
 # -------------------------------------------------------------------------
 # Define your tables below (or better in another model file) for example
@@ -151,72 +130,3 @@ auth.settings.reset_password_requires_verification = False
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
-
-
-db.define_table('inscription',
-                Field('user_id',db.auth_user),
-                Field('created_on', 'datetime', default=request.now)
-                )
-
-
-db.define_table('height',
-                Field('inscription_id', db.inscription),
-                Field('height','double'),
-                Field('available','boolean')
-                )
-
-
-db.define_table('intellectual_exam',
-                Field('inscription_id', db.inscription),
-                Field('spanish_language','double'),
-                Field('history','double'),
-                Field('geography','double'),
-                Field('available','boolean', default=False),
-                )
-
-
-db.define_table('medical_exam',
-                Field('inscription_id', db.inscription),
-                Field('exam_exam_result','boolean'),
-                Field('reason','string'),
-                Field('available','boolean', default=False),
-                )
-
-
-db.define_table('physical_exam',
-                Field('inscription_id', db.inscription),
-                Field('abs_test','integer'),
-                Field('arms','integer'),
-                Field('aerobics','double'),
-                Field('available','boolean', default=False)
-                )
-
-
-db.define_table('groupal_psychological_examination',
-                Field('inscription_id', db.inscription),
-                Field('exam_result','boolean'),
-                Field('reason','string'),
-                Field('available','boolean', default=False)
-                )
-
-
-db.define_table('psycological_interview',
-                Field('inscription_id', db.inscription),
-                Field('exam_result','boolean'),
-                Field('reason','string'),
-                Field('available','boolean', default=False)
-                )
-
-
-db.define_table('schedule',
-                Field('height_schedule', 'text'),
-                Field('intellectual_exam_schedule', 'text'),
-                Field('medical_exam_schedule', 'text'),
-                Field('physical_exam_schedule', 'text'),
-                Field('intellectual_exam_schedule', 'text'),
-                Field('groupal_psychological_examination_schedule', 'text'),
-                Field('psycological_interview_schedule', 'text')
-                )
-
-db.auth_user.username.readable = False
-db.auth_user.username.writable = False
