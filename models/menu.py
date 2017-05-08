@@ -4,7 +4,7 @@
 # Customize your APP title, subtitle and menus here
 #########################################################################
 
-response.logo_mini = IMG(_src=URL('static', 'images/favicon.png'), _alt=myconf.get('app.company'), _width="30px")
+response.logo_mini = IMG(_src=URL('static', 'images/favicon_ies.png'), _alt=myconf.get('app.company'), _width="30px")
 
 # response.logo = IMG(_src=URL('static', 'images/favicon.png'), _alt=myconf.get('app.company'), _width="180px")
 # response.logo = SPAN('web', B(2), 'py', XML('&trade;&nbsp;'))

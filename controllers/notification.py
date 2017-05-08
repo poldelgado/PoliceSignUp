@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-table = db.dog_owner
+table = db.notification
 response.view_title = '%s %s' % (
     request.function.replace('_', ' ').title(),
     table._singular

@@ -74,7 +74,13 @@ db.define_table('psycological_interview',
                 #format = '%(user_id)s'
                 )
 
-
+db.define_table('notification',
+                Field('candidate', db.auth_user),
+                Field('date_of_notification', 'date'),
+                Field('message', 'text'),
+                auth.signature,
+                singular='Schedule', plural='Schedules',
+                )
 db.define_table('schedule',
                 Field('height_schedule', 'text'),
                 Field('intellectual_exam_schedule', 'text'),

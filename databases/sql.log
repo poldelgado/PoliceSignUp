@@ -305,3 +305,16 @@ timestamp: 2017-05-05T18:56:51.006661
 ALTER TABLE auth_user ADD birth_date DATE;
 success!
 success!
+timestamp: 2017-05-08T17:44:04.591586
+CREATE TABLE notification(
+    id SERIAL PRIMARY KEY,
+    candidate INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    date_of_notification DATE,
+    message TEXT,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
