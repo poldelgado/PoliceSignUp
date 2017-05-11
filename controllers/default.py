@@ -3,15 +3,8 @@
 
 
 def index():
-    """
-    example action using the internationalization operator T and flash
-    rendered by views/default/index.html or views/generic.html
-
-    if you need a simple wiki simply replace the two lines below with:
-    return auth.wiki()
-    """
-    response.view_title = myconf.get('app.name') + ' Home Page'
-    return dict(message='')
+    auth.settings.login_next = URL(c='candidate',f='profile')
+    return dict(loginform = auth())
 
 
 def about():
@@ -55,7 +48,7 @@ def search():
         for r in rows:
             items += [[t._singular, r.id, r.title, r.created_on, r.created_by]]
 
-    response.view_title = 'Search Results'
+    response.view_title = T('Search Results')
     return dict(
         items=items
     )

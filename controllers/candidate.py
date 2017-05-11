@@ -113,5 +113,21 @@ def gestion():
     form = SQLFORM.smartgrid(db.person, csv=False)
     return dict(form = form)
 
+@auth.requires_login()
 def profile():
-    return dict()
+    user_profile = db(db.auth_user.id == auth.user_id).select().first()
+    inscription = db(user_profile.id == db.inscription.auth_user).select().last()
+    exams = db(((db.inscription.auth_user == user_profile.id))
+    & (((db.height.inscription == db.inscription.id) | (db.height.id == None))
+    & ((db.intellectual_exam.inscription == db.inscription.id) | (db.intellectual_exam.id == None))
+    & ((db.medical_exam.inscription == db.inscription.id) | (db.medical_exam.id == None))
+    & ((db.physical_exam.inscription == db.inscription.id) | (db.physical_exam.id == None))
+    & ((db.groupal_psychological_examination.inscription == db.inscription.id) | (db.groupal_psychological_examination.id == None))
+    & ((db.psychological_interview.inscription == db.inscription.id) | (db.psychological_interview.id == None)))).select().first()
+    return dict(user = user_profile, inscription = inscription, exams = exams)
+
+def register():
+    db.auth_user.username.readable = False
+    db.auth_user.username.writable = False
+    auth.settings.register_next = URL(c='candidate',f='profile')
+    return dict(form = auth.register())

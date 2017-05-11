@@ -19,6 +19,8 @@
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View Inscriptions', URL('inscription', 'list'), icon='list')}}
         {{=sidebar_menu_item('Create Inscription', URL('inscription', 'create'), icon='pencil-square-o')}}
+        {{=sidebar_menu_item('Lanzar Inscripciones Nuevas', URL('inscription', 'launch_new_inscription'), icon='expand')}}
+
         </ul>
     </li>
 
@@ -114,7 +116,7 @@
 
 <ul class="sidebar-menu">
 
-    <li class="header">COMPANY</li>
+    <li class="header">MENU</li>
 
 {{=sidebar_menu_item('About', URL('default', 'about'), icon='book')}}
 {{=sidebar_menu_item('Privacy', URL('default', 'privacy'), icon='book')}}

@@ -318,3 +318,102 @@ CREATE TABLE notification(
     modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
 );
 success!
+timestamp: 2017-05-09T08:30:22.035166
+ALTER TABLE inscription ADD user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-09T08:30:22.060765
+ALTER TABLE inscription DROP COLUMN candidate;
+success!
+timestamp: 2017-05-09T08:44:39.310635
+ALTER TABLE inscription ADD auth_user INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-09T08:44:39.313107
+ALTER TABLE inscription DROP COLUMN user_id;
+success!
+timestamp: 2017-05-09T08:44:39.319314
+ALTER TABLE height ADD inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-09T08:44:39.407124
+ALTER TABLE height ADD height__tmp VARCHAR(512);
+UPDATE height SET height__tmp=height;
+ALTER TABLE height DROP COLUMN height;
+ALTER TABLE height ADD height VARCHAR(512);
+UPDATE height SET height=height__tmp;
+ALTER TABLE height DROP COLUMN height__tmp;
+timestamp: 2017-05-09T08:44:39.433910
+ALTER TABLE height DROP COLUMN available;
+timestamp: 2017-05-09T08:44:39.434865
+ALTER TABLE height DROP COLUMN inscription_id;
+success!
+timestamp: 2017-05-09T08:45:46.145185
+ALTER TABLE height ADD available CHAR(1);
+success!
+timestamp: 2017-05-09T08:50:48.785160
+ALTER TABLE intellectual_exam ADD inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-09T08:50:48.836635
+ALTER TABLE intellectual_exam DROP COLUMN inscription_id;
+success!
+timestamp: 2017-05-09T08:50:48.853901
+ALTER TABLE medical_exam ADD inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-09T08:50:48.888270
+ALTER TABLE medical_exam DROP COLUMN inscription_id;
+success!
+timestamp: 2017-05-09T08:50:48.895350
+ALTER TABLE physical_exam ADD inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-09T08:50:48.902298
+ALTER TABLE physical_exam DROP COLUMN inscription_id;
+success!
+timestamp: 2017-05-09T08:50:48.914209
+ALTER TABLE groupal_psychological_examination ADD inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-09T08:50:48.920544
+ALTER TABLE groupal_psychological_examination DROP COLUMN inscription_id;
+success!
+timestamp: 2017-05-09T08:50:48.927066
+ALTER TABLE psycological_interview ADD inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-09T08:50:48.932933
+ALTER TABLE psycological_interview DROP COLUMN inscription_id;
+success!
+timestamp: 2017-05-09T08:50:48.939461
+ALTER TABLE notification ADD auth_user INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-09T08:50:48.942760
+ALTER TABLE notification DROP COLUMN candidate;
+success!
+timestamp: 2017-05-09T12:01:55.032101
+ALTER TABLE auth_user DROP COLUMN username;
+success!
+timestamp: 2017-05-09T12:09:40.032651
+ALTER TABLE auth_user ADD username VARCHAR(128);
+success!
+timestamp: 2017-05-10T17:36:34.693221
+ALTER TABLE auth_user ADD gender VARCHAR(512);
+success!
+timestamp: 2017-05-10T18:35:58.351486
+ALTER TABLE auth_user DROP COLUMN username;
+success!
+timestamp: 2017-05-10T19:05:52.744773
+ALTER TABLE auth_user ADD username VARCHAR(128);
+success!
+timestamp: 2017-05-11T18:26:54.990087
+ALTER TABLE physical_exam ADD aerobics__tmp INTEGER;
+UPDATE physical_exam SET aerobics__tmp=aerobics;
+ALTER TABLE physical_exam DROP COLUMN aerobics;
+ALTER TABLE physical_exam ADD aerobics INTEGER;
+UPDATE physical_exam SET aerobics=aerobics__tmp;
+ALTER TABLE physical_exam DROP COLUMN aerobics__tmp;
+success!
+timestamp: 2017-05-11T18:28:10.822170
+CREATE TABLE psychological_interview(
+    id SERIAL PRIMARY KEY,
+    inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ,
+    exam_result CHAR(1),
+    reason VARCHAR(512),
+    available CHAR(1),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-05-11T18:41:54.181187
+ALTER TABLE schedule ADD psychological_interview_schedule TEXT;
+timestamp: 2017-05-11T18:41:54.198500
+ALTER TABLE schedule DROP COLUMN psycological_interview_schedule;
+success!

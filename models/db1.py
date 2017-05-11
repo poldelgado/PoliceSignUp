@@ -72,17 +72,21 @@ auth.settings.extra_fields['auth_user'] = [
         readable=False, writable=False,
         default={}
     ),
-    Field('ssn', 'string', label=T('ssn')),
+    Field('ssn', 'string', label=T('ssn'), requires = IS_NOT_EMPTY()),
     Field('birth_date', 'date'),
+    Field('gender', requires = IS_IN_SET([T('Male'),T('Female')],
+    zero=T('Choose one'))),
     Field('marital_status', requires = IS_IN_SET([T('single'),T('married'),T('divorced'),T('widowed')],
     zero=T('Choose one'))),
     Field('career', requires = IS_IN_SET([T('First Year Cadet Candidate'),T('Penitentiary Service Candidate')],zero=T('Choose one'))),
-    Field('phone', 'string'),
+    Field('phone', 'string', requires = IS_NOT_EMPTY()),
     Field('address', 'string'),
     Field('city', 'string'),
     Field('province', 'string'),
     Field('grade', 'string'),
 ]
+
+auth.settings.login_userfield = 'ssn'        #the loginfield will be ssn instead of username
 
 # create all tables needed by auth
 auth.define_tables(username=True, signature=True)

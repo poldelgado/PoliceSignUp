@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-table = db.psycological_interview
+table = db.psychological_interview
 response.view_title = '%s %s' % (
     request.function.replace('_', ' ').title(),
     table._singular

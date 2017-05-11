@@ -7,6 +7,14 @@ response.view_title = '%s %s' % (
 )
 
 
+def test_selectize():
+    return dict()
+
+
+def test_bootbox():
+    return dict()
+
+
 def index():
     redirect(URL(request.controller, 'list'))
 
@@ -108,3 +116,10 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
+
+#The next controller assigns massively Inscriptions to candidates
+@auth.requires_membership('admin')
+def launch_new_inscription():
+    candidates = db(db.auth_user).select()
+    for candidate in candidates:
+        table.insert(auth_user = candidate.id)
