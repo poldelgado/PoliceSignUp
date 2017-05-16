@@ -2,7 +2,7 @@
 
 {{if auth.user and is_user_member('candidate'):}}
 
-<ul class="sidebar-menu">
+<ul class="sidebar-menu" id="sidebar-menu">
 
     <li class="header">Exams</li>
 
@@ -110,7 +110,8 @@
     <li class="header">MENU</li>
 
 {{=sidebar_menu_item(T('Exam Results'), URL('candidate', 'profile'), icon='book')}}
-{{=sidebar_menu_item(T('Notifications'), URL('candidate', 'notifications'), icon='book')}}
+{{=sidebar_menu_item(T('Forms'), URL('candidate', 'forms'), icon='book')}}
+{{=sidebar_menu_item(T('Notifications'), URL('candidate', 'profile'), icon='book')}}
 {{=sidebar_menu_item(T('Terms of Use'), URL('default', 'tou'), icon='book')}}
 
 </ul>

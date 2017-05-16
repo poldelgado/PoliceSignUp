@@ -131,3 +131,22 @@ def register():
     db.auth_user.username.writable = False
     auth.settings.register_next = URL(c='candidate',f='profile')
     return dict(form = auth.register())
+
+@auth.requires_login()
+def forms():    
+    return dict()
+
+def inscription_form():
+    candidate = db(db.auth_user.id == auth.user_id).select().first()
+    inscription = db(candidate.id == db.inscription.auth_user).select().last()
+    return dict(inscription = inscription)
+
+def medical_exam_form():
+    candidate = db(db.auth_user.id == auth.user_id).select().first()
+    inscription = db(candidate.id == db.inscription.auth_user).select().last()
+    return dict(inscription = inscription)
+
+def physical_exam_form():
+    candidate = db(db.auth_user.id == auth.user_id).select().first()
+    inscription = db(candidate.id == db.inscription.auth_user).select().last()
+    return dict(inscription = inscription)

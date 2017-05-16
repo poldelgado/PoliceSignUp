@@ -1,3 +1,8 @@
+button, #sidebar-menu, #main-header, #main-sidebar{
+	display: none !important;	
+}
+
+
 .candidate-profile{
 	max-width: 750px;
 }
@@ -12,19 +17,17 @@
 }
 
 .wrap-form{
-	border: 1px solid black;
+	border: 1px dotted black;
 	padding: 5px;
 	max-width: 950px;
 }
 
 .controlate-documentation{
 	border: 2px solid black;
-    /*box-shadow: 5px 5px 5px #888888;*/
+    box-shadow: 5px 5px 5px #888888;
 	padding: 20px 30px 30px 30px;	
 	text-decoration-line: underline;
 	max-width: 500px;
-	margin-left: 15px;
-	margin-right: 15px;
 }
 
 .controlate-documentation h3{
@@ -32,10 +35,8 @@
 }
 
 .sign{
-	padding-right: 4px;
 	border-top: 1px dotted black;
-	margin-right: 25px
-
+	margin-right:25px;
 }
 
 .school_logo{
@@ -44,33 +45,7 @@
 	margin: 0;
 }
 
-.inscription{
-	margin: 2px;
-	padding: 3px;
-	border: 1px solid black;
-}
-
 .form_title{
-	padding: 8px;
 	text-align: center;
 	text-decoration: underline;
-	text-shadow: 2px 2px #B6ADAD;
 }
-
-.laboratory{
-
-	margin: 2px;
-	padding: 3px;
-	border: 1px solid black;
-}
-
-.laboratory .hemo{
-	margin: 2px;
-	padding: 3px;
-	border: 1px solid black;	
-}
-
-.laboratory div h3{
-	text-align: center;
-}
-

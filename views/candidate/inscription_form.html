@@ -1,0 +1,60 @@
+{{extend 'layout_candidate.html'}}
+
+
+<div class="wrap-form center-block">
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-12">
+			Ministerio de Gobierno, Justicia y Seguridad
+		</div>
+		<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-12">
+			Instituto de Enseñanza Superior de Policía "General José F. de San Martín"
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-12 controlate-documentation">
+			<h3>Documentación Controlada</h3><br>
+			<p>Fecha:</p>
+		</div>
+		<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-12">
+			<h3>INSCRIPCION NRO: {{=inscription.id}}</h3>
+		</div>		
+	</div>
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<br>
+			<h4>FORMULARIO UNICO DE INSCRIPCION PARA ASPIRANTES A CADETES DE PRIMER AÑO DEL IES DE POLICIA "GRAL. JOSE F. DE SAN MARTÍN"</h4>
+		</div>
+	</div>
+	<div class="row personal-data">
+		<div class="col-lg-8 col-lg-offset-2">
+			<p>{{=T('Lastname, Firstname')}}: {{=inscription.auth_user.last_name +', '+inscription.auth_user.first_name}}</p>
+			<p>{{=T('SSN:')}} {{=inscription.auth_user.ssn}}</p>
+			<p>{{=T('Birth Date')}}: {{=inscription.auth_user.birth_date}}</p>
+			<p>{{=T('Marital Status')}}: {{=inscription.auth_user.marital_status}}</p>
+			<p>{{=T('Phone')}}: {{=inscription.auth_user.phone}}</p>
+			<p>{{=T('Address')}}: {{=inscription.auth_user.address}}</p>
+			<p>{{=T('City')}}: {{=inscription.auth_user.city}}</p>
+			<p>{{=T('Province')}}: {{=inscription.auth_user.province}}</p>
+			<p>Cómisaria Jurisdiccional: </p>
+			<p>Título Secundario Expedido Por: </p>
+			<p>Email: {{=inscription.auth_user.email}}</p>
+			<p>{{=T('Height')}}: ............ (La estatura será completada por personal del IES de Policía Gral. San Martín)</p>
+			<p><strong>{{=T('Inscription Date')}}: {{=inscription.created_on}}</strong></p><br><br>
+			<div class="pull-left">Turno - Fecha y Hora:</div>
+			<div class="sign pull-right"><p>Firma del aspirante</p></div>
+			<br><br>
+		</div>
+		<div class="col-lg-8 col-lg-offset-2">
+			<p class="small">Los datos consignados en eset formulario tienen carácter de "Declaración Jurada". La presentación del presente formulario implica conocer y aceptar los términos de la convocatoria y proceso de selección. La presentación de este formulario es de carácter GRATUITO.</p>
+		</div>
+	</div>
+</div>
+<br><br>
+<button class="btn btn-primary center-block" onclick="printPage()">{{=T('Print')}}</button>
+
+<script>
+	function printPage(){
+		window.print();
+	}
+</script>
+	
