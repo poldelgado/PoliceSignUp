@@ -2,9 +2,24 @@
 	max-width: 750px;
 }
 
+.container{
+	
+}
+
 .row{
     /*overflow: hidden; */
+    
 }
+
+/*.equal{
+  display: table;
+  width: 100%
+}
+
+.form-link{
+	display: table-cell;
+}*/
+
 
 .ministerio{
 	float:top;
@@ -74,3 +89,22 @@
 	text-align: center;
 }
 
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border: 1px solid #000000;
+}
+
+.intellectual-table{
+	width: 25%;
+	height:75px;
+	vertical-align: bottom;
+	text-align: center;
+}
+
+.col-container{
+	display: table;
+	width: 100%;
+}
+
+.col{
+	diplay: table-cell;
+}

@@ -1,0 +1,8 @@
+.row {
+    display: table;
+}
+.row [class*="col-"] {
+    display: table-cell;
+    float: none;
+    vertical-align: center;
+}

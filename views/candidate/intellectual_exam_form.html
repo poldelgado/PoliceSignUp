@@ -1,0 +1,133 @@
+{{extend 'layout_candidate.html'}}
+
+<div class="wrap-form center-block">
+	<div class="row">
+		<div class="col-md-4 col-sm-10 policia">
+			<h2>POLICIA DE TUCUMAN</h2>
+		</div>
+		<div class="col-md-4 col-sm-10">
+			<h5>Instituto de Enseñanza Superior de Policía</h5>
+			<h4>"GRAL. JOSÉ DE SAN MARTÍN"</h4>
+			<h3 class="inscription">Inscripcion N°</h3>			
+		</div>
+		<div class="col-md-4 col-sm-10">
+			<img src="http://placehold.it/100x100" alt="">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<h3 class="form_title">FORMULARIO DE EXAMENES DE CONOCIMIENTOS INTELECTUALES</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<h4>APELLIDO Y NOMBRES: {{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name}}</h4>
+			<h4>DNI: {{=inscription.auth_user.ssn}}</h4>
+			<h4>LUGAR Y FECHA: San Miguel de Tucumán,</h4>
+			<div class="row">
+				<div class="col-md-5"><h4>FIRMA DEL ASPIRANTE:  ....................</h4></div>
+				<div class="col-md-5 pull-right"><h4>FIRMA AUTORIDAD:  ...................</h4></div>
+			</div>			 
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			Conclusiones del examen:
+		</div>
+		<div class="col-md-11 col-md-offset-1">
+			<table class="table table-bordered">
+				<tr>
+					<th class="text-center">Castellano</th>
+					<th class="text-center">Historia</th>
+					<th class="text-center">Geografia</th>
+					<th class="text-center">Promedio</th>
+				</tr>
+				<tr>
+					<td class="intellectual-table"></td>
+					<td class="intellectual-table"></td>
+					<td class="intellectual-table"></td>
+					<td class="intellectual-table"></td>
+				</tr>
+				<tr>
+					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
+					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
+					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
+					<!-- <td class="intellectual-table"></td> -->
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</div> <br><br>
+
+<div class="wrap-form center-block">
+	<div class="row">
+		<div class="col-md-4 col-sm-10 policia">
+			<h2>POLICIA DE TUCUMAN</h2>
+		</div>
+		<div class="col-md-4 col-sm-10">
+			<h5>Instituto de Enseñanza Superior de Policía</h5>
+			<h4>"GRAL. JOSÉ DE SAN MARTÍN"</h4>
+			<h3 class="inscription">Inscripcion N°</h3>			
+		</div>
+		<div class="col-md-4 col-sm-10">
+			<img src="http://placehold.it/100x100" alt="">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<h3 class="form_title">FORMULARIO DE EXAMENES DE CONOCIMIENTOS INTELECTUALES</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<h4>APELLIDO Y NOMBRES: {{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name}}</h4>
+			<h4>DNI: {{=inscription.auth_user.ssn}}</h4>
+			<h4>LUGAR Y FECHA: San Miguel de Tucumán,</h4>
+			<div class="row">
+				<div class="col-md-5"><h4>FIRMA DEL ASPIRANTE:  ....................</h4></div>
+				<div class="col-md-5 pull-right"><h4>FIRMA AUTORIDAD:  ...................</h4></div>
+			</div>			 
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			Conclusiones del examen:
+		</div>
+		<div class="col-md-11 col-md-offset-1">
+			<table class="table table-bordered">
+				<tr>
+					<th>Castellano</th>
+					<th>Historia</th>
+					<th>Geografia</th>
+					<th>Promedio</th>
+				</tr>
+				<tr>
+					<td class="intellectual-table"></td>
+					<td class="intellectual-table"></td>
+					<td class="intellectual-table"></td>
+					<td class="intellectual-table"></td>
+				</tr>
+				<tr>
+					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
+					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
+					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
+					<!-- <td class="intellectual-table"></td> -->
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</div> <br><br>
+
+<button class="btn btn-primary center-block" onclick="printPage()">{{=T('Print')}}</button>
+
+<script>
+	function printPage(){
+		window.print();
+	}
+</script>

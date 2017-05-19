@@ -150,3 +150,8 @@ def physical_exam_form():
     candidate = db(db.auth_user.id == auth.user_id).select().first()
     inscription = db(candidate.id == db.inscription.auth_user).select().last()
     return dict(inscription = inscription)
+
+def intellectual_exam_form():
+    candidate = db(db.auth_user.id == auth.user_id).select().first()
+    inscription = db(candidate.id == db.inscription.auth_user).select().last()
+    return dict(inscription = inscription)

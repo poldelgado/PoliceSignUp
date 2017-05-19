@@ -108,3 +108,18 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
+
+
+@auth.requires_login()
+def write():
+    return dict()
+
+
+def call():
+    """
+    exposes services. for example:
+    http://..../[app]/default/call/jsonrpc
+    decorate with @services.jsonrpc the functions to expose
+    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
+    """
+    return service()

@@ -1,38 +1,49 @@
 {{extend 'layout_candidate.html'}}
 
-<div class="container container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-md-4 col-sm-6 col-xs-12 center-block">
+		<div class="col-md-3 col-sm-6 col-xs-12">
 			<div class="panel panel-default">
-  				<div class="panel-body">
-    				Formulario de Unico de Inscripción para Aspirantes a cadetes de primer año del I.E.S. de Policia "Gral. José F. de San Martín"
+  				<div class="panel-body text-center">
+    				Formulario de Inscripción
   				</div>
-  				<div class="panel-footer center-block">
+  				<div class="panel-footer">
   					<a href="{{=URL('candidate','inscription_form')}}" class="btn btn-info btn-block">VER</a>
   				</div>
   			</div>
   		</div>
 
-  		<div class="col-md-4 col-sm-6 col-xs-12 center-block">
-			<div class="panel panel-default">
-  				<div class="panel-body">
-    				Fórmulario de Exámenes Médicos Clínicos
+  		<div class="col-md-3 col-sm-6 col-xs-12">
+			<div class="panel panel-default ">
+  				<div class="panel-body text-center">
+    				Fórmulario de Exámen Médico
   				</div>
-  				<div class="panel-footer center-block">
+  				<div class="panel-footer">
             <a href="{{=URL('candidate','medical_exam_form')}}" class="btn btn-info btn-block">VER</a>
   				</div>
   			</div>
   		</div>
 
-  		<div class="col-md-4 col-sm-6 col-xs-12 center-block">
+  		<div class="col-md-3 col-sm-6 col-xs-12">
 			<div class="panel panel-default">
-  				<div class="panel-body">
-    				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia assumenda, adipisci necessitatibus provident maiores tempore ullam neque, minus ipsam odit consequuntur tenetur laborum aliquid natus cum. Molestias voluptas, delectus soluta!
+  				<div class="panel-body text-center">
+    				Fórmulario de Examen Intelectual
   				</div>
-  				<div class="panel-footer center-block">
-  				<button class="btn btn-info btn-block">Ver</button>
-  				</div>
+  				<div class="panel-footer">
+                    <a href="{{=URL('candidate','intellectual_exam_form')}}" class="btn btn-info btn-block">VER</a>
+                </div>
   			</div>
   		</div>
-  	</div>
+  		
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    Fórmulario de Examen Físico
+                </div>
+                <div class="panel-footer">
+                    <a href="{{=URL('candidate','physical_exam_form')}}" class="btn btn-info btn-block">VER</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
