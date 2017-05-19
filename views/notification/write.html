@@ -140,7 +140,7 @@
                 var editor = CKEDITOR.instances.editor1
                 //var date = $('#memorandum_date').val()
                 var text = CKEDITOR.instances.editor1.getData()
-                if (!date || !text || date.length == 0 || text.length == 0) {
+                if (!text || text.length == 0) {
                   var empty_fields = editor.showNotification( '{{=T("Fill empty fields")}}', 'warning' );
                   return false;
                 }
