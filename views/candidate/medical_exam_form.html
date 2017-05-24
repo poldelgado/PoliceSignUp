@@ -1,42 +1,42 @@
-{{extend 'layout_candidate.html'}}
+{{extend 'candidate/forms_layout.html'}}
 
-<div class="wrap-form center-block">
-	<div class="row">
-		<div class="col-md-4 col-sm-10 policia">
-			<h2>POLICIA DE TUCUMAN</h2>
-		</div>
-		<div class="col-md-4 col-sm-10">
-			<h5>Instituto de Enseñanza Superior de Policía</h5>
-			<h4>"GRAL. JOSÉ DE SAN MARTÍN"</h4>
-			<h3 class="inscription">Inscripcion N°</h3>			
-		</div>
-		<div class="col-md-4 col-sm-10">
-			<img src="http://placehold.it/100x100" alt="">
-		</div>
-	</div>
 
-	<div class="row">
-		<div class="col-md-11 col-md-offset-1">
-			<h1 class="form_title">EXAMENES MEDICOS CLINICOS</h1>
-		</div>
-	</div>
 
-	<div class="row inscription">
-		<div class="col-md-11 col-md-offset-1">
-			<p>DOY MI CONSENTIMIENTO PARA REALIZAR TODOS LOS ESTUDIOS MEDICOS DEL PRESENTE FORMULARIO</p>
-			<p>FIRMA DE CONFORMIDAD:________________________________</p>
-		</div>
-	</div>
+<header>
+	<div class="col-container">
+  <div class="col">
+    <h3>POLICIA DE TUCUMAN</h3>    
+  </div>
 
-	<div class="row center-block laboratory">
-		<div class="col-md-5 col-md-offset-1 col-sm-12 hemo">
-			<h3><strong>EXAMEN DE LABORATORIO</strong></h3>
-			<p>Hematocrito(%):_____________</p>
-			<p>Leucocitos(x mm2):____________</p>
-			<p>Eritrosedimentación(mm2):____________</p>
-			<p>Fórmula Leucocitaria:</p>
-			<table class="table table-condensed table-striped">
-				<tr>
+  <div class="col medical">
+    <h5>Instituto de Enseñanza Superior de Policia "GRAL. JOSE DE SAN MARTIN"</h5>
+    <h4>Inscripcion N° {{=inscription.id}}</h4>
+  </div>
+
+  <div class="col">
+    <img src="{{=URL('static','images/logo_ies.png')}}" alt="logo_ies">
+  </div>
+</div>
+</header>
+<section class="title">
+	<h2>EXAMENES MEDICOS CLINICOS</h2>
+</section>
+
+<section class="consentimiento">
+	<p>DOY MI CONSENTIMIENTO PARA REALIZAR TODOS LOS ESTUDIOS MEDICOS DEL PRESENTE FORMULARIO</p>
+	<p>FIRMA DE CONFORMIDAD:________________________________</p>
+	<p><strong>{{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name + ' - D.N.I: ' + inscription.auth_user.ssn}}</strong></p>
+</section><br>
+
+<section class="col-container laboratory">
+	<div class="col med-examsx3">
+		<h4>Exámen de Laboratorio</h4>
+		<p>Hematocrito(%):____________</p>
+		<p>Leucocitos(x mm2):_________</p>
+		<p>Eritrosedimentación(mm2):_________</p>
+		<p>Fórmula Leucocitaria:</p>
+		<table class="table table-condensed table-bordered">
+			<tr>
 					<td>C:______</td>
 					<td>B:______</td>
 				</tr>
@@ -48,160 +48,106 @@
 					<td>E:______</td>
 					<td>M:______</td>
 				</tr>
-			</table>			
-		</div>
-
-		<div class="col-md-5 col-sm-12 inscription">
-			<div class="row">
-				<div class="col-sm-5">
-					<table class="table">
-						<tr>
-							<th>V.D.R.L.</th>
-							<th>H.I.V.</th>
-						</tr>
-						<tr>
-							<td>Reactiva</td>
-							<td>Reactiva</td>
-						</tr>
-						<tr>
-							<td>Reactiva</td>
-							<td>Reactiva</td>
-						</tr>
-					</table>
-					<p>Orina (solo lo positivo)</p>
-					<p>_____________________</p>
-					<p>Gravindex:___________</p>
-					<p>creatina(mg/dl):_____</p>
-					<p>colesterolemia(mg/dl):______</p>
-					<p>Urea(mg/dl):______</p>
-				</div>
-				<div class="col-sm-5">
-					<h4><strong>CHAGAS</strong></h4>
-					<h5>HAI:______</h5>
-					<h5>ELISA:______</h5>
-					<p>Observaciones:</p>
-					<p>_______________</p>
-					<p>_______________</p>
-					<p>_______________</p>
-					<p>_______________</p>
-					<p>_______________</p>
-					<p>_______________</p>
-				</div>
-			</div>
-		</div>
+		</table>
+	</div>
+	<div class="col med-examsx3">
+		<table class="table table-condensed table-bordered">
+			<tr>
+				<th>V.D.R.L.</th>
+				<th>H.I.V.</th>
+			</tr>
+			<tr>
+				<td>Reactiva</td>
+				<td>Reactiva</td>
+			</tr>
+			<tr>
+				<td>Reactiva</td>
+				<td>Reactiva</td>
+			</tr>
+		</table>
+		<p>Orina (solo lo positivo)</p>
+		<p>_____________________</p>
+		<p>Gravindex:___________</p>
+		<p>creatina(mg/dl):_____</p>
+		<p>colesterolemia(mg/dl):______</p>
+		<p>Urea(mg/dl):______</p>
 	</div>
 
-	<div class="row inscription">
-		<div class="col-lg-5 col-sm-12 torax inscription">
-			<h3>RADIOGRAFIA DE TORAX</h3>
-				<div class="checkbox">
-   					<label>
-    					Normal: <input type="checkbox">
-    				</label>
-				</div>
-				<div class="checkbox">
-   					<label>
-    					Anormal: <input type="checkbox">
-    				</label>
-				</div>
-		</div>
-		
-		<div class="col-lg-5 col-sm-12 otorrino inscription">
-			<h3>EXAMEN OTORRINOLARINGOLOGICO</h3>
-			<p>Observaciones:______________________</p>
-			<p>____________________________________</p>
-			<p>____________________________________</p>
-			<br>
-			<p class="sign">Firma Aclarada</p>
-		</div>
-
-		<div class="col-lg-5 col-sm-12 oftalmologico inscription">
-			<h3>EXAMEN OFTALMOLOGICO</h3>
-			<p>Agudeza Visual:______</p>
-			<p>Sin Correción: OD:_____ OI:_____</p>
-			<p>________________________________</p>
-			<p>________________________________</p>
-			<p><strong>Visión Cromática</strong></p>
-				<div class="checkbox">
-   					<label>
-    					Normal: <input type="checkbox">
-    				</label>
-				</div>
-				<div class="checkbox">
-   					<label>
-    					Alterada: <input type="checkbox">
-    				</label>
-				</div>			
-		</div>
-
-		<div class="col-lg-5 col-sm-12 odontologico inscription">
-			<h3>EXAMEN ODONTOLOGICO</h3>
-			<div class="checkbox">
-   				<label>
-    				Normal: <input type="checkbox">
-    			</label>
-			</div>
-			<div class="checkbox">
-   				<label>
-    				Necesita Atención: <input type="checkbox">
-    			</label>
-			</div>
-			<div class="sign pull-left">
-				Firma Aclarada
-			</div>	
-		</div>
-
-		<div class="col-lg-5 col-sm-12 cardio inscription">
-			<h3>EXAMEN CARDIOVASCULAR</h3>
-			<p>Presión Arterial:_______</p>
-			<p>Auscultación:___________</p>
-			<p>E.C.G:__________________</p>
-			<p>Otros Examenes:_________</p>
-			<p>________________________</p>
-			<div class="sign pull-left">
-				Firma Aclarada
-			</div>	
-		</div>
-
-		<div class="col-lg-5 col-sm-12 osteo inscription">
-			<h3>EXAMEN OSTEO ARTICULAR:</h3>
-			<h5>Anormal:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normal:</h5>	
-			<p>Esp. bífida:</p>
-			<p>Sacralización:</p>
-			<p>Lumbarización:</p>
-			<p>Pinzamiento:</p>
-			<p>Escoliosis:</p>
-			<p>Otro:</p>
-			<br><br>
-			<div class="sign pull-right">Firma Aclarada</div>
-		</div>
-		
-		<div class="col-lg-5 col-sm-12 toxico inscription">
-			<h3>EXAMEN TOXICOLOGICO</h3>
-			<br>
-			<p>Observaciones:____________</p>
-			<p>__________________________</p>
-			<p>__________________________</p>
-			<p>__________________________</p>
-		</div>
-
-		<div class="col-lg-12 imc">
-			<h3>I.M.C.___________________________________________________________________</h3>
-		</div>
-
-		<div class="col-lg-12 result">
-			<h3>CONCLUSIONES MEDICAS:__________________________________________________</h3>
-			<h3>________________________________________________________________________</h3>
-			<br><br><br>
-			<div class="sign pull-right">Firma Aclarada</div>
-		</div>
+	<div class="col med-examsx3">
+		<h4>CHAGAS</h4>
+		<h5>HAI:______</h5>
+		<h5>ELISA:______</h5>
+		<p>Observaciones:</p>
+		<p>_____________________</p>
+		<p>_____________________</p>
+		<p>_____________________</p>
+		<p>_____________________</p>
 	</div>
-</div>
+</section><br>
+<section class="col-container">
+	<div class="col med-exams">
+		<h4>Radiografia de Torax</h4><br>
+		<ul>
+			<li>Normal</li>
+			<li>Anormal</li>
+		</ul>
+	</div>
+	<div class="col med-exams">
+		<h4>Exámen Otorinolaringologico</h4>
+		<p>Observaciones:______________________</p>
+		<p>___________________________________</p>
+		<p>___________________________________</p>
+		<p>___________________________________</p>
+	</div>
+</section>
+<section class="col-container">
+	<div class="col med-exams">
+		<h4>Exámen Oftalmológico</h4>
+		<p>Agudeza Visual:_____</p>
+		<p>Sin Corrección: OD:____ OI:____</p>
+		<p>_______________________________</p>
+		<p>_______________________________</p>
+		<p><strong>Visión Cromática</strong></p>
+		<ul>
+			<li>Normal</li>
+			<li>Alterada</li>
+		</ul>
+	</div>
+	<div class="col med-exams">
+		<h4>Exámen Cardiovascular</h4>
+		<p>Presión Arterial:__________</p>
+		<p>Auscultación:______________</p>
+		<p>E.C.G:_____________________</p>
+		<p>Otros Exámenes:____________</p>
+		<p>___________________________</p>
+	</div>
+</section>
 
-<button class="btn btn-primary center-block" onclick="printPage()">{{=T('Print')}}</button>
+<section class="col-container">
+	<div class="col med-examsx3">
+		<h4>Exámen Odontológico</h4>
+		<br><br><br>
+		<ul>
+			<li>Normal</li>
+			<li>Necesita Atención</li>
+		</ul>
+	</div>
+	<div class="col med-examsx3">
+		<h4>Exámen Osteo Articular</h4>
+		<p>Anormal:</p>
+		<p>Normal:</p>
+		<p>Espalda Bífida:</p>
+		<p>Lumbarización:</p>
+		<p>Pinzamiento:</p>
+		<p>Escoliosis:</p>
+		<p>Otro:</p>
+	</div>
+	<div class="col med-examsx3">
+		<h4>Exámen Toxicológico</h4>
+		<p>Observaciones:__________________</p>
+		<p>_______________________________</p>
+		<p>_______________________________</p>
+		<p>_______________________________</p>
 
-<script>
-	function printPage(){
-		window.print();
-	}
-</script>
+	</div>
+</section>

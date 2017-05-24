@@ -1,13 +1,9 @@
-button, #sidebar-menu, #main-header, #main-sidebar{
-	display: none !important;	
-}
-
 
 .wrap-content{
 
 	border: 2px solid black;
 	padding: 5px;
-	max-width: 90%;
+	max-width: 75%;
 
 }
 
@@ -21,7 +17,7 @@ button, #sidebar-menu, #main-header, #main-sidebar{
     margin-left: 20px;
 }
 .fixed{
-    width: 280px;
+    width: 500px;
     padding: 3px;
     margin: 2px;
     border: 1px solid black;
@@ -47,23 +43,3 @@ button, #sidebar-menu, #main-header, #main-sidebar{
 .candidate-data{
 	margin-left: 20px;
 }
-
-.row{
-	margin: 20px;
-}
-
-.turn{
-	
-	float: left;
-}
-
-.sign{
-	border-top:1px dotted #000;
-	float:right;
-}
-
-
-/*.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
-    border: 1px solid #000000;
-}
-*/

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario de Inscripción</title>
+
+    <link rel="stylesheet" href="{{=URL('static','plugins/bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{=URL('static','css/print-form.css')}}" media = "print">
+	<link rel="stylesheet" href="{{=URL('static','css/forms.css')}}" media = "screen">
+
+</head>
+<body>
+	<br>
+	<div class="wrap-content center-block">
+		{{include}}
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-10">
+			<button class="center-block btn btn-primary" onclick="printPage()">{{=T('Print')}}</button>
+		</div>
+	</div>
+	
+	<script>
+	function printPage(){
+		window.print();
+	}
+</script>	
+</body>

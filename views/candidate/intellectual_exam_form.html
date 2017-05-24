@@ -1,6 +1,65 @@
-{{extend 'layout_candidate.html'}}
+{{extend 'candidate/forms_layout.html'}}
 
-<div class="wrap-form center-block">
+
+<header>
+	<div class="col-container">
+  <div class="col">
+    <h3>POLICIA DE TUCUMAN</h3>    
+  </div>
+
+  <div class="col medical">
+    <h5>Instituto de Enseñanza Superior de Policia "GRAL. JOSE DE SAN MARTIN"</h5>
+    <h4>Inscripcion N° {{=inscription.id}}</h4>
+  </div>
+
+  <div class="col">
+    <img src="{{=URL('static','images/logo_ies.png')}}" alt="logo_ies">
+  </div>
+</div>
+</header>
+
+<section class="title">
+	<h2>FORMULARIO DE EXAMENES DE CONOCIMIENTOS INTELECTUALES</h2>
+</section>
+
+<section class="personal-data">
+	<p>Apellido y Nombres: <strong>{{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name}}</strong></p>
+	<p>DNI: <strong>{{=inscription.auth_user.ssn}}</strong> &emsp; Fecha de Nacimiento: <strong>{{=inscription.auth_user.birth_date}}</strong> </p>
+	<p>San Miguel de Tucumán, ....................................................................................</p><br><br>
+	<p>Firma del Aspirante:........................................&emsp;&emsp; Firma Autoridad:.....................................</p>
+</section>
+
+<section class="">
+	<p class="small">Conclusiones del exámen</p>
+	<table class="table table-bordered">
+		<tbody>
+			<tr>
+				<th class="text-center">Castellano</th>
+				<th class="text-center">Historia</th>
+				<th class="text-center">Geografía</th>
+				<th class="text-center">Promedio</th>
+			</tr>
+			<tr>
+				<td class="intellectual-table"></td>
+				<td class="intellectual-table"></td>
+				<td class="intellectual-table"></td>
+				<td class="intellectual-table"></td>
+			</tr>
+			<tr>
+				<td class="text-center intellectual-table" style="vertical-align: bottom; margin-bottom: 0;padding-bottom: 0;">Firma</td>
+				<td class="text-center intellectual-table" style="vertical-align: bottom; margin-bottom: 0;padding-bottom: 0;">Firma</td>
+				<td class="text-center intellectual-table" style="vertical-align: bottom; margin-bottom: 0;padding-bottom: 0;">Firma</td>
+
+			</tr>
+		</tbody>
+	</table>
+</section>
+
+
+
+
+
+<!-- <div class="wrap-form center-block">
 	<div class="row">
 		<div class="col-md-4 col-sm-10 policia">
 			<h2>POLICIA DE TUCUMAN</h2>
@@ -54,7 +113,7 @@
 					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
 					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
 					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
-					<!-- <td class="intellectual-table"></td> -->
+					<!-- <td class="intellectual-table"></td>
 				</tr>
 			</table>
 		</div>
@@ -116,7 +175,7 @@
 					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
 					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
 					<td class="text-center intellectual-table" style="border: 0; vertical-align: bottom; margin-bottom: 0; padding-bottom: 0;">Firma</td>
-					<!-- <td class="intellectual-table"></td> -->
+					<!-- <td class="intellectual-table"></td> 
 				</tr>
 			</table>
 		</div>
@@ -130,4 +189,4 @@
 	function printPage(){
 		window.print();
 	}
-</script>
+</script> -->

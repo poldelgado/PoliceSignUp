@@ -1,165 +1,72 @@
-{{extend 'layout_candidate.html'}}
+{{extend 'candidate/forms_layout.html'}}
 
-<div class="wrap-form center-block">
-	<div class="row">
-		<div class="col-md-4 col-sm-10 policia">
-			<h2>POLICIA DE TUCUMAN</h2>
-		</div>
-		<div class="col-md-4 col-sm-10">
-			<h5>Instituto de Enseñanza Superior de Policía</h5>
-			<h4>"GRAL. JOSÉ DE SAN MARTÍN"</h4>
-			<h3 class="inscription">Inscripcion N°</h3>			
-		</div>
-		<div class="col-md-4 col-sm-10">
-			<img src="http://placehold.it/100x100" alt="">
-		</div>
-	</div>
 
-	<div class="row">
-		<div class="col-md-11 col-md-offset-1">
-			<h1 class="form_title">FORMULARIO DE PRUEBAS DE APTITUD FISICA</h1>
-		</div>
-	</div>
+<header>
+	<div class="col-container">
+  <div class="col">
+    <h3>POLICIA DE TUCUMAN</h3>    
+  </div>
 
-	<div class="row">
-		<div class="col-md-11 col-md-offset-1">
-			<h4>APELLIDO Y NOMBRES:</h4>
-			<h4>DNI:..................... FECHA DE NACIMIENTO:.............</h4>
-			<h4>EDAD:.................... ESTADO CIVIL:....................</h4>
-			<h4>SAN MIGUEL DE TUCUMAN, ....................................</h4>
-			
-			<h4>FIRMA DEL ASPIRANTE:................ FIRMA AUTORIDAD:..............</h4>
-		</div>
-	</div>
+  <div class="col medical">
+    <h5>Instituto de Enseñanza Superior de Policia "GRAL. JOSE DE SAN MARTIN"</h5>
+    <h4>Inscripcion N° {{=inscription.id}}</h4>
+  </div>
 
-	<div class="row">
-		<div class="col-md-11 col-lg-offset-1">
-			<table class="table table-bordered">
-				<tr>
-					<th>FUERZA FLEXORA DE TRONCO</th>
-					<th>FUERZA EXTENSORA DE BRAZOS</th>
-					<th>POTENCIA AEROBICA 1500 mts.</th>
-					<th>PROMEDIO</th>
-				</tr>
-				<tr>
-					<td>
-						<p>N° Real .....</p>
-						<p>Puntaje .....</p>
-					</td>
-					<td>
-						<p>N° Real .....</p>
-						<p>Puntaje .....</p>
-					</td>
-					<td>
-						<p>N° Real .....</p>
-						<p>Puntaje .....</p>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="sign">
-						FIRMA
-						</div>
-					</td>
-					<td>
-						<div class="sign">
-						FIRMA
-						</div>
-					</td>
-					<td>
-						<div class="sign">
-						FIRMA
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div> 
-</div><br><br>
-
-<div class="wrap-form center-block">
-	<div class="row">
-		<div class="col-md-4 col-sm-10 policia">
-			<h2>POLICIA DE TUCUMAN</h2>
-		</div>
-		<div class="col-md-4 col-sm-10">
-			<h5>Instituto de Enseñanza Superior de Policía</h5>
-			<h4>"GRAL. JOSÉ DE SAN MARTÍN"</h4>
-			<h3 class="inscription">Inscripcion N°</h3>			
-		</div>
-		<div class="col-md-4 col-sm-10">
-			<img src="http://placehold.it/100x100" alt="">
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-11 col-md-offset-1">
-			<h1 class="form_title">FORMULARIO DE PRUEBAS DE APTITUD FISICA</h1>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-11 col-md-offset-1">
-			<h4>APELLIDO Y NOMBRES:</h4>
-			<h4>DNI:..................... FECHA DE NACIMIENTO:.............</h4>
-			<h4>EDAD:.................... ESTADO CIVIL:....................</h4>
-			<h4>SAN MIGUEL DE TUCUMAN, ....................................</h4>
-			
-			<h4>FIRMA DEL ASPIRANTE:................ FIRMA AUTORIDAD:..............</h4>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-11 col-lg-offset-1">
-			<table class="table table-bordered">
-				<tr>
-					<th>FUERZA FLEXORA DE TRONCO</th>
-					<th>FUERZA EXTENSORA DE BRAZOS</th>
-					<th>POTENCIA AEROBICA 1500 mts.</th>
-					<th>PROMEDIO</th>
-				</tr>
-				<tr>
-					<td>
-						<p>N° Real .....</p>
-						<p>Puntaje .....</p>
-					</td>
-					<td>
-						<p>N° Real .....</p>
-						<p>Puntaje .....</p>
-					</td>
-					<td>
-						<p>N° Real .....</p>
-						<p>Puntaje .....</p>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="sign">
-						FIRMA
-						</div>
-					</td>
-					<td>
-						<div class="sign">
-						FIRMA
-						</div>
-					</td>
-					<td>
-						<div class="sign">
-						FIRMA
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
+  <div class="col">
+    <img src="{{=URL('static','images/logo_ies.png')}}" alt="logo_ies">
+  </div>
 </div>
+</header>
 
-<button class="btn btn-primary center-block" onclick="printPage()">{{=T('Print')}}</button>
+<section class="title">
+	<h2>FORMULARIO DE PRUEBAS DE APTITUD FISICA</h2>
+</section>
 
-<script>
-	function printPage(){
-		window.print();
-	}
-</script>
+<section class="personal-data">
+	<p>Apellido y Nombres: <strong>{{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name}}</strong></p>
+	<p>DNI: <strong>{{=inscription.auth_user.ssn}}</strong> &emsp; Fecha de Nacimiento: <strong>{{=inscription.auth_user.birth_date}}</strong> </p>
+	<p>San Miguel de Tucumán, ....................................................................................</p><br><br>
+	<p>Firma del Aspirante:........................................&emsp;&emsp; Firma Autoridad:.....................................</p>
+</section>
 
-
+<section class="physical-tests">
+	<table class="table table-bordered">
+		<tr>
+			<th>FUERZA FLEXORA DE TRONCO</th>
+			<th>FUERZA EXTENSORA DE BRAZOS</th>
+			<th>POTENCIA AEROBICA 1500 mts.</th>
+			<th>PROMEDIO</th>
+		</tr>
+		<tr>
+			<td>
+				<p>N° Real......</p>
+				<p>Puntaje......</p>				
+			</td>
+			<td>
+				<p>N° Real......</p>
+				<p>Puntaje......</p>
+			</td>
+			<td>
+				<p>N° Real......</p>
+				<p>Puntaje......</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="sign-tests">
+					<p>Firma</p>
+				</div>
+			</td>
+			<td>
+				<div class="sign-tests">
+					<p>Firma</p>
+				</div>
+			</td>
+			<td>
+				<div class="sign-tests">
+					<p>Firma</p>
+				</div>
+			</td>
+		</tr>
+	</table>
+</section>
