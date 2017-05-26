@@ -10,7 +10,7 @@ response.view_title = '%s %s' % (
 def index():
     redirect(URL(request.controller, 'list'))
 
-
+@auth.requires_membership('Admin')
 def list():
     announcement = None  # XML(response.render('announcement.html'))
     query = (table)

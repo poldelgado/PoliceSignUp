@@ -599,6 +599,7 @@
 'Username already taken': 'El nombre de usuario ya se encuentra en uso',
 'Username retrieve': 'Recuperar nombre de usuario',
 'Users': 'Usuarios',
+'Value already in database or empty': 'Value already in database or empty',
 'value already in database or empty': 'el valor ya existe en la base de datos o está vacío',
 'value not allowed': 'valor no permitido',
 'Value not allowed': 'Valor no permitido',

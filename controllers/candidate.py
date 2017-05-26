@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 table = db.auth_user
+inscription = db.inscription
 response.view_title = '%s %s' % (
     request.function.replace('_', ' ').title(),
     table._singular
@@ -10,7 +11,7 @@ response.view_title = '%s %s' % (
 def index():
     redirect(URL(request.controller, 'list'))
 
-
+@auth.requires_membership('Admin')
 def list():
     announcement = None  # XML(response.render('announcement.html'))
     query = (table)
@@ -37,7 +38,7 @@ def list():
     )
 
 
-@auth.requires_login()
+@auth.requires_membership('Admin')
 def create():
     fields = [
         'id',
@@ -86,7 +87,7 @@ def edit():
     return dict(item_name=table._singular, form=form)
 
 
-@auth.requires_membership('admin')
+@auth.requires_membership('Admin')
 def populate():
     query = table
     set = db(query)
@@ -97,7 +98,7 @@ def populate():
     redirect(URL('list'))
 
 
-@auth.requires_membership('admin')
+@auth.requires_membership('Admin')
 def update():
     query = table
     set = db(query)
@@ -129,6 +130,7 @@ def profile():
 def register():
     db.auth_user.username.readable = False
     db.auth_user.username.writable = False
+    auth.settings.register_onaccept = add_user_inscription
     auth.settings.register_next = URL(c='candidate',f='profile')
     return dict(form = auth.register())
 
@@ -136,22 +138,30 @@ def register():
 def forms():    
     return dict()
 
+@auth.requires_login()
 def inscription_form():
     candidate = db(db.auth_user.id == auth.user_id).select().first()
     inscription = db(candidate.id == db.inscription.auth_user).select().last()
     return dict(inscription = inscription)
 
+@auth.requires_login()
 def medical_exam_form():
     candidate = db(db.auth_user.id == auth.user_id).select().first()
     inscription = db(candidate.id == db.inscription.auth_user).select().last()
     return dict(inscription = inscription)
 
+@auth.requires_login()
 def physical_exam_form():
     candidate = db(db.auth_user.id == auth.user_id).select().first()
     inscription = db(candidate.id == db.inscription.auth_user).select().last()
     return dict(inscription = inscription)
 
+@auth.requires_login()
 def intellectual_exam_form():
     candidate = db(db.auth_user.id == auth.user_id).select().first()
     inscription = db(candidate.id == db.inscription.auth_user).select().last()
     return dict(inscription = inscription)
+
+def add_user_inscription(form):
+    user_id=form.vars.id
+    inscription.insert(auth_user = user_id)

@@ -10,7 +10,7 @@ response.view_title = '%s %s' % (
 def index():
     redirect(URL(request.controller, 'list'))
 
-
+@auth.requires_membership('Admin')
 def list():
     announcement = None  # XML(response.render('announcement.html'))
     query = (table)
@@ -37,7 +37,7 @@ def list():
     )
 
 
-@auth.requires_login()
+@auth.requires_membership('Admin')
 def create():
     fields = [
         'id',
@@ -64,7 +64,7 @@ def view():
     return dict(item_name=table._singular, form=form, item=item)
 
 
-@auth.requires_login()
+@auth.requires_membership('Admin')
 def edit():
     # db.support_case.case_subcategory.requires = IS_IN_DB(
     #     # db, db.case_subcategory._id, db.case_category._format,
@@ -86,7 +86,7 @@ def edit():
     return dict(item_name=table._singular, form=form)
 
 
-@auth.requires_membership('admin')
+@auth.requires_membership('Admin')
 def populate():
     query = table
     set = db(query)
@@ -97,7 +97,7 @@ def populate():
     redirect(URL('list'))
 
 
-@auth.requires_membership('admin')
+@auth.requires_membership('Admin')
 def update():
     query = table
     set = db(query)

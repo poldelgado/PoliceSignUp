@@ -11,6 +11,7 @@ def index():
     redirect(URL(request.controller, 'list'))
 
 
+@auth.requires_membership('Admin')
 def list():
     announcement = None  # XML(response.render('announcement.html'))
     query = (table)
@@ -37,7 +38,7 @@ def list():
     )
 
 
-@auth.requires_login()
+@auth.requires_membership('Admin')
 def create():
     fields = [
         'id',
@@ -86,7 +87,7 @@ def edit():
     return dict(item_name=table._singular, form=form)
 
 
-@auth.requires_membership('admin')
+@auth.requires_membership('Admin')
 def populate():
     query = table
     set = db(query)
@@ -97,7 +98,7 @@ def populate():
     redirect(URL('list'))
 
 
-@auth.requires_membership('admin')
+@auth.requires_membership('Admin')
 def update():
     query = table
     set = db(query)

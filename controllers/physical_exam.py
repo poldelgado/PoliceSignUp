@@ -37,7 +37,7 @@ def list():
     )
 
 
-@auth.requires_login()
+@auth.requires_membership('Admin')
 def create():
     fields = [
         'id',
