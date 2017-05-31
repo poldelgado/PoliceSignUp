@@ -22,8 +22,8 @@ db.define_table('height',
 
 db.define_table('intellectual_exam',
                 Field('inscription', 'reference inscription'),
-                Field('spanish_language','double'),
-                Field('history','double'),
+                Field('spanish_language','double', label=T('spanish_language')),
+                Field('history','double', label=T('history')),
                 Field('geography','double'),
                 Field('available','boolean', default=False),
                 auth.signature,
@@ -96,4 +96,14 @@ db.define_table('schedule',
                 auth.signature,
                 singular=T('Schedule'), plural=T('Schedules'),
                 #format = '%(user_id)s'
+                )
+
+db.define_table('post',
+                Field('title', 'string'),
+                Field('date_of_post', 'date'),
+                Field('content', 'text'),
+                
+                auth.signature,
+                singular= T('Post'), plural=T('Posts'),
+                format = lambda r: '%s, %s' % (r.dateof_post, title),
                 )

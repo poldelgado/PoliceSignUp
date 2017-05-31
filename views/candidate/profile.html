@@ -30,7 +30,7 @@
                         <span class="nopass">{{=T('NOT PASS')}}</span>
                     {{pass}}
             {{else:}}
-                Todavia no se encuentran disponibles los resultados del exámen.
+                <p>Todavia no se encuentran disponibles los resultados del exámen.</p>
             {{pass}}
     	    </div>
  	    </div>
@@ -41,31 +41,13 @@
     	    </div>
     	    <div class="panel-body">
             {{if (exams['intellectual_exam']['available']):}}
-        	    <table class="table table-bordered table-responsive table-hover">
-        		  <tr>
-        			 <th>{{=T('Subject')}}</th>
-        			 <th>{{=T('Qualification')}}</th>
-        		  </tr>
-        		  <tr>
-        			 <td>{{=T('Spanish Language')}}</td>
-        			 <td>{{=exams['intellectual_exam']['spanish_language']}}</td>
-        		  </tr>
-        		  <tr>
-        			 <td>{{=T('History')}}</td>
-        			 <td>{{=exams['intellectual_exam']['history']}}</td>
-        		  </tr>
-        		  <tr>
-        			 <td>{{=T('Geography')}}</td>
-        			 <td>{{=exams['intellectual_exam']['geography']}}</td>
-        		  </tr>
-        	    </table>
-                {{if ((exams['intellectual_exam']['spanish_language']>=6 and exams['intellectual_exam']['history']>=6 and exams['intellectual_exam']['geography']>=6)):}}
+        	    {{if ((exams['intellectual_exam']['spanish_language']>=6 and exams['intellectual_exam']['history']>=6 and exams['intellectual_exam']['geography']>=6)):}}
         	        <span>{{=T('Status')}}: <strong>{{=T('PASS')}}</strong></span>
                 {{else:}}
                     <span>{{=T('Status')}}: <strong>{{=T('NO PASS')}}</strong></span>
                 {{pass}}
             {{else:}}
-                Todavia no se encuentran disponibles los resultados del exámen.
+                <p>Todavia no se encuentran disponibles los resultados del exámen.</p>
             {{pass}}
     	    </div>
         </div>
@@ -82,7 +64,7 @@
                     <span>{{=T('Status')}}:<strong>{{=T('NO PASS')}}</strong></span>
                 {{pass}}
             {{else:}}
-                Todavia no se encuentran disponibles los resultados del exámen.
+                <p>Todavia no se encuentran disponibles los resultados del exámen.</p>
             {{pass}}
             </div>
         </div>
@@ -93,31 +75,13 @@
             </div>
             <div class="panel-body">
             {{if (exams['physical_exam']['available']):}}
-                <table class="table table-bordered table-responsive table-hover">
-                    <tr>
-                        <th>{{=T('Subject')}}</th>
-                        <th>{{=T('Qualification')}}</th>
-                    </tr>
-                    <tr>
-                        <td>{{=T('ABS Test')}}</td>
-                        <td>{{=exams['physical_exam']['abs_test']}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{=T('Aerobics')}}</td>
-                        <td>{{=exams['physical_exam']['aerobics']}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{=T('Arms')}}</td>
-                        <td>{{=exams['physical_exam']['arms']}}</td>
-                    </tr>
-                </table>
                 {{if ((exams['physical_exam']['abs_test']>=6 and exams['physical_exam']['aerobics']>=6 and exams['physical_exam']['arms']>=6)):}}
                     <span>{{=T('Status')}}: <strong>{{=T('PASS')}}</strong></span>
                 {{else:}}
                     <span>{{=T('Status')}}: <strong>{{=T('NO PASS')}}</strong></span>
                 {{pass}}
             {{else:}}
-                Todavia no se encuentran disponibles los resultados del exámen.
+                <p>Todavia no se encuentran disponibles los resultados del exámen.</p>
             {{pass}}
             </div>
         </div>
@@ -134,7 +98,7 @@
                     <span>{{=T('Status')}}:<strong>{{=T('NO PASS')}}</strong></span>
                 {{pass}}
             {{else:}}
-                Todavia no se encuentran disponibles los resultados del exámen.
+                <p>Todavia no se encuentran disponibles los resultados del exámen.</p>
             {{pass}}
             </div>
         </div>
