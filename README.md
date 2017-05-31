@@ -9,4 +9,4 @@ download https://github.com/Keniobyte/PoliceSignUp/archive/master.zip
 
 - go to /initialize/adminuser in your browser to create test users and groups (only works from localhost)
 
-- You can log using ssn = "1234" and password = "password" to explore de system
+- You can log using ssn = "1234" and password = "password" to explore the system
