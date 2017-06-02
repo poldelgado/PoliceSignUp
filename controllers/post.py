@@ -24,7 +24,7 @@ def list():
 
     actions = [
         {'is_item_action': lambda item: True, 'url': lambda item: URL('view.html', args=[item.id]), 'icon': 'search'},
-        {'is_item_action': lambda item: True, 'url': lambda item: URL('edit.html', args=[item.id]), 'icon': 'pencil'},
+        {'is_item_action': lambda item: True, 'url': lambda item: URL('edit', args=[item.id]), 'icon': 'pencil'},
     ]
 
     fields = [f for f in table]
@@ -70,7 +70,7 @@ def view():
     return dict(item_name=table._singular, form=form, item=item)
 
 
-@auth.requires_login()
+@auth.requires_membership('Admin')
 def edit():
     # db.support_case.case_subcategory.requires = IS_IN_DB(
     #     # db, db.case_subcategory._id, db.case_category._format,
@@ -88,7 +88,7 @@ def edit():
     elif form.errors:
         response.flash = 'Please correct the errors'
 
-    response.view = 'template/edit.html'
+    #response.view = 'template/edit.html'
     return dict(item_name=table._singular, form=form)
 
 
