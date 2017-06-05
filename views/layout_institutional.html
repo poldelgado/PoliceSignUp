@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>IES - Gral San Martín - Policia de Tucumán</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{=URL('static','plugins/bootstrap/css/bootstrap.min.css')}}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{=URL('static','css/home_layout.css')}}">
+
+</head>
+
+<body>
+
+    <!-- NavBar -->
+
+    {{include 'navbar.html'}}
+
+    <!-- End NavBar -->
+    {{block header}}
+        {{include}}
+    {{end}}
+    
+
+
+    <div class="container">        
+        {{block content}}
+            {{include}}
+        {{end}}
+    </div>
+
+    <!-- jQuery -->
+    <script src="{{=URL('static','js/jquery.js')}}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{=URL('static','plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+
+</body>
+
+</html>

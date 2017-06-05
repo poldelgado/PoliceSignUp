@@ -16,7 +16,7 @@ def save_document():
     except Exception as e:
         return dict(status="error")
 
-
+@auth.requires_membership('Admin')
 @service.json
 def save_post():
 	data = json.loads(request.body.read())

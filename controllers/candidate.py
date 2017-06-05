@@ -65,7 +65,7 @@ def view():
     return dict(item_name=table._singular, form=form, item=item)
 
 
-@auth.requires_login()
+@auth.requires_membership('Admin')
 def edit():
     # db.support_case.case_subcategory.requires = IS_IN_DB(
     #     # db, db.case_subcategory._id, db.case_category._format,
