@@ -46,53 +46,30 @@
 {{end}}
 
 {{block content}}
-	<div class="row">
-		<div class="col-lg-4 col-md-6 col-sm-11">
+	<div class="row newsrow">
+
+    {{for post in latestposts:}}
+		<div class="col-lg-4 col-md-6 col-sm-11 col-news">
 			<div class="card">
 
-  				<div class="title"><h4>POST</h4></div>
+  				<div class="title"><h4>{{ =post.title[0:25] }}
+                {{if(len(post.title)>25):
+                     response.write('...')
+                  pass}}</h4></div>
   				<hr>
 				<div class="post-content">
-			    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore voluptate, reiciendis doloribus repellat corporis debitis sit laboriosam, obcaecati expedita, non nobis quo, voluptatibus laudantium minima! Ducimus, ad eius doloremque impedit.</p>
-			    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet obcaecati praesentium dolores vel unde et laborum repellat distinctio esse sequi dolore cum, doloremque voluptatibus, molestiae ut quis consectetur alias quo.</p>
+			    	{{response.write(post.content[0:300], escape=False)}}
+                    {{if(len(post.content)>300):
+                        response.write('...')
+                      pass}}
 				</div><!--/post-content-->
 
-				<a href="#" class="btn btn-primary btn-block">Leer más...</a>
+				<a href="{{=URL('blog', 'show', args=(post.id))}}" class="btn btn-primary btn-block">Leer más...</a>
 
 			</div><!--/card-->
 
 		</div>
-
-
-		<div class="col-lg-4 col-md-6 col-sm-11">
-			<div class="card">
-
-  				
-  				<div class="title"><h4>POST</h4></div>
-  				<hr>
-				<div class="post-content">
-			    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore voluptate, reiciendis doloribus repellat corporis debitis sit laboriosam, obcaecati expedita, non nobis quo, voluptatibus laudantium minima! Ducimus, ad eius doloremque impedit.</p>
-			    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet obcaecati praesentium dolores vel unde et laborum repellat distinctio esse sequi dolore cum, doloremque voluptatibus, molestiae ut quis consectetur alias quo.</p>
-				</div><!--/post-content-->
-
-				<a href="#" class="btn btn-primary btn-block">Leer más...</a>
-
-			</div><!--/card-->
-		</div>
-
-		<div class="col-lg-4 col-md-6 col-sm-11">
-			<div class="card">  				
-  				<div class="title"><h4>POST</h4></div>
-  				<hr>
-				<div class="post-content">
-			    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore voluptate, reiciendis doloribus repellat corporis debitis sit laboriosam, obcaecati expedita, non nobis quo, voluptatibus laudantium minima! Ducimus, ad eius doloremque impedit.</p>
-			    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet obcaecati praesentium dolores vel unde et laborum repellat distinctio esse sequi dolore cum, doloremque voluptatibus, molestiae ut quis consectetur alias quo.</p>
-				</div><!--/post-content-->
-
-				<a href="#" class="btn btn-primary btn-block">Leer más...</a>
-
-			</div><!--/card-->
-		</div>
+        {{pass}}
 	</div>
 </div>
 

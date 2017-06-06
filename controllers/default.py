@@ -3,10 +3,10 @@
 
 
 def index():
-    auth.settings.login_next = URL(c='candidate',f='profile')
-    return dict(loginform = auth())
+    latestposts = db(db.post).select(orderby=~db.post.date_of_post,limitby=(0,3))
+    return dict(latestposts = latestposts)
 
-
+    
 def about():
     response.view_title = 'About'
     return dict()
