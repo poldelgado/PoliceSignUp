@@ -162,6 +162,7 @@ def intellectual_exam_form():
     inscription = db(candidate.id == db.inscription.auth_user).select().last()
     return dict(inscription = inscription)
 
+
 def add_user_inscription(form):
     user_id=form.vars.id
     inscription.insert(auth_user = user_id)

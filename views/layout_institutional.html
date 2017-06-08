@@ -12,10 +12,15 @@
     <title>IES - Gral San Martín - Policia de Tucumán</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{=URL('static','plugins/bootstrap/css/bootstrap.min.css')}}">
-
+    <link rel="stylesheet" href="{{=URL('static','css/institutional/bootstrap_inst.css')}}">
+    <!-- FONT AWESOME CSS -->
+    <link href="{{=URL('static','css/font-awesome/font-awesome.min.css')}}" rel="stylesheet" />
+     <!-- FLEXSLIDER CSS -->
+    <link href="{{=URL('static','css/institutional/flexslider.css')}}" rel="stylesheet" />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{=URL('static','css/home_layout.css')}}">
+    <link rel="stylesheet" href="{{=URL('static','css/institutional/home_layout.css')}}">
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
 
 </head>
 
@@ -32,17 +37,25 @@
     
 
 
-    <div class="container">        
+           
         {{block content}}
             {{include}}
         {{end}}
-    </div>
+    
 
     <!-- jQuery -->
-    <script src="{{=URL('static','js/jquery.js')}}"></script>
+    <script src="{{=URL('static','js/jquery-1.10.2.js')}}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{=URL('static','plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+    <!--  Flexslider Scripts --> 
+    <script src="{{=URL('static','js/jquery.flexslider.js')}}"></script>
+    <!--  Scrolling Reveal Script -->
+    <script src="{{=URL('static', 'js/scrollReveal.js')}}"></script>
+    <!--  Scroll Scripts --> 
+    <script src="{{=URL('static', 'js/jquery.easing.min.js')}}"></script>
+    <!--  Custom Scripts --> 
+    <script src="{{=URL('static', 'js/custom.js')}}"></script>
 
 </body>
 

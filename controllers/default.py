@@ -92,3 +92,6 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
+
+def login_candidate():
+    return dict(loginform = auth())

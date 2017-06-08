@@ -434,3 +434,9 @@ success!
 timestamp: 2017-05-31T19:11:44.790782
 ALTER TABLE post DROP COLUMN status;
 success!
+timestamp: 2017-06-08T19:28:18.763156
+ALTER TABLE auth_user DROP COLUMN ssn;
+success!
+timestamp: 2017-06-08T19:32:37.333155
+ALTER TABLE auth_user ADD ssn VARCHAR(512);
+success!
