@@ -94,4 +94,8 @@ def call():
     return service()
 
 def login_candidate():
+    auth.settings.login_next = URL(c='candidate',f='profile')
     return dict(loginform = auth())
+def logout():
+    auth.settings.logout_next = URL('index')
+    return dict();

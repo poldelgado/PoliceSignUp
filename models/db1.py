@@ -109,6 +109,7 @@ auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
 auth.settings.create_user_groups = False  # defaults to True
 auth.settings.expiration = 60 * 60 * 24  # seconds
+auth.settings.logout_next = URL('index')
 
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
