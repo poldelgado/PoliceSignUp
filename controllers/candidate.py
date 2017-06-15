@@ -118,18 +118,17 @@ def gestion():
 def profile():
     user_profile = db(db.auth_user.id == auth.user_id).select().first()
     inscription = db(user_profile.id == db.inscription.auth_user).select().last()
-    exams = db(((db.inscription.auth_user == user_profile.id))
-    & (((db.height.inscription == db.inscription.id) | (db.height.id == None))
-    & ((db.intellectual_exam.inscription == db.inscription.id) | (db.intellectual_exam.id == None))
-    & ((db.medical_exam.inscription == db.inscription.id) | (db.medical_exam.id == None))
-    & ((db.physical_exam.inscription == db.inscription.id) | (db.physical_exam.id == None))
-    & ((db.groupal_psychological_examination.inscription == db.inscription.id) | (db.groupal_psychological_examination.id == None))
-    & ((db.psychological_interview.inscription == db.inscription.id) | (db.psychological_interview.id == None)))).select().first()
-    return dict(user = user_profile, inscription = inscription, exams = exams)
+    height_exam = db(db.height.inscription == inscription.id).select().first()
+    intellectual_exam = db(db.intellectual_exam.inscription == inscription.id).select().first()
+    medical_exam = db(db.medical_exam.inscription == inscription.id).select().first()
+    physical_exam = db(db.physical_exam.inscription == inscription.id).select().first()
+    groupal_psychological_examination = db(db.groupal_psychological_examination.inscription == inscription.id).select().first()
+    psychological_interview = db(db.psychological_interview.inscription == inscription.id).select().first()
+
+    return dict(user = user_profile, inscription = inscription, height_exam = height_exam, intellectual_exam = intellectual_exam, medical_exam = medical_exam, physical_exam = physical_exam,
+        groupal_psychological_examination = groupal_psychological_examination, psychological_interview = psychological_interview)
 
 def register():
-    db.auth_user.username.readable = False
-    db.auth_user.username.writable = False
     auth.settings.register_onaccept = add_user_inscription
     auth.settings.register_next = URL(c='candidate',f='profile')
     return dict(form = auth.register())

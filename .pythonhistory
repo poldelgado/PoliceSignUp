@@ -1,0 +1,23 @@
+row = db.inscription
+for r in row:
+  print db.inscription.auth_user
+inscripciones = row.select()
+rows = db.auth_user
+rows
+users = rows.select()
+rows = db(users)
+users
+users = db(rows)
+registros = users.select()
+for registro in registros:
+  print registro.username
+format
+format users
+for registro in registros:
+ print registro
+inscriptions = db.inscription.select()
+inscriptions = db(inscription).select()
+inscriptions = db(db.inscription).select()
+for insc in inscriptions :
+  insc.auth_user.username
+exit()

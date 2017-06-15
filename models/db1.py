@@ -72,27 +72,28 @@ auth.settings.extra_fields['auth_user'] = [
         readable=False, writable=False,
         default={}
     ),
-    Field('ssn', 'string', label=T('ssn'), requires = IS_NOT_EMPTY()),
-    Field('birth_date', 'date'),
-    Field('gender', requires = IS_IN_SET([T('Male'),T('Female')],
+    #Field('ssn', 'string', label=T('ssn'), requires = IS_NOT_EMPTY()),
+    Field('birth_date', 'date', label=T('Birth Date')),
+    Field('gender', label=T('Gender') , requires = IS_IN_SET([T('Male'),T('Female')],
     zero=T('Choose one'))),
-    Field('marital_status', requires = IS_IN_SET([T('single'),T('married'),T('divorced'),T('widowed')],
+    Field('marital_status', label=T('Marital Status') , requires = IS_IN_SET([T('single'),T('married'),T('divorced'),T('widowed')],
     zero=T('Choose one'))),
-    Field('career', requires = IS_IN_SET([T('First Year Cadet Candidate'),T('Penitentiary Service Candidate')],zero=T('Choose one'))),
-    Field('phone', 'string', requires = IS_NOT_EMPTY()),
-    Field('address', 'string'),
-    Field('city', 'string'),
-    Field('province', 'string'),
-    Field('grade', 'string'),
+    Field('career', label=T('Carrer'), requires = IS_IN_SET([T('First Year Cadet Candidate'),T('Penitentiary Service Candidate')],zero=T('Choose one'))),
+    Field('phone', 'string', label=T('Phone'), requires = IS_NOT_EMPTY()),
+    Field('address', 'string', label=T('Address')),
+    Field('city', 'string', label=T('City')),
+    Field('province', 'string', label=T('Province')),
 ]
 
-auth.settings.login_userfield = 'ssn'        #the loginfield will be ssn instead of username
 
 # create all tables needed by auth
 auth.define_tables(username=True, signature=True)
 
+# the loginfield will be ssn instead of username
+#auth.settings.login_userfield = 'ssn'
+
 # add auth formatting, validation, and representation
-db.auth_user._format = '%(first_name)s %(last_name)s (%(id)s)'  # defaults to '%(username)'
+db.auth_user._format = '%(last_name)s %(first_name)s (%(id)s)'  # defaults to '%(username)'
 
 # configure email
 mail = auth.settings.mailer
@@ -110,7 +111,7 @@ auth.settings.reset_password_requires_verification = True
 auth.settings.create_user_groups = False  # defaults to True
 auth.settings.expiration = 60 * 60 * 24  # seconds
 auth.settings.logout_next = URL('index')
-
+#auth.messages.label_username = T('SSN')
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
 

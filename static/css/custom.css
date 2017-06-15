@@ -108,3 +108,11 @@
 .col{
 	diplay: table-cell;
 }
+
+.pass{
+	color:#309833;
+}
+
+.nopass{
+	color:red;
+}
