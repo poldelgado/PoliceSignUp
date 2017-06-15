@@ -1,0 +1,48 @@
+{{extend 'layout_institutional.html'}}
+
+{{block linkhome}}
+	active
+{{end}}
+
+{{block header}}
+
+	<header>
+		<div class="row">
+			<div class="col-md-offset-1 col-md-11">
+				<div class="jumbotron">
+	  				<h1>{{=T('Latest News')}}</h1>
+	  				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla porro aut alias hic reiciendis temporibus quis. Doloremque ullam error dolore odit aliquam. Consequuntur fuga omnis vitae tempora quaerat nesciunt non!</p>
+					<p><a class="btn btn-primary btn-lg" href="#" role="button">Ver más...</a></p>
+				</div>
+			</div>
+		</div>
+	</header>
+{{end}}
+
+{{block content}}
+
+	<div class="row">
+		<div class="col-md-3 col-md-offset-1 pull-right">
+			<h2>{{=T('Side Bar')}}</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
+			
+		</div>
+		{{for post in latestposts:}}
+			<div class="col-md-8">
+				<h3>{{=post.title}}</h3>
+				<h4>{{=T('Date')}}: {{=post.date_of_post}}</h4>
+				<div class="post-content">
+					
+				</div>
+				<a href="{{=URL('blog', 'show', args=(post.id))}}" class="btn btn-primary">Read More</a>
+				<hr>
+			</div>
+
+		{{pass}}
+
+{{end}}

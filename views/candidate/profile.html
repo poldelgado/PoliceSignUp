@@ -4,148 +4,125 @@
 <div class="container center-block candidate-profile">
     <h2>{{=user['last_name'] + ', ' + user['first_name']}} <span class="pull-right">Inscripcion Nro: {{=inscription['id']}}</span></h2>
     
-    {{if exams==None:}}
+    {{if (height_exam == None):}}
         <div class="panel panel-info">
             <div class="panel-heading text-center">
                 <h4 class="">{{=T('NOTICE')}}</h4>
             </div>
-            <div class="panel-body">
-                Sr. <strong>{{=user['last_name'] + ', ' + user['first_name']}}</strong><br>
-                Ud. todavía no tiene notas de exámenes cargados. <br>
-                Verífique nuevamente más tarde. <br>       
+            <div class="panel-body text-center">
+                <h4>Imprima el Formulario de Inscripción</h4><br>
+                <a href="{{=URL('candidate','inscription_form')}}" target="_blank" class="btn btn-info btn-block">VER</a>
             </div>
         </div>
     {{else:}}
-	    <div class="panel panel-default">
-    	    <div class="panel-heading text-center">
-      		    <h4 class="">{{=T('Height Exam')}}</h4>
-    	    </div>
-    	    <div class="panel-body">
-            {{if (exams['height']['available']):}}
-                <strong>{{=T('Height')}}:</strong> {{=exams['height']['height']}}  <br>
-        	    <strong>{{=T('Status')}}:</strong>
-                    {{if (exams['height']['height'] >= 1.70):}}
-                        <span class="pass">{{=T('PASS')}}</span>
-                    {{else:}}
-                        <span class="nopass">{{=T('NOT PASS')}}</span>
-                    {{pass}}
-            {{else:}}
-                Todavia no se encuentran disponibles los resultados del exámen.
-            {{pass}}
-    	    </div>
- 	    </div>
-    
- 	    <div class="panel panel-default">
-    	    <div class="panel-heading text-center">
-      		    <h4 class="">{{=T('Intellectual Exam')}}</h4>
-    	    </div>
-    	    <div class="panel-body">
-            {{if (exams['intellectual_exam']['available']):}}
-        	    <table class="table table-bordered table-responsive table-hover">
-        		  <tr>
-        			 <th>{{=T('Subject')}}</th>
-        			 <th>{{=T('Qualification')}}</th>
-        		  </tr>
-        		  <tr>
-        			 <td>{{=T('Spanish Language')}}</td>
-        			 <td>{{=exams['intellectual_exam']['spanish_language']}}</td>
-        		  </tr>
-        		  <tr>
-        			 <td>{{=T('History')}}</td>
-        			 <td>{{=exams['intellectual_exam']['history']}}</td>
-        		  </tr>
-        		  <tr>
-        			 <td>{{=T('Geography')}}</td>
-        			 <td>{{=exams['intellectual_exam']['geography']}}</td>
-        		  </tr>
-        	    </table>
-                {{if ((exams['intellectual_exam']['spanish_language']>=6 and exams['intellectual_exam']['history']>=6 and exams['intellectual_exam']['geography']>=6)):}}
-        	        <span>{{=T('Status')}}: <strong>{{=T('PASS')}}</strong></span>
-                {{else:}}
-                    <span>{{=T('Status')}}: <strong>{{=T('NO PASS')}}</strong></span>
-                {{pass}}
-            {{else:}}
-                Todavia no se encuentran disponibles los resultados del exámen.
-            {{pass}}
-    	    </div>
-        </div>
-
-        <div class="panel panel-default">
-    	    <div class="panel-heading text-center">
-                <h4 class="">{{=T('Medical Exam')}}</h4>
-            </div>
-    	    <div class="panel-body">
-            {{if (exams['medical_exam']['available']):}}
-                {{if (exams['medical_exam']['exam_result']):}}
-                    <span>{{=T('Status')}}:<strong>{{=T('PASS')}}</strong></span>
-                {{else:}}
-                    <span>{{=T('Status')}}:<strong>{{=T('NO PASS')}}</strong></span>
-                {{pass}}
-            {{else:}}
-                Todavia no se encuentran disponibles los resultados del exámen.
-            {{pass}}
-            </div>
-        </div>
-
         <div class="panel panel-default">
             <div class="panel-heading text-center">
-                <h4 class="">{{=T('Physical Exam')}}</h4>
+                <h4 class="">{{=T('Height Exam')}}</h4>
             </div>
             <div class="panel-body">
-            {{if (exams['physical_exam']['available']):}}
-                <table class="table table-bordered table-responsive table-hover">
-                    <tr>
-                        <th>{{=T('Subject')}}</th>
-                        <th>{{=T('Qualification')}}</th>
-                    </tr>
-                    <tr>
-                        <td>{{=T('ABS Test')}}</td>
-                        <td>{{=exams['physical_exam']['abs_test']}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{=T('Aerobics')}}</td>
-                        <td>{{=exams['physical_exam']['aerobics']}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{=T('Arms')}}</td>
-                        <td>{{=exams['physical_exam']['arms']}}</td>
-                    </tr>
-                </table>
-                {{if ((exams['physical_exam']['abs_test']>=6 and exams['physical_exam']['aerobics']>=6 and exams['physical_exam']['arms']>=6)):}}
+            {{if (height_exam['available']):}}                
+                <h4><strong>{{=T('Status')}}:</strong>
+                    {{if ((height_exam['height'] >= 1.70) and user['gender'] == T('Male')) or ((height_exam['height'] >= 1.65) and (user['gender'] == T('Female'))):}}
+                        <span class="pass"><strong>{{=T('PASS')}}</strong></span>
+                    {{else:}}
+                        <span class="nopass"><strong>{{=T('NOT PASS')}}</strong></span>
+                    {{pass}}</h4>
+            {{else:}}
+                <h4>Todavia no se encuentran disponibles los resultados del exámen.</h4>
+            {{pass}}
+            </div>
+        </div>
+    {{pass}}
+    
+
+    {{if not(intellectual_exam == None):}}
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h4 class="">{{=T('Intellectual Exam')}}</h4>
+            </div>
+            <div class="panel-body">
+            {{if (intellectual_exam['available']):}}
+                {{if ((intellectual_exam['spanish_language']>=6 and intellectual_exam['history']>=6 and intellectual_exam['geography']>=6)):}}
                     <span>{{=T('Status')}}: <strong>{{=T('PASS')}}</strong></span>
                 {{else:}}
                     <span>{{=T('Status')}}: <strong>{{=T('NO PASS')}}</strong></span>
                 {{pass}}
             {{else:}}
-                Todavia no se encuentran disponibles los resultados del exámen.
-            {{pass}}
+                <p>Imprimir Formulario para exámen</p>
+                <a href="{{=URL('candidate','intellectual_exam_form')}}" target="_blank" class="btn btn-info btn-block">VER</a>
+           {{pass}}
             </div>
         </div>
+    {{pass}}
 
+    {{if not(medical_exam == None):}}
         <div class="panel panel-default">
             <div class="panel-heading text-center">
-                <h4 class="">{{=T('Groupal Psychological Examination')}}</h4>
+                <h4 class="">{{=T('Medical Exam')}}</h4>
             </div>
             <div class="panel-body">
-            {{if (exams['groupal_psychological_examination']['available']):}}
-                {{if (exams['groupal_psychological_examination']['exam_result']):}}
+            {{if (medical_exam['available']):}}
+                {{if (medical_exam['exam_result']):}}
                     <span>{{=T('Status')}}:<strong>{{=T('PASS')}}</strong></span>
                 {{else:}}
                     <span>{{=T('Status')}}:<strong>{{=T('NO PASS')}}</strong></span>
                 {{pass}}
             {{else:}}
-                Todavia no se encuentran disponibles los resultados del exámen.
+                <p>Imprimir Formulario de Examenes Medicos</p>
+                <a href="{{=URL('candidate','medical_exam_form')}}" target="_blank" class="btn btn-info btn-block">VER</a>
             {{pass}}
             </div>
         </div>
+    {{pass}}
 
+    {{if not(physical_exam == None):}}
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h4 class="">{{=T('Physical Exam')}}</h4>
+            </div>
+            <div class="panel-body">
+            {{if (physical_exam['available']):}}
+                {{if ((physical_exam['abs_test']>=6 and physical_exam['aerobics']>=6 and physical_exam['arms']>=6)):}}
+                    <span>{{=T('Status')}}: <strong>{{=T('PASS')}}</strong></span>
+                {{else:}}
+                    <span>{{=T('Status')}}: <strong>{{=T('NO PASS')}}</strong></span>
+                {{pass}}
+            {{else:}}
+                <p>Imprimir Formulario de Exámen Físico.</p>
+                <a href="{{=URL('candidate','physical_exam_form')}}" target="_blank" class="btn btn-info btn-block">VER</a>
+            {{pass}}
+            </div>
+        </div>
+    {{pass}}
+
+    {{if not(groupal_psychological_examination == None):}}
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h4 class="">{{=T('Groupal Psychological Examination')}}</h4>
+            </div>
+            <div class="panel-body">
+            {{if (groupal_psychological_examination['available']):}}
+                {{if (groupal_psychological_examination['exam_result']):}}
+                    <span>{{=T('Status')}}:<strong>{{=T('PASS')}}</strong></span>
+                {{else:}}
+                    <span>{{=T('Status')}}:<strong>{{=T('NO PASS')}}</strong></span>
+                {{pass}}
+            {{else:}}
+                <p>Todavia no se encuentran disponibles los resultados del exámen.</p>
+            {{pass}}
+            </div>
+        </div>
+    {{pass}}
+
+
+    {{if not(psychological_interview == None):}}
         <div class="panel panel-default">
             <div class="panel-heading text-center">
                 <h4 class="">{{=T('Psychological Interview')}}</h4>
             </div>
             <div class="panel-body">
-            {{if (exams['psychological_interview']['available']):}}
-                {{if (exams['psychological_interview']['exam_result']):}}
+            {{if (psychological_interview['available']):}}
+                {{if (psychological_interview['exam_result']):}}
                     <span>{{=T('Status')}}:<strong>{{=T('PASS')}}</strong></span>
                 {{else:}}
                     <span>{{=T('Status')}}:<strong>{{=T('NO PASS')}}</strong></span>

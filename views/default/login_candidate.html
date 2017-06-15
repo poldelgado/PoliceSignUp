@@ -1,0 +1,18 @@
+{{extend 'layout_candidate.html'}}
+
+
+
+<div class="logincontainer center-block" style="max-width: 500px; padding-top: 150px;">
+	{{=loginform}}
+	<span class="register-btn pull-right" id="register-btn" style="padding-left: 2px;">
+		<a href="{{=URL('candidate','register')}}" class="btn btn-success">Registrarse</a>
+	</span>
+</div>
+
+
+
+<script>
+	$( document ).ready(function() {
+    $("#register-btn").insertAfter("#submit_record__row div input");
+});
+</script>
