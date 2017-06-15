@@ -2,7 +2,7 @@
 
 <h4>
   <a href='{{=URL(request.controller, 'list', user_signature=True)}}'>
-    <i class="fa fa-list"> View {{=item_name}} List</i>
+    <i class="fa fa-list"> View {{=item_name}} {{=T('List')}}</i>
   </a>
   {{if auth.user:}}
     &nbsp;

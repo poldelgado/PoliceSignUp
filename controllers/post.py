@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 
-table = db.auth_user
-inscription = db.inscription
+'''This is a template controller with corresponding views
+for list, create, view, and edit.
+The list utilizes the datatables plugin.
+The create and view views utilize the cascading field plugin.
+'''
+
+table = db.post
 response.view_title = '%s %s' % (
     request.function.replace('_', ' ').title(),
     table._singular
@@ -19,7 +24,7 @@ def list():
 
     actions = [
         {'is_item_action': lambda item: True, 'url': lambda item: URL('view.html', args=[item.id]), 'icon': 'search'},
-        {'is_item_action': lambda item: True, 'url': lambda item: URL('edit.html', args=[item.id]), 'icon': 'pencil'},
+        {'is_item_action': lambda item: True, 'url': lambda item: URL('edit', args=[item.id]), 'icon': 'pencil'},
     ]
 
     fields = [f for f in table]
@@ -83,11 +88,11 @@ def edit():
     elif form.errors:
         response.flash = 'Please correct the errors'
 
-    response.view = 'template/edit.html'
+    #response.view = 'template/edit.html'
     return dict(item_name=table._singular, form=form)
 
 
-@auth.requires_membership('Admin')
+@auth.requires_membership('admin')
 def populate():
     query = table
     set = db(query)
@@ -110,58 +115,6 @@ def update():
 
     redirect(URL('list'))
 
-def gestion():
-    form = SQLFORM.smartgrid(db.person, csv=False)
-    return dict(form = form)
-
-@auth.requires_login()
-def profile():
-    user_profile = db(db.auth_user.id == auth.user_id).select().first()
-    inscription = db(user_profile.id == db.inscription.auth_user).select().last()
-    height_exam = db(db.height.inscription == inscription.id).select().first()
-    intellectual_exam = db(db.intellectual_exam.inscription == inscription.id).select().first()
-    medical_exam = db(db.medical_exam.inscription == inscription.id).select().first()
-    physical_exam = db(db.physical_exam.inscription == inscription.id).select().first()
-    groupal_psychological_examination = db(db.groupal_psychological_examination.inscription == inscription.id).select().first()
-    psychological_interview = db(db.psychological_interview.inscription == inscription.id).select().first()
-
-    return dict(user = user_profile, inscription = inscription, height_exam = height_exam, intellectual_exam = intellectual_exam, medical_exam = medical_exam, physical_exam = physical_exam,
-        groupal_psychological_examination = groupal_psychological_examination, psychological_interview = psychological_interview)
-
-def register():
-    auth.settings.register_onaccept = add_user_inscription
-    auth.settings.register_next = URL(c='candidate',f='profile')
-    return dict(form = auth.register())
-
-@auth.requires_login()
-def forms():    
+@auth.requires_membership('Admin')
+def write():
     return dict()
-
-@auth.requires_login()
-def inscription_form():
-    candidate = db(db.auth_user.id == auth.user_id).select().first()
-    inscription = db(candidate.id == db.inscription.auth_user).select().last()
-    return dict(inscription = inscription)
-
-@auth.requires_login()
-def medical_exam_form():
-    candidate = db(db.auth_user.id == auth.user_id).select().first()
-    inscription = db(candidate.id == db.inscription.auth_user).select().last()
-    return dict(inscription = inscription)
-
-@auth.requires_login()
-def physical_exam_form():
-    candidate = db(db.auth_user.id == auth.user_id).select().first()
-    inscription = db(candidate.id == db.inscription.auth_user).select().last()
-    return dict(inscription = inscription)
-
-@auth.requires_login()
-def intellectual_exam_form():
-    candidate = db(db.auth_user.id == auth.user_id).select().first()
-    inscription = db(candidate.id == db.inscription.auth_user).select().last()
-    return dict(inscription = inscription)
-
-
-def add_user_inscription(form):
-    user_id=form.vars.id
-    inscription.insert(auth_user = user_id)

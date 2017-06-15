@@ -1,0 +1,32 @@
+{{extend 'layout_institutional.html'}}
+
+
+{{block content}}
+<br>
+	<div class="row">
+		<div class="col-md-8">
+			<h1> {{ =post.title }} </h1>
+		
+		<p class="lead">{{ response.write(post.content, escape=False) }}</p>
+		</div>
+		<div class="col-md-4">
+			<div class="well">
+
+				<dl class="dl-horizontal">
+					<label>{{=T('Created At')}}:</label>
+					<p>{{ =post.date_of_post }}</p>
+				</dl>
+
+				<dl class="dl-horizontal">
+					<label>{{=T('Last Updated')}}:</label>
+					<p>{{ =post.modified_on }}</p>
+				</dl>
+				<hr>
+	
+
+			</div>
+		</div>
+	</div>
+
+
+{{end}}
