@@ -13,7 +13,6 @@ def adminuser():
             email=myconf.get('admin_user.email'),
             first_name=myconf.get('admin_user.first_name'),
             last_name=myconf.get('admin_user.last_name'),
-            ssn=myconf.get('admin_user.ssn'),
         )
 
         user = auth.login_bare(
