@@ -1,48 +1,132 @@
 {{extend 'layout_institutional.html'}}
 
-{{block linkhome}}
-	active
-{{end}}
-
 {{block header}}
 
-	<header>
-		<div class="row">
-			<div class="col-md-offset-1 col-md-11">
-				<div class="jumbotron">
-	  				<h1>{{=T('Latest News')}}</h1>
-	  				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla porro aut alias hic reiciendis temporibus quis. Doloremque ullam error dolore odit aliquam. Consequuntur fuga omnis vitae tempora quaerat nesciunt non!</p>
-					<p><a class="btn btn-primary btn-lg" href="#" role="button">Ver más...</a></p>
-				</div>
-			</div>
-		</div>
-	</header>
+	
 {{end}}
 
 {{block content}}
 
-	<div class="row">
-		<div class="col-md-3 col-md-offset-1 pull-right">
-			<h2>{{=T('Side Bar')}}</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ratione fugiat pariatur labore, saepe illo quae soluta tenetur iure iusto, reiciendis eveniet, consectetur eligendi neque cumque alias nostrum. Voluptate, iste!</p>
-			
-		</div>
-		{{for post in latestposts:}}
-			<div class="col-md-8">
-				<h3>{{=post.title}}</h3>
-				<h4>{{=T('Date')}}: {{=post.date_of_post}}</h4>
-				<div class="post-content">
-					
-				</div>
-				<a href="{{=URL('blog', 'show', args=(post.id))}}" class="btn btn-primary">Read More</a>
-				<hr>
-			</div>
+	<!-- Page Content -->
+    <div class="container">
 
-		{{pass}}
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h1 class="page-header">
+                    Page Heading
+                    <small>Secondary Text</small>
+                </h1>
+
+                <!-- First Blog Post -->
+                <h2>
+                    <a href="#">IES NEWS 3</a>
+                </h2>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
+                <hr>
+                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
+                <a class="btn btn-primary" href="#">{{=T('Read More')}}</span></a>
+
+                <hr>
+
+                <!-- Second Blog Post -->
+                <h2>
+                    <a href="#">IES NEWS 2</a>
+                </h2>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
+                <hr>
+                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
+                <a class="btn btn-primary" href="#">{{=T('Read More')}}</span></a>
+
+                <hr>
+
+                <!-- Third Blog Post -->
+                <h2>
+                    <a href="#">IES NEWS 1</a>
+                </h2>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
+                <hr>
+                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
+                <a class="btn btn-primary" href="#">{{=T('Read More')}}</a>
+
+                <hr>
+
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">Newer &rarr;</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4 class="text-center">{{=T('Latest Posts')}}</h4>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Post 4</a>
+                                </li>
+                                <li><a href="#">Post 3</a>
+                                </li>
+                                <li><a href="#">Post 2</a>
+                                </li>
+                                <li><a href="#">Post 1</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Side Widget Well</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p><strong>IES de Policia Gral. José de San Martín</strong></p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
+				
+{{end}}
+
+{{block script}}
+
+	<script>
+		$(document).ready(function(){
+			$("body").css({'padding-top':'80px'});
+			});
+	</script>
+
 
 {{end}}

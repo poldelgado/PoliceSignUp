@@ -452,3 +452,12 @@ success!
 timestamp: 2017-06-14T17:32:59.987133
 ALTER TABLE auth_user DROP COLUMN ssn;
 success!
+timestamp: 2017-06-21T18:59:40.085414
+ALTER TABLE height ADD aproved CHAR(1);
+success!
+timestamp: 2017-06-21T18:59:40.211713
+ALTER TABLE intellectual_exam ADD aproved CHAR(1);
+success!
+timestamp: 2017-06-21T20:06:21.780679
+ALTER TABLE physical_exam ADD aproved CHAR(1);
+success!

@@ -7,6 +7,7 @@ response.view_title = '%s %s' % (
 )
 
 
+
 def index():
     redirect(URL(request.controller, 'list'))
 
@@ -108,3 +109,8 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
+
+@auth.requires_membership('Super Admin')
+def launch_intellectual_exam():
+    inscription = db.inscription
+

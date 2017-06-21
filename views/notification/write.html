@@ -4,11 +4,11 @@
 
 <form class="form-inline" action="">
 	<label for="notification">{{=T('Notification')}}</label>
-	<textarea name="editor1" id="editor1" cols="50" rows="10">
-		{{=request.vars['editor1'] or ''}}
+	<textarea name="notificationeditor" id="notificationeditor" cols="50" rows="10">
+		{{=request.vars['notificationeditor'] or ''}}
 	</textarea>
-
-    <button class="btn btn-success" data-toggle="modal" data-target="#confirmNotification" id="finish_document" type="button">{{=T("Send Memorandum")}}</button>
+    <br>
+    <button class="btn btn-success" data-toggle="modal" data-target="#confirmNotification" id="finish_document" type="button">{{=T("Send Notification")}}</button>
 
     <div class="modal fade" tabindex="-1" role="dialog" id="confirmNotification">
     <div class="modal-dialog" role="document">
@@ -31,7 +31,7 @@
 <script>
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
-        	var editor = CKEDITOR.replace( 'editor1', {
+        	var editor = CKEDITOR.replace( 'notificationeditor', {
             language: 'es',
             extraPlugins: 'notification,autosave',
         		// Define the toolbar: http://docs.ckeditor.com/#!/guide/dev_toolbar
@@ -137,9 +137,9 @@
           }
           $(document).ready(function() {
             $('#finish_document').on('click', function(){
-                var editor = CKEDITOR.instances.editor1
+                var editor = CKEDITOR.instances.Notification(editor, options)
                 //var date = $('#memorandum_date').val()
-                var text = CKEDITOR.instances.editor1.getData()
+                var text = CKEDITOR.instances.notificationeditor.getData()
                 if (!text || text.length == 0) {
                   var empty_fields = editor.showNotification( '{{=T("Fill empty fields")}}', 'warning' );
                   return false;
