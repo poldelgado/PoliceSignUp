@@ -461,3 +461,16 @@ success!
 timestamp: 2017-06-21T20:06:21.780679
 ALTER TABLE physical_exam ADD aproved CHAR(1);
 success!
+timestamp: 2017-06-23T18:46:43.109575
+ALTER TABLE post ADD picture VARCHAR(512);
+timestamp: 2017-06-23T18:46:43.140710
+ALTER TABLE post ADD resume TEXT;
+success!
+timestamp: 2017-06-23T18:49:33.772035
+ALTER TABLE post ADD resume__tmp VARCHAR(512);
+UPDATE post SET resume__tmp=resume;
+ALTER TABLE post DROP COLUMN resume;
+ALTER TABLE post ADD resume VARCHAR(512);
+UPDATE post SET resume=resume__tmp;
+ALTER TABLE post DROP COLUMN resume__tmp;
+success!

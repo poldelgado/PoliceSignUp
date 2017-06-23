@@ -110,7 +110,13 @@ def update():
 
     redirect(URL('list'))
 
-@auth.requires_membership('Super Admin')
+@auth.requires_membership('Super Admin')#Launch massive intellectuall exams to candidates which pass the height exam
 def launch_intellectual_exam():
-    inscription = db.inscription
+    inscriptions_heights = db((db.auth_user.id == db.inscription.auth_user) & (db.height.inscription == db.inscription.id)).select()
+    for ih in inscriptions_heights:
+        if (ih.height.height >= 1.70 and ih.inscription.auth_user.gender == T('Male')) or (ih.height.height >= 1.65 and ih.inscription.auth_user.gender == T('Female')):
+            table.insert(inscription = ih.inscription.id)
+
+
+
 

@@ -2,6 +2,7 @@
 
 table = db.auth_user
 inscription = db.inscription
+height = db.height
 response.view_title = '%s %s' % (
     request.function.replace('_', ' ').title(),
     table._singular
@@ -124,6 +125,28 @@ def profile():
     physical_exam = db(db.physical_exam.inscription == inscription.id).select().first()
     groupal_psychological_examination = db(db.groupal_psychological_examination.inscription == inscription.id).select().first()
     psychological_interview = db(db.psychological_interview.inscription == inscription.id).select().first()
+
+    
+    if not(height_exam == None):
+        if ((height_exam.height >= 1.7) and (user_profile.gender == T('Male'))) or ((height_exam.height >= 1.65) and (user_profile.gender == T('Female'))):
+            height_exam.update_record(aproved=True)
+        else:
+            height_exam.update_record(aproved=False)
+            
+
+    if not(intellectual_exam  == None):
+        if (intellectual_exam.spanish_language >=6) and (intellectual_exam.history >= 6) and (intellectual_exam.geography >=6):
+            intellectual_exam.update_record(aproved=True)
+        else:
+            intellectual_exam.update_record(aproved=False)
+
+
+    if not(physical_exam == None):
+        if physical_exam.abs_test >= 6 and physical_exam.arms >=6 and physical_exam.aerobics >= 6:
+            physical_exam.update_record(aproved=True)
+        else:
+            physical_exam.update_record(aproved=False)
+
 
     return dict(user = user_profile, inscription = inscription, height_exam = height_exam, intellectual_exam = intellectual_exam, medical_exam = medical_exam, physical_exam = physical_exam,
         groupal_psychological_examination = groupal_psychological_examination, psychological_interview = psychological_interview)

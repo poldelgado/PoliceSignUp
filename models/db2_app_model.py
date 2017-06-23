@@ -103,6 +103,8 @@ db.define_table('schedule',
 db.define_table('post',
                 Field('title', 'string'),
                 Field('date_of_post', 'date'),
+                Field('picture','upload'),
+                Field('resume', 'string'),
                 Field('content', 'text'),
                 
                 auth.signature,

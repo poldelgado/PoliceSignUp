@@ -108,3 +108,10 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
+
+@auth.requires_membership('Super Admin')
+def launch_medical_exam():
+    inscriptions_intels = db((db.auth_user.id == db.inscription.auth_user) & (db.intellectual_exam.inscription == db.inscription.id)).select()
+    for ii in inscriptions_intels:
+        if ii.intellectual_exam.aproved:
+            table.insert(inscription = ii.inscription.id)
