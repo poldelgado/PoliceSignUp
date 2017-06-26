@@ -78,7 +78,7 @@ def edit():
 
     if form.process().accepted:
         session.flash = '%s updated!' % table._singular
-        redirect(URL(request.controller, 'list'))
+        redirect(URL(request.controller, 'create'))
     elif form.errors:
         response.flash = 'Please correct the errors'
 
