@@ -37,3 +37,7 @@ for ih in inscriptions_heightexams:
 for ih in inscriptions_heightexams:
   print ih.inscription.auth_user.gender
 exit()
+from gluon.contrib.populate import populate
+populate(db.post, 100)
+exit
+exit()

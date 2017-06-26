@@ -103,7 +103,7 @@ db.define_table('schedule',
 db.define_table('post',
                 Field('title', 'string'),
                 Field('date_of_post', 'date'),
-                Field('picture','upload', requires=IS_IMAGE('bmp','gif','jpeg','png'), error_message=T('invalid image!')),
+                Field('picture','upload'),
                 Field('resume', 'string'),
                 Field('content', 'text'),
                 
