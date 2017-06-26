@@ -35,12 +35,12 @@
     {{pass}}
     
 
-    {{if not(intellectual_exam == None):}}
+    {{if not(intellectual_exam == None) and height_exam['aproved']:}}
         <div class="panel panel-default">
             <div class="panel-heading text-center">
                 <h4 class="">{{=T('Intellectual Exam')}}</h4>
             </div>
-            <div class="panel-body">
+            <div class="panel-body">            
             {{if (intellectual_exam['available']):}}
                 {{if ((intellectual_exam['spanish_language']>=6 and intellectual_exam['history']>=6 and intellectual_exam['geography']>=6)):}}
                     <span>{{=T('Status')}}: <strong>{{=T('PASS')}}</strong></span>
@@ -55,7 +55,7 @@
         </div>
     {{pass}}
 
-    {{if not(medical_exam == None):}}
+    {{if not(medical_exam == None) and height_exam['aproved'] and intellectual_exam['aproved']:}}
         <div class="panel panel-default">
             <div class="panel-heading text-center">
                 <h4 class="">{{=T('Medical Exam')}}</h4>
@@ -75,7 +75,7 @@
         </div>
     {{pass}}
 
-    {{if not(physical_exam == None):}}
+    {{if not(physical_exam == None) and height_exam['aproved'] and intellectual_exam['aproved'] and medical_exam['exam_result'] :}}
         <div class="panel panel-default">
             <div class="panel-heading text-center">
                 <h4 class="">{{=T('Physical Exam')}}</h4>
@@ -95,7 +95,7 @@
         </div>
     {{pass}}
 
-    {{if not(groupal_psychological_examination == None):}}
+    {{if not(groupal_psychological_examination == None) and height_exam['aproved'] and intellectual_exam['aproved'] and medical_exam['exam_result'] and physical_exam['aproved']:}}
         <div class="panel panel-default">
             <div class="panel-heading text-center">
                 <h4 class="">{{=T('Groupal Psychological Examination')}}</h4>
@@ -115,7 +115,7 @@
     {{pass}}
 
 
-    {{if not(psychological_interview == None):}}
+    {{if not(psychological_interview == None) and height_exam['aproved'] and intellectual_exam['aproved'] and medical_exam['exam_result'] and physical_exam['aproved'] and groupal_psychological_examination['exam_result'] :}}
         <div class="panel panel-default">
             <div class="panel-heading text-center">
                 <h4 class="">{{=T('Psychological Interview')}}</h4>

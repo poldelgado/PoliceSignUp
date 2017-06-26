@@ -4,7 +4,7 @@
 
 <h4>
   <a href='{{=URL(request.controller, 'list', user_signature=True)}}'>
-    <i class="fa fa-list"> {{=T('View Post List')}}</i>
+    <i class="fa fa-list"> View {{=item_name}} List</i>
   </a>
 </h4>
 
@@ -14,7 +14,7 @@
   <div class="col-md-12">
     <div class="box box-default">
       <div class="box-header with-border">
-        <h3 class="box-title">{{=T('Edit')}} {{=item_name}}</h3>
+        <h3 class="box-title">{{=T('Create')}} {{=item_name}}</h3>
         <div class="box-tools pull-right">
           <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
         </div><!-- /.box-tools -->
@@ -55,7 +55,7 @@
   } );
 </script>
 
- <script>
+<script>
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
           var editor = CKEDITOR.replace( 'post_content', {
@@ -105,8 +105,8 @@
             /*********************** File management support ***********************/
 
             // Make the editing area bigger than default.
-            height: 350,
-                width: 700,
+            height: 500,
+            width: 800,
 
             // An array of stylesheets to style the WYSIWYG area.
             // Note: it is recommended to keep your own styles in a separate file in order to make future updates painless.

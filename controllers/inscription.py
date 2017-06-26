@@ -121,6 +121,7 @@ def update():
 @auth.requires_membership('Admin')
 def launch_new_inscription():
     candidates = db(db.auth_user).select()
+    
     for candidate in candidates:
         table.insert(auth_user = candidate.id)
 

@@ -54,11 +54,11 @@ def create():
 
     if form.process().accepted:
         session.flash = '%s created!' % table._singular
-        redirect(URL(request.controller, 'list'))
+        redirect(URL(request.controller, 'create'))
     elif form.errors:
         response.flash = 'Please correct the errors'
 
-    response.view = 'template/create.html'
+    #response.view = 'template/create.html'
     return dict(item_name=table._singular, form=form)
 
 

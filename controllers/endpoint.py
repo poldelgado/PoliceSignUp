@@ -5,7 +5,7 @@ def call():
     session.forget()
     return service()
 
-
+@auth.requires_membership('Admin')
 @service.json
 def save_document():
     data = json.loads(request.body.read())

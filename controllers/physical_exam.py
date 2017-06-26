@@ -48,7 +48,7 @@ def create():
 
     if form.process().accepted:
         session.flash = '%s created!' % table._singular
-        redirect(URL(request.controller, 'list'))
+        redirect(URL(request.controller, 'create'))
     elif form.errors:
         response.flash = 'Please correct the errors'
 
@@ -108,3 +108,10 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
+
+@auth.requires_membership('Super Admin')
+def launch_physical_exam():
+    inscriptions_meds = db((db.auth_user.id == db.inscription.auth_user) & (db.medical_exam.inscription == db.inscription.id)).select()
+    for med_exam in inscriptions_meds:
+        if med_exam.medical_exam.exam_result:
+            table.insert(inscription = med_exam.inscription.id)

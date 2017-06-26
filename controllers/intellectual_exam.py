@@ -7,6 +7,7 @@ response.view_title = '%s %s' % (
 )
 
 
+
 def index():
     redirect(URL(request.controller, 'list'))
 
@@ -48,7 +49,7 @@ def create():
 
     if form.process().accepted:
         session.flash = '%s created!' % table._singular
-        redirect(URL(request.controller, 'list'))
+        redirect(URL(request.controller, 'create'))
     elif form.errors:
         response.flash = 'Please correct the errors'
 
@@ -108,3 +109,14 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
+
+@auth.requires_membership('Super Admin')#Launch massive intellectuall exams to candidates which pass the height exam
+def launch_intellectual_exam():
+    inscriptions_heights = db((db.auth_user.id == db.inscription.auth_user) & (db.height.inscription == db.inscription.id)).select()
+    for ih in inscriptions_heights:
+        if (ih.height.height >= 1.70 and ih.inscription.auth_user.gender == T('Male')) or (ih.height.height >= 1.65 and ih.inscription.auth_user.gender == T('Female')):
+            table.insert(inscription = ih.inscription.id)
+
+
+
+

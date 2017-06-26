@@ -82,7 +82,7 @@ def edit():
     elif form.errors:
         response.flash = 'Please correct the errors'
 
-    response.view = 'template/edit.html'
+    #response.view = 'template/edit.html'
     return dict(item_name=table._singular, form=form)
 
 

@@ -20,7 +20,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{=URL('static','css/institutional/home_layout.css')}}">
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'/>
 
 </head>
 
@@ -38,11 +38,13 @@
 
 
            
-        {{block content}}
-            {{include}}
-        {{end}}
+    {{block content}}
+        {{include}}
+    {{end}}
     
 
+
+        
     <!-- jQuery -->
     <script src="{{=URL('static','js/jquery-1.10.2.js')}}"></script>
 
@@ -56,6 +58,9 @@
     <script src="{{=URL('static', 'js/jquery.easing.min.js')}}"></script>
     <!--  Custom Scripts --> 
     <script src="{{=URL('static', 'js/custom.js')}}"></script>
+    {{block script}}
+        {{include}}
+    {{end}}
 
 </body>
 

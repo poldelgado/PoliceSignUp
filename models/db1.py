@@ -80,9 +80,9 @@ auth.settings.extra_fields['auth_user'] = [
     zero=T('Choose one'))),
     Field('career', label=T('Carrer'), requires = IS_IN_SET([T('First Year Cadet Candidate'),T('Penitentiary Service Candidate')],zero=T('Choose one'))),
     Field('phone', 'string', label=T('Phone'), requires = IS_NOT_EMPTY()),
-    Field('address', 'string', label=T('Address')),
-    Field('city', 'string', label=T('City')),
-    Field('province', 'string', label=T('Province')),
+    Field('address', 'string', label=T('Address'), requires = IS_NOT_EMPTY() ),
+    Field('city', 'string', label=T('City'), requires = IS_NOT_EMPTY()),
+    Field('province', 'string', label=T('Province'), requires = IS_NOT_EMPTY()),
 ]
 
 
@@ -111,6 +111,7 @@ auth.settings.reset_password_requires_verification = True
 auth.settings.create_user_groups = False  # defaults to True
 auth.settings.expiration = 60 * 60 * 24  # seconds
 auth.settings.logout_next = URL('index')
+db.auth_user.username.requires = IS_MATCH('^\d{8,8}',error_message=T('please insert only numbers, minimum 8 numbers'))
 #auth.messages.label_username = T('SSN')
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
