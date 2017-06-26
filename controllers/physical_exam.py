@@ -111,7 +111,7 @@ def update():
 
 @auth.requires_membership('Super Admin')
 def launch_physical_exam():
-    inscriptions_intels = db((db.auth_user.id == db.inscription.auth_user) & (db.intellectual_exam.inscription == db.inscription.id)).select()
-    for ii in inscriptions_intels:
-        if ii.intellectual_exam.aproved:
-            table.insert(inscription = ii.inscription.id)
+    inscriptions_meds = db((db.auth_user.id == db.inscription.auth_user) & (db.medical_exam.inscription == db.inscription.id)).select()
+    for med_exam in inscriptions_meds:
+        if med_exam.medical_exam.exam_result:
+            table.insert(inscription = med_exam.inscription.id)

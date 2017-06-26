@@ -36,7 +36,7 @@
                     {{pass}}
                 <hr>
                 <p>{{=post.resume}}</p>
-                <a class="btn btn-primary" href="#">{{=T('Read More')}}</span></a>
+                <a class="btn btn-primary" href="{{=URL('blog', 'show', args=(post.id))}}">{{=T('Read More')}}</span></a>
 
                 <hr>
 

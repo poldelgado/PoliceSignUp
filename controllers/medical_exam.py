@@ -80,7 +80,7 @@ def edit():
         session.flash = '%s updated!' % table._singular
         redirect(URL(request.controller, 'list'))
     elif form.errors:
-        response.flash = 'Please correct the errors'
+        response.flash = T('Please correct the errors')
 
     response.view = 'template/edit.html'
     return dict(item_name=table._singular, form=form)
