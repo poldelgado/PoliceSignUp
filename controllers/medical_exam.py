@@ -48,7 +48,7 @@ def create():
 
     if form.process().accepted:
         session.flash = '%s created!' % table._singular
-        redirect(URL(request.controller, 'list'))
+        redirect(URL(request.controller, 'create'))
     elif form.errors:
         response.flash = 'Please correct the errors'
 
@@ -80,7 +80,7 @@ def edit():
         session.flash = '%s updated!' % table._singular
         redirect(URL(request.controller, 'list'))
     elif form.errors:
-        response.flash = 'Please correct the errors'
+        response.flash = T('Please correct the errors')
 
     response.view = 'template/edit.html'
     return dict(item_name=table._singular, form=form)
@@ -108,3 +108,10 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
+
+@auth.requires_membership('Super Admin')
+def launch_medical_exam():
+    inscriptions_intels = db((db.auth_user.id == db.inscription.auth_user) & (db.intellectual_exam.inscription == db.inscription.id)).select()
+    for ii in inscriptions_intels:
+        if ii.intellectual_exam.aproved:
+            table.insert(inscription = ii.inscription.id)

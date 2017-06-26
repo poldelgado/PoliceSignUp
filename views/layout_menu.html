@@ -10,29 +10,21 @@
     {{=sidebar_menu_item(T('Blog'), icon='university')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View Posts', URL('post', 'list'), icon='list')}}
-        {{=sidebar_menu_item('Create Post', URL('post', 'write'), icon='pencil-square-o')}}
+        {{=sidebar_menu_item('Create Post', URL('post', 'create'), icon='pencil-square-o')}}
         </ul>
     </li>
 
     <li class="header">Exams</li>
-
-     <li class="treeview">
-    {{=sidebar_menu_item(T('Candidate'), icon='university')}}
-        <ul class="treeview-menu">
-        {{=sidebar_menu_item('View Candidates', URL('candidate', 'list'), icon='list')}}
-        {{=sidebar_menu_item('Create Candidate', URL('candidate', 'create'), icon='pencil-square-o')}}
-        </ul>
-    </li>
-
+    {{if auth.user and is_user_member('Super Admin'):}}
     <li class="treeview">
     {{=sidebar_menu_item(T('Inscription'), icon='university')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View Inscriptions', URL('inscription', 'list'), icon='list')}}
         {{=sidebar_menu_item('Create Inscription', URL('inscription', 'create'), icon='pencil-square-o')}}
-        {{=sidebar_menu_item('Lanzar Inscripciones Nuevas', URL('inscription', 'launch_new_inscription'), icon='expand')}}
 
         </ul>
     </li>
+    {{pass}}
 
     <li class="treeview">
     {{=sidebar_menu_item(T('Notifications'), icon='university')}}
@@ -44,34 +36,43 @@
 
 
     <li class="treeview">
-    {{=sidebar_menu_item(T('Height'), icon='university')}}
+    {{=sidebar_menu_item(T('Height'), icon='arrows-v')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View Heights Exams', URL('height', 'list'), icon='list')}}
-        {{=sidebar_menu_item('Insert Heights Results', URL('height', 'create'), icon='pencil-square-o')}}
+        {{=sidebar_menu_item('Insert Heights Results', URL('height', 'create'), icon='pencil-square-o')}}                
         </ul>
     </li>
 
     <li class="treeview">
-    {{=sidebar_menu_item(T('Intellectual Exam'), icon='university')}}
+    {{=sidebar_menu_item(T('Intellectual Exam'), icon='pencil')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View Intellectuals Exams', URL('intellectual_exam', 'list'), icon='list')}}
         {{=sidebar_menu_item('Insert Intellectual Exams Results', URL('intellectual_exam', 'create'), icon='pencil-square-o')}}
+        {{if auth.user and is_user_member('Super Admin'):}}        
+            {{=sidebar_menu_item('Launch Intellectual Exam', URL('intellectual_exam', 'launch_intellectual_exam'), icon='pencil-square-o')}}
+        {{pass}}
         </ul>
     </li>
 
     <li class="treeview">
-    {{=sidebar_menu_item(T('Medical Exam'), icon='university')}}
+    {{=sidebar_menu_item(T('Medical Exam'), icon='stethoscope')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View Medical Exams', URL('medical_exam', 'list'), icon='list')}}
         {{=sidebar_menu_item('Insert Medical Exam Results', URL('medical_exam', 'create'), icon='pencil-square-o')}}
+        {{if auth.user and is_user_member('Super Admin'):}}
+            {{=sidebar_menu_item('Launch Medical Exam', URL('medical_exam', 'launch_medical_exam'), icon='pencil-square-o')}}
+        {{pass}}
         </ul>
     </li>
 
     <li class="treeview">
-    {{=sidebar_menu_item(T('Physical Exam'), icon='university')}}
+    {{=sidebar_menu_item(T('Physical Exam'), icon='heartbeat')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View Physicals Exams', URL('physical_exam', 'list'), icon='list')}}
         {{=sidebar_menu_item('Insert Physicals Results', URL('physical_exam', 'create'), icon='pencil-square-o')}}
+        {{if auth.user and is_user_member('Super Admin'):}}
+            {{=sidebar_menu_item('Launch Physical Exam', URL('physical_exam', 'launch'), icon='pencil-square-o')}}
+        {{pass}}  
         </ul>
     </li>
 
@@ -79,7 +80,10 @@
     {{=sidebar_menu_item(T('GPE'), icon='university')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View GPE', URL('groupal_psychological_examination', 'list'), icon='list')}}
-        {{=sidebar_menu_item('Insert GPE Results', URL('groupal_psychological_examination', 'create'), icon='pencil-square-o')}}
+        {{=sidebar_menu_item('Insert GPE', URL('groupal_psychological_examination', 'create'), icon='pencil-square-o')}}
+        {{if auth.user and is_user_member('Super Admin'):}}
+            {{=sidebar_menu_item('Launch GPE', URL('groupal_psychological_examination', 'launch'), icon='pencil-square-o')}}
+        {{pass}}
         </ul>
     </li>
 
@@ -88,6 +92,9 @@
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View ', URL('psychological_interview', 'list'), icon='list')}}
         {{=sidebar_menu_item('Insert Psychological Interview Results', URL('psychological_interview', 'create'), icon='pencil-square-o')}}
+        {{if auth.user and is_user_member('Super Admin'):}}
+            {{=sidebar_menu_item('Launch Psychological Inteview', URL('height', 'create'), icon='pencil-square-o')}}
+        {{pass}}
         </ul>
     </li>
 
@@ -101,7 +108,7 @@
 
 
 
-    <li class="treeview {{=user_visibility('Admin')}}">
+    <li class="treeview {{=user_visibility('Super Admin')}}">
     {{=sidebar_menu_item('Admin', icon='gears')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('Manage Content', URL('content','list'), icon='file-text-o')}}
@@ -109,7 +116,7 @@
         </ul>
     </li>
 
-    <li class="treeview {{=user_visibility('Admin')}}">
+    <li class="treeview {{=user_visibility('Super Admin')}}">
     {{=sidebar_menu_item('Super Admin', icon='gears')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('Manage Auth', URL('appadmin','manage/auth'), icon='wrench')}}

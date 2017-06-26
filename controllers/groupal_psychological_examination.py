@@ -78,7 +78,7 @@ def edit():
 
     if form.process().accepted:
         session.flash = '%s updated!' % table._singular
-        redirect(URL(request.controller, 'list'))
+        redirect(URL(request.controller, 'create'))
     elif form.errors:
         response.flash = 'Please correct the errors'
 
@@ -108,3 +108,10 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
+
+@auth.requires_membership('Super Admin')
+def launch_gpe():
+    inscriptions_gpe = db((db.auth_user.id == db.inscription.auth_user) & (db.physical_exam.inscription == db.inscription.id)).select()
+    for gpe in inscriptions_gpe:
+        if gpe.physical_exam.aproved:
+            table.insert(inscription = med_exam.inscription.id)
