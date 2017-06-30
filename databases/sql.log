@@ -474,3 +474,91 @@ ALTER TABLE post ADD resume VARCHAR(512);
 UPDATE post SET resume=resume__tmp;
 ALTER TABLE post DROP COLUMN resume__tmp;
 success!
+timestamp: 2017-06-26T13:30:47.633380
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    username CHAR(128),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512),
+    bookmarks CHAR(4096),
+    birth_date DATE,
+    gender CHAR(512),
+    marital_status CHAR(512),
+    career CHAR(512),
+    phone CHAR(512),
+    address CHAR(512),
+    city CHAR(512),
+    province CHAR(512),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-06-26T13:30:47.834026
+CREATE TABLE message(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    context CHAR(25),
+    context_id INTEGER,
+    auth_user INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    direction CHAR(8),
+    is_read CHAR(1),
+    msg_sender CHAR(100),
+    msg_from CHAR(100),
+    msg_recipient CHAR(100),
+    msg_to CHAR(100),
+    msg_subject CHAR(100),
+    msg_body CHAR(500),
+    msg_html CHAR(500),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-06-26T13:30:47.919873
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-06-26T13:30:48.018700
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-06-26T14:13:59.344899
+CREATE TABLE post(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    date_of_post DATE,
+    picture CHAR(512),
+    resume CHAR(512),
+    content TEXT,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!

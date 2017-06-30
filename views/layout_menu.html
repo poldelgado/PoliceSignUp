@@ -7,7 +7,7 @@
     <li class="header">Blog Post</li>
 
     <li class="treeview">
-    {{=sidebar_menu_item(T('Blog'), icon='university')}}
+    {{=sidebar_menu_item(T('Blog'), icon='newspaper-o')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View Posts', URL('post', 'list'), icon='list')}}
         {{=sidebar_menu_item('Create Post', URL('post', 'create'), icon='pencil-square-o')}}
@@ -49,10 +49,10 @@
         {{=sidebar_menu_item('View Intellectuals Exams', URL('intellectual_exam', 'list'), icon='list')}}
         {{=sidebar_menu_item('Insert Intellectual Exams Results', URL('intellectual_exam', 'create'), icon='pencil-square-o')}}
         {{if auth.user and is_user_member('Super Admin'):}}        
-            {{=sidebar_menu_item('Launch Intellectual Exam', URL('intellectual_exam', 'launch_intellectual_exam'), icon='pencil-square-o')}}
+            <li><a href="#" data-toggle="modal" data-target="#intel_modal"><i class="fa fa-pencil-square-o"><span> {{=T('Launch Intelectual Exam')}}</span></i></a>
         {{pass}}
         </ul>
-    </li>
+    
 
     <li class="treeview">
     {{=sidebar_menu_item(T('Medical Exam'), icon='stethoscope')}}
@@ -60,7 +60,7 @@
         {{=sidebar_menu_item('View Medical Exams', URL('medical_exam', 'list'), icon='list')}}
         {{=sidebar_menu_item('Insert Medical Exam Results', URL('medical_exam', 'create'), icon='pencil-square-o')}}
         {{if auth.user and is_user_member('Super Admin'):}}
-            {{=sidebar_menu_item('Launch Medical Exam', URL('medical_exam', 'launch_medical_exam'), icon='pencil-square-o')}}
+             <li><a href="#" data-toggle="modal" data-target="#medical_modal"><i class="fa fa-pencil-square-o"><span> {{=T('Launch Medical Exam')}}</span></i></a>
         {{pass}}
         </ul>
     </li>
@@ -71,7 +71,7 @@
         {{=sidebar_menu_item('View Physicals Exams', URL('physical_exam', 'list'), icon='list')}}
         {{=sidebar_menu_item('Insert Physicals Results', URL('physical_exam', 'create'), icon='pencil-square-o')}}
         {{if auth.user and is_user_member('Super Admin'):}}
-            {{=sidebar_menu_item('Launch Physical Exam', URL('physical_exam', 'launch'), icon='pencil-square-o')}}
+             <li><a href="#" data-toggle="modal" data-target="#physical_modal"><i class="fa fa-pencil-square-o"><span> {{=T('Launch Physical Exam')}}</span></i></a>
         {{pass}}  
         </ul>
     </li>
@@ -82,7 +82,7 @@
         {{=sidebar_menu_item('View GPE', URL('groupal_psychological_examination', 'list'), icon='list')}}
         {{=sidebar_menu_item('Insert GPE', URL('groupal_psychological_examination', 'create'), icon='pencil-square-o')}}
         {{if auth.user and is_user_member('Super Admin'):}}
-            {{=sidebar_menu_item('Launch GPE', URL('groupal_psychological_examination', 'launch'), icon='pencil-square-o')}}
+             <li><a href="#" data-toggle="modal" data-target="#gpe_modal"><i class="fa fa-pencil-square-o"><span> {{=T('Launch GPE')}}</span></i></a>
         {{pass}}
         </ul>
     </li>
@@ -93,7 +93,7 @@
         {{=sidebar_menu_item('View ', URL('psychological_interview', 'list'), icon='list')}}
         {{=sidebar_menu_item('Insert Psychological Interview Results', URL('psychological_interview', 'create'), icon='pencil-square-o')}}
         {{if auth.user and is_user_member('Super Admin'):}}
-            {{=sidebar_menu_item('Launch Psychological Inteview', URL('height', 'create'), icon='pencil-square-o')}}
+             <li><a href="#" data-toggle="modal" data-target="#psycho_modal"><i class="fa fa-pencil-square-o"><span> {{=T('Launch Psychological Interview')}}</span></i></a>
         {{pass}}
         </ul>
     </li>
