@@ -25,7 +25,7 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{=URL('static','css/AdminLTE.min.css')}}">
+  <link rel="stylesheet" href="{{=URL('static','css/AdminLTE.css')}}">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
@@ -283,6 +283,115 @@ desired effect
         <div class="col-md-12 col-sm-12 col-xs-12">
           {{block center}}
             {{include}}
+            <!-- Modal Intellectual Exam -->
+              <div class="modal fade" id="intel_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">{{=T('Launch New Intellectual Exam')}}</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Al aceptar ud. estará lanzando los examenes intelectuales, verifique que se hayan terminado de cargar todos los exámenes de altura de los aspirantes al IES antes de continuar.</p>
+                      <p><strong>¿Esta seguro que desea continuar?</strong></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">{{=T('cancel')}}</button>
+                      <a  class="btn btn-warning" href="{{=URL('intellectual_exam','launch_intellectual_exam')}}">{{=T('Launch Intellectual Exam')}}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- End Modal Intellectual Exam -->
+
+            <!-- Modal Medical Exam -->
+              <div class="modal fade" id="medical_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">{{=T('Launch New Medical Exam')}}</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Al aceptar ud. estará lanzando los examenes médicos, verifique que se hayan terminado de cargar todos los exámenes intelectuales de los aspirantes al IES antes de continuar.</p>
+                      <p><strong>¿Esta seguro que desea continuar?</strong></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">{{=T('cancel')}}</button>
+                      <a  class="btn btn-warning" href="{{=URL('medical_exam','launch_medical_exam')}}">{{=T('Launch Intellectual Exam')}}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- End Modal Medical Exam -->
+
+            <!-- Modal Physical Exam -->
+            <div class="modal fade" id="physical_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{=T('Launch New Physical Exam')}}</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Al aceptar ud. estará lanzando los examenes físicos, verifique que se hayan terminado de cargar todos los exámenes médicos de los aspirantes al IES antes de continuar.</p>
+                    <p><strong>¿Está seguro que desea continuar?</strong></p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">{{=T('cancel')}}</button>
+                    <a  class="btn btn-success" href="{{=URL('physical_exam','launch_physical_exam')}}">{{=T('Launch Intellectual Exam')}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- End Modal Physical Exam -->
+
+
+          <!-- Modal Psychological Interview -->
+              <div class="modal fade" id="psycho_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">{{=T('Launch New Psychological Interview')}}</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Al aceptar ud. estará lanzando las entrevistas psicológicas, verifique que se hayan terminado de cargar todos los exámenes físicos de los aspirantes al IES antes de continuar.</p>
+                      <p><strong>¿Está seguro que desea continuar?</strong></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">{{=T('cancel')}}</button>
+                      <a  class="btn btn-warning" href="{{=URL('intellectual_exam','launch_psychological_exam')}}">{{=T('Launch Psychological Interview')}}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- End Modal Psychological Interview -->
+
+
+            <!-- Modal GPE -->
+              <div class="modal fade" id="gpe_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">{{=T('Launch New GPE')}}</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Al aceptar ud. estará lanzando los examenes psicológicos grupales, verifique que se hayan terminado de cargar todas las entrevistas psicológicas de los aspirantes al IES antes de continuar.</p>
+                      <p><strong>¿Está seguro que desea continuar?</strong></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">{{=T('cancel')}}</button>
+                      <a  class="btn btn-warning" href="{{=URL('groupal_psichological_examination','launch_gpe')}}">{{=T('Launch GPE')}}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- End Modal GPE -->
+
+
+
           {{end}}
         </div>
 

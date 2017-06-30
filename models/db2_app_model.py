@@ -101,11 +101,11 @@ db.define_table('schedule',
                 )
 
 db.define_table('post',
-                Field('title', 'string'),
-                Field('date_of_post', 'date'),
-                Field('picture','upload', requires=IS_IMAGE('bmp','gif','jpeg','png'), error_message=T('invalid image!')),
-                Field('resume', 'string'),
-                Field('content', 'text'),
+                Field('title', 'string', label=T('title')),
+                Field('date_of_post', 'date', label=T('date of post')),
+                Field('picture','upload', requires = IS_IMAGE(), label=T('image')),
+                Field('resume', 'string', label=T('resume')),
+                Field('content', 'text', label=T('content')),
                 
                 auth.signature,
                 singular= T('Post'), plural=T('Posts'),
