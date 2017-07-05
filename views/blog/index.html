@@ -26,17 +26,17 @@
                 <!-- Blog Post -->
                 <h2>
                     {{=post.title}}
-                <small><span class="glyphicon glyphicon-time"></span> {{=T('date')}} {{=post.date_of_post}}</small>
-                </h2>
+                <small>{{=post.date_of_post}}</small>
+                </h2><br>
                 
                 <h4>{{=post.resume}}</h4>
-                <hr>
+                
                     {{if post.picture == "":}}
                     <img class="img-responsive" src="http://placehold.it/900x300" alt="">
                     {{else:}}
                     <img class="img-responsive" src="{{=URL('default','download',args=post.picture)}}" alt="">
                     {{pass}}
-                <hr>
+                <br>
                 
                 <a class="btn btn-primary" href="{{=URL('blog', 'show', args=(post.id))}}">{{=T('Read More')}}</span></a>
                 <br><br>    

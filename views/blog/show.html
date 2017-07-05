@@ -4,7 +4,7 @@
 {{block content}}
 <br>
 	<div class="row">
-		<div class="col-md-8 col-md-offset-1">
+		<div class="col-md-8 col-md-offset-2">
 			<h1> {{ =post.title }} </h1>
 		{{if post.picture == "":}}
         <img class="img-responsive img-rounded" src="http://placehold.it/900x300" alt="">
@@ -13,21 +13,7 @@
         {{pass}}
 		<p class="lead">{{ response.write(post.content, escape=False) }}</p>
 		</div>
-		<div class="col-md-3">
-			<div class="well">
-
-				<dl class="dl-horizontal">
-					<label>{{=T('Created At')}}:</label>
-					<p>{{ =post.date_of_post }}</p>
-				</dl>
-
-				<dl class="dl-horizontal">
-					<label>{{=T('Last Updated')}}:</label>
-					<p>{{ =post.modified_on }}</p>
-				</dl>
-				<hr>
-			</div>
-		</div>
+		
 	</div>
 
 {{end}}
@@ -38,7 +24,7 @@
 		$(document).ready(function(){
 			$("body").css({'padding-top':'80px'});
 			});
-			$("row").css({'margin':'20px'});
+			$("row").css({'margin-top':'20px'});
 	</script>
 
 
