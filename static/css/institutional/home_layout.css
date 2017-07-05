@@ -279,3 +279,8 @@ h1::after {
 .item {
     color: #B7D800;
 }
+
+.stripped-band{
+    background: url(../../img/stripped-band.png) repeat;
+    max-height: 20px;
+}

@@ -18,7 +18,7 @@
      <!-- FLEXSLIDER CSS -->
     <link href="{{=URL('static','css/institutional/flexslider.css')}}" rel="stylesheet" />
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{=URL('static','css/institutional/home_layout.css')}}">
 
@@ -27,10 +27,11 @@
 <body>
 
     <!-- NavBar -->
-
-    {{include 'navbar.html'}}
-
+    {{block navbar}}
+        {{include}}
+    {{end}}
     <!-- End NavBar -->
+
     {{block header}}
         {{include}}
     {{end}}
