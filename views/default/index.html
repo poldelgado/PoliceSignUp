@@ -1,5 +1,9 @@
 {{extend 'layout_institutional.html'}}
 
+{{block navbar}}
+  {{include 'navbar.html'}}
+{{end}}
+
 {{block content}}
 	
 <div class="home-sec" id="home">
@@ -358,17 +362,22 @@
       
 <div class="container">
     <div class="row set-row-pad"  >
-        <div class="col-lg-4 col-md-4 col-sm-4   col-lg-offset-1 col-md-offset-1 col-sm-offset-1 " data-scroll-reveal="enter from the bottom after 0.4s">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 " data-scroll-reveal="enter from the bottom after 0.4s">
             <h2><strong>Dirección: </strong></h2>
             <hr/>
-            <div>
+            <div class="pull-right">
                 <h4>Muñecas 1025</h4>
                 <h4>San Miguel de Tucumán</h4>
                 <h4><strong>Telefono:</strong>  (0381) 4224845 / 4305141 </h4>
-                <h4><strong>Email: </strong>info@yourdomain.com</h4>
+                <h4><strong>Email: </strong>ies@yourdomain.com</h4>
             </div>
         </div>
-            <div class="col-lg-4 col-md-4 col-sm-4   col-lg-offset-1 col-md-offset-1 col-sm-offset-1" data-scroll-reveal="enter from the bottom after 0.4s">
+        <div class="col-md-12">
+          <div  class="tag-line" >
+                     
+          </div> 
+        </div>
+<!--             <div class="col-lg-4 col-md-4 col-sm-4   col-lg-offset-1 col-md-offset-1 col-sm-offset-1" data-scroll-reveal="enter from the bottom after 0.4s">
 
                 <h2><strong>Nuestras Redes </strong></h2>
             <hr>
@@ -377,7 +386,8 @@
                     <a href="#"> <img src="{{=URL('static','img/Social/google-plus.png')}}" alt="" /></a>
                     <a href="#"> <img src="{{=URL('static','img/Social/twitter.png')}}" alt="" /></a>
                 </div>
-            </div>
+            </div> -->
+
     </div>
  </div>
      <!-- CONTACT SECTION END-->
