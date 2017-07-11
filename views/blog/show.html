@@ -3,7 +3,7 @@
 
 {{block navbar}}
 
-    <nav class="navbar  navbar-inverse navbar-fixed-top" id="menu">
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="menu">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -61,16 +61,17 @@
 
 
 {{block content}}
-<br>
+    
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<h1> {{ =post.title }} </h1>
-		{{if post.picture == "":}}
-        <img class="img-responsive img-rounded" src="http://placehold.it/900x300" alt="">
+			<h1 class="text-center title"> {{ =post.title }} </h1>
+            <h3 class="subtitle"> {{ =post.resume }}  </h3>
+        {{if post.picture == "":}}
+        <img class="img-responsive img-rounded post-image" src="http://placehold.it/900x300" alt="">
         {{else:}}
-        <img class="img-responsive img-rounded" src="{{=URL('default','download',args=post.picture)}}" alt="">
+        <img class="img-responsive img-rounded post-image" src="{{=URL('default','download',args=post.picture)}}" alt="">
         {{pass}}
-		<p class="lead">{{ response.write(post.content, escape=False) }}</p>
+		<p class="post-content">{{ response.write(post.content, escape=False) }}</p>
 		</div>
 		
 	</div>
@@ -81,7 +82,7 @@
 
 	<script>
 		$(document).ready(function(){
-			$("body").css({'padding-top':'80px'});
+			$("body").css({"padding-top":"80px", "margin-left":"5px","margin-right":"15px"});
 			});
 			$("row").css({'margin-top':'20px'});
 	</script>

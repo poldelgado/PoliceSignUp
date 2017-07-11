@@ -140,13 +140,13 @@ body {
     padding-top: 25px;
     color: #000;
 }
-
+/*
 h1::after {
     content: " ";
     border: solid 2px #B7D800;
     display: block;
     width: 300px;
-    margin: 12px auto;
+    margin: 12px auto;*/
 }
 
 /*=====================================
@@ -283,4 +283,29 @@ h1::after {
 .stripped-band{
     background: url(../../img/stripped-band.png) repeat;
     max-height: 20px;
+}
+
+.title {
+    margin: 15px;
+    text-align: center;
+    text-shadow: 
+}
+
+.subtitle {
+    font-size: 16px;
+    margin: 25px 25px;
+}
+
+.post-body {
+    font-size: 14px;
+}
+
+.post-image {
+    margin: 10px;
+    display: block;
+    max-width: 400px;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    float: left;
 }
