@@ -309,3 +309,15 @@ h1::after {
     height: auto;
     float: left;
 }
+
+#map {
+    width: 100%;
+    height: 300px;
+}
+
+.ubicacion {
+    height: 240px;
+    margin-top: 60px;
+    vertical-align: middle;
+    font-size: 16px;
+}

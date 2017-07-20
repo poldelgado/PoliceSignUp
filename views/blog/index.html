@@ -99,8 +99,8 @@
                 <a class="btn btn-primary" href="{{=URL('blog', 'show', args=(post.id))}}">{{=T('Read More')}}</span></a>
                 <br><br>    
                 <hr>
-
                 {{pass}}
+                
                 <div class="col-md-12 pagination text-center">
                     <a href={{=URL(vars={'page':int(request.vars.page)-1})}} class="btn btn-default">{{=T('Previous')}}</a> |
                     <a href={{=URL(vars={'page':int(request.vars.page)+1})}} class="btn btn-default">{{=T('Next')}}</a>    
