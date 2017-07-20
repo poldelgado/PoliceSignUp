@@ -65,12 +65,12 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<h1 class="text-center title"> {{ =post.title }} </h1>
-            <h3 class="subtitle"> {{ =post.resume }}  </h3>
         {{if post.picture == "":}}
-        <img class="img-responsive img-rounded post-image" src="http://placehold.it/900x300" alt="">
+        <img class="img-responsive img-rounded" src="http://placehold.it/900x300" alt="">
         {{else:}}
-        <img class="img-responsive img-rounded post-image" src="{{=URL('default','download',args=post.picture)}}" alt="">
+        <img class="img-responsive img-rounded" src="{{=URL('default','download',args=post.picture)}}" alt="">
         {{pass}}
+        <h3 class="subtitle">{{ =post.resume }}.  </h3>
 		<p class="post-content">{{ response.write(post.content, escape=False) }}</p>
 		</div>
 		
