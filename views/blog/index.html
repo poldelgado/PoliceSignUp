@@ -17,10 +17,11 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse move-me" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li class="item"><a href="{{=URL('default', 'index#home')}}">INICIO<span class="sr-only">(current)</span></a></li>
-            <li class="item"><a href="{{=URL('default', 'index#features-sec')}}">OFERTA ACADEMICA<span class="sr-only">(current)</span></a></li>
-            <li lcass="item"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
-            <li class="item"><a href="{{=URL('default', 'index#course-sec')}}">EGRESADOS</a></li>
+            <!-- <li class="item"><a href="{{=URL('default', 'index#home')}}">INICIO<span class="sr-only">(current)</span></a></li> -->
+            <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#features-sec')}}">OFERTA ACADEMICA<span class="sr-only">(current)</span></a></li>
+            <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
+            <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#course-sec')}}">EGRESADOS</a></li>
+            
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-githaspopup="true" aria-expanded="false">ACTIVIDAD ACADEMICA<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -47,7 +48,10 @@
             </li>
         </ul>
         
-        <ul class="nav navbar-nav navbar-right">            
+        <ul class="nav navbar-nav navbar-right">
+            <li class="item hidden-lg hidden-md"><a href="{{=URL('default', 'index#features-sec')}}">OFERTA ACADEMICA<span class="sr-only">(current)</span></a></li>
+            <li class="item hidden-lg hidden-md"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
+            <li class="item hidden-lg hidden-md"><a href="{{=URL('default', 'index#course-sec')}}">EGRESADOS</a></li>           
             <li><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
             <li><a href="{{=URL('default','login_candidate')}}">ASPIRANTES</a></li>
         </ul>
@@ -101,18 +105,25 @@
                 <hr>
                 {{pass}}
                 
-                <div class="col-md-12 pagination text-center">
+                <div class="col-md-12 pagination text-center center-block">
                     <a href={{=URL(vars={'page':int(request.vars.page)-1})}} class="btn btn-default">{{=T('Previous')}}</a> |
                     <a href={{=URL(vars={'page':int(request.vars.page)+1})}} class="btn btn-default">{{=T('Next')}}</a>    
                 </div>                
             </div>
 
             <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
-
+            <div class="col-md-4  hidden-sm hidden-xs">
+            <div class="well">
+                <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="text-center">{{=T('Latest Posts')}}</h4>
+                        </div>
+                </div>
+                </div>
                 <!-- Blog Categories Well -->
                 <div class="well">
-                    <h4 class="text-center">{{=T('Latest Posts')}}</h4>
+                    
+                    
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="list-unstyled">

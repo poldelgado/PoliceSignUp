@@ -205,7 +205,7 @@ h1::after {
   FACULTY STYLES 
   ===================================*/
 #faculty-sec {
-    background-color: #547C8A;
+    background-color: rgba(28, 43, 75, 1);
     color: #fff;
 }
 
@@ -235,9 +235,9 @@ h1::after {
         padding-bottom: 15px;
     }
 
-    .faculty-div img {
+    /*.faculty-div img {
         border: 10px double #fff;
-    }
+    }*/
 
 /*=====================================
   CONTACT STYLES 
@@ -320,4 +320,12 @@ h1::after {
     margin-top: 60px;
     vertical-align: middle;
     font-size: 16px;
+}
+
+.blog-sidebar {
+    padding: 10px 10px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    background-color: #FFF8F8 ;
 }
