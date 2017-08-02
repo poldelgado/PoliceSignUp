@@ -53,7 +53,7 @@
             <li class="item hidden-lg hidden-md"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
             <li class="item hidden-lg hidden-md"><a href="{{=URL('default', 'index#course-sec')}}">EGRESADOS</a></li>           
             <li><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
-            <li><a href="{{=URL('default','login_candidate')}}">ASPIRANTES</a></li>
+            <!-- <li><a href="{{=URL('default','login_candidate')}}">ASPIRANTES</a></li> -->
         </ul>
       </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -106,8 +106,12 @@
                 {{pass}}
                 
                 <div class="col-md-12 pagination text-center center-block">
+                {{if (int(request.vars.page)!=1): }}
                     <a href={{=URL(vars={'page':int(request.vars.page)-1})}} class="btn btn-default">{{=T('Previous')}}</a> |
-                    <a href={{=URL(vars={'page':int(request.vars.page)+1})}} class="btn btn-default">{{=T('Next')}}</a>    
+                {{ pass }}
+                {{if len(posts)>=5:}}    
+                    <a href={{=URL(vars={'page':int(request.vars.page)+1})}} class="btn btn-default">{{=T('Next')}}</a>
+                {{pass}}    
                 </div>                
             </div>
 
