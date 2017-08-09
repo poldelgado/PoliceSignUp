@@ -7,49 +7,85 @@
 {{block content}}
 	
 <div class="home-sec" id="home">
-    <div class="overlay">
-        <div class="container">
-            <div class="row text-center">           
-                <div class="col-lg-12  col-md-12 col-sm-12">               
-                    <div class="flexslider set-flexi" id="main-section">
-                        <!-- <ul class="slides move-me"> -->
-                            <!-- Slider 01 -->
-                            <!-- <li> -->
-                                <!-- <h3></h3> -->
-                               <!-- <h1 class="">INSTITUTO DE EDUCACION SUPERIOR</h1> -->
-                               <!-- <h1>POLICIA DE TUCUMAN</h1> -->
-                            <!-- </li> -->
-                            <!-- End Slider 01 -->
-                            
-                            <!-- Slider 02 -->
-                            <!-- <li> -->
-                                <!-- <h3></h3> -->
-                               <!-- <h1>CARRERA DE CADETE DEL SERVICIO PENITENCIARIO</h1>                 -->
-                            <!-- </li> -->
-                            <!-- End Slider 02 -->
-                            
-                            <!-- Slider 03 -->
-                            <!-- <li> -->
-                                <!-- <h3>Delivering Quality Education</h3> -->
-                               <!-- <h1>CARRERA DE CADETE DE POLICIA </h1>                  -->
-                            <!-- </li> -->
-                            <!-- End Slider 03 -->
-                        <!-- </ul> -->
+    <!-- <div class="overlay"> -->
+        <!-- <div class="container"> -->
+            <div class="row">           
+                <div class="col-lg-12  col-md-12 col-sm-12">
+
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                  </ol>
+
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <img src="{{=URL('static','img/slide-show/9deJulio2016.jpg')}}"les">
                     </div>
+
+                    <div class="item">
+                      <img src="{{=URL('static','img/slide-show/escuelados.jpg')}}">
+                    </div>
+
+                    <div class="item">
+                      <img src="{{=URL('static','img/slide-show/medalla.jpg')}}"">
+                    </div>
+                  </div>
+                  
+                  <!-- Left and right controls -->
+                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+
+                    <!-- <div class="flexslider set-flexi" id="main-section">
+                        <ul class="slides move-me">
+                            Slider 01
+                            <li>
+                                <h3></h3>
+                               <h1 class="">INSTITUTO DE EDUCACION SUPERIOR</h1>
+                               <h1>POLICIA DE TUCUMAN</h1>
+                            </li>
+                            End Slider 01
+                            
+                            Slider 02
+                            <li>
+                                <h3></h3>
+                               <h1>CARRERA DE CADETE DEL SERVICIO PENITENCIARIO</h1>                
+                            </li>
+                            End Slider 02
+                            
+                            Slider 03
+                            <li>
+                                <h3>Delivering Quality Education</h3>
+                               <h1>CARRERA DE CADETE DE POLICIA </h1>                 
+                            </li>
+                            End Slider 03
+                        </ul>
+                    </div> -->
                 </div>
             </div>
-        </div>
-    </div>
+        <!-- </div> -->
+    <!-- </div> -->
          
 </div>
 <!--HOME SECTION END-->
 
 <div  class="tag-line" >
     <div class="container">
-                <div class="stripped-band" data-scroll-reveal="enter from the bottom after 0.10s"></div>      
+                <!-- <div class="stripped-band" data-scroll-reveal="enter from the bottom after 0.10s"></div>       -->
         <div class="row  text-center" >           
             <div class="col-lg-12  col-md-12 col-sm-12">
-                <h2 data-scroll-reveal="enter from the bottom after 0.2s" > Bienvenido al I. E. S. de Policía "Gral. José Francisco de San Martín" <i  </h2>
+                <h2 data-scroll-reveal="enter from the bottom after 0.2s"> Bienvenido al I. E. S. de Policía "Gral. José Francisco de San Martín" <i  </h2>
             </div>
         </div>
     </div>        
@@ -57,17 +93,33 @@
 
 <!--HOME SECTION TAG LINE END-->   
 
+<!-- News Section -->
+<div id="course-sec" class="container set-pad">
+  {{for post in latestposts:}}
+  <div class="row latest-post">
+    <div class="col-md-12 post">
+      <a href="#" class="post-image"><img src="{{=URL('default','download',args=post.picture)}}" width="110" height="110" alt=""></a>
+      <div class="text">
+        <h4>{{=post.title}}</h4>
+      </div>
+    </div>
+  </div>
+  {{pass}}  
+</div>
+<!-- end News Section -->
+
 <!-- FEATURES - SECTION START -->
-<div id="features-sec" class="container set-pad" >
+<div id="features-sec" class="container set-pad " >
     <div class="row text-center">
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 features-sec-title">
-            <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">OFERTA ACADEMICA</h1>
-            <p data-scroll-reveal="enter from the bottom after 0.3s" >
+            <h1 data-scroll-reveal="enter from the bottom after 0.35s"  class="header-line">OFERTA ACADEMICA</h1>
+            
+            <!-- <p data-scroll-reveal="enter from the bottom after 0.3s" >
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                 Aenean commodo.
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                 Aenean commodo.
-            </p>
+            </p> -->
         </div>
     </div>
 <!--/.HEADER LINE END-->
@@ -75,10 +127,10 @@
     <div class="row" >              
         <div class="col-lg-6  col-md-6 col-sm-6" data-scroll-reveal="enter from the bottom after 0.4s">
             <div class="about-div">
-                <h3 class="text-center">Cadetes de Policia</h3>
-                <hr>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo.</p>
+                <h3 class="text-center">Oficial Sub-Ayudante - Técnico en seguridad pública de la Policía de Tucumán</h3>
+                <!-- <hr> -->
+                
+                <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo.</p> -->
                 <div class="panel panel-default" data-scroll-reveal="enter from the bottom after 0.7s">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -145,10 +197,9 @@
 
         <div class="col-lg-6  col-md-6 col-sm-6" data-scroll-reveal="enter from the bottom after 0.5s">
             <div class="about-div">
-                <h3 class="text-center">Cadetes del Servicio Penitenciario</h3>
-                <hr/>
-                <hr/>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo.</p>
+                <h3 class="text-center">Oficial Sub-Ayudante - Técnico Superior en Seguridad Pública con Orientación en Sistema Penitenciario, del Servicio Penitenciario de Tucumán</h3>
+                <!-- <hr/>                 -->
+                <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo.</p> -->
                 <div class="panel panel-default" data-scroll-reveal="enter from the bottom after 0.7s">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -162,62 +213,56 @@
                             <ul>
                                 <li><strong>Primer Año</strong></li>       
                                 <ol>
-                                    <p>AREA JURIDICA</p>
                                     <li>Derecho Penal I</li>
                                     <li>Introducción al Derecho</li>
                                     <li>Derecho Constitucional y Federal</li>
-                                    <p>AREA ESPECIFICA</p>
+                                    
                                     <li>Organización y Legislación Penitenciario</li>
                                     <li>Penología</li>
                                     <li>Primeros Auxilios</li>
                                     <li>Toxicomanía y Narcotráfico</li>
                                     <li>Introducción a la Criminalistica y Balística</li>
-                                    <p>AREA CULTURAL</p>
+                                    
                                     <li>Expresión Oral y Escrita</li>
                                     <li>Psicología General</li>
                                     <li>Sociología</li>
                                     <li>Teoría del Aprendizaje del Adulto</li>
-                                    <p>AREA COMPLEMENTARIA</p>
+                                    
                                     <li>Instrucción Policial I</li>
                                     <li>Educación Física y Defensa Personal</li>
                                 </ol>
                                 <li><strong>Segundo Año</strong></li>
                                 <ol>
-                                    <p>AREA JURÍDICA</p>
+                                    
                                     <li>Derecho Penal II</li>
                                     <li>Derecho Procesal</li>
-                                    <p>AREA ESPECÍFICA</p>
+                                    
                                     <li>Criminología</li>
                                     <li>Práctica Sumarial</li>
-                                    <p>AREA CULTURAL</p>
+                                    
                                     <li>Relaciones Públicas, Protocolo y Ceremonial</li>
                                     <li>Fundamentos de la Etica, Etica Aplicada y Der. Humanos</li>
                                     <li>Psicología Social</li>
                                     <li>Dinámica y Técnica de Grupo</li>
-                                    <p>AREA COMPLEMENTARIA</p>
+                                    
                                     <li>Instrucción Policial II</li>
                                     <li>Educación Fisica II y Defensa Personal</li>
-                                    <p>AREA DE PRACTICA TECNICO PROFESIONAL</p>
+                                    
                                     <li>Policia y Páctica Penitenciaria (2do Cuatrimestre)</li>
                                 </ol>
                                 <li><strong>Tercer Año</strong></li>
                                 <ol>
-                                    <p>AREA JURÍDICA</p>
                                     <li>Derecho Penal III</li>
-                                    <p>AREA ESPECÍFICA</p>
                                     <li>Régimen Penitenciario</li>
                                     <li>Operaciones Penitenciarias</li>
                                     <li>Administración de Empresas y de Recursos Humanos</li>
                                     <li>Metodología de Investigación</li>
                                     <li>Estadística</li>
-                                    <p>AREA CULTURAL</p>
                                     <li>Psicologia Institucional</li>
                                     <li>Informática</li>
                                     <li>Ingles Técnico</li>
-                                    <p>AREA COMPLEMENTARIA</p>
                                     <li>Instruccion Policial III</li>
                                     <li>Educación Física III y Defensa Personal</li>
-                                    <p>AREA DE PRACTICA TECNICO PROFESIONAL</p>
                                     <li>Pasantía</li>
                                 </ol>
                                 
@@ -237,88 +282,52 @@
 <div id="faculty-sec" >
     <div class="container set-pad">
         <div class="row text-center">
-            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                <h1 data-scroll-reveal="enter from the bottom after 0.1s" class="header-line">AUTORIDADES</h1>
-                <p data-scroll-reveal="enter from the bottom after 0.3s">
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 header-line-autorities">
+                <h1 data-scroll-reveal="enter from the bottom after 0.2s" class="">AUTORIDADES</h1>
+                <!-- <p data-scroll-reveal="enter from the bottom after 0.3s">
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                     Aenean commodo.
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                     Aenean commodo.
-                </p>
+                </p> -->
             </div>
 
         </div>
          <!--/.HEADER LINE END-->
 
         <div class="row" > 
-             <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.5s">
+             <div class="col-lg-6  col-md-6 col-sm-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3" data-scroll-reveal="enter from the bottom after 0.5s">
                 <div class="faculty-div text-center">
-                    <img src="{{=URL('static','img/autoridades/CruzNasserJorge.jpg')}}" alt="rector" width="170px" height="170px" class="img-rounded img-circle center-block" />
-                    <h3>JORGE E. CRUZ NASSER</h3>
-                    <hr />
+                    <img src="{{=URL('static','img/autoridades/CruzNasserJorge.jpg')}}" alt="rector" width="150px" height="150px" class="img-rounded img-circle center-block" />
+                    <h3>JORGE E. CRUZ NASSER EDIN</h3>
+                    <!-- <hr /> -->
                     <h4>Comisario Inspector <br /> Rector</h4>
                 </div>
             </div>
+        </div>
 
-            <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.4s">
+        <div class="row">
+            <div class="col-lg-6  col-md-6 col-sm-6" data-scroll-reveal="enter from the bottom after 0.4s">
                 <div class="faculty-div text-center">
-                    <img src="{{=URL('static','img/autoridades/PistanJulioA.jpg')}}" width="170px" height="170px" class="img-rounded img-circle center-block" />
+                    <img src="{{=URL('static','img/autoridades/PistanJulioA.jpg')}}" width="140px" height="140px" class="img-rounded img-circle center-block" />
                     <h3 >JULIO A. PISTAN </h3>
-                    <hr />
                     <h4>Subcomisario<br/> Secretario Academico</h4>    
                 </div>
             </div>
            
-            <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.6s">
+            <div class="col-lg-6  col-md-6 col-sm-6" data-scroll-reveal="enter from the bottom after 0.6s">
                 <div class="faculty-div text-center">
-                    <img src="{{=URL('static','img/autoridades/NasserEdim.jpg')}}" width="170px" height="170px" class="img-rounded img-circle center-block" />
-                    <h3 >R. A. NASSER EDIM</h3>
-                    <hr />
+                    <img src="{{=URL('static','img/autoridades/NasserEdim.jpg')}}" width="140px" height="140px" class="img-rounded img-circle center-block" />
+                    <h3 >ROBERTO A. NASSER EDIM</h3>
+                    <!-- <hr /> -->
                     <h4>Subcomisario<br />Jefe de Compañia de Cadetes</h4>           
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <!-- FACULTY SECTION END-->
-<div id="course-sec" class="container set-pad">
-    <div class="row text-center">
-        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-            <h1 data-scroll-reveal="enter from the bottom after 0.1s" class="header-line">PERFIL DEL EGRESADO</h1><hr>
-            <p data-scroll-reveal="enter from the bottom after 0.3s">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                Aenean commodo.
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                Aenean commodo.
-            </p>
-        </div>
-    </div>
-<!--/.HEADER LINE END-->
-    <div class="row set-row-pad" >
-        <div class="col-lg-6 col-md-6 col-sm-6 " data-scroll-reveal="enter from the bottom after 0.4s" >
-            <img src="{{=URL('static','img/egresados.jpg')}}" class="img-thumbnail" />
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
-            
-                   
-      <!--  <div class="alert alert-info" data-scroll-reveal="enter from the bottom after 1.1s" >
-           <span style="font-size:15px;">
-                <strong> Contacto </strong> 
-               <hr />
-               <h4>Muñecas 1025</h4>
-               <h4>San Miguel de Tucumán</h4>
-               <h4>Telefono: (0381) 4224845 /4305141</h4>
-               <h4>Email: email@email.com</h4>
-            </span>
-       </div> -->
-   </div>
-             
-                 
-                 
-    </div>
-</div>
-      
+     
 <div class="container">
     <div class="row set-row-pad"  >
         <div class="col-lg-12 col-md-12 col-sm-12" data-scroll-reveal="enter from the bottom after 0.4s">
@@ -335,7 +344,7 @@
                           San Miguel de Tucumán <br>
                           Tucumán <br><br>
                           <i class="fa fa-phone" aria-hidden="true"></i><strong> Telefono</strong><br> 
-                          +54 381 4224845
+                          +54 381 4305141
                     </address>
                 </div>
             </div>
