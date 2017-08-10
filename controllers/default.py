@@ -3,7 +3,7 @@
 
 
 def index():
-    latestposts = db(db.post).select(orderby=~db.post.date_of_post,limitby=(0,3))
+    latestposts = db(db.post).select(orderby=~db.post.date_of_post,limitby=(0,4))
     return dict(latestposts = latestposts)
 
     

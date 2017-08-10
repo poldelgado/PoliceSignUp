@@ -8,22 +8,22 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#home">IES</a>
+            <a class="navbar-brand" href="#home"><img src="{{=URL('static','img/logos/ies-brand.png')}}" alt=""></a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse move-me" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li class="item hidden-sm hidden-xs"><a href="#features-sec">OFERTA ACADEMICA<span class="sr-only">(current)</span></a></li>
+            <!-- <li class="item hidden-sm hidden-xs"><a href="#features-sec">OFERTA ACADEMICA<span class="sr-only">(current)</span></a></li> -->
             <li class="item hidden-sm hidden-xs"><a href="#faculty-sec">AUTORIDADES</a></li>
-            <li class="item hidden-sm hidden-xs"><a href="#course-sec">EGRESADOS</a></li>
+            <!-- <li class="item hidden-sm hidden-xs"><a href="#course-sec">EGRESADOS</a></li> -->
             <li class="dropdown move-me">
                 <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACTIVIDAD ACADEMICA<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Carrera</a></li>
+                    <li><a href="#features-sec">Carreras</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Curriculas</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Cursos</a></li>
+                    <li><a data-toggle="collapse" data-parent="accordion" href="#programapenit">Curriculas</a></li>
+                    <!-- <li role="separator" class="divider"></li> -->
+                    <!-- <li><a href="#">Cursos</a></li> -->
                 </ul>
             </li>
             <li class="dropdown move-me">
@@ -45,9 +45,9 @@
         
         <ul class="nav navbar-nav navbar-right">
             <!-- <li class="item"><a href="#home">INICIO<span class="sr-only">(current)</span></a></li> -->
-            <li class="item hidden-lg hidden-md"><a href="#features-sec">OFERTA ACADEMICA<span class="sr-only">(current)</span></a></li>
+            <!-- <li class="item hidden-lg hidden-md"><a href="#features-sec">OFERTA ACADEMICA<span class="sr-only">(current)</span></a></li> -->
             <li class="item hidden-lg hidden-md"><a href="#faculty-sec">AUTORIDADES</a></li>
-            <li class="item hidden-lg hidden-md"><a href="#course-sec">EGRESADOS</a></li>            
+            <!-- <li class="item hidden-lg hidden-md"><a href="#course-sec">EGRESADOS</a></li>             -->
             <li class="item"><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
             <!-- <li class="item disabled"><a href="{{=URL('default','login_candidate')}}">ASPIRANTES</a></li> -->
         </ul>
