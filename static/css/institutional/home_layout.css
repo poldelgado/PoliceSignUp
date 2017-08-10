@@ -51,7 +51,10 @@ body {
         color: #FFF;
         padding: 22px 10px;
     }
-
+.navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
 /*=====================================
   HOME STYLES 
@@ -154,6 +157,9 @@ body {
             margin-left: 8px;
             margin-right: 8px;
         }
+    .tag-line .container {
+        margin-bottom: 100px;
+    }
 /*=====================================
   HEADER LINE STYLES 
     ===================================*/
@@ -378,10 +384,8 @@ h1::after {
 
 }
 
-.features-sec-title hr{
-    border: 1px solid #1A94C4;
-        margin-top: 10px;
-        margin-bottom: 20px;
+.features-sec-title{
+  
 }
 
 .post .text{
@@ -395,5 +399,9 @@ h1::after {
     margin-top: 10px;
     padding-top: 10px;
     font-size: 20px;
+}
+
+.programs{
+margin-bottom: 200px;
 }
 

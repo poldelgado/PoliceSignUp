@@ -95,16 +95,18 @@
 
 <!-- News Section -->
 <div id="course-sec" class="container set-pad">
+<div class="container">
   {{for post in latestposts:}}
   <div class="row latest-post">
-    <div class="col-md-12 post">
-      <a href="#" class="post-image"><img src="{{=URL('default','download',args=post.picture)}}" width="110" height="110" alt=""></a>
+    <a href="#" class=""><div class="col-md-12 post">
+      <img class="post-image" src="{{=URL('default','download',args=post.picture)}}" width="110" height="110" alt="">
       <div class="text">
         <h4>{{=post.title}}</h4>
       </div>
-    </div>
+    </div></a>
   </div>
-  {{pass}}  
+  {{pass}}
+  </div>  
 </div>
 <!-- end News Section -->
 
@@ -124,7 +126,7 @@
     </div>
 <!--/.HEADER LINE END-->
 
-    <div class="row" >              
+    <div class="row hidden-sm hidden-xs programs" >              
         <div class="col-lg-6  col-md-6 col-sm-6" data-scroll-reveal="enter from the bottom after 0.4s">
             <div class="about-div">
                 <h3 class="text-center">Oficial Sub-Ayudante - Técnico en seguridad pública de la Policía de Tucumán</h3>
@@ -273,9 +275,167 @@
                     </div>
             </div>
             </div>
+        </div>                                      
+    </div>
+
+    <!-- for sm and xs screens -->
+
+    <div class="row hidden-lg hidden-md" >              
+        <div class="col-lg-6  col-md-6 col-sm-6" data-scroll-reveal="enter from the bottom after 0.4s">
+            <div class="about-div">
+                <h3 class="text-center">Oficial Sub-Ayudante - Técnico en seguridad pública de la Policía de Tucumán</h3>
+                <!-- <hr> -->
+                
+                <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo.</p> -->
+                <div class="panel panel-default" data-scroll-reveal="enter from the bottom after 0.7s">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#programapolicxs" class="collapsed">
+                          <strong>+</strong> PROGRAMA 
+                        </a>
+                    </h4>
+                </div>
+                    <div id="programapolicxs" class="panel-collapse collapse" style="height: 0px;">
+                        <div class="panel-body">
+                             <ul>
+                                   <li><strong>Primer Año</strong></li>
+                                   <ol>
+                                       <li>Indroducción al Derecho</li>
+                                       <li>Derecho Constitucional y Federal</li>
+                                       <li>Derecho Penal I</li>
+                                       <li>Práctica Sumarial I</li>
+                                       <li>Geografía</li>
+                                       <li>Primeros Auxilios</li>
+                                       <li>Toxicomanía Socio-Cultural</li>
+                                       <li>Medicina Legal I</li>
+                                       <li>Expresión Oral y Escrita</li>
+                                       <li>Introducción a la Criminalística y Balística Judicial</li>
+                                       <li>Ética y Deontología Cristiana</li>
+                                       <li>Educación Física I</li>
+                                       <li>Instrucción Policial I</li>
+                                   </ol>
+                                   <br>
+                                   <li><strong>Segundo Año</strong></li>
+                                   <ol>
+                                       <li>Derecho Procesal I</li>
+                                       <li>Medicina Legal II</li>
+                                       <li>Derecho Penal II</li>
+                                       <li>Operaciones Policiales</li>
+                                       <li>Inteligencia Policial</li>
+                                       <li>Relaciones Públicas, Protocolo y Ceremonial</li>
+                                       <li>Práctica Sumarial II</li>
+                                       <li>Huellas y Rastros</li>
+                                       <li>Psicología Aplicada a la Función Policial I</li>
+                                       <li>Educación Física II</li>
+                                       <li>Instrucción Policial II</li>
+                                   </ol>
+                                   <li><strong>Tercer Año</strong></li>
+                                   <ol>
+                                       <li>Emergencias Siniestrales</li>
+                                       <li>Derecho Penal III</li>
+                                       <li>Sociología General</li>
+                                       <li>Inglés Técnico</li>
+                                       <li>Informática</li>
+                                       <li>Práctica Sumarial III</li>
+                                       <li>Derecho Procesal II</li>
+                                       <li>Planimetría</li>
+                                       <li>Psicología Aplicada a la Función Policial I</li>
+                                       <li>Accidentología Vial</li>
+                                       <li>Educación Física III</li>
+                                       <li>Instrucción Policial III</li>
+                                   </ol>
+                               </ul>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6  col-md-6 col-sm-6" data-scroll-reveal="enter from the bottom after 0.5s">
+            <div class="about-div">
+                <h3 class="text-center">Oficial Sub-Ayudante - Técnico Superior en Seguridad Pública con Orientación en Sistema Penitenciario, del Servicio Penitenciario de Tucumán</h3>
+                <!-- <hr/>                 -->
+                <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo.</p> -->
+                <div class="panel panel-default" data-scroll-reveal="enter from the bottom after 0.7s">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#programapenitxs" class="collapsed">
+                          <strong>+</strong> PROGRAMA 
+                        </a>
+                    </h4>
+                </div>
+                    <div id="programapenitxs" class="panel-collapse collapse" style="height: 0px;">
+                        <div class="panel-body">
+                            <ul>
+                                <li><strong>Primer Año</strong></li>       
+                                <ol>
+                                    <li>Derecho Penal I</li>
+                                    <li>Introducción al Derecho</li>
+                                    <li>Derecho Constitucional y Federal</li>
+                                    
+                                    <li>Organización y Legislación Penitenciario</li>
+                                    <li>Penología</li>
+                                    <li>Primeros Auxilios</li>
+                                    <li>Toxicomanía y Narcotráfico</li>
+                                    <li>Introducción a la Criminalistica y Balística</li>
+                                    
+                                    <li>Expresión Oral y Escrita</li>
+                                    <li>Psicología General</li>
+                                    <li>Sociología</li>
+                                    <li>Teoría del Aprendizaje del Adulto</li>
+                                    
+                                    <li>Instrucción Policial I</li>
+                                    <li>Educación Física y Defensa Personal</li>
+                                </ol>
+                                <li><strong>Segundo Año</strong></li>
+                                <ol>
+                                    
+                                    <li>Derecho Penal II</li>
+                                    <li>Derecho Procesal</li>
+                                    
+                                    <li>Criminología</li>
+                                    <li>Práctica Sumarial</li>
+                                    
+                                    <li>Relaciones Públicas, Protocolo y Ceremonial</li>
+                                    <li>Fundamentos de la Etica, Etica Aplicada y Der. Humanos</li>
+                                    <li>Psicología Social</li>
+                                    <li>Dinámica y Técnica de Grupo</li>
+                                    
+                                    <li>Instrucción Policial II</li>
+                                    <li>Educación Fisica II y Defensa Personal</li>
+                                    
+                                    <li>Policia y Páctica Penitenciaria (2do Cuatrimestre)</li>
+                                </ol>
+                                <li><strong>Tercer Año</strong></li>
+                                <ol>
+                                    <li>Derecho Penal III</li>
+                                    <li>Régimen Penitenciario</li>
+                                    <li>Operaciones Penitenciarias</li>
+                                    <li>Administración de Empresas y de Recursos Humanos</li>
+                                    <li>Metodología de Investigación</li>
+                                    <li>Estadística</li>
+                                    <li>Psicologia Institucional</li>
+                                    <li>Informática</li>
+                                    <li>Ingles Técnico</li>
+                                    <li>Instruccion Policial III</li>
+                                    <li>Educación Física III y Defensa Personal</li>
+                                    <li>Pasantía</li>
+                                </ol>
+                                
+                            </ul>
+                              
+                            
+                        </div>
+                    </div>
+            </div>
+            </div>
         </div>
                                       
     </div>
+
+    <!-- end sm and xs screens -->
+
+
 </div>
    <!-- FEATURES SECTION END-->
 
