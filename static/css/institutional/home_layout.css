@@ -240,6 +240,7 @@ h1::after {
 #faculty-sec {
     background-color: rgba(28, 43, 75, 1);
     color: #fff;
+    padding-bottom: 150px;
 }
 
     #faculty-sec .header-line-autorities {
@@ -403,5 +404,13 @@ h1::after {
 
 .programs{
 margin-bottom: 200px;
+}
+
+.latest-post{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.latest-post:hover{
+        box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2);
 }
 

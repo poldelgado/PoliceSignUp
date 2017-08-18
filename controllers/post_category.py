@@ -6,7 +6,7 @@ The list utilizes the datatables plugin.
 The create and view views utilize the cascading field plugin.
 '''
 
-table = db.post
+table = db.post_category
 response.view_title = '%s %s' % (
     request.function.replace('_', ' ').title(),
     table._singular
@@ -24,7 +24,7 @@ def list():
 
     actions = [
         {'is_item_action': lambda item: True, 'url': lambda item: URL('view.html', args=[item.id]), 'icon': 'search'},
-        {'is_item_action': lambda item: True, 'url': lambda item: URL('edit', args=[item.id]), 'icon': 'pencil'},
+        {'is_item_action': lambda item: True, 'url': lambda item: URL('edit.html', args=[item.id]), 'icon': 'pencil'},
     ]
 
     fields = [f for f in table]
@@ -43,7 +43,7 @@ def list():
     )
 
 
-@auth.requires_membership('Admin')
+@auth.requires_login()
 def create():
     fields = [
         'id',
@@ -58,7 +58,7 @@ def create():
     elif form.errors:
         response.flash = 'Please correct the errors'
 
-    #response.view = 'template/create.html'
+    response.view = 'template/create.html'
     return dict(item_name=table._singular, form=form)
 
 
@@ -70,7 +70,7 @@ def view():
     return dict(item_name=table._singular, form=form, item=item)
 
 
-@auth.requires_membership('Admin')
+@auth.requires_login()
 def edit():
     # db.support_case.case_subcategory.requires = IS_IN_DB(
     #     # db, db.case_subcategory._id, db.case_category._format,
@@ -88,7 +88,7 @@ def edit():
     elif form.errors:
         response.flash = 'Please correct the errors'
 
-    #response.view = 'template/edit.html'
+    response.view = 'template/edit.html'
     return dict(item_name=table._singular, form=form)
 
 
@@ -114,7 +114,3 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
-
-@auth.requires_membership('Admin')
-def write():
-    return dict()

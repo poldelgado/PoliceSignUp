@@ -4,7 +4,8 @@
 
 def index():
     latestposts = db(db.post).select(orderby=~db.post.date_of_post,limitby=(0,4))
-    return dict(latestposts = latestposts)
+    categories = db(db.post_category).select().sort(lambda post_category: len(post_category.name)) #post category sorted by name size
+    return dict(latestposts = latestposts, categories = categories)
 
     
 def about():
@@ -34,8 +35,8 @@ def changelog():
     return dict(changelog_markmin=changelog_markmin)
 
 
-def search():
-    tables = [db.dog, db.person]
+# def search():
+#     tables = [db.dog, db.person]
 
     items = []
     for t in tables:

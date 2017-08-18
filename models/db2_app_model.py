@@ -100,13 +100,20 @@ db.define_table('schedule',
                 #format = '%(user_id)s'
                 )
 
+db.define_table('post_category',
+                Field('name', 'string'),
+                auth.signature,
+                singular= T('Category'), plural=T('Categories'),
+                format = lambda r: '%s' % (r.name),
+                )
+
 db.define_table('post',
                 Field('title', 'string', label=T('title')),
                 Field('date_of_post', 'date', label=T('date of post')),
+                Field('category', 'reference post_category', label=T('Category')),
                 Field('picture','upload', requires = IS_IMAGE(), label=T('image')),
                 Field('resume', 'string', label=T('resume')),
-                Field('content', 'text', label=T('content')),
-                
+                Field('content', 'text', label=T('content')),                
                 auth.signature,
                 singular= T('Post'), plural=T('Posts'),
                 format = lambda r: '%s, %s' % (r.dateof_post, title),
