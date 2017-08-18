@@ -41,3 +41,10 @@ from gluon.contrib.populate import populate
 populate(db.post, 100)
 exit
 exit()
+posts = db(db.post.category.id == request.args(0)).select()
+exit()
+posts = db(db.post.category.id == 1).select()
+posts = db(db.post.category == 1).select()
+posts = db(db.post.post_category.id == 1).select()
+posts = db(db.post.category.id == 1).select()
+exit()

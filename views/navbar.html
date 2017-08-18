@@ -29,15 +29,20 @@
             <li class="dropdown move-me">
                 <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EXTENSION ACADEMICA<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Talleres</a></li>
+                    {{for category in categories:}}
+                        <li><a href="{{=URL('blog', 'show_by_category', args=(category.id))}}">{{=category.name}}</a></li>
+                        <li role="separator" class="divider"></li>
+                    {{pass}}
+                    <!-- <li><a href="{{=URL('blog','show_by_category')}}">Talleres</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Convenios</a></li>
+                    <li><a href="{{=URL('blog', 'show_by_category')}}">Convenios</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Vinculación</a></li>
+                    <li><a href="{{=URL('blog', 'show_by_category')}}">Vinculación</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#tecnical-sec">Formación Tecnico Profesional Policial y Judicial</a></li>
+                    <li><a href="{{=URL('blog', 'show_by_category')}}">Formación Tecnico Profesional Policial y Judicial</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Formación Cultural</a></li>
+                    <li><a href="#">Formación Cultural</a></li> -->
+                    
                 </ul>
             </li>
             
