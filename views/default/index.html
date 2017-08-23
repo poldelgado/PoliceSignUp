@@ -295,7 +295,7 @@
                         </a>
                     </h4>
                 </div>
-                    <div id="programapolicxs" class="panel-collapse collapse" style="height: 0px;">
+                    <div id="programapolicxs" class="panel-collapse collapse programas" style="height: 0px;">
                         <div class="panel-body">
                              <ul>
                                    <li><strong>Primer Año</strong></li>
@@ -364,7 +364,7 @@
                         </a>
                     </h4>
                 </div>
-                    <div id="programapenitxs" class="panel-collapse collapse" style="height: 0px;">
+                    <div id="programapenitxs" class="panel-collapse collapse programas" style="height: 0px;">
                         <div class="panel-body">
                             <ul>
                                 <li><strong>Primer Año</strong></li>       
@@ -549,6 +549,15 @@
 
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT6HCKHpWzufPNz0FTO6z8dslZyY2orVQ&callback=initMap">
-    </script>
+  </script>
+
+  <script>
+    $(document).ready(function() {
+        $(".curriculas").on("click", function(){
+          $('#programapenit').collapse('show');
+          $('#programapolic').collapse('show');
+        });    
+    });
+  </script>
   
 {{end}}

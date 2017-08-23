@@ -88,7 +88,7 @@
                     {{pass}}
                 <br>
                 
-                <a class="btn btn-primary" href="{{=URL('blog', 'show', args=(post.id))}}">{{=T('Read More')}}</span></a>
+                <a class="btn btn-primary pull-right" href="{{=URL('blog', 'show', args=(post.id))}}">{{=T('Read More')}}</span></a>
                 <br><br>    
                 <hr>
                 {{pass}}
@@ -104,32 +104,23 @@
             </div>
 
             <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4  hidden-sm hidden-xs">
-            <div class="well">
+            <div class="col-md-4  hidden-sm hidden-xs sidebar">                
                 <div class="row">
-                        <div class="col-lg-12">
-                            <h4 class="text-center">{{=T('Latest Posts')}}</h4>
+                    <div class="panel panel-info">
+                        <div class="panel-heading text-center">
+                            <h3 class="panel-title">{{=T('Latest Posts')}}</h3>
                         </div>
-                </div>
-                </div>
-                <!-- Blog Categories Well -->
-                <div class="well">
-                    
-                    
-                    <div class="row">
-                        <div class="col-lg-12">
+                        <div class="panel-body">
                             <ul class="list-unstyled">
-                            {{for lpost in latestpost:}}
-                                <li><a href="{{=URL('blog', 'show', args=(lpost.id))}}">{{=lpost.title}}</a></li>                                
-                            {{pass}}
+                                {{for lpost in latestpost:}}
+                                    <li><a href="{{=URL('blog', 'show', args=(lpost.id))}}">{{=lpost.title}}</a></li>                        
+                                {{pass}}
                             </ul>
                         </div>
                     </div>
-                    <!-- /.row -->
-                </div>
+                </div> 
+            
             </div>
-        </div>
-        <!-- /.row -->
 
         <hr>
 
