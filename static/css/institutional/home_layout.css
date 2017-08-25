@@ -417,3 +417,26 @@ margin-bottom: 200px;
 .sidebar{
     margin-top: 85px;
 }
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{
+    color: #fff;
+    background-color: #182950;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a{
+    color: #fff;
+}
+
+.dropdown-menu{
+    background-color: #282f56;
+}
+
+.sidebar .row .panel .panel-heading{
+    color: #ffffff;
+    background-color: #1c2a4a;
+    border-color: #bce8f1;
+}
+
+.sidebar .row .panel{
+    
+}
