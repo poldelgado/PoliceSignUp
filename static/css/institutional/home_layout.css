@@ -36,18 +36,32 @@ body {
     max-height: 40px;
 }
 
-#menu {
+/*#menu {
     background-color: rgba(28, 43, 75, 1);
     color: #fff;
     font-size: 12px;
     font-weight: 900;
     letter-spacing: 1px;
     min-height: 70px;
+}*/
+.navbar{
+    background-color: rgba(28, 43, 75, 1);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    min-height: 70px;
+    transition: background-color .75s ease 0s;
 }
-
 
 .navbar-inverse {
     border-color: transparent;
+    background-color: rgba(28, 43, 75, 1);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    min-height: 70px;
 }
 
     .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-nav > li > a:hover {
@@ -64,7 +78,7 @@ body {
     ===================================*/
 .home-sec {
     
-    margin-top: 70px;
+    /*margin-top: -70px;*/
     /*padding-top: 10px;
     padding-bottom: 60px;*/
     /*background: url(../../img/slide-show/9deJulio2016.jpg) no-repeat fixed center;*/
@@ -83,14 +97,24 @@ body {
         max-height: 600px;
     }
 
-    .home-sec h1 {
-        color: #000;
+    .home-sec .ies-title{
+        margin-top: 30%;
+    }
+
+    .home-sec .ies-title h1 {
+        color: yellow;
         font-weight: 900;
-        font-size: 50px;
-        text-transform: uppercase;
-        padding-top: 70px;
-        padding-bottom: 30px; 
+        font-size: 40px;
+        padding-bottom: 0; 
         vertical-align: bottom;       
+    }
+
+    .home-sec .ies-title h2{
+        color: yellow;
+        font-weight: 900;
+        font-size:25px;
+        padding:0;
+        margin-top: 5px;
     }
 
     .home-sec h3 {
@@ -437,7 +461,7 @@ margin-bottom: 200px;
     color: #fff;
 }
 
-.dropdown-menu{
+.navbar-inverse .navbar-nav .open .dropdown-menu{
     background-color: #282f56;
 }
 
@@ -450,8 +474,8 @@ margin-bottom: 200px;
 .sidebar .row .panel{
     
 }
-/*
-.mbYTP_wrapper{
+
+/*.mbYTP_wrapper{
     position: fixed;
     position: relative;
     padding-bottom: 56.25%;
@@ -471,6 +495,7 @@ margin-bottom: 200px;
 }
 
 .player .presentacion{
+    margin: 0;
     position: absolute;
     background-color: #3A3A3A;
     width: 100%;
@@ -478,15 +503,21 @@ margin-bottom: 200px;
     opacity: 0.5;
 }
 
-/* Add the below transitions to allow a smooth color change similar to lyft */
-.navbar {
-    -webkit-transition: all 0.6s ease-out;
-    -moz-transition: all 0.6s ease-out;
-    -o-transition: all 0.6s ease-out;
-    -ms-transition: all 0.6s ease-out;
-    transition: all 0.6s ease-out;
+.player .presentacion div{
+
 }
 
-.navbar.scrolled {
-    background: rgba(0, 0, 0, 0.78); /* NON-IE */
+/* Add the below transitions to allow a smooth color change similar to lyft */
+
+.navbar-transparent{
+   background-color: transparent;
+}
+
+.navbar-transparent .navbar-nav > .open > a, .navbar-transparent .navbar-nav > .open > a:hover, .navbar-transparent .navbar-nav > .open > a:focus{
+    background-color: transparent;
+}
+
+.navbar-transparent .navbar-nav .open .dropdown-menu{
+    background-color: transparent;
+    border: 1px solid ##C1AEAE;
 }
