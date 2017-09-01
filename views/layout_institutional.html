@@ -19,8 +19,23 @@
     <link href="{{=URL('static','css/institutional/flexslider.css')}}" rel="stylesheet" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- YTPlayer CSS -->
+    <link rel="stylesheet" href="{{=URL('static', 'css/jquery.mb.YTPlayer.min.css')}}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{=URL('static','css/institutional/home_layout.css')}}">
+
+    <!-- jQuery -->
+    <script src="{{=URL('static','js/jquery.js')}}"></script>
+    <!-- YTPlayer -->
+    <script src="{{=URL('static', 'js/jquery.mb.YTPlayer.min.js')}}"></script>
+
+    <script>
+    $(function(){
+        $(".player").mb_YTPlayer();
+    });
+    </script>
+
+
 
     {{block styles}}
         {{include}}
@@ -41,8 +56,6 @@
         {{include}}
     {{end}}
     
-
-
            
     {{block content}}
         {{include}}
@@ -50,9 +63,6 @@
     
 
 
-
-    <!-- jQuery -->
-    <script src="{{=URL('static','js/jquery.js')}}"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="{{=URL('static','plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
@@ -64,7 +74,9 @@
     <!-- <script src="{{=URL('static', 'js/jquery.easing.min.js')}}"></script> -->
     <!--  Custom Scripts --> 
     <script src="{{=URL('static', 'js/custom.js')}}"></script>
+
     
+
     
     {{block script}}
         {{include}}

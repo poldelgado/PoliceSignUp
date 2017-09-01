@@ -12,6 +12,9 @@
 /* =============================================================
    GENERAL STYLES
  ============================================================ */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 30px;
@@ -33,18 +36,32 @@ body {
     max-height: 40px;
 }
 
-#menu {
+/*#menu {
     background-color: rgba(28, 43, 75, 1);
     color: #fff;
     font-size: 12px;
     font-weight: 900;
     letter-spacing: 1px;
     min-height: 70px;
+}*/
+.navbar{
+    background-color: rgba(28, 43, 75, 1);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    min-height: 70px;
+    transition: background-color .75s ease 0s;
 }
-
 
 .navbar-inverse {
     border-color: transparent;
+    background-color: rgba(28, 43, 75, 1);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    min-height: 70px;
 }
 
     .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-nav > li > a:hover {
@@ -61,7 +78,7 @@ body {
     ===================================*/
 .home-sec {
     
-    margin-top: 70px;
+    /*margin-top: -70px;*/
     /*padding-top: 10px;
     padding-bottom: 60px;*/
     /*background: url(../../img/slide-show/9deJulio2016.jpg) no-repeat fixed center;*/
@@ -75,19 +92,29 @@ body {
     .home-sec .overlay {
         /*margin-top: 70px;*/
         /*background: rgba(38, 57, 88, 0.89);*/
-        /*opacity: 0;*/
+        /*opacity: 0.5;*/
         /*min-height: 500px;*/
         max-height: 600px;
     }
 
-    .home-sec h1 {
-        color: #000;
+    .home-sec .ies-title{
+        margin-top: 30%;
+    }
+
+    .home-sec .ies-title h1 {
+        color: yellow;
         font-weight: 900;
-        font-size: 50px;
-        text-transform: uppercase;
-        padding-top: 70px;
-        padding-bottom: 30px; 
+        font-size: 40px;
+        padding-bottom: 0; 
         vertical-align: bottom;       
+    }
+
+    .home-sec .ies-title h2{
+        color: yellow;
+        font-weight: 900;
+        font-size:25px;
+        padding:0;
+        margin-top: 5px;
     }
 
     .home-sec h3 {
@@ -107,6 +134,7 @@ body {
         margin-left: 0;
         padding-right: 0;
         padding-left: 0;
+        opacity: 0.2;
     }
 
     .carousel-inner > .item > img, .carousel-inner > .item > a > img {
@@ -393,13 +421,19 @@ h1::after {
 
 }
 .post-image{
-    width: 110px;
-    height: 110px;
+    width: 100%;
+    /*max-height: 100%;*/
 }
-.post > .text h4{
+.post > .text h3{
     margin-top: 10px;
     padding-top: 10px;
-    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+}
+
+.post > .text{
+    position:;
 }
 
 .programs{
@@ -427,7 +461,7 @@ margin-bottom: 200px;
     color: #fff;
 }
 
-.dropdown-menu{
+.navbar-inverse .navbar-nav .open .dropdown-menu{
     background-color: #282f56;
 }
 
@@ -439,4 +473,51 @@ margin-bottom: 200px;
 
 .sidebar .row .panel{
     
+}
+
+/*.mbYTP_wrapper{
+    position: fixed;
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.mbYTP_wrapper iframe{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}*/
+
+
+
+.player{
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.player .presentacion{
+    margin: 0;
+    position: absolute;
+    background-color: #3A3A3A;
+    width: 100%;
+    height: 100%    ;
+    opacity: 0.5;
+}
+
+.player .presentacion div{
+
+}
+
+/* Add the below transitions to allow a smooth color change similar to lyft */
+
+.navbar-transparent{
+   background-color: transparent;
+}
+
+.navbar-transparent .navbar-nav > .open > a, .navbar-transparent .navbar-nav > .open > a:hover, .navbar-transparent .navbar-nav > .open > a:focus{
+    background-color: transparent;
+}
+
+.navbar-transparent .navbar-nav .open .dropdown-menu{
+    background-color: transparent;
+    border: 1px solid ##C1AEAE;
 }

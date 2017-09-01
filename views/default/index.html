@@ -9,10 +9,22 @@
 <div class="home-sec" id="home">
     <!-- <div class="overlay"> -->
         <!-- <div class="container"> -->
-            <div class="row">           
-                <div class="col-lg-12  col-md-12 col-sm-12">
 
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="row">           
+                <div class="col-lg-12  col-md-12 col-sm-12 video-background player hidden-sm hidden-xs" id="bgndVideo" data-property="{videoURL:'http://youtu.be/37HkahxHa7w',containment:'self',autoPlay:true, mute:true, startAt:0,stopMovieOnBlur:true,showControls:false,quality:'medium',startAt:7,stopAt:27,showYTLogo:false,mobileFallbackImage:'https://img.youtube.com/vi/37HkahxHa7w/hqdefault.jpg',opacity:1}">                
+                <div class="row presentacion">
+                  <div class="col-md-6 col-md-offset-6 ies-title">
+                    <h1>IES de Policía</h1>
+                    <h2 class="">Gral. José Francisco de San Martín</h2>
+
+                  </div>
+                </div>
+                
+                  
+                
+                </div>
+                <div class="col-sm-12 hidden-md hidden-lg">
+                  <div id="myCarousel" class="carousel slide" data-ride="carousel">
                   <!-- Indicators -->
                   <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -46,8 +58,8 @@
                     <span class="sr-only">Next</span>
                   </a>
                 </div>
-
-                    <!-- <div class="flexslider set-flexi" id="main-section">
+<!-- 
+                    <div class="flexslider set-flexi" id="main-section">
                         <ul class="slides move-me">
                             Slider 01
                             <li>
@@ -84,7 +96,7 @@
     <div class="container">
                 <!-- <div class="stripped-band" data-scroll-reveal="enter from the bottom after 0.10s"></div>       -->
         <div class="row  text-center" >           
-            <div class="col-lg-12  col-md-12 col-sm-12">
+            <div class="col-lg-12  col-md-12 col-sm-12 hidden-md hidden-lg">
                 <h2 data-scroll-reveal="enter from the bottom after 0.2s"> Bienvenido al I. E. S. de Policía "Gral. José Francisco de San Martín" <i  </h2>
             </div>
         </div>
@@ -97,12 +109,15 @@
 <div id="course-sec" class="container set-pad">
 <div class="container">
   {{for post in latestposts:}}
-  <div class="row latest-post">
+  <div class="row">
     <a href="{{=URL('blog','show', args=(post.id))}}" class=""><div class="col-md-12 post">
-      <img class="post-image" src="{{=URL('default','download',args=post.picture)}}" width="110" height="110" alt="">
-      <div class="text">
-        <h4>{{=post.title}}</h4>
-      </div>
+    <div class="col-md-6 col-sm-12">
+      <img class="post-image" src="{{=URL('default','download',args=post.picture)}}" width="400" height="400" alt="">      
+    </div>
+    <div class="col-md-6 col-sm-12 text">
+        <h3>{{=post.title}}</h3>
+        <h3>{{=post.resume}}</h3>   
+    </div>
     </div></a>
   </div>
   {{pass}}
@@ -559,5 +574,25 @@
         });    
     });
   </script>
+
+  <script>
+    function checkScroll(){
+    var startY = $('.navbar').height() * 9; //The point where the navbar changes in px
+
+    if($(window).scrollTop() < startY){
+        $('.navbar').addClass("navbar-transparent");
+    }else{
+        $('.navbar').removeClass("navbar-transparent");
+    }
+}
+
+if($('.navbar').length > 0){
+    $(window).on("scroll load resize", function(){
+        checkScroll();
+    });
+}
+  </script>
+
+
   
 {{end}}
