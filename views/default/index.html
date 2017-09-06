@@ -109,13 +109,13 @@
 <div id="course-sec" class="container set-pad">
 <div class="container">
   {{for post in latestposts:}}
-  <div class="row">
+  <div class="row" data-scroll-reveal="enter from the bottom after 0.5s">
     <a href="{{=URL('blog','show', args=(post.id))}}" class=""><div class="col-md-12 post">
     <div class="col-md-6 col-sm-12">
       <img class="post-image" src="{{=URL('default','download',args=post.picture)}}" width="400" height="400" alt="">      
     </div>
     <div class="col-md-6 col-sm-12 text">
-        <h3>{{=post.title}}</h3>
+        <h2>{{=post.title}}</h2>
         <h3>{{=post.resume}}</h3>   
     </div>
     </div></a>
@@ -577,7 +577,7 @@
 
   <script>
     function checkScroll(){
-    var startY = $('.navbar').height() * 9; //The point where the navbar changes in px
+    var startY = $('.navbar').height() * 8; //The point where the navbar changes in px
 
     if($(window).scrollTop() < startY){
         $('.navbar').addClass("navbar-transparent");
