@@ -60,71 +60,47 @@
 	<!-- Page Content -->
     <div class="container">
 
+        {{for post in posts:}}
         <div class="row">
-
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
-
-                <h1 class="page-header text-center">
-                    Noticias
-                    <small></small>
-                </h1>
-                
-
-                {{for post in posts:}}
-
-                <!-- Blog Post -->
-                <h2>
-                    {{=post.title}}
-                <small>{{=post.date_of_post}}</small>
-                </h2><br>
-                
-                <h4>{{=post.resume}}</h4>
-                
-                    {{if post.picture == "":}}
-                    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                    {{else:}}
-                    <img class="img-responsive" src="{{=URL('default','download',args=post.picture)}}" alt="">
-                    {{pass}}
-                <br>
-                
-                <a class="btn btn-primary pull-right" href="{{=URL('blog', 'show', args=(post.id))}}">{{=T('Read More')}}</span></a>
-                <br><br>    
-                <hr>
-                {{pass}}
-                
-                <div class="col-md-12 pagination text-center center-block">
-                {{if (int(request.vars.page)!=1): }}
-                    <a href={{=URL(vars={'page':int(request.vars.page)-1})}} class="btn btn-default">{{=T('Previous')}}</a> |
-                {{ pass }}
-                {{if len(posts)>=5:}}    
-                    <a href={{=URL(vars={'page':int(request.vars.page)+1})}} class="btn btn-default">{{=T('Next')}}</a>
-                {{pass}}    
-                </div>                
+            <div class="col-md-3 pull-left post-leftbar hidden-sm hidden-xs">
+                <h2>{{=post.date_of_post}}</h2>
+                <h3>{{=post.resume}}</h3>
             </div>
-
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4  hidden-sm hidden-xs sidebar">                
+            <div class="col-md-9">
                 <div class="row">
-                    <div class="panel panel-info">
-                        <div class="panel-heading text-center">
-                            <h3 class="panel-title">{{=T('Latest Posts')}}</h3>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="list-unstyled">
-                                {{for lpost in latestpost:}}
-                                    <li><a href="{{=URL('blog', 'show', args=(lpost.id))}}">{{=lpost.title}}</a></li>                        
-                                {{pass}}
-                            </ul>
-                        </div>
+                    <div class="col-md-12">
+                        <h1>{{=post.title}}</h1>
+                        {{if post.picture == "":}}
+                        <img class="img-responsive post-image" src="http://placehold.it/900x300" alt="">
+                        {{else:}}
+                        <img class="img-responsive post-image" src="{{=URL('default','download',args=post.picture)}}" alt="">
+                        {{pass}}
+                        <a class="btn btn-primary btn-read-more" href="{{=URL('blog', 'show', args=(post.id))}}">{{=T('Read More')}}</a>                        
                     </div>
-                </div> 
-            
+                </div>
+                <!-- <div class="row">   
+                    <div class="col-md-12">
+                    </div>
+                </div> -->               
             </div>
         </div>
-    <div class="row">
+
+        {{pass}}
+        <div class="row">                
+            <div class="col-md-12 pagination text-center center-block">
+            {{if (int(request.vars.page)!=1): }}
+                <a href={{=URL(vars={'page':int(request.vars.page)-1})}} class="btn btn-default">{{=T('Previous')}}</a> |
+            {{ pass }}
+            {{if len(posts)>=5:}}    
+                <a href={{=URL(vars={'page':int(request.vars.page)+1})}} class="btn btn-default">{{=T('Next')}}</a>
+            {{pass}}    
+            </div>                
+        </div>
+    </div>
+            
+    <div class="row footer">
         <div id="footer" class="col-md-12">
-            <h5>I. E. S. de Policía "Gral. José Francisco de San Martín" | &copy 2017 MSC </h5>  
+            <h5>I. E. S. de Policía "Gral. José Francisco de San Martín"</h5>  
         </div>
     </div>
 
