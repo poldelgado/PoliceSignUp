@@ -550,6 +550,16 @@ margin-bottom: 200px;
     border: 1px solid ##C1AEAE;
 }
 
+/*Change properties on mobile*/
+@media only screen and (max-width: 768px) {
+    .navbar-transparent {
+        background-color: rgb(28, 43, 75);
+    }
+    .home-sec{
+        margin-top: 70px;
+    }
+}
+
 .btn-read-more{
     margin-left: 10px;
     margin-top: 10px;
