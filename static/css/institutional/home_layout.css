@@ -149,12 +149,14 @@ body {
     }
 
     .carousel-inner > .item > img, .carousel-inner > .item > a > img {
-    display: block;
-    max-height:500px;
+    /*display: block;*/
+    max-height:80vh;
+    height: 100vh;
     min-width: 100%;
-    width: 100%;
-    max-width: 100%;
+    /*width: 100%;*/
+    /*max-width: 100%;*/
     line-height: 1;
+    overflow-x: hidden;
 }
 
 
@@ -183,6 +185,8 @@ body {
     background: url(../../img/stripped-band.png) repeat;
     color: #000;
     max-height: 20px;
+    min-height: 20px;
+    height: 20px;
 }
 
     .tag-line h2 {
@@ -584,6 +588,13 @@ margin-bottom: 200px;
     .home-sec{
         margin-top: 70px;
     }
+}
+
+/*#########################
+    Mobile carrousel view
+  #########################*/
+.mobile{
+
 }
 
 .btn-read-more{
