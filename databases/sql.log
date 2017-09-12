@@ -736,3 +736,144 @@ CREATE TABLE inscription(
     modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
 );
 success!
+timestamp: 2017-09-12T17:17:44.485076
+CREATE TABLE height(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ,
+    height DOUBLE,
+    aproved CHAR(1),
+    available CHAR(1),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-09-12T17:22:15.153992
+CREATE TABLE intellectual_exam(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ,
+    spanish_language DOUBLE,
+    history DOUBLE,
+    geography DOUBLE,
+    aproved CHAR(1),
+    available CHAR(1),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-09-12T17:22:15.419813
+CREATE TABLE medical_exam(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ,
+    exam_result CHAR(1),
+    reason CHAR(512),
+    available CHAR(1),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-09-12T17:22:15.543973
+CREATE TABLE physical_exam(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ,
+    abs_test INTEGER,
+    arms INTEGER,
+    aerobics INTEGER,
+    aproved CHAR(1),
+    available CHAR(1),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-09-12T17:22:15.690178
+CREATE TABLE groupal_psychological_examination(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ,
+    exam_result CHAR(1),
+    reason CHAR(512),
+    available CHAR(1),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-09-12T17:22:15.800405
+CREATE TABLE psychological_interview(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    inscription INTEGER REFERENCES inscription (id) ON DELETE CASCADE  ,
+    exam_result CHAR(1),
+    reason CHAR(512),
+    available CHAR(1),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-09-12T17:26:03.296915
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-09-12T17:26:03.396265
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2017-09-12T17:26:03.528579
+CREATE TABLE notification(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    auth_user INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    date_of_notification DATE,
+    message TEXT,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-09-12T17:26:03.653195
+CREATE TABLE schedule(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    height_schedule TEXT,
+    intellectual_exam_schedule TEXT,
+    medical_exam_schedule TEXT,
+    physical_exam_schedule TEXT,
+    groupal_psychological_examination_schedule TEXT,
+    psychological_interview_schedule TEXT,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!

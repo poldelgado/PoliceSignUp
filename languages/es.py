@@ -108,6 +108,7 @@
 'cannot upload file "%(filename)s"': 'no es posible subir archivo "%(filename)s"',
 'Career': 'Carrera',
 'Carrer': 'Carrer',
+'Categories': 'Categories',
 'category': 'category',
 'Category': 'Category',
 'Change Password': 'Cambie la Contraseña',

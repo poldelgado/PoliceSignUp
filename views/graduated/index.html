@@ -1,0 +1,296 @@
+{{extend 'layout_institutional.html'}}
+
+{{block styles}}
+    <link rel="stylesheet" href="{{=URL('static', 'css/swiper.min.css')}}">
+{{end}}
+
+
+{{block navbar}}
+
+   <nav class="navbar  navbar-inverse navbar-fixed-top" id="menu">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{=URL('default','index')}}"><img src="{{=URL('static','img/logos/ies-brand.png')}}" alt=""><span>IESP "G.J.F.S.M."</span></a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse move-me" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <!-- <li class="item"><a href="{{=URL('default', 'index#home')}}">INICIO<span class="sr-only">(current)</span></a></li> -->
+            <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>           
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-githaspopup="true" aria-expanded="false">ACTIVIDAD ACADEMICA<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{=URL('default','index#features-sec')}}">Carreras</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Curriculas</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EXTENSION ACADEMICA<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    {{for category in categories:}}
+                        <li><a href="{{=URL('blog', 'show_by_category', args=(category.id))}}">{{=category.name}}</a></li>
+                        <li role="separator" class="divider"></li>
+                    {{pass}}
+                </ul>
+            </li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+            <li class="item hidden-lg hidden-md"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>          
+            <li><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
+            <!-- <li><a href="{{=URL('default','login_candidate')}}">ASPIRANTES</a></li> -->
+        </ul>
+      </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+{{end}}
+
+
+
+{{block content}}
+    <div class="row promociones">
+        <div class="col-md-8 col-md-offset-2">
+            <h1 class="text-center">PROMOCIONES</h1>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <a class="link-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2016" aria-expanded="true" aria-controls="promocion2016">
+                    <div class="panel-heading promocion-heading" role="tab" id="heading2016">
+                        <h4 class="panel-title text-center">PROMOCION 2016</h4>
+                    </div>
+                </a>
+                <div id="promocion2016" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2016">
+                  <div class="panel-body promocion-body">
+                    <ul>
+                        <li>Ávila, Leandro Augusto</li>
+                        <li>Ávila, Nadia Gabriela</li>
+                        <li>Balatto, Diego Alberto</li>
+                        <li>Bustos, Antonio</li>
+                        <li>Cabeza Ruiz, Hugo Matias</li>
+                        <li>Campero, Julio Mauricio</li>
+                        <li>Cansino, Gabriel Gastón</li>
+                        <li>Carrizo, Fernando Exequiel</li>
+                        <li>Carrizo, Juan Antonio</li>
+                        <li>Cordoba, Flavio Gabriel</li>
+                        <li>Cruz, Diego Gabriel</li>
+                        <li>Diaz, Carlos Alberto</li>
+                        <li>Diaz, Leila Mariana</li>
+                        <li>Diaz, Rodrigo Exequiel</li>
+                        <li>Echenique, Luis Alberto</li>
+                        <li>Escobar, Melina Estefania</li>
+                        <li>Fernández, María Constanza</li>
+                        <li>Gimenez Luna, Eliana Yanett</li>
+                        <li>Gomez, Gladys Fernanda</li>
+                        <li>Gonzalez Bonura, Gabriel Maximiliano</li>
+                        <li>González, José Alejandro</li>
+                        <li>Guardia, Fabián Alejandro</li>
+                        <li>Imain, Noelia Danisa</li>
+                        <li>Iriarte Romina Constanza</li>
+                        <li>Jimenez, Miguel Antonio</li>
+                        <li>Leiva, Hugo Marcelo Eduardo</li>
+                        <li>Lencina, Facundo Edgardo</li>
+                        <li>Llanos, Mauricio Andrés</li>
+                        <li>Luna, Walter Miguel</li>
+                        <li>Medina, Héctor Damian</li>
+                        <li>Medina, Luis Rolando</li>
+                        <li>Medina, Santiago Jesús</li>
+                        <li>Medina Vera, Adrián Isaías</li>
+                        <li>Mendoza, Julio Cesar</li>
+                        <li>Nuñez, Cristian Javier</li>
+                        <li>Palomares, Osvaldo Ariel</li>
+                        <li>Paz, Juan Pablo</li>
+                        <li>Piedrabuena, Maximiliano Martín</li>
+                        <li>Ponce, Ysac Eduardo</li>
+                        <li>Robles, Leonardo Federico</li>
+                        <li>Rodriguez Camacho, Luis Lucio</li>
+                        <li>Rojas, Alfredo Martín</li>
+                        <li>Rojas, Miguel Fernando</li>
+                        <li>Salguero Chaves, Leandro Joaquín</li>
+                        <li>Santucho, Martín Matias Nicolás</li>
+                        <li>Satle, Oscar Jair</li>
+                        <li>Soria, Germán José Emilio</li>
+                        <li>Torres, Cristian Marcelo</li>
+                        <li>Torres, Emilse Elizabeth</li>
+                        <li>Valdez, Esteban Jesús</li>
+                        <li>Vallejo, Franco Ernesto</li>
+                        <li>Veliz, Norberto Leonardo</li>
+                        <li>Villagra Jesús Gabriel Antonio</li>
+                        <li>Yanacón, Franco Antonio</li>
+                        <li>Zaya, Lucas Gabriel</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+                <div class="panel panel-default">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2015" aria-expanded="false" aria-controls="promocion2015">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2015">
+                            <h4 class="panel-title text-center">PROMOCION 2015</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2015" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2015">
+                      <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+              </div>
+
+              <div class="panel panel-default">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2014" aria-expanded="false" aria-controls="promocion2014">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2014">
+                            <h4 class="panel-title text-center">PROMOCION 2014</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2014" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2014">
+                      <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+              </div>
+
+              <div class="panel panel-default">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2013" aria-expanded="false" aria-controls="promocion2013">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2013">
+                            <h4 class="panel-title text-center">PROMOCION 2013</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2013" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2013">
+                      <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+              </div>
+
+              <div class="panel panel-default">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2012" aria-expanded="false" aria-controls="promocion2012">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2012">
+                            <h4 class="panel-title text-center">PROMOCION 2012</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2012" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2012">
+                      <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+              </div>
+
+              <div class="panel panel-default">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2011" aria-expanded="false" aria-controls="promocion2011">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2011">
+                            <h4 class="panel-title text-center">PROMOCION 2011</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2011" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2011">
+                      <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+              </div>
+
+              <div class="panel panel-default">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2010" aria-expanded="false" aria-controls="promocion2010">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2010">
+                            <h4 class="panel-title text-center">PROMOCION 2010</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2010" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2010">
+                      <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+              </div>
+
+              <div class="panel panel-default">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2009" aria-expanded="false" aria-controls="promocion2009">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2009">
+                            <h4 class="panel-title text-center">PROMOCION 2009</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2009" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2009">
+                      <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+              </div>
+
+              <div class="panel panel-default">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2008" aria-expanded="false" aria-controls="promocion2008">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2008">
+                            <h4 class="panel-title text-center">PROMOCION 2008</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2008" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2008">
+                      <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+              </div>
+
+              <div class="panel panel-default">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2007" aria-expanded="false" aria-controls="promocion2007">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2007">
+                            <h4 class="panel-title text-center">PROMOCION 2007</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2007" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2007">
+                      <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+              </div>
+
+              <div class="panel panel-default">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2006" aria-expanded="false" aria-controls="promocion2006">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2006">
+                            <h4 class="panel-title text-center">PROMOCION 2006</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2006" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2006">
+                      <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+              </div>
+            </div>
+        </div>
+    </div>
+{{end}}
+
+{{block script}}
+	<script>
+		$(document).ready(function(){
+            $(".container").css({"margin-left:0","margin-right:0","padding:0"});
+			$("body").css({"padding-top":"80px", "margin-left":"0","margin-right":"0"});
+			});
+			$("row").css({'margin-top':'20px'});
+	</script>
+    
+    <!-- Swiper JS -->
+    <script src="{{=URL('static','js/swiper.min.js')}}"></script>
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflow: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows : true
+        }
+    });
+    </script>
+
+{{end}}
