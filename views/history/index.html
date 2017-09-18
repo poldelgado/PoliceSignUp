@@ -1,0 +1,117 @@
+{{extend 'layout_institutional.html'}}
+
+{{block styles}}
+    <link rel="stylesheet" href="{{=URL('static', 'css/swiper.min.css')}}">
+{{end}}
+
+
+{{block navbar}}
+
+   <nav class="navbar  navbar-inverse navbar-fixed-top" id="menu">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{=URL('default','index')}}"><img src="{{=URL('static','img/logos/ies-brand.png')}}" alt=""><span>IESP "G.J.F.S.M."</span></a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse move-me" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <!-- <li class="item"><a href="{{=URL('default', 'index#home')}}">INICIO<span class="sr-only">(current)</span></a></li> -->
+            <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>           
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-githaspopup="true" aria-expanded="false">ACTIVIDAD ACADEMICA<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{=URL('default','index#features-sec')}}">Carreras</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Curriculas</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{{=URL('graduated','index')}}">Promociones</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EXTENSION ACADEMICA<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    {{for category in categories:}}
+                        <li><a href="{{=URL('blog', 'show_by_category', args=(category.id))}}">{{=category.name}}</a></li>
+                        <li role="separator" class="divider"></li>
+                    {{pass}}
+                </ul>
+            </li>
+            <li class="item"><a href="{{=URL('history','index')}}">HISTORIA</a></li>            
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+            <li class="item hidden-lg hidden-md"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>          
+            <li><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
+            <!-- <li><a href="{{=URL('default','login_candidate')}}">ASPIRANTES</a></li> -->
+        </ul>
+      </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+{{end}}
+
+{{block content}}
+
+    <div class="container history">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1 class="text-center">Reseña Histórica</h1>
+                <p>El Instituto de Enseñanza Superior de la Policía “Gral. José Francisco de San Martín”, única fuente de formación del Personal Superior de Cuerpo de Seguridad, de la Policía de Tucumán, fue creado –<i>en ese entonces como Escuela de Policía</i>-, <strong>10 de Junio de 1.941</strong>, mediante <strong>Ley registrada con el número 1.856.</strong></p>
+                <p>El establecimiento fue inaugurado el 18 de Marzo de 1.942, por el entonces Gobernador Dr. Miguel Critto, cuyo funcionamiento administrativo fue en el Cuartel del Cuerpo de Bomberos.</p>
+                <p>El <strong>19 de Marzo de 1942</strong>, por <strong>Resolución Nº 13</strong> del Intendente General de Policía, Dr. Amado Aybar Albarracín, se designó como Director Interino de la Escuela al Sub-Contador (Comisario Auxiliar) Manuel A. Pereyra.</p>
+                <p>La Escuela de Policía de la Provincia de Tucumán comprendió los siguientes Ciclo de Enseñanza:</p>
+                <p>
+                    <ul>
+                        <li>
+                            <p><strong>Escuela Superior: </strong>Para Oficiales Principales, Subcomisarios. En ella se dictaban los espacios curriculares: Derecho Penal, Derecho Procesal, Derecho Administrativo, Derecho Constitucional, Derecho Civil, Procedimientos Rurales, Teoría Policial y Práctica Policial.</p>
+                        </li>
+                        <li>
+                            <p><strong>Curso de Oficiales: </strong>Para Agentes de Investigación, Oficiales Meritorios y Oficiales Inspectores. Se dictaron las siguientes materias: Derecho Penal, Derecho Procesal, Derecho Constitucional, Derecho civil, Técnica Policial, Teoría Policial, Práctica Policial, Instrucción Militar, Dactilografía y Taquigrafía.</p>
+                        </li>
+                        <li>
+                            <p><strong>Escuela de Cadetes: </strong>Para Jóvenes que deseen seguir la Carrera Policial. Comprendió éste curso las siguientes asignaturas: Derecho Penal, Derecho Procesal, Técnica Policial, Teoría Policial, Dactilografía, Taquigrafía, Historia Argentina, Geografía Argentina, Instrucción Cívica, Gramática Castellana, Instrucción Militar, Gimnasia, Esgrima, Natación, Equitación, Box y Judo.</p>
+                        </li>
+                        <li>
+                            <p><strong>Escuela de Clases: </strong>Para Agentes de Policía y Cabos; comprendió las siguientes materias: Teoría Policial, Práctica Policial, Historia Argentina, Geografía Argentina, Instrucción Cívica, Gramática Castellana, Instrucción Militar, Gimnasia, Box y Judo.</p>
+                        </li>
+                        <li>
+                            <p><strong>Curso de Aspirantes: </strong>Este curso estuvo reservado para los ciudadanos que ingresaron a la Policía de la Provincia como Agentes de Policía, bomberos, Guardia de Seguridad, Agente de la Policía Volante, Caminera, Fronteriza, Guardia Cárcel, Celador, etc.</p>
+                        </li>
+                    </ul>
+                </p>
+                <p>El <strong>23 de Enero de 1958</strong>, mediante <strong>Decreto Ley Nº 169 G. (S/G)</strong>, el Interventor Federal de la Provincia en ejercicio del Poder Legislativo, dispuso Artículo 1º: Modificase al Artículo 1º de la Ley Nº 1.856, sobre la creación de la Escuela de Policía, dependiente del Departamento General de Policía, quedando el mismo redactado de la siguiente forma: </p>
+                <p><strong>Artículo 1°: </strong>“Créase la Escuela de Policía de la Provincia de Tucumán. La   Dirección   de   la   Escuela   de  Policía  preparará   los Programas, materias, cursos de enseñanza y condiciones exigidas a los alumnos de dicha escuela, los que deberán contar con la aprobación de la Jefatura de Policía antes de ser puesta en vigencia”.</p>
+                <p>El <strong>19 de Febrero de 1981</strong>, mediante <strong>Decreto Ley Nº 429 /14 (SSG)</strong>, se aprobó el nuevo Reglamento Interno de la Escuela de Cadetes y su Régimen Disciplinario, por tal motivo se  dispuso:</p>
+                <p><strong>Artículo 1°: </strong>“Apruébese el nuevo Reglamento Interno  de la Escuela de Cadetes  “Gral.  Don  José  de  San Martín” y sus  régimen Disciplinario que integra dicho Reglamento, los que se transcriben como anexos I y II, respectivamente, que pasan a formar parte integrante del presente Decreto y que  suplirán al que fuera aprobado mediante <strong>Decreto Nº 1.677/14 (SSG), del 10/05/1973</strong>; quedando en consecuencia, sin efecto el citado instrumento legal.</p>
+                <p>El <strong>28 de Abril de 1982</strong>, por medio del <strong>Decreto Nº 827/14 (SSG) del P.E. Provincial</strong>, se aprobó el nuevo Plan de Estudios <strong><i>–de Nivel terciario-</i> de  la Carrera de Cadetes  de la Escuela de Policía “Gral. José de San Martín”.</strong></p>
+                <p>En fecha, <strong>22 de Marzo de 1994</strong>, por <strong>Decreto N° 554/143 (SGyJ) </strong>del Poder Ejecutivo Provincial, se aprobó el Plan de Capacitación denominado Sistema Educativo Policial, Integrado y Permanente presentado por la Secretaria de Estado de Gobierno y Justicia.</p>
+                <p>Que éste Sistema estableció tres niveles de formación:</p>
+                <ul>
+                    <li>Escuela de Suboficiales y Agentes.</li>
+                    <li>Escuela de Oficiales.</li>
+                    <li>Escuela Superior.</li>
+                </ul>
+                <p>Las cuestiones de planeamientos y organizativas, inherentes a los tres niveles académicos objeto del tratamiento, se exponen siguiendo el orden oportunamente adoptado por el Convenio Policial Argentino, esto es: Cadetes, Oficiales, Suboficiales y Agentes.</p>
+                <p><strong>NIVEL CADETES: </strong>Como requisitos cognitivos y de estado civil para el ingreso, se confirman los actualmente vigentes. Sobre la base de orientaciones profesionales, se considerará oportunamente el otorgamiento de <strong>Título de Nivel Terciario Superior – No Universitario</strong>, conjuntamente con el Diploma y grado de Oficial Subayudante. Asimismo y en virtud de ajustarse los programas de las materias a los aplicados en el ámbito universitario, se gestionará la equivalencia directa en los casos que corresponda. Todas las asignaturas del Plan de Estudios de tres años de duración propuesto para la Escuela de Policía, serán promocionales.</p>
+                <p><strong>NIVEL OFICIALES: </strong>se empleará el criterio de capacitación gradual y permanente, realizándose cursos en las modalidades presencial y a distancia, en por los menos tres jerarquías. Uno para Oficiales Ayudantes, otro para Oficiales Principales y un tercero para Comisarios Principales.</p>
+                <p><strong>NIVEL SUBOFICIALES Y AGENTES: </strong>como requisitos cognitivos y de estado civil para el ingreso, se confirman los actualmente vigentes. Se organizará el Curso Regular de Aspirantes a Agente con una duración mínima de Seis Meses, en la modalidad presencial y bajo el régimen de internado. El Poder Ejecutivo Provincial establecerá anualmente el cupo de ingreso; los aspirantes serán seleccionados mediante pruebas de aptitud Psico-físicas. Estableciéndose cursos para el Personal de las Jerarquías de Cabo, Suboficiales Subalternos y Superiores respectivamente.</p>
+                <p>Que a partir del <strong>Ciclo Lectivo 1.999</strong>, se incorporó por primera vez al establecimiento Cadetes femeninas, otorgándosele el beneficio de acceder a una capacitación profesional integral, similar a las de sus iguales masculinos.</p>
+                <p><strong>El 19 de Enero de 2007</strong>, a través de <strong>Resolución Nº 05/7-(SSC)</strong>, el Secretario de Estado de Seguridad Ciudadana;  aprobó el Plan de Estudio para la Carrera de Oficiales del Servicios Penitenciario Provincial, la cual fue implementado a partir de ese año en este Instituto.</p>
+                <p><strong>El 26 de Noviembre  de 2009</strong>, mediante <strong>Resolución Ministerial Nº 1016/5 (MEd)</strong>, el Ministerio de Educación resolvió crear -Ad Referéndum del Poder Ejecutivo Provincial- , la Carrera de Nivel Superior No Universitario -Terciario- “TÉCNICO SUPERIOR EN SEGURIDAD PÚBLICA”,  de 3 años de duración con una carga horaria  de 2.880 horas cátedras</p>
+                <p><strong>El 31 de Mayo de 2010</strong>, por medio del <strong>Decreto N° 1560/5 (MEd)</strong> del Poder Ejecutivo Provincial, aprobó la creación de la Carrera Nivel Superior No Universitario Terciario- <strong>“TECNICO SUPERIOR EN SEGURIDAD PUBLICA” y correspondiente al Plan de Estudios, en el Marco de la Resolución Ministerial 1016/5(MEd)  de fecha 26 de noviembre de 2009.</strong></p>
+                <p><strong>El 28 de Mayo de 2013</strong>, a través <strong>Decreto 1.574/7 (SSC) del Poder Ejecutivo Provincial</strong>, dispuso el cambio de denominación de la Escuela de Cadetes “Gral. José de San Martín” por el de <strong>“INSTITUTO DE ENSEÑANZA SUPERIOR DE POLICÍA “GRAL. JOSÉ FRANCISCO DE SAN MARTÍN”</strong>.</p>
+                <p><strong>El 13 de Marzo de 2014</strong>, a través <strong>Resolución Ministerial Nº 188/5 (MEd) del Ministerio de Educación Provincial</strong>,  Resolvió Homologar los Planes de Estudios dictados en el I.E.S. de Policía “Gral. José Francisco de San Martin” durante el Periodo 1980 – 2011, con el Plan de Carrera de Técnico Superior en Seguridad Pública”, aprobado por Decreto Nº 1560/5 (MEd)-10, Otorgando el título de Técnico Superior en Seguridad Pública”.</p>
+
+
+            </div>
+        </div>
+    </div>
+
+{{end}}

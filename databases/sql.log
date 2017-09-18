@@ -877,3 +877,99 @@ CREATE TABLE schedule(
     modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
 );
 success!
+timestamp: 2017-09-13T20:14:33.834609
+CREATE TABLE cadet(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    last_name CHAR(512),
+    name CHAR(512),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-09-13T20:14:34.052829
+CREATE TABLE graduation(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    year INTEGER,
+    number INTEGER,
+    id_cadet INTEGER REFERENCES cadet (id) ON DELETE CASCADE  ,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-09-13T20:33:07.179662
+ALTER TABLE graduation ADD first_name CHAR(512);
+timestamp: 2017-09-13T20:33:07.300047
+ALTER TABLE graduation ADD last_name CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
