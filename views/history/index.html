@@ -43,11 +43,12 @@
                     {{pass}}
                 </ul>
             </li>
-            <li class="item"><a href="{{=URL('history','index')}}">HISTORIA</a></li>            
+            <li class="item"><a href="{{=URL('history','index')}}">HISTORIA</a></li>
+            <li><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>            
         </ul>
         
-        <ul class="nav navbar-nav navbar-right">
-            <li class="item hidden-lg hidden-md"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>          
+        <ul class="nav navbar-nav navbar-right hidden-lg hidden-md">
+            <li class="item"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>          
             <li><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
             <!-- <li><a href="{{=URL('default','login_candidate')}}">ASPIRANTES</a></li> -->
         </ul>
@@ -112,11 +113,13 @@
 
             </div>
         </div>
-        <div class="row footer">
+        
+    </div>
+
+    <div class="row footer">
         <div id="footer" class="col-md-12">
             <h5>I. E. S. de Policía "Gral. José Francisco de San Martín"</h5>  
         </div>
-    </div>
     </div>
 
 {{end}}
