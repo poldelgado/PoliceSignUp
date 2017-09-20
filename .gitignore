@@ -9,3 +9,4 @@ sessions/
 uploads/
 .hg/
 .idea/
+private/appconfig.ini
