@@ -118,3 +118,11 @@ db.define_table('post',
                 singular= T('Post'), plural=T('Posts'),
                 format = lambda r: '%s, %s' % (r.dateof_post, title),
                 )
+
+
+db.define_table('graduation',
+                Field('year', 'integer', label=T('Year of Graduation')),
+                Field('number', 'integer', label=T('Graduation Number')),
+                Field('last_name', 'string', label=T('Lastname')),
+                Field('first_name', 'string', label=T('Firstname')),
+                )
