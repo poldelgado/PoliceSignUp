@@ -109,10 +109,12 @@ body {
 
     .home-sec .ies-title{
         position: relative;
-        float: left;
+        /*float: left;*/
         /*top: -1.5%;*/
-        padding-right: 20px;
-        margin-top: 20%;
+        right: 3%;
+        padding-left: 0;
+        padding-right: 70px;
+        margin-top: 22%;
         max-width: 660px;
     }
 
@@ -776,13 +778,18 @@ margin-bottom: 200px;
     margin-top: 80px;
 }
 
+.history>div>div{
+    margin-bottom: 25px;
+}
+
 .history>div>div>h1{
     margin-bottom: 20px;
     font-family: 'Playfair Display SC', serif;
 }
 
+
 .history>div>div>p{
-    text-indent: 35px;
+    /*text-indent: 35px;*/
     font-size: 16px;
 }
 
