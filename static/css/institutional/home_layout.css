@@ -110,16 +110,16 @@ body {
     .home-sec .ies-title{
         position: relative;
         float: left;
-        top: -3%;
-        left: 18%;
+        /*top: -1.5%;*/
+        padding-right: 20px;
         margin-top: 20%;
-        max-width: 580px;
+        max-width: 660px;
     }
 
     .home-sec .ies-title h1 {
         color: yellow;
         font-weight: 900;
-        font-size: 90px;
+        font-size: 6.1em;
         padding-bottom: 0; 
         vertical-align: bottom;       
     }
@@ -127,7 +127,7 @@ body {
     .home-sec .ies-title h2{
         color: yellow;
         font-weight: 900;
-        font-size:30px;
+        font-size:2.2em;
         padding:0;
         margin-top: 5px;
         text-align: center;
