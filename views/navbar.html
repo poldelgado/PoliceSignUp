@@ -13,7 +13,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse move-me" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <!-- <li class="item hidden-sm hidden-xs"><a href="#features-sec">OFERTA ACADEMICA<span class="sr-only">(current)</span></a></li> -->
+            <li class="item"><a href="{{=URL('history','index')}}">HISTORIA</a></li>
             <li class="item hidden-sm hidden-xs"><a href="#faculty-sec">AUTORIDADES</a></li>
             <!-- <li class="item hidden-sm hidden-xs"><a href="#course-sec">EGRESADOS</a></li> -->
             <li class="dropdown move-me">
@@ -22,9 +22,6 @@
                     <li><a href="#features-sec">Carreras</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a class="curriculas" data-toggle="collapse" data-parent="accordion" href="#">Curriculas</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="{{=URL('graduated','index')}}">Promociones</a></li>
-
                 </ul>
             </li>
             <li class="dropdown move-me">
@@ -37,8 +34,8 @@
                                        
                 </ul>
             </li>
-            <li class="item"><a href="{{=URL('history','index')}}">HISTORIA</a></li>
-            <li class="item hidden-sm hidden-xs"><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
+            <li class="item"><a href="{{=URL('graduated','index')}}">PROMOCIONES</a></li>
+            <li class="item news hidden-sm hidden-xs"><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
 
         </ul>
         
