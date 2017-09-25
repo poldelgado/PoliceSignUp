@@ -22,14 +22,13 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse move-me" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <!-- <li class="item"><a href="{{=URL('default', 'index#home')}}">INICIO<span class="sr-only">(current)</span></a></li> -->
-            <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>           
+            <li class="item"><a href="{{=URL('history','index')}}">HISTORIA</a></li>
+            <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
+
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-githaspopup="true" aria-expanded="false">ACTIVIDAD ACADEMICA<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="{{=URL('default','index#features-sec')}}">Carreras</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Curriculas</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -41,15 +40,13 @@
                     {{pass}}
                 </ul>
             </li>
-            <li class="item"><a href="{{=URL('history','index')}}">HISTORIA</a></li>
-            <li><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
-
+            <li class="item"><a href="{{=URL('graduated','index')}}">PROMOCIONES</a></li>
+            <li class="item hidden-sm hidden-xs"><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
         </ul>
         
         <ul class="nav navbar-nav navbar-right hidden-lg hidden-md">
-            <li class="item"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>          
+            <li class="item"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
             <li><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
-            <!-- <li><a href="{{=URL('default','login_candidate')}}">ASPIRANTES</a></li> -->
         </ul>
       </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -93,7 +90,7 @@
                             </div>
                         </a>
                         <div id="promocion2015" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2015">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                     {{for graduated in graduation:}}
                                         {{if graduated.number == 69:}}
@@ -112,7 +109,7 @@
                             </div>
                         </a>
                         <div id="promocion2014" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2014">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                     {{for graduated in graduation:}}
                                         {{if graduated.number == 68:}}
@@ -131,7 +128,7 @@
                             </div>
                         </a>
                         <div id="promocion2013" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2013">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                     {{for graduated in graduation:}}
                                         {{if graduated.number == 67:}}
@@ -150,7 +147,7 @@
                             </div>
                         </a>
                         <div id="promocion2012" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2012">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                     {{for graduated in graduation:}}
                                         {{if graduated.number == 66:}}
@@ -169,7 +166,7 @@
                             </div>
                         </a>
                         <div id="promocion2011" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2011">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 65:}}
@@ -188,7 +185,7 @@
                             </div>
                         </a>
                         <div id="promocion2010" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2010">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 64:}}
@@ -207,7 +204,7 @@
                             </div>
                         </a>
                         <div id="promocion2009" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2009">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 63:}}
@@ -226,7 +223,7 @@
                             </div>
                         </a>
                         <div id="promocion2008" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2008">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 62:}}
@@ -245,7 +242,7 @@
                             </div>
                         </a>
                         <div id="promocion2007" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2007">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 61:}}
@@ -264,7 +261,7 @@
                             </div>
                         </a>
                         <div id="promocion2005" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2007">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 60:}}
@@ -283,7 +280,7 @@
                             </div>
                         </a>
                         <div id="promocion2004" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2007">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 59:}}
@@ -302,7 +299,7 @@
                             </div>
                         </a>
                         <div id="promocion2002" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2002">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 58:}}
@@ -321,7 +318,7 @@
                             </div>
                         </a>
                         <div id="promocion2001" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2001">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 57:}}
@@ -340,7 +337,7 @@
                             </div>
                         </a>
                         <div id="promocion1999" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1999">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 56:}}
@@ -359,7 +356,7 @@
                             </div>
                         </a>
                         <div id="promocion1998" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1998">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 55:}}
@@ -378,7 +375,7 @@
                             </div>
                         </a>
                         <div id="promocion1997" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1997">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 54:}}
@@ -397,7 +394,7 @@
                             </div>
                         </a>
                         <div id="promocion1996" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1996">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 53:}}
@@ -416,7 +413,7 @@
                             </div>
                         </a>
                         <div id="promocion52" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading52">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 52:}}
@@ -435,7 +432,7 @@
                             </div>
                         </a>
                         <div id="promocion51" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading51">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 51:}}
@@ -454,7 +451,7 @@
                             </div>
                         </a>
                         <div id="promocion50" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading50">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 50:}}
@@ -473,7 +470,7 @@
                             </div>
                         </a>
                         <div id="promocion49" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading49">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 49:}}
@@ -492,7 +489,7 @@
                             </div>
                         </a>
                         <div id="promocion48" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading48">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 48:}}
@@ -511,7 +508,7 @@
                             </div>
                         </a>
                         <div id="promocion47" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading47">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 47:}}
@@ -530,7 +527,7 @@
                             </div>
                         </a>
                         <div id="promocion46" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading46">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 46:}}
@@ -549,7 +546,7 @@
                             </div>
                         </a>
                         <div id="promocion45" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading45">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 45:}}
@@ -568,7 +565,7 @@
                             </div>
                         </a>
                         <div id="promocion44" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading44">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 44:}}
@@ -587,7 +584,7 @@
                             </div>
                         </a>
                         <div id="promocion43" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading43">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 43:}}
@@ -607,7 +604,7 @@
                             </div>
                         </a>
                         <div id="promocion42" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading42">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 42:}}
@@ -627,7 +624,7 @@
                             </div>
                         </a>
                         <div id="promocion41" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading41">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 41:}}
@@ -647,7 +644,7 @@
                             </div>
                         </a>
                         <div id="promocion41" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading41">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 41:}}
@@ -666,7 +663,7 @@
                             </div>
                         </a>
                         <div id="promocion40" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading40">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 40:}}
@@ -685,7 +682,7 @@
                             </div>
                         </a>
                         <div id="promocion39" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading39">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 39:}}
@@ -704,7 +701,7 @@
                             </div>
                         </a>
                         <div id="promocion39" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading39">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 39:}}
@@ -724,7 +721,7 @@
                             </div>
                         </a>
                         <div id="promocion38" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading38">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 38:}}
@@ -743,7 +740,7 @@
                             </div>
                         </a>
                         <div id="promocion37" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading37">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 37:}}
@@ -762,7 +759,7 @@
                             </div>
                         </a>
                         <div id="promocion36" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading36">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 36:}}
@@ -781,7 +778,7 @@
                             </div>
                         </a>
                         <div id="promocion35" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading35">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 35:}}
@@ -796,11 +793,11 @@
                     <div class="panel panel-default">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion34" aria-expanded="false" aria-controls="promocion34">
                             <div class="panel-heading promocion-heading" role="tab" id="heading34">
-                                <h4 class="panel-title text-center">PROMOCION N° 34 (ESPECIAL) - AÑO 1977</h4>
+                                <h4 class="panel-title text-center">PROMOCION N° 34 - AÑO 1977 (ESPECIAL)</h4>
                             </div>
                         </a>
                         <div id="promocion34" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading34">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 34:}}
@@ -819,7 +816,7 @@
                             </div>
                         </a>
                         <div id="promocion33" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading33">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 33:}}
@@ -838,7 +835,7 @@
                             </div>
                         </a>
                         <div id="promocion32" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading32">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 32:}}
@@ -857,7 +854,7 @@
                             </div>
                         </a>
                         <div id="promocion31" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading31">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 31:}}
@@ -876,7 +873,7 @@
                             </div>
                         </a>
                         <div id="promocion30" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading30">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 30:}}
@@ -895,7 +892,7 @@
                             </div>
                         </a>
                         <div id="promocion29" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading29">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 29:}}
@@ -914,7 +911,7 @@
                             </div>
                         </a>
                         <div id="promocion28" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading28">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 28:}}
@@ -933,7 +930,7 @@
                             </div>
                         </a>
                         <div id="promocion27" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading27">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 27:}}
@@ -952,7 +949,7 @@
                             </div>
                         </a>
                         <div id="promocion26" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading26">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 25:}}
@@ -971,7 +968,7 @@
                             </div>
                         </a>
                         <div id="promocion25" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading25">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 25:}}
@@ -990,7 +987,7 @@
                             </div>
                         </a>
                         <div id="promocion24" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading24">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 24:}}
@@ -1009,7 +1006,7 @@
                             </div>
                         </a>
                         <div id="promocion23" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading23">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 23:}}
@@ -1028,7 +1025,7 @@
                             </div>
                         </a>
                         <div id="promocion22" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading22">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 22:}}
@@ -1047,7 +1044,7 @@
                             </div>
                         </a>
                         <div id="promocion21" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading21">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 21:}}
@@ -1066,7 +1063,7 @@
                             </div>
                         </a>
                         <div id="promocion20" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading20">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 20:}}
@@ -1085,7 +1082,7 @@
                             </div>
                         </a>
                         <div id="promocion19" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading19">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 19:}}
@@ -1104,7 +1101,7 @@
                             </div>
                         </a>
                         <div id="promocion18" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading18">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 18:}}
@@ -1123,7 +1120,7 @@
                             </div>
                         </a>
                         <div id="promocion17" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading17">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 17:}}
@@ -1142,7 +1139,7 @@
                             </div>
                         </a>
                         <div id="promocion16" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading16">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 16:}}
@@ -1161,7 +1158,7 @@
                             </div>
                         </a>
                         <div id="promocion15" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading15">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 15:}}
@@ -1180,7 +1177,7 @@
                             </div>
                         </a>
                         <div id="promocion14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading14">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 14:}}
@@ -1199,7 +1196,7 @@
                             </div>
                         </a>
                         <div id="promocion13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading13">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 13:}}
@@ -1218,7 +1215,7 @@
                             </div>
                         </a>
                         <div id="promocion12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading12">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 12:}}
@@ -1237,7 +1234,7 @@
                             </div>
                         </a>
                         <div id="promocion11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading11">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 11:}}
@@ -1256,7 +1253,7 @@
                             </div>
                         </a>
                         <div id="promocion10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading10">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 10:}}
@@ -1275,7 +1272,7 @@
                             </div>
                         </a>
                         <div id="promocion9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading9">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 9:}}
@@ -1294,7 +1291,7 @@
                             </div>
                         </a>
                         <div id="promocion8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 8:}}
@@ -1313,7 +1310,7 @@
                             </div>
                         </a>
                         <div id="promocion7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 7:}}
@@ -1332,7 +1329,7 @@
                             </div>
                         </a>
                         <div id="promocion6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 6:}}
@@ -1351,7 +1348,7 @@
                             </div>
                         </a>
                         <div id="promocion5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 5:}}
@@ -1370,7 +1367,7 @@
                             </div>
                         </a>
                         <div id="promocion4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 4:}}
@@ -1389,7 +1386,7 @@
                             </div>
                         </a>
                         <div id="promocion3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 3:}}
@@ -1408,7 +1405,7 @@
                             </div>
                         </a>
                         <div id="promocion2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 2:}}
@@ -1427,7 +1424,7 @@
                             </div>
                         </a>
                         <div id="promocion1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
-                            <div class="panel-body">
+                            <div class="panel-body promocion-body">
                                 <ul>
                                 {{for graduated in graduation:}}
                                     {{if graduated.number == 1:}}
@@ -1454,29 +1451,8 @@
 	<script>
 		$(document).ready(function(){
             $(".container").css({"margin-left:0","margin-right:0","padding:0"});
-			$("body").css({"padding-top":"80px", "margin-left":"0","margin-right":"0"});
-			});
-			$("row").css({'margin-top':'20px'});
-	</script>
-    
-    <!-- Swiper JS -->
-    <script src="{{=URL('static','js/swiper.min.js')}}"></script>
-    <!-- Initialize Swiper -->
-    <script>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 'auto',
-        coverflow: {
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows : true
-        }
-    });
-    </script>
-
+			$("body").css({"padding-top":"80px","margin-left":"0","margin-right":"0"});
+            });
+			$("row").css({'margin-top':'20px'});         
+	</script>    
 {{end}}

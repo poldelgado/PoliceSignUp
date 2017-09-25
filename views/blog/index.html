@@ -17,14 +17,13 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse move-me" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <!-- <li class="item"><a href="{{=URL('default', 'index#home')}}">INICIO<span class="sr-only">(current)</span></a></li> -->
-            <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>           
+            <li class="item"><a href="{{=URL('history','index')}}">HISTORIA</a></li>
+            <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
+
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-githaspopup="true" aria-expanded="false">ACTIVIDAD ACADEMICA<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="{{=URL('default','index#features-sec')}}">Carreras</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="{{=URL('graduated','index')}}">Promociones</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -36,14 +35,13 @@
                     {{pass}}
                 </ul>
             </li>
-            <li class="item"><a href="{{=URL('history','index')}}">HISTORIA</a></li>
+            <li class="item"><a href="{{=URL('graduated','index')}}">PROMOCIONES</a></li>
             <li class="item hidden-sm hidden-xs"><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
         </ul>
         
         <ul class="nav navbar-nav navbar-right hidden-lg hidden-md">
             <li class="item"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
             <li><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
-            <!-- <li><a href="{{=URL('default','login_candidate')}}">ASPIRANTES</a></li> -->
         </ul>
       </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

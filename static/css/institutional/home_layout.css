@@ -113,13 +113,13 @@ body {
         top: -3%;
         left: 7%;
         margin-top: 20%;
-        max-width: 540px;
+        max-width: 580px;
     }
 
     .home-sec .ies-title h1 {
         color: yellow;
         font-weight: 900;
-        font-size: 55px;
+        font-size: 90px;
         padding-bottom: 0; 
         vertical-align: bottom;       
     }
@@ -130,6 +130,7 @@ body {
         font-size:30px;
         padding:0;
         margin-top: 5px;
+        text-align: center;
     }
 
     .home-sec h3 {
@@ -488,7 +489,7 @@ h1::after {
     margin-top: 10px;
     padding-top: 10px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500; 
+    font-weight: 600; 
     text-transform: uppercase;
     font-size: 30px;
     font-style: normal;
@@ -500,6 +501,11 @@ h1::after {
 
 .programs{
 margin-bottom: 200px;
+}
+
+.programs .panel-heading{
+    background-color: #1c2c4c;
+    color: #fff;
 }
 
 .latest-post{
@@ -592,6 +598,32 @@ margin-bottom: 200px;
     .home-sec{
         margin-top: 70px;
     }
+    .promocion-body ul{
+        -webkit-column-count: 1; /* Chrome, Safari, Opera */
+        -moz-column-count: 1; /* Firefox */
+        column-count: 1;
+        list-style-type: none;
+    }
+}
+
+@media (max-width: 650px){
+    .promocion-body ul{
+        -webkit-column-count: 1; /* Chrome, Safari, Opera */
+        -moz-column-count: 1; /* Firefox */
+        column-count: 1;
+        list-style-type: none;
+    }
+}
+
+@media (min-width: 650px){
+    .promocion-body ul{
+        -webkit-column-count: 2; /* Chrome, Safari, Opera */
+        -moz-column-count: 2; /* Firefox */
+        column-count: 2;
+        list-style-type: none;
+    }
+}
+
 }
 
 /*#########################
@@ -735,8 +767,10 @@ margin-bottom: 200px;
 }
 
 .promocion-body{
-    margin-left:50px;
+    margin-left:20px;
 }
+
+
 
 .history{
     margin-top: 80px;
