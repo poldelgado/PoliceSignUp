@@ -21,13 +21,13 @@
             <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-githaspopup="true" aria-expanded="false">ACTIVIDAD ACADEMICA<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-githaspopup="true" aria-expanded="false">ACTIVIDAD ACADÉMICA<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="{{=URL('default','index#features-sec')}}">Carreras</a></li>
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EXTENSION ACADEMICA<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EXTENSIÓN ACADÉMICA<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     {{for category in categories:}}
                         <li><a href="{{=URL('blog', 'show_by_category', args=(category.id))}}">{{=category.name}}</a></li>
@@ -63,7 +63,7 @@
         {{for post in posts:}}
         <div class="row">
             <div class="col-md-3 pull-left post-leftbar hidden-sm hidden-xs">
-                <h2>{{=post.date_of_post}}</h2>
+                <h2 class="date-of-post">{{=post.date_of_post}}</h2>
                 <h3>{{=post.resume}}</h3>
             </div>
             <div class="col-md-9">
@@ -102,20 +102,19 @@
         <div id="footer" class="col-md-12">
             <h5>I. E. S. de Policía "Gral. José Francisco de San Martín"</h5>  
         </div>
-    </div>
-
-
-
-				
+    </div>				
 {{end}}
 
 {{block script}}
-
-	<script>
-		$(document).ready(function(){
-			$("body").css({'padding-top':'80px'});
-			});
-	</script>
-
-
+    <script src="{{=URL('static','js/moment-with-locales.js')}}"></script>
+    <script>        
+        $(document).ready(function(){
+            $("body").css({'padding-top':'80px'});
+            $(".date-of-post").each(function() {
+                var date = $(this).html();
+                date = moment(date, "YYYY MM DD", "es");
+                $(this).html(date.format("DD" + "-" + "MM" + "-" + "YYYY"))   
+                });
+            });
+    </script>
 {{end}}

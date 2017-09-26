@@ -22,13 +22,13 @@
             <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-githaspopup="true" aria-expanded="false">ACTIVIDAD ACADEMICA<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-githaspopup="true" aria-expanded="false">ACTIVIDAD ACADÉMICA<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="{{=URL('default','index#features-sec')}}">Carreras</a></li>
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EXTENSION ACADEMICA<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EXTENSIÓN ACADÉMICA<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     {{for category in categories:}}
                         <li><a href="{{=URL('blog', 'show_by_category', args=(category.id))}}">{{=category.name}}</a></li>
