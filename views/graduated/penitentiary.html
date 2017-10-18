@@ -1,0 +1,191 @@
+{{extend 'layout_institutional.html'}}
+
+{{block styles}}
+    <link rel="stylesheet" href="{{=URL('static', 'css/swiper.min.css')}}">
+{{end}}
+
+
+{{block navbar}}
+
+   {{include 'navbar-2.html'}}
+
+{{end}}
+
+
+
+{{block content}}
+
+    <div class="row promociones">
+        <div class="col-md-8 col-md-offset-2">
+            <h1 class="text-center">PROMOCIONES</h1>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                <div class="panel panel-default">
+                    <a class="link-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion8" aria-expanded="true" aria-controls="promocion8">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading8">
+                            <h4 class="panel-title text-center">PROMOCIÓN N° 8 - AÑO 2016</h4>
+                        </div>
+                    </a>
+                    <div id="promocion8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">
+                      <div class="panel-body promocion-body">
+                        <ul>
+                            {{for graduated in graduation:}}
+                                {{if graduated.number == 8:}}
+                                    <li>{{=graduated.last_name +', '+graduated.first_name}}</li>
+                                {{pass}}
+                            {{pass}}
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <a class="link-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion7" aria-expanded="true" aria-controls="promocion7">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading7">
+                            <h4 class="panel-title text-center">PROMOCIÓN N° 7 - AÑO 2015</h4>
+                        </div>
+                    </a>
+                    <div id="promocion7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
+                      <div class="panel-body promocion-body">
+                        <ul>
+                            {{for graduated in graduation:}}
+                                {{if graduated.number == 7:}}
+                                    <li>{{=graduated.last_name +', '+graduated.first_name}}</li>
+                                {{pass}}
+                            {{pass}}
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <a class="link-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion6" aria-expanded="true" aria-controls="promocion6">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading6">
+                            <h4 class="panel-title text-center">PROMOCIÓN N° 6 - AÑO 2014</h4>
+                        </div>
+                    </a>
+                    <div id="promocion6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
+                      <div class="panel-body promocion-body">
+                        <ul>
+                            {{for graduated in graduation:}}
+                                {{if graduated.number == 6:}}
+                                    <li>{{=graduated.last_name +', '+graduated.first_name}}</li>
+                                {{pass}}
+                            {{pass}}
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <a class="link-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion5" aria-expanded="true" aria-controls="promocion5">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading5">
+                            <h4 class="panel-title text-center">PROMOCIÓN N° 5 - AÑO 2013</h4>
+                        </div>
+                    </a>
+                    <div id="promocion5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
+                      <div class="panel-body promocion-body">
+                        <ul>
+                            {{for graduated in graduation:}}
+                                {{if graduated.number == 5:}}
+                                    <li>{{=graduated.last_name +', '+graduated.first_name}}</li>
+                                {{pass}}
+                            {{pass}}
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <a class="link-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion8" aria-expanded="true" aria-controls="promocion4">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading4">
+                            <h4 class="panel-title text-center">PROMOCIÓN N° 4 - AÑO 2012</h4>
+                        </div>
+                    </a>
+                    <div id="promocion4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+                      <div class="panel-body promocion-body">
+                        <ul>
+                            {{for graduated in graduation:}}
+                                {{if graduated.number == 4:}}
+                                    <li>{{=graduated.last_name +', '+graduated.first_name}}</li>
+                                {{pass}}
+                            {{pass}}
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <a class="link-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion3" aria-expanded="true" aria-controls="promocion3">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading3">
+                            <h4 class="panel-title text-center">PROMOCIÓN N° 3 - AÑO 2011</h4>
+                        </div>
+                    </a>
+                    <div id="promocion3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                      <div class="panel-body promocion-body">
+                        <ul>
+                            {{for graduated in graduation:}}
+                                {{if graduated.number == 3:}}
+                                    <li>{{=graduated.last_name +', '+graduated.first_name}}</li>
+                                {{pass}}
+                            {{pass}}
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <a class="link-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion2" aria-expanded="true" aria-controls="promocion2">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading2">
+                            <h4 class="panel-title text-center">PROMOCIÓN N° 2 - AÑO 2010</h4>
+                        </div>
+                    </a>
+                    <div id="promocion2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                      <div class="panel-body promocion-body">
+                        <ul>
+                            {{for graduated in graduation:}}
+                                {{if graduated.number == 2:}}
+                                    <li>{{=graduated.last_name +', '+graduated.first_name}}</li>
+                                {{pass}}
+                            {{pass}}
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <a class="link-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#promocion1" aria-expanded="true" aria-controls="promocion1">
+                        <div class="panel-heading promocion-heading" role="tab" id="heading1">
+                            <h4 class="panel-title text-center">PROMOCIÓN N° 1 - AÑO 2009</h4>
+                        </div>
+                    </a>
+                    <div id="promocion1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                      <div class="panel-body promocion-body">
+                        <ul>
+                            {{for graduated in graduation:}}
+                                {{if graduated.number == 1:}}
+                                    <li>{{=graduated.last_name +', '+graduated.first_name}}</li>
+                                {{pass}}
+                            {{pass}}
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+    
+
+{{end}}
+
+{{block script}}
+	<script>
+		$(document).ready(function(){
+            $(".container").css({"margin-left:0","margin-right:0","padding:0"});
+			$("body").css({"padding-top":"80px","margin-left":"0","margin-right":"0"});
+            });
+			$("row").css({'margin-top':'20px'});         
+	</script>    
+{{end}}
