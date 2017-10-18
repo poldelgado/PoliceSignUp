@@ -108,21 +108,22 @@ db.define_table('post_category',
                 )
 
 db.define_table('post',
-                Field('title', 'string', label=T('title')),
-                Field('date_of_post', 'date', label=T('date of post')),
+                Field('title', 'string', label = T('title')),
+                Field('date_of_post', 'date', label = T('date of post')),
                 Field('category', 'reference post_category', label=T('Category')),
                 Field('picture','upload', requires = IS_IMAGE(), label=T('image')),
-                Field('resume', 'string', label=T('resume')),
-                Field('content', 'text', label=T('content')),                
+                Field('resume', 'string', label = T('resume')),
+                Field('content', 'text', label = T('content')),                
                 auth.signature,
-                singular= T('Post'), plural=T('Posts'),
+                singular= T('Post'), plural = T('Posts'),
                 format = lambda r: '%s, %s' % (r.dateof_post, title),
                 )
 
 
 db.define_table('graduation',
-                Field('year', 'integer', label=T('Year of Graduation')),
-                Field('number', 'integer', label=T('Graduation Number')),
-                Field('last_name', 'string', label=T('Lastname')),
-                Field('first_name', 'string', label=T('Firstname')),
+                Field('year', 'integer', label = T('Year of Graduation')),
+                Field('number', 'integer', label = T('Graduation Number')),
+                Field('last_name', 'string', label = T('Lastname')),
+                Field('first_name', 'string', label = T('Firstname')),
+                Field('title', 'string', label = T('Title'))
                 )
