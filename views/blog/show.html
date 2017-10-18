@@ -3,50 +3,7 @@
 
 {{block navbar}}
 
-   <nav class="navbar  navbar-inverse navbar-fixed-top" id="menu">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{=URL('default','index')}}"><img src="{{=URL('static','img/logos/ies-brand.png')}}" alt=""><span>IESP "G.J.F.S.M."</span></a>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse move-me" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li class="item"><a href="{{=URL('history','index')}}">HISTORIA</a></li>
-            <li class="item hidden-sm hidden-xs"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
-
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-githaspopup="true" aria-expanded="false">ACTIVIDAD ACADÉMICA<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{=URL('default','index#features-sec')}}">Carreras</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EXTENSIÓN ACADÉMICA<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    {{for category in categories:}}
-                        <li><a href="{{=URL('blog', 'show_by_category', args=(category.id))}}">{{=category.name}}</a></li>
-                        <li role="separator" class="divider"></li>
-                    {{pass}}
-                </ul>
-            </li>
-            <li class="item"><a href="{{=URL('graduated','index')}}">PROMOCIONES</a></li>
-            <li class="item hidden-sm hidden-xs"><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
-        </ul>
-        
-        <ul class="nav navbar-nav navbar-right hidden-lg hidden-md">
-            <li class="item"><a href="{{=URL('default', 'index#faculty-sec')}}">AUTORIDADES</a></li>
-            <li><a href="{{=URL('blog','index')}}">NOTICIAS</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    {{include 'navbar-2.html'}}
 
 {{end}}
 
