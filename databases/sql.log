@@ -125,3 +125,7 @@ success!
 success!
 success!
 success!
+timestamp: 2017-10-18T23:12:59.875126
+ALTER TABLE `graduation` ADD `title` VARCHAR(512);
+success!
+success!
