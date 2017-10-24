@@ -97,6 +97,11 @@ def call():
 def login_candidate():
     auth.settings.login_next = URL(c='candidate',f='profile')
     return dict(loginform = auth())
+
 def logout():
     auth.settings.logout_next = URL('index')
-    return dict();
+    return dict()
+
+def entry_program():
+    categories = db(db.post_category).select().sort(lambda post_category: len(post_category.name)) #post category sorted by name size
+    return dict(categories = categories)
