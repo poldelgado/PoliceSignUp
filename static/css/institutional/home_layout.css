@@ -153,8 +153,8 @@ body {
         margin-left: 0;
         padding-right: 0;
         padding-left: 0;
-        opacity: 0.1;
-    }
+/*        opacity: 0.1;
+*/    }
 
     .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     /*display: block;*/
@@ -628,9 +628,11 @@ margin-bottom: 200px;
 
 @media (min-width: 650px){
     .promocion-body{
-        min-height: 290px;
+        position: relative;
+        min-height: 350px;
     }
     .promocion-body ul{
+        vertical-align: middle;
         -webkit-column-count: 2; /* Chrome, Safari, Opera */
         -moz-column-count: 2; /* Firefox */
         column-count: 2;
@@ -793,6 +795,8 @@ margin-bottom: 200px;
     background-repeat: no-repeat;
     background-size: 30%;
     margin-left:20px;
+    margin-top: 30px;
+    
 }
 
 
@@ -841,4 +845,34 @@ margin-bottom: 200px;
     margin-bottom: 25px;
     font-size: 20px;
     font-weight: bold;
+}
+
+@media (min-width: 650px){
+    .promocion-body-penitentiary{
+        position: relative;
+        min-height: 350px;
+    }
+    .promocion-body-penitentiary ul{
+        vertical-align: middle;
+        -webkit-column-count: 2; /* Chrome, Safari, Opera */
+        -moz-column-count: 2; /* Firefox */
+        column-count: 2;
+        list-style-type: none;
+        /*text-align: center;*/
+        margin-left: 10%;
+        font-weight: 600;
+        color: #000;
+    }  
+}
+
+.promocion-body-penitentiary{
+    background-image: url('../../images/logo_ies_wm.png');
+    /*background-color: rgba(0,0,0,0.2);*/
+    /*opacity: 0.6;*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 24%;
+    margin-left:20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
