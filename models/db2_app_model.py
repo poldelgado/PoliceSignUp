@@ -127,3 +127,18 @@ db.define_table('graduation',
                 Field('first_name', 'string', label = T('Firstname')),
                 Field('title', 'string', label = T('Title'))
                 )
+
+db.define_table('shift',
+                Field('shift_date', 'date', label = T('Shift Date')),
+                auth.signature,
+                singular= T('Shift'), plural = T('Shifts'),
+                format = lambda r: '%s' % (r.shift_date),
+                )
+
+db.define_table('shift_candidate',
+                Field('shift', 'reference shift', label = T('Shift Date')),
+                Field('auth_user', 'reference auth_user', label = T('Candidate')),
+                auth.signature,
+                singular= T('Shift'), plural = T('Shifts'),
+                format = lambda r: '%s, %s, %s %s' % (r.shift.shift_date, r.auth_user.username, r.auth_user.last_name, r.auth_user.first_name),
+                )

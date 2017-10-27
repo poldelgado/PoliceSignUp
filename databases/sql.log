@@ -159,3 +159,43 @@ success!
 success!
 success!
 success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2017-10-26T11:56:05.786809
+CREATE TABLE shift(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    shift_date DATE,
+    auth_user INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+success!

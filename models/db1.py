@@ -72,7 +72,6 @@ auth.settings.extra_fields['auth_user'] = [
         readable=False, writable=False,
         default={}
     ),
-    #Field('ssn', 'string', label=T('ssn'), requires = IS_NOT_EMPTY()),
     Field('birth_date', 'date', label=T('Birth Date')),
     Field('gender', label=T('Gender') , requires = IS_IN_SET([T('Male'),T('Female')],
     zero=T('Choose one'))),
