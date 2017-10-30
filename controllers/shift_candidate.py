@@ -6,7 +6,7 @@ The list utilizes the datatables plugin.
 The create and view views utilize the cascading field plugin.
 '''
 
-table = db.shift
+table = db.shift_candidate
 response.view_title = '%s %s' % (
     request.function.replace('_', ' ').title(),
     table._singular

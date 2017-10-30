@@ -48,3 +48,64 @@ posts = db(db.post.category == 1).select()
 posts = db(db.post.post_category.id == 1).select()
 posts = db(db.post.category.id == 1).select()
 exit()
+    shifts = db(db.shift).select(orderby=db.shift.shift_date)
+shifts = db(db.shift).select()
+print shifts
+shifts = db(db.shift).select(orderby = db.shift.shift_date)
+print shifts
+for i in range(len(shifts)):
+print shifts[i]
+for i in range(len(shifts)):
+  print shifts[i]
+  print shifts[2]
+  print shifts.id
+  print shifts.id['1']
+  print shifts
+exit
+exit()
+shifts = db(db.shift).select(orderby = db.shift.shift_date)
+shifts
+shifts.count()
+i = shifts.count()
+i = len(shifts)
+i
+for i in range(len(shifts)):
+  print shifts[i]
+  print shifts[i+1]
+shifts_candidate = db(shift_candidate).select()
+shifts_candidate = db(db.shift_candidate).select()
+shifts_candidate
+print shifts_candidate
+print shifts_candidate.shift.shift_date
+for s in shifts_candidate:
+  print s.shift.shift_date
+shifts
+for i in range(len(shifts)):
+  sc1 = db(db.shift_candidate.shift.shift_date==shifts[i])
+for i in range(len(shifts)):
+  sc1 = db(db.shift_candidate.shift.shift_date==shifts[i]).select()
+  print sc1
+  sc1 = db(db.shift_candidate.shift.shift_date==shifts[i].shift_date).select()
+for i in range(len(shifts)):
+  sc1 = db(db.shift_candidate.shift.shift_date==shifts[i].shift_date).select()
+  print sc1
+sc1 = db(db.shift_candidate).select()
+sc1
+print sc1
+for s in sc1:
+
+for s in sc1:
+  print s.auth_user.first_name
+for i in range(len(shifts)):
+  sc1 = db(db.shift_candidate.shift_id == shifts[i].id).select()
+  print sc1
+for i in range(len(shifts)):
+  sc1 = db(db.shift_candidate.shift == shifts[i].id).select()
+  print sc1
+for i in range(len(shifts)):
+  sc1 = db(db.shift_candidate.shift == shifts[i].id).select()
+  sc2 = db(db.shift_candidate.shift == shifts[i+1].id).select()
+  print sc1
+  print sc2
+  sc2 = db(db.shift_candidate.shift == shifts[i+1].id).select()
+exit()

@@ -199,3 +199,298 @@ CREATE TABLE shift(
 );
 success!
 success!
+timestamp: 2017-10-27T13:46:33.972856
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "username" CHAR(128),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512),
+    "bookmarks" CHAR(4096),
+    "birth_date" DATE,
+    "gender" CHAR(512),
+    "marital_status" CHAR(512),
+    "career" CHAR(512),
+    "phone" CHAR(512),
+    "address" CHAR(512),
+    "city" CHAR(512),
+    "province" CHAR(512),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T13:46:33.984238
+CREATE TABLE "message"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "context" CHAR(25),
+    "context_id" INTEGER,
+    "auth_user" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "direction" CHAR(8),
+    "is_read" CHAR(1),
+    "msg_sender" CHAR(100),
+    "msg_from" CHAR(100),
+    "msg_recipient" CHAR(100),
+    "msg_to" CHAR(100),
+    "msg_subject" CHAR(100),
+    "msg_body" CHAR(500),
+    "msg_html" CHAR(500),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T13:46:33.994010
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T13:46:34.004153
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T13:46:34.023286
+CREATE TABLE "post_category"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" CHAR(512),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T13:46:34.036256
+CREATE TABLE "post"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "title" CHAR(512),
+    "date_of_post" DATE,
+    "category" INTEGER REFERENCES "post_category" ("id") ON DELETE CASCADE  ,
+    "picture" CHAR(512),
+    "resume" CHAR(512),
+    "content" TEXT,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.621130
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.632280
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2017-10-27T17:35:04.640567
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2017-10-27T17:35:04.654083
+CREATE TABLE "inscription"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "auth_user" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.665431
+CREATE TABLE "height"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "height" DOUBLE,
+    "aproved" CHAR(1),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.674595
+CREATE TABLE "intellectual_exam"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "spanish_language" DOUBLE,
+    "history" DOUBLE,
+    "geography" DOUBLE,
+    "aproved" CHAR(1),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.691563
+CREATE TABLE "medical_exam"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "exam_result" CHAR(1),
+    "reason" CHAR(512),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.708044
+CREATE TABLE "physical_exam"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "abs_test" INTEGER,
+    "arms" INTEGER,
+    "aerobics" INTEGER,
+    "aproved" CHAR(1),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.719508
+CREATE TABLE "groupal_psychological_examination"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "exam_result" CHAR(1),
+    "reason" CHAR(512),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.737061
+CREATE TABLE "psychological_interview"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "exam_result" CHAR(1),
+    "reason" CHAR(512),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.752260
+CREATE TABLE "notification"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "auth_user" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "date_of_notification" DATE,
+    "message" TEXT,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.762052
+CREATE TABLE "schedule"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "height_schedule" TEXT,
+    "intellectual_exam_schedule" TEXT,
+    "medical_exam_schedule" TEXT,
+    "physical_exam_schedule" TEXT,
+    "groupal_psychological_examination_schedule" TEXT,
+    "psychological_interview_schedule" TEXT,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.781286
+CREATE TABLE "graduation"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "year" INTEGER,
+    "number" INTEGER,
+    "last_name" CHAR(512),
+    "first_name" CHAR(512),
+    "title" CHAR(512)
+);
+success!
+timestamp: 2017-10-27T17:35:04.793786
+CREATE TABLE "shift"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "shift_date" DATE,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-10-27T17:35:04.805355
+CREATE TABLE "shift_candidate"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "shift" INTEGER REFERENCES "shift" ("id") ON DELETE CASCADE  ,
+    "auth_user" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
