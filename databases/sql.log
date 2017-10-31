@@ -494,3 +494,6 @@ CREATE TABLE "shift_candidate"(
     "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
 );
 success!
+timestamp: 2017-10-31T10:38:45.207765
+ALTER TABLE "shift" ADD "shift_time" TIME;
+success!

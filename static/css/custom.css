@@ -116,3 +116,8 @@
 .nopass{
 	color:red;
 }
+
+.shift-obs{
+	color: red;
+	padding-bottom: 10px;
+}

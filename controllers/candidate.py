@@ -118,6 +118,7 @@ def gestion():
 @auth.requires_login()
 def profile():
     user_profile = db(db.auth_user.id == auth.user_id).select().first()
+    shift = db(db.shift_candidate.auth_user == auth.user_id).select().first()
     inscription = db(user_profile.id == db.inscription.auth_user).select().last()
     height_exam = db(db.height.inscription == inscription.id).select().first()
     intellectual_exam = db(db.intellectual_exam.inscription == inscription.id).select().first()
@@ -126,13 +127,13 @@ def profile():
     groupal_psychological_examination = db(db.groupal_psychological_examination.inscription == inscription.id).select().first()
     psychological_interview = db(db.psychological_interview.inscription == inscription.id).select().first()
 
-    
+
     if not(height_exam == None):
         if ((height_exam.height >= 1.7) and (user_profile.gender == T('Male'))) or ((height_exam.height >= 1.65) and (user_profile.gender == T('Female'))):
             height_exam.update_record(aproved=True)
         else:
             height_exam.update_record(aproved=False)
-            
+
 
     if not(intellectual_exam  == None):
         if (intellectual_exam.spanish_language >=6) and (intellectual_exam.history >= 6) and (intellectual_exam.geography >=6):
@@ -148,7 +149,7 @@ def profile():
             physical_exam.update_record(aproved=False)
 
 
-    return dict(user = user_profile, inscription = inscription, height_exam = height_exam, intellectual_exam = intellectual_exam, medical_exam = medical_exam, physical_exam = physical_exam,
+    return dict(user = user_profile, shift = shift, inscription = inscription, height_exam = height_exam, intellectual_exam = intellectual_exam, medical_exam = medical_exam, physical_exam = physical_exam,
         groupal_psychological_examination = groupal_psychological_examination, psychological_interview = psychological_interview)
 
 def register():
@@ -157,7 +158,7 @@ def register():
     return dict(form = auth.register())
 
 @auth.requires_login()
-def forms():    
+def forms():
     return dict()
 
 @auth.requires_login()
@@ -187,31 +188,54 @@ def intellectual_exam_form():
 
 def add_user_shift(form):
     user_id=form.vars.id
-    shift = search_shift()
+    shift = search_shift2()
     db.shift_candidate.insert(auth_user = user_id, shift = shift)
     inscription.insert(auth_user = user_id)
 
-#esta función retorna el turno asignado a la cantidad menor de aspirantes y mas cercano al turno anterior.
+#function that search the shift with less cadets
 def search_shift():
     shifts = db(db.shift).select(orderby = db.shift.shift_date)
     flag = True
     first_id = shifts.first().id
     for i in range(len(shifts)):
         shift_candidate1 = db(db.shift_candidate.shift == shifts[i].id).select()
-        if (shift_candidate1 == None):
+        if shift_candidate1 is None:
             flag = False
             return shifts[i].id
         else:
             j = i+1
-            while j<(len(shifts)):
+            while j < (len(shifts)):
                 shift_candidate2 = db(db.shift_candidate.shift == shifts[j].id).select()
-                if (shift_candidate2 == None):
+                if shift_candidate2 is None:
                     flag = False
                     return shifts[j].id
                 else:
-                    if (len(shift_candidate1) > len(shift_candidate2)):
+                    if len(shift_candidate1) > len(shift_candidate2):
                         flag = False
                         return shifts[j].id
                 j = j + 1
+    if flag:
+        return first_id
+
+
+# getting better the function that search the shift with less cadets
+def search_shift2():
+    shifts = db(db.shift).select(orderby = db.shift.shift_date)
+    flag = True
+    shift_candidate1 = db(db.shift_candidate.shift == shifts[0].id).select()
+    first_id = shifts.first().id
+    if shift_candidate1 is None:
+        flag = False
+        return first_id
+    else:
+        for i in range(1, len(shifts)):
+            shift_candidate2 = db(db.shift_candidate.shift == shifts[i].id).select()
+            if shift_candidate2 is None:
+                flag = False
+                return shifts[i].id
+            else:
+                if len(shift_candidate1) > len(shift_candidate2):
+                    flag = False
+                    return shifts[i].id
     if flag:
         return first_id

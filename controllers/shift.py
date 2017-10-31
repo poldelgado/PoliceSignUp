@@ -114,3 +114,8 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
+
+
+#create all the shifts for one day
+def shifts_for_day():
+    return dict()

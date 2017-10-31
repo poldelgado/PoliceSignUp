@@ -93,7 +93,6 @@ sc1 = db(db.shift_candidate).select()
 sc1
 print sc1
 for s in sc1:
-
 for s in sc1:
   print s.auth_user.first_name
 for i in range(len(shifts)):
@@ -108,4 +107,74 @@ for i in range(len(shifts)):
   print sc1
   print sc2
   sc2 = db(db.shift_candidate.shift == shifts[i+1].id).select()
+exit()
+db(db.shift).select(orderby = db.shift.shift_date).first
+shift = db(db.shift).select(orderby = db.shift.shift_date).first
+shift
+print shift
+shift.count()
+shift.shift.count()
+dir(shift)
+shift.__sizeof__
+shift.__sizeof__()
+dir(shift.shift)
+exit
+exit()
+shifts = db(db.shift).select(orderby = db.shift.shift_date)
+for shift in shifts:
+print shift.shift_date
+for shift in shifts:
+  print shift.shift.shift_date
+for shift in shifts:
+  print shift.shift_date
+for shift in shifts:
+  print shift.first_name
+shift_candidate1 = shifts.first()
+shift_candidate1 = shifts[0]
+print shift_candidate1
+len(shift_candidate1)
+len(shifts)
+shift_candidate
+shift_candidate1
+shift_candidate1 = shifts[0].shift
+shifts[0].shift
+shifts[0]
+shift_candidate1 = db(db.shift_candidate.shift == shift[0].id).select()
+shift_candidate1 = db(db.shift_candidate.shift == shifts[0].id).select()
+len (shift_candidate1)
+for shift in shifts:
+  len(shift)
+  len(shift[0])
+for shift in shifts:
+  shift.count()
+shift = shifts[0]
+shift
+len shift
+len(shift)
+len shift.shift
+len (shift.shift)
+shift_candidate1 = db(db.shift_candidate.shift == shifts[0].id).select()
+len (shift_candidate1)
+exit()
+shift_candidate1 = db(db.shift_candidate.shift == shifts[0].id).select()
+    shift_candidate1 = db(db.shift_candidate.shift == shifts[0].id).select()
+    shifts = db(db.shift).select(orderby = db.shift.shift_date)
+shifts = db(db.shift).select(orderby = db.shift.shift_date)
+shift_candidate1 = db(db.shift_candidate.shift == shifts[0].id).select()
+shift_candidate1
+shift_candidate1[0].id
+shift_candidate1.shift.id
+shift_candidate1
+print shift_candidate1
+shift_candidate1.shift
+shift_candidate1.shift.id
+shifts
+print shifts
+print shift_candidate1
+shift_candidate1.shift_candidate
+shift_candidate['shift']
+shift_candidate1['shift']
+print shift_candidate1['shift']
+len shifts
+len (shifts)
 exit()
