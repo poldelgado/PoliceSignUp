@@ -7,19 +7,19 @@
     {{if (height_exam == None):}}
         <div class="panel panel-info">
             <div class="panel-heading text-center">
-                <h4 class="">Turno de para inscripción</h4>
+                <h4 class="">Turno asignado para inscripción</h4>
             </div>
             <div class="panel-body text-justify">
                 <h3 class="">Asignado para:</h3>
-                <h4>Fecha: {{=shift['shift']['shift_date']}}</h4>
-                <h4>Hora: </h4>
+                <h4><strong>Fecha: {{=shift['shift']['shift_date']}}</strong></h4>
+                <h4><strong>Hora: {{=shift['shift']['shift_time']}}</strong></h4>
                 <h4>No olvide llevar lo siguiente: </h4>
                 <ul>
                     <li><h4><strong>Documento Nacional de Identidad</strong></h4></li>
                     <li><h4><strong>Formulario de inscripción impreso</strong></h4></li>
-                    <li><h4><strong>Título de Colegio Secundario o Fotocopia de Libro Matriz (Legalizados por Ministerio de educación)</strong></h4></li>
+                    <li><h4><strong>Título de Colegio Secundario o Constancia de Estudios Finalizados (con aclaración de que <strong>no adeuda materias</strong>)</strong></h4></li>
                 </ul><br>
-                <h4 class="shift-obs"><strong>Observaciones: No se aceptarán constancias de titulo en trámite</strong></h4>
+                <!-- <h4 class="shift-obs"><strong>Observaciones: No se aceptarán constancias de titulo en trámite</strong></h4> -->
 
                 <a href="{{=URL('candidate','inscription_form')}}" target="_blank" class="btn btn-info btn-block">Imprimir Turno</a>
             </div>

@@ -5,6 +5,8 @@ for list, create, view, and edit.
 The list utilizes the datatables plugin.
 The create and view views utilize the cascading field plugin.
 '''
+import datetime
+
 
 table = db.shift_candidate
 response.view_title = '%s %s' % (
@@ -114,3 +116,18 @@ def update():
         row.update_record()
 
     redirect(URL('list'))
+
+
+@auth.requires_membership('Admin')
+def list_to_xls():
+    form =  FORM('Fecha: ',
+                INPUT(_name = 'date', _id='date', _type = 'text' ,requires=IS_DATE(format=T('%d/%m/%Y'),
+                   error_message='¡Debe ser DD/MM/YYYY')),
+                INPUT(_type='submit')
+                )
+    if formulario.accepts(request,session):
+        response.flash('Turnos de la fecha:' + request.vars.date)
+        shift_date = datetime.datetime.strptime(request.vars.date, '%d/%m/%Y').date()
+        shift = db(db.shift.shift_date == shift_date).select()
+        shift_assigned = db(db.shift_candidate.shift == shift).select(orderby=db.shift_candidate.shift.shift_date) 
+    return dict(form=form)

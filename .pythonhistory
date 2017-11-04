@@ -178,3 +178,34 @@ print shift_candidate1['shift']
 len shifts
 len (shifts)
 exit()
+i = 8
+j = 5
+s_time = `i`+":"+`j`
+shift_date = 2017-12-25
+print shift_date
+shift_date = "2017-12-25"
+print shift_date
+db.shift.insert(shift_date = shift_date, shift_time = s_time)
+save()
+db.save()
+db.shift.insert(shift_date = shift_date, shift_time = s_time)
+db = DAL('sqlite://storage.sqlite')
+db.shift.insert(shift_date = shift_date, shift_time = s_time)
+exit()
+i = 8
+j = 5
+shift_date = "2017-12-25"
+shift_time = `i`+":"+`j`
+print shift_time
+db.shift.insert(shift_date = shift_date, shift_time = shift_time)
+exit()
+i = 8
+j = 5
+shift_time = `i`+":"+`j`
+db.shift.insert(shift_date = shift_date, shift_time = shift_time)
+shift_date = "2017-12-25"
+db.shift.insert(shift_date = shift_date, shift_time = shift_time)
+dir(db)
+db.shift.update
+db.update()
+exit()

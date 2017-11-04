@@ -188,38 +188,13 @@ def intellectual_exam_form():
 
 def add_user_shift(form):
     user_id=form.vars.id
-    shift = search_shift2()
+    shift = search_shift()
     db.shift_candidate.insert(auth_user = user_id, shift = shift)
     inscription.insert(auth_user = user_id)
 
+
 #function that search the shift with less cadets
 def search_shift():
-    shifts = db(db.shift).select(orderby = db.shift.shift_date)
-    flag = True
-    first_id = shifts.first().id
-    for i in range(len(shifts)):
-        shift_candidate1 = db(db.shift_candidate.shift == shifts[i].id).select()
-        if shift_candidate1 is None:
-            flag = False
-            return shifts[i].id
-        else:
-            j = i+1
-            while j < (len(shifts)):
-                shift_candidate2 = db(db.shift_candidate.shift == shifts[j].id).select()
-                if shift_candidate2 is None:
-                    flag = False
-                    return shifts[j].id
-                else:
-                    if len(shift_candidate1) > len(shift_candidate2):
-                        flag = False
-                        return shifts[j].id
-                j = j + 1
-    if flag:
-        return first_id
-
-
-# getting better the function that search the shift with less cadets
-def search_shift2():
     shifts = db(db.shift).select(orderby = db.shift.shift_date)
     flag = True
     shift_candidate1 = db(db.shift_candidate.shift == shifts[0].id).select()
