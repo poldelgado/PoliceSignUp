@@ -1,4 +1,49 @@
 {{extend 'layout.html'}}
 
+<h2>Lista de Turnos</h2>
 
-{{=form}}
+<table id="shift_list" class="table table-responsive table-hover table-striped">
+	<tr>
+		<th>Fecha</th>
+		<th>Hora</th>
+		<th>Formulario</th>
+		<th>DNI</th>
+		<th>Apellido</th>
+		<th>Nombre</th>
+		<th>F.Nac</th>
+	</tr>
+{{for register in assigned_shift:}}
+	<tr>
+		<td class="date">{{=register.shift.shift_date.strftime("%d/%m/%Y")}}</td>
+		<td>{{=register['shift']['shift_time']}}</td>
+		<td>{{=register['auth_user']['id']}}</td>
+		<td>{{=register['auth_user']['username']}}</td>
+		<td>{{=register['auth_user']['last_name']}}</td>
+		<td>{{=register['auth_user']['first_name']}}</td>
+		<td class="date">{{=register.auth_user.birth_date.strftime("%d/%m/%Y")}}</td>
+	</tr>
+{{pass}}
+</table>
+
+{{block script}}
+	<script src="{{=URL('static','js/xlsx.core.min.js')}}"></script>
+	<script src="{{=URL('static','js/FileSaver.min.js')}}"></script>
+	<script src="{{=URL('static','js/tableexport.min.js')}}"></script>
+	
+  
+	<script>
+		TableExport(document.getElementsByTagName("table"), {
+    		headers: true,                              // (Boolean), display table headers (th or td elements) in the <thead>, (default: true)
+    		footers: true,                              // (Boolean), display table footers (th or td elements) in the <tfoot>, (default: false)
+    		formats: ['xlsx', 'csv'],             // (String[]), filetype(s) for the export, (default: ['xls', 'csv', 'txt'])
+    		filename: 'ListaDeTurnos',                             // (id, String), filename for the downloaded file, (default: 'id')
+    		bootstrap: false,                           // (Boolean), style buttons using bootstrap, (default: true)
+    		exportButtons: true,                        // (Boolean), automatically generate the built-in export buttons for each of the specified formats (default: true)
+    		position: 'top',                         // (top, bottom), position of the caption element relative to table, (default: 'bottom')
+    		ignoreRows: null,                           // (Number, Number[]), row indices to exclude from the exported file(s) (default: null)
+    		ignoreCols: null,                           // (Number, Number[]), column indices to exclude from the exported file(s) (default: null)
+    		trimWhitespace: true                        // (Boolean), remove all leading/trailing newlines, spaces, and tabs from cell text in the exported file(s) (default: false)
+});
+	</script>
+
+{{end}}

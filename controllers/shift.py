@@ -120,13 +120,13 @@ def update():
 #create all the shifts for one day
 def shifts_for_day():
     formulario = FORM('Fecha: ',
-                INPUT(_name = 'date', _id='date', _type = 'text' ,requires=IS_DATE(format=T('%Y/%m/%d'),
+                INPUT(_name = 'date', _id='date', _type = 'text' ,requires=IS_DATE(format=T('%d/%m/%Y'),
                    error_message='¡Debe ser YYYY/MM/DD')),
                  INPUT(_type='submit')
                 )
     if formulario.accepts(request,session):
         response.flash = 'Turnos generados para la fecha:' + request.vars.date
-        shift_date = datetime.datetime.strptime(request.vars.date, '%Y/%m/%d').date()
+        shift_date = datetime.datetime.strptime(request.vars.date, '%d/%m/%Y').date()
         for i in range(8,13):
             j = 0
             while j <= 55:

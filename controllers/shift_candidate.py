@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 
 '''This is a template controller with corresponding views
 for list, create, view, and edit.
@@ -120,14 +120,5 @@ def update():
 
 @auth.requires_membership('Admin')
 def list_to_xls():
-    form =  FORM('Fecha: ',
-                INPUT(_name = 'date', _id='date', _type = 'text' ,requires=IS_DATE(format=T('%d/%m/%Y'),
-                   error_message='¡Debe ser DD/MM/YYYY')),
-                INPUT(_type='submit')
-                )
-    if formulario.accepts(request,session):
-        response.flash('Turnos de la fecha:' + request.vars.date)
-        shift_date = datetime.datetime.strptime(request.vars.date, '%d/%m/%Y').date()
-        shift = db(db.shift.shift_date == shift_date).select()
-        shift_assigned = db(db.shift_candidate.shift == shift).select(orderby=db.shift_candidate.shift.shift_date) 
-    return dict(form=form)
+    assigned_shift = db((db.shift.id == db.shift_candidate.shift) & (db.auth_user.id == db.shift_candidate.auth_user)).select(orderby=db.shift.shift_date)
+    return dict(assigned_shift = assigned_shift)

@@ -209,3 +209,56 @@ dir(db)
 db.shift.update
 db.update()
 exit()
+turnosAsignados = db(db.shift_candidate).select()
+print turnosAsignados
+turnosAsignados = db(db.shift_candidate.shift.shift_date == 2017-12-25).select()
+print turnosAsignados.shift.shift_date
+for turnos in turnosAsignados:
+  print turnos.shift.shift_date
+select turnos db(db.shift.shift_date == 2017-12-25).select()
+select turnos db(db.shift.shift_date == "2017-12-25").select()
+import date
+from date import date
+import datetime
+shift = "2017-12-25"
+shift_date = datetime.datetime.strptime(shift, '%Y-%m-%d').date()
+print shift_date
+type shift_date
+type(shift_date)
+clear
+clear()
+cls
+turnos = db(db.shift.shift_date == shift_date).select()
+print turnos
+turnos = db(db.shift.shift_date == shift_date).select(orderby=db.shift.shift_time)
+print turnos
+turnos_asignados = db(db.shift_candidate.shift == turnos.id).select()
+turnos = db(db.shift_candidate.shift.shift_date == shift_date).select()
+turnos
+print turnos
+type(turnos)
+dir(turnos)
+turnos_asignados = db(db.shift_candidate.shift == turnos ).select()
+turnos_asignados = db(db.shift_candidate.shift == turnos.id ).select()
+turnos_asignados = db((db.shift.id == db.shift_candidate.shift) & (db.auth_user.id == shift_candidate.auth_user ).select()
+print
+turnos_asignados = db((db.shift.id == db.shift_candidate.shift) & (db.auth_user.id == shift_candidate.auth_user)).select()
+turnos_asignados = db((db.shift.id == db.shift_candidate.shift) & (db.auth_user.id == db.shift_candidate.auth_user)).select()
+for registro in turnos_asignados:
+  print registro.shift.shift_date
+  print registro.shift.shift_time
+  print registro.auth_user.first_name
+turnos_asignados = db((db.shift.id == db.shift_candidate.shift) & (db.auth_user.id == db.shift_candidate.auth_user)).select(orderby=db.shift.shift_date)
+for registro in turnos_asignados:
+  print registro.shift.shift_date
+  print registro.shift.shift_time
+  print registro.auth_user.first_name
+  print registro.auth_user.last_name
+exit()
+turnos_asignados = db((db.shift.id == db.shift_candidate.shift) & (db.auth_user.id == db.shift_candidate.auth_user)).select(orderby=db.shift.shift_date)
+for registro in turnos_asignados:
+  print registro.shift.shift_date
+  print registro.shift.shift_time
+  print registro.auth_user.last_name
+  print registro.auth_user.first_name
+exit()

@@ -131,7 +131,7 @@ db.define_table('shift',
                 Field('shift_time', 'time', label=T('Hour')),
                 auth.signature,
                 singular=T('Shift'), plural=T('Shifts'),
-                format=lambda r: '%s' % (r.shift_date),
+                format=lambda r: '%s, %s' % (r.shift_date, r.shift_time),
                 )
 
 db.define_table('shift_candidate',
