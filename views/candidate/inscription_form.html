@@ -13,7 +13,8 @@
 				</div>
 				
 				<div class="inscription_number">
-					<h3>Formulario Nro: {{=inscription.id}}</h4>
+					<h3>Formulario Nro: {{=inscription.id}}</h3>
+					<h3>Turno: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}} {{=shift.shift.shift_time}}</h3>
 				</div>
 			</div>
 	</header>
@@ -31,13 +32,13 @@
 		<h5>Comisaria Jurisdicciónal:</h5>
 		<h5>Titulo Secundario Expedido por:</h5>
 		<h5>Email: {{=inscription.auth_user.email}}</h5>
-		<h5>Estatura: ......... (La estatura será completada por personal del IES de Policia Gral. San Martín)</h5>
+		<h5>Estatura: ................... (La estatura será completada por personal del IES de Policia Gral. San Martín)</h5>
 	</section>
 
 	<section class="">
 		<div class="row">
 			<div class="turn">
-				<h5><strong>Turno - Fecha y Hora: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}} - {{=shift.shift.shift_time}}</strong></h5>
+				
 			</div>
 			<div class="sign">
 				Firma del aspirante		
@@ -69,6 +70,7 @@
 				
 				<div class="inscription_number">
 					<h3>Formulario Nro: {{=inscription.id}}</h3>
+					<h3>Turno: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}} {{=shift.shift.shift_time}}</h3>
 				</div>
 			</div>
 	</header>
@@ -86,13 +88,13 @@
 		<h5>Comisaria Jurisdicciónal:</h5>
 		<h5>Titulo Secundario Expedido por:</h5>
 		<h5>Email: {{=inscription.auth_user.email}}</h5>
-		<h5>Estatura: ......... (La estatura será completada por personal del IES de Policia Gral. San Martín)</h5>
+		<h5>Estatura: ................... (La estatura será completada por personal del IES de Policia Gral. San Martín)</h5>
 	</section>
 
 	<section class="">
 		<div class="row">
 			<div class="turn">
-				<h5><strong>Turno - Fecha y Hora: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}} - {{=shift.shift.shift_time}}</strong></h5>
+				
 			</div>
 			<div class="sign">
 				Firma del aspirante		
