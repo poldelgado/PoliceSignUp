@@ -1,0 +1,52 @@
+{{extend 'candidate/forms_layout.html'}}
+
+
+<header>
+		<div class="logo"><img src="{{=URL('static','/images/logoMinisterio.png')}}"></div>
+		<div class="wrap">
+			<div class="fixed doc-control">
+				<h4>Documentación Controlada</h4>
+				<h5>Fecha:</h5>
+			</div>
+			
+			<div class="flex-item inscription_number">
+				<h5>Instituto de Enseñanza Superior de Policía 'General José F. de San Martín'</h5><br><br>
+				<h4>Formulario Nro: {{=inscription.id}}</h4>
+			</div>
+		</div>
+</header>
+<section class="form-title">
+		<h3>FORMULARIO UNICO DE INSCRIPCIÓN PARA ASPIRANTES A CADETES DE PRIMER AÑO DEL IES DE POLICIA "GRAL. JOSE F. DE SAN MARTIN"</h3>
+</section>
+<section class="candidate-data">
+	<p>Apellido y Nombre: {{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name}}</p>
+	<p>D.N.I: {{=inscription.auth_user.username}}</p>
+	<p>Fecha de Nacimiento: {{=inscription.auth_user.birth_date}}</p>
+	<p>Dirección: {{=inscription.auth_user.address}}</p>
+	<p>Ciudad: {{=inscription.auth_user.city}}</p>
+	<p>Provincia: {{=inscription.auth_user.province}}</p>
+	<p>Comisaria Jurisdicciónal:</p>
+	<p>Titulo Secundario Expedido por:</p>
+	<p>Email: {{=inscription.auth_user.email}}</p>
+	<p>Estatura: ......... (La estatura será completada por personal del IES de Policia Gral. San Martín)</p>
+	<br>
+	<p><strong>Fecha de Preinscripción: {{=inscription.created_on.strftime("%d/%m/%Y")}}</strong></p>
+</section>
+
+<section class="">
+	<div class="row">
+		<div class="turn">
+			<h5>Turno - Fecha y Hora:</h5>
+		</div>
+		<div class="sign">
+			Firma del aspirante		
+		</div>
+	</div>
+	
+</section>
+
+<section class="info">
+	<div class="small">
+		Los datos consignados en este formulario tienen carácter de "Declaración Jurada". La presentación del presente formulario implica conocer y aceptar los términos de la convocatoria y proceso de selección. La presentación de este formulario es de carácter GRATUITO.
+	</div>
+</section>

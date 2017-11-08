@@ -11,7 +11,7 @@
             </div>
             <div class="panel-body text-justify">
                 <h3 class="">Asignado para:</h3>
-                <h4><strong>Fecha: {{=shift['shift']['shift_date']}}</strong></h4>
+                <h4><strong>Fecha: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}}</strong></h4>
                 <h4><strong>Hora: {{=shift['shift']['shift_time']}}</strong></h4>
                 <h4>No olvide llevar lo siguiente: </h4>
                 <ul>

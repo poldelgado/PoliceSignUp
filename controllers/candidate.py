@@ -165,7 +165,8 @@ def forms():
 def inscription_form():
     candidate = db(db.auth_user.id == auth.user_id).select().first()
     inscription = db(candidate.id == db.inscription.auth_user).select().last()
-    return dict(inscription = inscription)
+    shift = db(db.shift_candidate.auth_user == auth.user_id).select().last()
+    return dict(inscription = inscription, shift = shift)
 
 @auth.requires_login()
 def medical_exam_form():

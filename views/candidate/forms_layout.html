@@ -5,14 +5,16 @@
 	<title>Formulario de Inscripción</title>
 
     <link rel="stylesheet" href="{{=URL('static','plugins/bootstrap/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{=URL('static','css/print-form.css')}}" media = "print">
-	<link rel="stylesheet" href="{{=URL('static','css/forms.css')}}" media = "screen">
+	<link rel="stylesheet" href="{{=URL('static','css/forms.css')}}">
 
 </head>
+
 <body>
 	<br>
-	<div class="wrap-content center-block">
+	<div class="container">
+	{{block container}}
 		{{include}}
+	{{end}}
 	</div>
 	<br>
 	<div class="row">
