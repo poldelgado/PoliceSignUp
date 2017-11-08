@@ -140,5 +140,5 @@ db.define_table('shift_candidate',
                 auth.signature,
                 singular=T('Shift Assignment'), plural=T('Shifts Assignment'),
                 format=lambda r: '%s, %s, %s, %s %s' % (
-                r.shift.shift_date, r.shift.shift_time,r.auth_user.username, r.auth_user.last_name, r.auth_user.first_name),
+                r.shift.shift_date.strftime("%d-%m-S%Y"), r.shift.shift_time,r.auth_user.username, r.auth_user.last_name, r.auth_user.first_name),
                 )
