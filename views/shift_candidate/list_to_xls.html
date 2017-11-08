@@ -8,8 +8,7 @@
 		<th>Hora</th>
 		<th>Formulario</th>
 		<th>DNI</th>
-		<th>Apellido</th>
-		<th>Nombre</th>
+		<th>Apellido y Nombre/s</th>
 		<th>F.Nac</th>
 	</tr>
 {{for register in assigned_shift:}}
@@ -18,8 +17,7 @@
 		<td>{{=register['shift']['shift_time']}}</td>
 		<td>{{=register['auth_user']['id']}}</td>
 		<td>{{=register['auth_user']['username']}}</td>
-		<td>{{=register['auth_user']['last_name']}}</td>
-		<td>{{=register['auth_user']['first_name']}}</td>
+		<td>{{=register['auth_user']['last_name'] + ", " + register['auth_user']['first_name']}}</td>
 		<td class="date">{{=register.auth_user.birth_date.strftime("%d/%m/%Y")}}</td>
 	</tr>
 {{pass}}

@@ -327,6 +327,7 @@
 'Insert Physicals Results': 'Insertar Resultados del Exámen Físico',
 'Insert Psychological Interview Results': 'Insertar Resultados de Entrevista Psicológica',
 'Insert Shift': 'Crear Turno',
+'Insert Shifts': 'Insert Shifts',
 'Installed applications': 'Aplicaciones instaladas',
 'Insufficient privileges': 'Privilegios insuficientes',
 'Intellectual Exam': 'Exámen Intelectual',
