@@ -196,7 +196,7 @@ def add_user_shift(form):
 
 #function that search the shift with less cadets
 def search_shift():
-    shifts = db(db.shift).select(orderby = db.shift.shift_date)
+    shifts = db(db.shift).select(orderby = db.shift.shift_date|db.shift.shift_time)
     flag = True
     shift_candidate1 = db(db.shift_candidate.shift == shifts[0].id).select()
     first_id = shifts.first().id
