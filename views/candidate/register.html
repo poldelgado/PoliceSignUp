@@ -72,6 +72,9 @@
 
 <script>
     $(document).ready(function() {
+      $('#auth_user_birth_date').attr('placeholder','dd/mm/aaaa');
+      $('#auth_user_birth_date').attr('max',"1994-02-01");
+      $('#auth_user_birth_date').attr('min',"2000-02-01");   
 
       $('#tos').modal({
         keyboard:false,
@@ -81,7 +84,7 @@
      $('input:checkbox').change(
     function(){
         if ($(this).is(':checked')) {
-            $('#accept_tos').toggleClass('disabled');
+            $('#accept_tos').removeClass('disabled');
             $('#accept_tos').attr('disabled',false);
         }else {
 

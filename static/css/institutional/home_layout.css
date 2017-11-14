@@ -624,6 +624,16 @@ margin-bottom: 200px;
         column-count: 1;
         list-style-type: none;
     }
+
+    .overlay-carousel { 
+        color:#fff;
+        position:absolute;
+        z-index:12;
+        top:70%;
+        left:0;
+        width:100%;
+        text-align:center;
+    }
 }
 
 @media (min-width: 650px){
@@ -650,6 +660,9 @@ margin-bottom: 200px;
     Mobile carrousel view
   #########################*/
 .mobile{
+
+    min-height: 500px;
+    background-image: url('../img/slide-show/9deJulio.jpg');
 
 }
 
@@ -875,4 +888,53 @@ margin-bottom: 200px;
     margin-left:20px;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+/* CSS used here will be applied after bootstrap.css */
+
+
+.btn-trans {
+      background:none;
+      box-shadow:none;
+}  
+
+.btn-trans-default {
+     border: 2px solid #999999;
+     color:#999999;
+}
+.btn-trans-primary {
+     border: 2px solid #0044CC;
+     color:#0044CC;
+}
+.btn-trans-success {
+     border: 2px solid #51A351;
+     color:#51A351;
+}  
+
+.btn-trans-info {
+     border: 2px solid #0088CC;
+     color:#0088CC;
+} 
+.btn-trans-warning {
+     border: 2px solid #F89406;
+     color: #bb8f63 ;
+ }
+
+ .btn-trans:hover {
+    background-color: rgba(226, 129, 23, 0.3);
+
+ }
+
+ .btn-trans-warning:hover {
+    background-color: rgba(226, 129, 23, 0.3);
+    border: 2px solid #f89406;
+    color: #DEBA59;
+ }
+
+.btn-ingreso>h2 {
+    color: #bb8f63;
+}
+.btn-trans-danger {
+     border: 2px solid #BD362F;
+     color:#BD362F;
 }

@@ -3,6 +3,7 @@
 DEBUG = True
 
 from gluon import current
+import datetime
 
 # track changes for modules
 from gluon.custom_import import track_changes
@@ -77,11 +78,11 @@ auth.settings.extra_fields['auth_user'] = [
     zero=T('Choose one'))),
     Field('marital_status', label=T('Marital Status') , requires = IS_IN_SET([T('single'),T('married'),T('divorced'),T('widowed')],
     zero=T('Choose one'))),
-    Field('career', label=T('Carrer'), requires = IS_IN_SET([T('First Year Cadet Candidate'),T('Penitentiary Service Candidate')],zero=T('Choose one'))),
-    Field('phone', 'string', label=T('Phone'), requires = IS_NOT_EMPTY()),
-    Field('address', 'string', label=T('Address'), requires = IS_NOT_EMPTY() ),
-    Field('city', 'string', label=T('City'), requires = IS_NOT_EMPTY()),
-    Field('province', 'string', label=T('Province'), requires = IS_NOT_EMPTY()),
+    Field('career', label=T('Carrer')),
+    Field('phone', 'string', label=T('Phone')),
+    Field('address', 'string', label=T('Address')),
+    Field('city', 'string', label=T('City')),
+    Field('province', 'string', label=T('Province')),
 ]
 
 
@@ -111,6 +112,13 @@ auth.settings.create_user_groups = False  # defaults to True
 auth.settings.expiration = 60 * 60 * 24  # seconds
 auth.settings.logout_next = URL('index')
 db.auth_user.username.requires = IS_MATCH('^\d{8,8}',error_message=T('please insert only numbers, minimum 8 numbers'))
+db.auth_user.province.requires = IS_IN_SET(['Buenos Aires', 'Catamarca', 'Chaco', 'Chubut', 'Ciudad Autonoma de Buenos Aires', 'Córdoba', 'Corrientes', 'Entre Ríos', 'Formosa', 'Jujuy', 'La Pampa', 'La Rioja', 'Mendoza', 'Misiones', 'Neuquén', 'Río Negro', 'Salta', 'San Juan', 'San Luis', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero', 'Tierra del Fuego', 'Tucumán'])
+db.auth_user.career.requires = IS_IN_SET([T('First Year Cadet Candidate'),T('Penitentiary Service Candidate')],zero=T('Choose one'))
+db.auth_user.city.requires = IS_NOT_EMPTY(error_message=T("Please complete the city field"))
+db.auth_user.phone.requires = IS_NOT_EMPTY(error_message=T("Please complete the phone field"))
+db.auth_user.address.requires = IS_NOT_EMPTY(error_message=T("Please complete the address field"))
+db.auth_user.birth_date.requires = IS_DATE_IN_RANGE(format=T('%Y-%m-%d'), minimum=datetime.date(1994,2,1), maximum=datetime.date(2000,2,1),error_message='Verifique el reglamento de inscripción para la edad')
+
 #auth.messages.label_username = T('SSN')
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)

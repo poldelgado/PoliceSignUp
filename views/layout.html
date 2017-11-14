@@ -249,16 +249,14 @@ desired effect
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 
-    <!-- response.flash message -->
-    {{if response.flash:}}
-    <section class="content-header">
-      <div class="alert alert-warning alert-dismissible fade in" role="alert">
+   <!-- response.flash message -->
+    {{if response.flash:}}    
+      <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <strong></strong> {{=response.flash}}
-      </div>
-    </section>
+        <strong>¡Error! </strong> {{=response.flash}}
+      </div>  
     {{pass}}
 
     <!-- Content Header (Page header) -->
