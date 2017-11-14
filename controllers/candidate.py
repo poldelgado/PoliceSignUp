@@ -215,3 +215,21 @@ def search_shift():
                     return shifts[i].id
     if flag:
         return first_id
+
+def show_shift_assigned():
+    form = FORM(DIV(DIV(INPUT(_name='dni',_placeholder='Ingrese DNI',_class='form-control', requires=IS_NOT_EMPTY()),_class='input-group'),_class='form-group'),
+        INPUT(_type='submit',_value='Buscar',_class='btn btn-primary'),_class='form-inline')
+    if form.accepts(request, session):
+        response.flash = 'busqueda terminada'
+        redirect(URL('candidate','print_inscription_form', args = (request.vars.dni)))
+    elif form.errors:
+        response.flash = 'el formulario tiene errores'
+    else:
+        response.flash = 'por favor complete el formulario'
+    return dict(form = form)
+
+def print_inscription_form():
+    candidate = db(db.auth_user.username == request.args(0)).select().first()
+    inscription = db(db.inscription.auth_user == candidate.id).select().last()
+    shift = db(db.shift_candidate.auth_user == candidate.id).select().last()
+    return dict(inscription = inscription, shift = shift)

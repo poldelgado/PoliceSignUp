@@ -105,3 +105,23 @@ def logout():
 def entry_program():
     categories = db(db.post_category).select().sort(lambda post_category: len(post_category.name)) #post category sorted by name size
     return dict(categories = categories)
+
+def school_enrolment():
+    form = FORM(INPUT(_name='dni',_placeholder='Ingrese DNI',_class='form-control', requires=IS_NOT_EMPTY()),
+        INPUT(_type='submit',_value='Buscar',_class='btn btn-primary btn-block'),_class='form-group', _id='search_form')
+    if form.accepts(request, session):
+        response.flash = 'busqueda terminada'
+        candidate = db(db.auth_user.username == request.vars.dni).select().first()
+        if (candidate == None):
+            response.flash = 'El DNI no pertenece a ningun aspirante preinscripto.'
+        else:
+            redirect(URL('candidate','print_inscription_form', args = (request.vars.dni)))
+    elif form.errors:
+        response.flash = 'el formulario tiene errores'
+
+    categories = db(db.post_category).select().sort(lambda post_category: len(post_category.name)) #post category sorted by name size
+    return dict(form = form, categories = categories)
+
+def entry_requirements():
+        categories = db(db.post_category).select().sort(lambda post_category: len(post_category.name)) #post category sorted by name size
+        return dict(categories = categories)

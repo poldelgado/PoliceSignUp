@@ -81,7 +81,7 @@
 	<section class="candidate-data">
 		<h5>Apellido y Nombre: {{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name}}</h5>
 		<h5>D.N.I: {{=inscription.auth_user.username}}</h5>
-		<h5>Fecha de Nacimiento: {{=inscription.auth_user.birth_date}}</h5>
+		<h5>Fecha de Nacimiento: {{=inscription.auth_user.birth_date.strftime("%d/%m/%Y")}}</h5>
 		<h5>Dirección: {{=inscription.auth_user.address}}</h5>
 		<h5>Ciudad: {{=inscription.auth_user.city}}</h5>
 		<h5>Provincia: {{=inscription.auth_user.province}}</h5>
