@@ -64,7 +64,7 @@
 'application is compiled and cannot be designed': 'la aplicación está compilada y no puede ser modificada',
 'Apply changes': 'Aplicar cambios',
 'Appointment': 'Nombramiento',
-'aproved': 'aprovado',
+'aproved': 'aprobado',
 'Are you sure that you want to save it?': '¿Esta seguro que quiere guardar los cambios?',
 'Are you sure you want to delete file "%s"?': '¿Está seguro que desea eliminar el archivo "%s"?',
 'Are you sure you want to delete this object?': '¿Está seguro que desea borrar este objeto?',
