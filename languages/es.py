@@ -705,6 +705,7 @@
 'value not allowed': 'valor no permitido',
 'Value not allowed': 'Valor no permitido',
 'value not in database': 'el valor no está en la base de datos',
+'Verifique el reglamento de inscripción para la edad': 'Verifique el reglamento de inscripción para la edad',
 'Verify Password': 'Verificar Contraseña',
 'Version': 'Versión',
 'versioning': 'versiones',

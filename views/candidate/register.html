@@ -1,98 +1,101 @@
-{{extend 'layout.html'}}
+{{extend 'layout_candidate.html'}}
 
-<link rel="stylesheet" href="{{=URL('static','css/custom.css')}}"/>
-<div class="modal" id="tos" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title text-center">Terminos y Condiciones</h2>
+{{block center }}
+    <div class="modal" id="tos" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title text-center">Terminos y Condiciones</h2>
+          </div>
+        <div class="modal-body">
+              <h4 class="text-center"><strong>Requisitos para el Ingreso como Cadete al I. E. S.</strong></h4><br>
+              <ol>
+                <li>Ser argentino, nativo o por opción.</li>
+                <li>Tener entre 18 y 24 años.</li>
+                <li>Reunir las condiciones psico-físicas exigidas,
+                  las que se comprobaran mediante los estudios clínicos y
+                  test que se determinen.</li>
+                <li>No registrar antecedenstes judiciales ni penales de carácter doloso.</li>
+                <li>Estado civil: soltero /a.</li>
+                <li>Estatura no menor de 1,70 m. (masculino ) y 1,65 m. (femenino).</li>
+                <li>Tener aprobado el nivel polimodal o su equivalente (sin adeudar
+                  materias) en establecimientos educacionales oficalmente reconocidos.</li>
+                <li>No haber sido reprobado en más de una oportunidad en los examenes
+                  de admision en la escuela de cadetes.</li>
+                <li>Aprobar la totalidad de los examenes que conforman el proceso de
+                  selección con las calificaciones minimas establecidas para continuar
+                  dentro del concurso.</li>
+                <li>Para el ingreso el aspirante debe estar incluido dentro del orden
+                  de merito que se establezca en funcion a las vacantes.</li>
+              </ol><br>
+              <h4 class="text-center"><strong>Requisitos para el Ingreso Como Cadete del Servicio Penitenciario
+              de la Provincia de Tucumán</strong></h4>
+              <ol>
+                <li>Ser argentino, nativo o por opcion.</li>
+                <li>Tener entre 21 y 23 años.</li>
+                <li>Reunir las condiciones psico-físicas exigidas, las que se
+                  comprobaran mediante los estudios clínicos y test que se determinen.</li>
+                <li>No registrar causas judiciales de carácter doloso.</li>
+                <li>Estado civil: soltero.</li>
+                <li>Estatura no menor de 1,70 m. (masculino).</li>
+                <li>Tener aprobado el nivel polimodal o su equivalente
+                  (sin adeudar materias al 31 dic-2016) en establecimientos
+                  educacionales oficalmente reconocidos.</li>
+                <li>No haber sido reprobado en más de una oportunidad en los
+                  examenes de admision en la escuela de cadetes.</li>
+                <li>Aprobar la totalidad de los examenes que conforman el proceso
+                  de seleccion con las calificaciones minimas establecidas para
+                  continuar dentro del concurso.</li>
+                <li>Para el ingreso el aspirante debe estar incluido dentro del
+                  orden de mérito que se establezca en función a las vacantes
+                  existentes, el que surgirá del promedio de las evaluaciones que
+                  tienen calificación numerica.</li>
+              </ol>
+              <p>Los datos consignados en este formulario tiene carácter de
+              <strong>'Declaración Jurada'</strong>. La presentación del presente formulario
+              implica conocer y aceptar los términos de la convocatoria y
+              proceso de selección.</p>
+              <p>La presentación de este formulario es de carácter <strong>GRATUITO</strong>.</p>
       </div>
-    <div class="modal-body">
-          <h4 class="text-center"><strong>Requisitos para el Ingreso como Cadete al I. E. S.</strong></h4><br>
-          <ol>
-            <li>Ser argentino, nativo o por opción.</li>
-            <li>Tener entre 18 y 24 años.</li>
-            <li>Reunir las condiciones psico-físicas exigidas,
-              las que se comprobaran mediante los estudios clínicos y
-              test que se determinen.</li>
-            <li>No registrar antecedenstes judiciales ni penales de carácter doloso.</li>
-            <li>Estado civil: soltero /a.</li>
-            <li>Estatura no menor de 1,70 m. (masculino ) y 1,65 m. (femenino).</li>
-            <li>Tener aprobado el nivel polimodal o su equivalente (sin adeudar
-              materias) en establecimientos educacionales oficalmente reconocidos.</li>
-            <li>No haber sido reprobado en más de una oportunidad en los examenes
-              de admision en la escuela de cadetes.</li>
-            <li>Aprobar la totalidad de los examenes que conforman el proceso de
-              selección con las calificaciones minimas establecidas para continuar
-              dentro del concurso.</li>
-            <li>Para el ingreso el aspirante debe estar incluido dentro del orden
-              de merito que se establezca en funcion a las vacantes.</li>
-          </ol><br>
-          <h4 class="text-center"><strong>Requisitos para el Ingreso Como Cadete del Servicio Penitenciario
-          de la Provincia de Tucumán</strong></h4>
-          <ol>
-            <li>Ser argentino, nativo o por opcion.</li>
-            <li>Tener entre 21 y 23 años.</li>
-            <li>Reunir las condiciones psico-físicas exigidas, las que se
-              comprobaran mediante los estudios clínicos y test que se determinen.</li>
-            <li>No registrar causas judiciales de carácter doloso.</li>
-            <li>Estado civil: soltero.</li>
-            <li>Estatura no menor de 1,70 m. (masculino).</li>
-            <li>Tener aprobado el nivel polimodal o su equivalente
-              (sin adeudar materias al 31 dic-2016) en establecimientos
-              educacionales oficalmente reconocidos.</li>
-            <li>No haber sido reprobado en más de una oportunidad en los
-              examenes de admision en la escuela de cadetes.</li>
-            <li>Aprobar la totalidad de los examenes que conforman el proceso
-              de seleccion con las calificaciones minimas establecidas para
-              continuar dentro del concurso.</li>
-            <li>Para el ingreso el aspirante debe estar incluido dentro del
-              orden de mérito que se establezca en función a las vacantes
-              existentes, el que surgirá del promedio de las evaluaciones que
-              tienen calificación numerica.</li>
-          </ol>
-          <p>Los datos consignados en este formulario tiene carácter de
-          <strong>'Declaración Jurada'</strong>. La presentación del presente formulario
-          implica conocer y aceptar los términos de la convocatoria y
-          proceso de selección.</p>
-          <p>La presentación de este formulario es de carácter <strong>GRATUITO</strong>.</p>
-  </div>
 
-  <div class="modal-footer">
-    <div class="pull-left">
-    <input type="checkbox" id="tos_checkbox"> Acepto las condiciones</div>
-    <button type="button" id="accept_tos" class="btn btn-primary disabled pull-right" data-dismiss="modal" disabled="true">Acepto</button>
-  </div>
-</div> <!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+      <div class="modal-footer">
+        <div class="pull-left">
+        <input type="checkbox" id="tos_checkbox"> Acepto las condiciones</div>
+        <button type="button" id="accept_tos" class="btn btn-primary disabled pull-right" data-dismiss="modal" disabled="true">Acepto</button>
+      </div>
+    </div> <!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-{{=form}}
+    {{=form}}
 
+{{end}}
 
-<script>
-    $(document).ready(function() {
-      $('#auth_user_birth_date').attr('placeholder','dd/mm/aaaa');
-      $('#auth_user_birth_date').attr('max',"1994-02-01");
-      $('#auth_user_birth_date').attr('min',"2000-02-01");   
+{{block scripts}}
+    <script>
+        $(document).ready(function() {
+          $('#auth_user_birth_date').attr('placeholder','dd/mm/aaaa');
+          $('#auth_user_birth_date').attr('max',"1994-02-01");
+          $('#auth_user_birth_date').attr('min',"2000-02-01");   
 
-      $('#tos').modal({
-        keyboard:false,
-        backdrop:'static'
-      })
-     $('#tos').modal('show')
-     $('input:checkbox').change(
-    function(){
-        if ($(this).is(':checked')) {
-            $('#accept_tos').removeClass('disabled');
-            $('#accept_tos').attr('disabled',false);
-        }else {
+          $('#tos').modal({
+            keyboard:false,
+            backdrop:'static'
+          })
+         $('#tos').modal('show')
+         $('input:checkbox').change(
+        function(){
+            if ($(this).is(':checked')) {
+                $('#accept_tos').removeClass('disabled');
+                $('#accept_tos').attr('disabled',false);
+            }else {
 
-          $('#accept_tos').toggleClass('disabled');
-          $('#accept_tos').attr('disabled',true);
+              $('#accept_tos').toggleClass('disabled');
+              $('#accept_tos').attr('disabled',true);
 
-          }
-    });
+              }
+        });
 
-    });
-</script>
+        });
+    </script>
+{{end}}

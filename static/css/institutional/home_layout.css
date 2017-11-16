@@ -626,11 +626,11 @@ margin-bottom: 200px;
     }
 
     .overlay-carousel { 
-        color:#fff;
+        color:#F5D4D4;
         position:absolute;
         z-index:12;
-        top:70%;
-        left:0;
+        top:80%;
+        left:30%;
         width:100%;
         text-align:center;
     }
@@ -917,7 +917,7 @@ margin-bottom: 200px;
 } 
 .btn-trans-warning {
      border: 2px solid #F89406;
-     color: #bb8f63 ;
+     color: #bb8f63;
  }
 
  .btn-trans:hover {
