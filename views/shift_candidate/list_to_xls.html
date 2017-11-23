@@ -4,21 +4,40 @@
 
 <table id="shift_list" class="table table-responsive table-hover table-striped">
 	<tr>
-		<th>Fecha</th>
-		<th>Hora</th>
 		<th>Formulario</th>
 		<th>DNI</th>
 		<th>Apellido y Nombre/s</th>
 		<th>F.Nac</th>
+		<th>Sexo</th>
+		<th>Fecha</th>
+		<th>Hora</th>
+		<th>Carrera</th>
+		<th>Estado Civil</th>
+		<th>Teléfono</th>
+		<th>Dirección</th>
+		<th>Ciudad</th>
+		<th>Provincia</th>
+		<th>Comisaria Jurisdiccional</th>
+
+
 	</tr>
 {{for register in assigned_shift:}}
 	<tr>
-		<td class="date">{{=register.shift.shift_date.strftime("%d/%m/%Y")}}</td>
-		<td>{{=register['shift']['shift_time']}}</td>
 		<td>{{=register['auth_user']['id']}}</td>
 		<td>{{=register['auth_user']['username']}}</td>
 		<td>{{=register['auth_user']['last_name'] + ", " + register['auth_user']['first_name']}}</td>
 		<td class="date">{{=register.auth_user.birth_date.strftime("%d/%m/%Y")}}</td>
+		<td>{{=register['auth_user']['gender']}}</td>
+		<td class="date">{{=register.shift.shift_date.strftime("%d/%m/%Y")}}</td>
+		<td>{{=register['shift']['shift_time']}}</td>
+		<td>{{=register['auth_user']['career']}}</td>
+		<td>{{=register['auth_user']['marital_status']}}</td>
+		<td>{{=register['auth_user']['phone']}}</td>
+		<td>{{=register['auth_user']['address']}}</td>
+		<td>{{=register['auth_user']['city']}}</td>
+		<td>{{=register['auth_user']['province']}}</td>
+		<td>{{=register['auth_user']['police_station']}}</td>
+
 	</tr>
 {{pass}}
 </table>

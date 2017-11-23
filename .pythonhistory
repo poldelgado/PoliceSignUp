@@ -262,3 +262,25 @@ for registro in turnos_asignados:
   print registro.auth_user.last_name
   print registro.auth_user.first_name
 exit()
+db.inscriptions.truncate
+db.inscription.truncate
+inscripciones = db.inscription.select()
+inscripciones = db(db.inscription).select()
+print inscripciones
+db.inscription.truncate()
+db.inscription.truncate('RESTART IDENTITY CASCADE')
+db.inscription.truncate()
+db.shift_candidate.truncate()
+db.inscription.truncate
+db.inscription.truncate()
+clear
+exit()
+db.inscription.truncate()
+db.height.truncate()
+db.intellectual_exam.truncate()
+db.physical_exam.truncate()
+db.groupal_psychological_examination.truncate()
+db.psychological_interview.truncate()
+db.inscription.truncate()
+db.commit()
+exit()

@@ -78,19 +78,18 @@ auth.settings.extra_fields['auth_user'] = [
     zero=T('Choose one'))),
     Field('marital_status', label=T('Marital Status') , requires = IS_IN_SET([T('single'),T('married'),T('divorced'),T('widowed')],
     zero=T('Choose one'))),
-    Field('career', label=T('Carrer')),
+    Field('career', label=T('Career')),
+    Field('high_school', label=T('High School')),
     Field('phone', 'string', label=T('Phone')),
     Field('address', 'string', label=T('Address')),
     Field('city', 'string', label=T('City')),
     Field('province', 'string', label=T('Province')),
+    Field('police_station', 'string', label=T('Police Station')),
 ]
 
 
 # create all tables needed by auth
 auth.define_tables(username=True, signature=True)
-
-# the loginfield will be ssn instead of username
-#auth.settings.login_userfield = 'ssn'
 
 # add auth formatting, validation, and representation
 db.auth_user._format = '%(last_name)s %(first_name)s (%(id)s)'  # defaults to '%(username)'
@@ -117,7 +116,22 @@ db.auth_user.career.requires = IS_IN_SET([T('First Year Cadet Candidate'),T('Pen
 db.auth_user.city.requires = IS_NOT_EMPTY(error_message=T("Please complete the city field"))
 db.auth_user.phone.requires = IS_NOT_EMPTY(error_message=T("Please complete the phone field"))
 db.auth_user.address.requires = IS_NOT_EMPTY(error_message=T("Please complete the address field"))
-db.auth_user.birth_date.requires = IS_DATE_IN_RANGE(format=T('%Y-%m-%d'), minimum=datetime.date(1994,2,1), maximum=datetime.date(2000,2,1),error_message='Verifique el reglamento de inscripción para la edad')
+db.auth_user.birth_date.requires = IS_DATE_IN_RANGE(format=T('%Y-%m-%d'), minimum=datetime.date(1994,2,1), maximum=datetime.date(2000,2,1),error_message='Ud. debe tener 18 años cumplidos y menos de 24 años al 01/02/2018')
+db.auth_user.high_school.requires = IS_NOT_EMPTY(error_message=T("Please complete the high school field"))
+db.auth_user.police_station.requires = IS_IN_SET(['Comisaria 1era', 'Comisaria 2da', 'Comisaria 3ra', 'Comisaria 4ta', 'Comisaria 5ta', 'Comisaria 6ta','Comisaria 7ma',
+                                                'Comisaria 8va', 'Comisaria 9na', 'Comisaria 10ma', 'Comisaria 11va', 'Comisaria 12va', 'Comisaria 13va', 'Comisaria 14va',
+                                                'Acheral', 'Agua Dulce', 'Aguilares', 'Alberdi', 'Alderete', 'Alpachiri', 'Amaicha del Valle', 'Amberes', 'Arcadia', 'Ataona',
+                                                 'Banda del Río Sali', 'Bella Vista', 'Burruyacú', 'Campo el Químil', 'Cápitan Caceres', 'Chicligasta', 'Chilcas', 'Choromoro',
+                                                 'Chusca', 'Colalao Del Valle', 'Colombres', 'Concepción', 'Delfín Gallo', 'El Bracho', 'El Cadillal', 'El Cajón', 'El Chañar',
+                                                 'El Colmenar', 'El Corte', 'El Manantial', 'El Menor', 'El Mojon', 'El Naranjo', 'El Polear', 'El Puestito', 'El Timbo', 'Escaba',
+                                                 'Esquina', 'Estación Aráoz', 'Famailla', 'Garmendia', 'Graneros', 'Huasa Pampa Sud', 'Ingenio Leales', 'La Cocha', 'La Florida',
+                                                 'La Fronterita', 'La Invernada', 'La Ramada', 'La Reducción', 'La Trinidad', 'Lamadrid', 'Las Cejas', 'Las Talitas',
+                                                 'Lastenia', 'León Rouges', 'Los Aguirre', 'Los Bulacio', 'Los Gomez', 'Los Herrera', 'Los Medinas', 'Los Nogales', 'Los Pocitos',
+                                                 'Los Puestos', 'Los Ralos', 'Los Sarmientos', 'Los Sosa', 'Los Sueldos', 'Lules', 'Mancopa', 'Marti Coll', 'Mixta', 'Monteagudo',
+                                                 'Monteros', 'Pozo del Alto', 'Quilmes', 'Raco', 'Ranchillos', 'Río Colorado', 'Río Seco', 'Río Tala', 'Romera Pozo', 'Rumi Punco',
+                                                 'San Andres', 'San Ignacio', 'San Pablo', 'San Pedro del Colalao', 'Santa Ana', 'Santa Cruz', 'Santa Lucía', 'Santa Rosa de Leales',
+                                                 'Sargento Moya', 'Simoca', 'Tacanas', 'Taco Ralo', 'Tafí del Valle', 'Tafí Viejo (centro)', 'Teniente Bernardina', 'Trancas',
+                                                 'Villa Benjamín Aráoz', 'Villa de Leales', 'Villa Mariano Moreno', 'Villa Nougues', 'Villa Obrera', 'Vipos', 'Yerba Buena'   ], zero=T('Choose one'))
 
 #auth.messages.label_username = T('SSN')
 # after defining tables, uncomment below to enable auditing
