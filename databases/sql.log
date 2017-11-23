@@ -819,3 +819,29 @@ CREATE TABLE `shift_candidate`(
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB CHARACTER SET utf8;
 success!
+timestamp: 2017-11-17T11:09:34.155759
+ALTER TABLE `auth_user` ADD `police_station` VARCHAR(512);
+success!
+timestamp: 2017-11-17T11:09:34.892351
+ALTER TABLE `auth_user` ADD `high_school` VARCHAR(512);
+success!
+success!
+TRUNCATE TABLE `inscription`;
+TRUNCATE TABLE `inscription` RESTART IDENTITY CASCADE;
+TRUNCATE TABLE `inscription`;
+TRUNCATE TABLE `shift_candidate`;
+success!
+TRUNCATE TABLE `inscription`;
+TRUNCATE TABLE `inscription`;
+TRUNCATE TABLE `inscription`;
+TRUNCATE TABLE `height`;
+success!
+TRUNCATE TABLE `intellectual_exam`;
+success!
+TRUNCATE TABLE `physical_exam`;
+success!
+TRUNCATE TABLE `groupal_psychological_examination`;
+success!
+TRUNCATE TABLE `psychological_interview`;
+success!
+TRUNCATE TABLE `inscription`;

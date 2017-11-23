@@ -630,7 +630,7 @@ margin-bottom: 200px;
         position:absolute;
         z-index:12;
         top:80%;
-        left:30%;
+        /* left:30%; */
         width:100%;
         text-align:center;
     }

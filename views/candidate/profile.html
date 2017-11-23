@@ -2,7 +2,7 @@
 
 {{block center}}
     <div class="container center-block candidate-profile">
-    <h2>{{=user['last_name'] + ', ' + user['first_name']}} <span class="pull-right">Formulario Nro: {{=inscription['id']}}</span></h2>
+    <h2>{{=user['last_name'] + ', ' + user['first_name']}} <span class="pull-right">Formulario Nro: {{=shift.id}}</span></h2>
     
     {{if (height_exam == None):}}
         <div class="panel panel-info">
@@ -12,25 +12,17 @@
             <div class="panel-body text-justify">
                 <h3 class="">Asignado para:</h3>
                 <h4><strong>Fecha: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}}</strong></h4>
-                <h4><strong>Hora: {{=shift['shift']['shift_time']}}</strong></h4>
+                <h4><strong>Hora: {{=shift.shift.shift_time}}</strong></h4>
                 <h4>No olvide llevar lo siguiente: </h4>
                 <ul>
-                    <li><h4><strong>Documento Nacional de Identidad</strong></h4></li>
+                    <li><h4><strong>Documento Nacional de Identidad (actualizado) y fotocopia</strong></h4></li>
+                    <li>Acta de Nacimiento Legalizada</li>
                     <li><h4><strong>Formulario de inscripción impreso</strong></h4></li>
                     <li><h4><strong>Título de Colegio Secundario o Constancia de Estudios Finalizados (con aclaración de que <strong>no adeuda materias</strong>)</strong></h4></li>
                 </ul><br>
                 <!-- <h4 class="shift-obs"><strong>Observaciones: No se aceptarán constancias de titulo en trámite</strong></h4> -->
 
-                <a href="{{=URL('candidate','inscription_form')}}" target="_blank" class="btn btn-info btn-block">Imprimir Turno</a>
-            </div>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading text-center">
-                <h4 class="">{{=T('NOTICE')}}</h4>
-            </div>
-            <div class="panel-body text-center">
-                <h4>Imprima el Formulario de Inscripción</h4><br>
-                <a href="{{=URL('candidate','inscription_form')}}" target="_blank" class="btn btn-info btn-block">VER</a>
+                <a href="{{=URL('candidate','inscription_form')}}" target="_blank" class="btn btn-info btn-block">Imprimir Formulario</a>
             </div>
         </div>
     {{else:}}

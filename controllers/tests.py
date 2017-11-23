@@ -4,13 +4,12 @@ from fpdf import FPDF
 
 
 def test_candidate_register():
-	for i in range(5000):
+	for i in xrange(5000):
 		populate(db.auth_user,1)
 		user = db(db.auth_user).select().last()
 		shift = search_shift()
 		db.shift_candidate.insert(auth_user = user.id, shift = shift)
-    	inscription.insert(auth_user = user.id)
-
+    	db.inscription.insert(auth_user = user.id)
 
 
 def search_shift():
@@ -22,7 +21,7 @@ def search_shift():
         flag = False
         return first_id
     else:
-        for i in range(1, len(shifts)):
+        for i in xrange(1, len(shifts)):
             shift_candidate2 = db(db.shift_candidate.shift == shifts[i].id).select()
             if shift_candidate2 is None:
                 flag = False
@@ -33,11 +32,3 @@ def search_shift():
                     return shifts[i].id
     if flag:
         return first_id
-
-
-def print_pdf_sample():
-	pdf = FPDF()
-	pdf.add_page()
-	pdf.set_font('Arial', 'B', 16)
-	pdf.cell(40, 10, 'Hola Mundo!')
-	pdf.output('tuto1.pdf', 'F')
