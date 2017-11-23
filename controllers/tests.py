@@ -1,6 +1,4 @@
 from gluon.contrib.populate import populate
-from fpdf import FPDF
-
 
 
 def test_candidate_register():

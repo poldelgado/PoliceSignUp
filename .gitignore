@@ -1,7 +1,9 @@
-.DS_Store
+	.DS_Store
 *.bak
 *.pyc
 databases/*
+databases/sql.log
+databases/storage.sqlite
 # private/*
 cache/
 errors/
