@@ -72,6 +72,8 @@
 'Are you sure you want to uninstall application "%s"?': '¿Está seguro que desea desinstalar la aplicación "%s"?',
 'arms': 'brazos',
 'Arms': 'Fuerza Extensora de Brazos',
+'Aspirante a Cadete de la Policía de Tucumán': 'Aspirante a Cadete de la Policía de Tucumán',
+'Aspirante a Cadete del Servicio Penitenciario de Tucumán': 'Aspirante a Cadete del Servicio Penitenciario de Tucumán',
 'Assign Shift': 'Asignar Turno',
 'Assign Shift List': 'Assign Shift List',
 'at': 'en',

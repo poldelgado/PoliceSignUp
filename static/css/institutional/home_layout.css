@@ -896,7 +896,8 @@ margin-bottom: 200px;
 .btn-trans {
       background:none;
       box-shadow:none;
-}  
+}
+
 
 .btn-trans-default {
      border: 2px solid #999999;
@@ -916,9 +917,10 @@ margin-bottom: 200px;
      color:#0088CC;
 } 
 .btn-trans-warning {
+     background-color: rgba(195, 130, 40, 0.8);
      border: 2px solid #F89406;
-     color: #bb8f63;
  }
+
 
  .btn-trans:hover {
     background-color: rgba(226, 129, 23, 0.3);
@@ -931,10 +933,24 @@ margin-bottom: 200px;
     color: #DEBA59;
  }
 
+#btn-ingreso{
+    color: #fff;
+}
+ .btn-black {
+    background-color: #535353;
+    border-color: #535353;
+    box-shadow: none;
+    color: #fff; 
+ }
+
 .btn-ingreso>h2 {
     color: #bb8f63;
 }
 .btn-trans-danger {
      border: 2px solid #BD362F;
      color:#BD362F;
+}
+
+.panel-enrollment{
+    min-height: 215px;
 }

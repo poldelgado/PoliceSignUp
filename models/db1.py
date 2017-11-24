@@ -15,7 +15,7 @@ request.now = request.utcnow
 if request.global_settings.web2py_version < "2.14.1":
     raise HTTP(500, "Requires web2py 2.14.1 or newer")
 
-# request.requires_https()
+#request.requires_https()
 
 # application configuration using private/appconfig.ini
 from gluon.contrib.appconfig import AppConfig
@@ -111,8 +111,9 @@ auth.settings.create_user_groups = False  # defaults to True
 auth.settings.expiration = 60 * 60 * 24  # seconds
 auth.settings.logout_next = URL('index')
 db.auth_user.username.requires = IS_MATCH('^\d{8,8}',error_message=T('please insert only numbers, minimum 8 numbers'))
+db.auth_user.email.requires = IS_EMAIL()
 db.auth_user.province.requires = IS_IN_SET(['Buenos Aires', 'Catamarca', 'Chaco', 'Chubut', 'Ciudad Autonoma de Buenos Aires', 'Córdoba', 'Corrientes', 'Entre Ríos', 'Formosa', 'Jujuy', 'La Pampa', 'La Rioja', 'Mendoza', 'Misiones', 'Neuquén', 'Río Negro', 'Salta', 'San Juan', 'San Luis', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero', 'Tierra del Fuego', 'Tucumán'])
-db.auth_user.career.requires = IS_IN_SET([T('First Year Cadet Candidate'),T('Penitentiary Service Candidate')],zero=T('Choose one'))
+db.auth_user.career.requires = IS_IN_SET([T('Aspirante a Cadete de la Policía de Tucumán'),T('Aspirante a Cadete del Servicio Penitenciario de Tucumán')],zero=T('Choose one'))
 db.auth_user.city.requires = IS_NOT_EMPTY(error_message=T("Please complete the city field"))
 db.auth_user.phone.requires = IS_NOT_EMPTY(error_message=T("Please complete the phone field"))
 db.auth_user.address.requires = IS_NOT_EMPTY(error_message=T("Please complete the address field"))

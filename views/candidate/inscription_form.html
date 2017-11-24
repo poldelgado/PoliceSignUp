@@ -13,7 +13,7 @@
 				</div>
 				
 				<div class="inscription_number">
-					<h3>Formulario Nro: {{=inscription.id}}</h3>
+					<h3>Formulario Nro: {{=shift.id}}</h3>
 					<h3>Turno: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}} {{=shift.shift.shift_time}}</h3>
 				</div>
 			</div>
@@ -23,15 +23,15 @@
 			<!-- <h4>DEL IES DE POLICÍA "GRAL. JOSE F. DE SAN MARTÍN"</h4> -->
 	</section>
 	<section class="candidate-data">
-		<h5>Apellido y Nombre: {{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name}}</h5>
+		<h5>Apellido y Nombre: <strong>{{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name}}</strong></h5>
 		<h5>D.N.I: {{=inscription.auth_user.username}}</h5>
-		<h5>Fecha de Nacimiento: {{=inscription.auth_user.birth_date.strftime("%d/%m/%Y")}}</h5>
+		<h5>Fecha de Nacimiento: <strong>{{=inscription.auth_user.birth_date.strftime("%d/%m/%Y")}}</strong></h5>
 		<h5>Dirección: {{=inscription.auth_user.address}}</h5>
 		<h5>Ciudad: {{=inscription.auth_user.city}}</h5>
 		<h5>Provincia: {{=inscription.auth_user.province}}</h5>
-		<h5>Comisaria Jurisdicciónal:</h5>
+		<h5>Comisaria Jurisdicciónal: {{=inscription.auth_user.police_station}}</h5>
 		<h5>Titulo Secundario Expedido por: {{=inscription.auth_user.high_school}}</h5>
-		<h5>Email: {{=inscription.auth_user.email}}</h5>
+		<h5>Email: {{=inscription.auth_user.email}}</h5><br>
 		<h5>Estatura: ................... (La estatura será completada por personal del IES de Policia Gral. San Martín)</h5>
 	</section>
 
