@@ -13,7 +13,7 @@
 				</div>
 				
 				<div class="inscription_number">
-					<h3>Formulario Nro: {{=inscription.id}}</h3>
+					<h3>Formulario Nro: {{=shift.id}}</h3>
 					<h3>Turno: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}} {{=shift.shift.shift_time}}</h3>
 				</div>
 			</div>
@@ -46,7 +46,7 @@
 				<td><h5>Provincia: {{=inscription.auth_user.province}}</h5></td>
 			</tr>
 			<tr>
-				<td><h5>Comisaria Jurisdicciónal:</h5></td>
+				<td><h5>Comisaria Jurisdicciónal: {{=inscription.auth_user.police_station}}</h5></td>
 			</tr>
 			<tr>
 				<td><h5>Titulo Secundario Expedido por: {{=inscription.auth_user.high_school}}</h5></td>
