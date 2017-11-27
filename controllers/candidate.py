@@ -164,9 +164,9 @@ def forms():
 @auth.requires_login()
 def inscription_form():
     candidate = db(db.auth_user.id == auth.user_id).select().first()
-    inscription = db(candidate.id == db.inscription.auth_user).select().last()
+    # inscription = db(candidate.id == db.inscription.auth_user).select().last()
     shift = db(db.shift_candidate.auth_user == auth.user_id).select().last()
-    return dict(inscription = inscription, shift = shift)
+    return dict(shift = shift)
 
 @auth.requires_login()
 def medical_exam_form():
@@ -230,6 +230,6 @@ def show_shift_assigned():
 
 def print_inscription_form():
     candidate = db(db.auth_user.username == request.args(0)).select().first()
-    inscription = db(db.inscription.auth_user == candidate.id).select().last()
+    # inscription = db(db.inscription.auth_user == candidate.id).select().last()
     shift = db(db.shift_candidate.auth_user == candidate.id).select().last()
-    return dict(inscription = inscription, shift = shift)
+    return dict(shift = shift)

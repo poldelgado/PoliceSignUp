@@ -254,7 +254,7 @@
 
 			.logo_ies img{
 				height: 20mm;
-				-webkit-height: 200mm;			}
+				-webkit-height: 200mm;
 							}
 
 			.wrap{
@@ -266,8 +266,7 @@
 				float: left;
 			    min-width: 85mm;
 			    max-width: 85mm;
-			    min-height: 37mm;
-			    padding: 5mm;
+			    min-height: 32mm;
 			    margin: 0;
 			    border: 1px solid black;
 			}
@@ -276,7 +275,8 @@
 				text-align: center;
 				text-decoration: underline;
 				margin-top: 1mm;
-				margin-bottom: 1mm;
+				padding-top: 0;
+				margin-bottom: 0;
 			}
 			.inscription_number{
 				margin-left: 4mm;
@@ -319,19 +319,35 @@
 				margin: 8mm;
 			}
 
+			.sing-row{
+				margin-top: 7mm;
+				margin-bottom: 2mm;
+			}
+
 			.sign{
 				border-top:1px dotted #000;
 				float:right;
+				margin-top: 1.2mm;
+				margin-bottom: 0;
 			}
 
 			hr {
-				margin-top: 1.5mm;
-				margin-bottom: 1.5mm;
+				margin-top: 1.2mm;
+				margin-bottom: 1.2mm;
+			}
+			.info{
+				margin-top: 2mm;
+				margin-bottom: 0.5mm;
 			}
 
 			.info h6{
 				font-family: sans-serif;
 				font-size: 0.6em;
+				margin-bottom: 0.2mm;
+			}
+
+			table h5{
+				margin-top: 1.5mm;
 				margin-bottom: 1.5mm;
 			}
 }
