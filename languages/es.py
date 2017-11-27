@@ -344,6 +344,7 @@
 'invalid expression': 'expresión inválida',
 'Invalid image': 'Archivo de Imagen NO válido',
 'Invalid login': 'Inicio de sesión inválido',
+'Invalid password': 'Invalid password',
 'invalid password': 'contraseña inválida',
 'Invalid Query': 'Consulta inválida',
 'invalid request': 'solicitud inválida',

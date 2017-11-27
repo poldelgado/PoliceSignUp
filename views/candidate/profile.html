@@ -13,13 +13,14 @@
                 <h3 class="">Asignado para:</h3>
                 <h4><strong>Fecha: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}}</strong></h4>
                 <h4><strong>Hora: {{=shift.shift.shift_time}}</strong></h4>
-                <h4>No olvide llevar lo siguiente: </h4>
-                <ul>
-                    <li><h4><strong>Documento Nacional de Identidad (actualizado) y fotocopia</strong></h4></li>
-                    <li><h4><strong>Acta de Nacimiento Legalizada</strong></h4></li>
-                    <li><h4><strong>Formulario de inscripción impreso</strong></h4></li>
-                    <li><h4><strong>Título de Colegio Secundario o Constancia de Estudios Finalizados (con aclaración de que <strong>no adeuda materias</strong>)</strong></h4></li>
-                </ul><br>
+                <h4>Al momento de la inscripción debe llevar lo siguiente: </h4>
+                <ol>
+                    <li><h4>Documento Nacional de Identidad (actualizado) y fotocopia</h4></li>
+                    <li><h4>Certificado de Nacimiento Original (actualizado) y copia.</h4></li>
+                    <li><h4>Título análitico de estudios secundarios y/o constancia de estudios finalizados otorgada por el establecimiento donde cursó sus estudios(con aclaración de que <strong>no se adeuda materias</strong>)</h4></li>
+                    <li><h4>Formulario de inscripción impreso de la web del IES de Policía de Tucumán Gral San Martín con la asignación de turno respectivo para su presentación</h4></li>
+
+                </ol><br>
                 <!-- <h4 class="shift-obs"><strong>Observaciones: No se aceptarán constancias de titulo en trámite</strong></h4> -->
 
                 <a href="{{=URL('candidate','inscription_form')}}" target="_blank" class="btn btn-info btn-block">Imprimir Formulario</a>
