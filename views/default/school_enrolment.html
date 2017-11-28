@@ -1,33 +1,17 @@
-{{extend 'layout_institutional.html'}}
+{{extend 'layout_institutional.html'}} {{block navbar}} {{include 'navbar-2.html'}} {{end}} {{block header}}
 
-
-{{block navbar}}
-
-    {{include 'navbar-2.html'}}
-
-{{end}}
-
-
-{{block header}}
-
-	<link rel="stylesheet" href="{{=URL('static','css/style-enrollment.css')}}">	
-
-{{end}}
-
-{{block content}}
-
-{{if response.flash:}}
-			<div class="alert alert-warning alert-dismissible fade in" role="alert">
-        		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<link rel="stylesheet" href="{{=URL('static','css/style-enrollment.css')}}"> {{end}} {{block content}} {{if response.flash:}}
+<div class="alert alert-warning alert-dismissible fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
          			<span aria-hidden="true">×</span>
         		</button>
-        	<strong>¡ERROR! </strong> {{=response.flash}}
-      		</div>
+    <strong>¡ERROR! </strong> {{=response.flash}}
+</div>
 {{pass}}
 <div class="row">
-	<div class="col-md-8 col-md-offset-2 text-center">
-		<h2>INGRESO 2018</h2><br>
-	</div>
+    <div class="col-md-8 col-md-offset-2 text-center">
+        <h2>INGRESO 2018</h2><br>
+    </div>
 </div>
 <div class="row">
 	<div class="col-md-offset-3 col-md-3 col-sm-8">
@@ -41,48 +25,48 @@
 		     {{pass}}
 		  </div>
 
-		</div>
-	</div>
-	<div class="col-md-3  col-sm-8">
-		<div class="panel panel-info panel-enrollment">
-			<div class="panel-heading text-center"><strong>Reimpresión de Formularios</strong></div>
-		<div class="panel-body">
-			<p>Imprima su formulario de preinscripción</p>
-			{{=form}}
-		  </div>
-		</div>
-	</div>
+        </div>
+    </div>
+    <div class="col-md-3  col-sm-8">
+        <div class="panel panel-info panel-enrollment">
+            <div class="panel-heading text-center"><strong>Reimpresión de Formularios</strong></div>
+            <div class="panel-body">
+                <p>Imprima su formulario de preinscripción</p>
+                {{=form}}
+            </div>
+        </div>
+    </div>
 </div>
 <div class="row">
-	<a href="{{=URL('default','entry_requirements')}}">
-	<div class="col-md-3  col-md-offset-3 col-sm-8">
-		<div class="panel panel-info panel-enrollment">
-			<div class="panel-heading text-center"><strong>Requisitos</strong></div>
-			<div class="panel-body">
-			    <h4 class="text-center">Requisitos para el ingreso como Aspirante a Cadete de la Policía de Tucumán o Aspirante al Servicio Penitenciario de Tucumán</h4>
-			</div>
-		</div>
-	</div>
-	</a>
-	
-	<a href="{{=URL('default','entry_program')}}">
-	<div class="col-md-3  col-sm-8">
-		<div class="panel panel-info panel-enrollment">
-			<div class="panel-heading text-center"><strong>Programa de Ingreso 2018</strong></div>
-			<div class="panel-body">
-			    <p class="text-justify">Programa de conocimientos intelectuales. Comprenden áreas de lengua, geografía, historia y aptitud física.</p>
-			</div>
-		</div>
-	</div>
-	</a>
+    <a href="{{=URL('default','entry_requirements')}}">
+        <div class="col-md-3  col-md-offset-3 col-sm-8">
+            <div class="panel panel-info panel-enrollment">
+                <div class="panel-heading text-center"><strong>Requisitos</strong></div>
+                <div class="panel-body">
+                    <h4 class="text-center">Requisitos para el ingreso como Aspirante a Cadete de la Policía de Tucumán o Aspirante al Servicio Penitenciario de Tucumán</h4>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="{{=URL('default','entry_program')}}">
+        <div class="col-md-3  col-sm-8">
+            <div class="panel panel-info panel-enrollment">
+                <div class="panel-heading text-center"><strong>Programa de Ingreso 2018</strong></div>
+                <div class="panel-body">
+                    <p class="text-justify">Programa de conocimientos intelectuales. Comprenden áreas de lengua, geografía, historia y aptitud física.</p>
+                </div>
+            </div>
+        </div>
+    </a>
 </div>
 
-{{end}}
-
-{{block script}}
-    <script>        
-        $(document).ready(function(){
-            $("body").css({'padding-top':'90px'});
+{{end}} {{block script}}
+<script>
+    $(document).ready(function() {
+        $("body").css({
+            'padding-top': '90px'
         });
-    </script>
+    });
+</script>
 {{end}}
