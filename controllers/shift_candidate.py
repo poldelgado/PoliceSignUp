@@ -120,5 +120,5 @@ def update():
 
 @auth.requires_membership('Admin')
 def list_to_xls():
-    assigned_shift = db((db.shift.id == db.shift_candidate.shift) & (db.auth_user.id == db.shift_candidate.auth_user)).select(orderby=db.shift.shift_date)
+    assigned_shift = db((db.shift.id == db.shift_candidate.shift) & (db.auth_user.id == db.shift_candidate.auth_user)).select(orderby=db.shift.shift_date|db.shift.shift_time)
     return dict(assigned_shift = assigned_shift)
