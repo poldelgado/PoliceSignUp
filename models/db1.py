@@ -81,6 +81,7 @@ auth.settings.extra_fields['auth_user'] = [
     Field('career', label=T('Career')),
     Field('high_school', label=T('High School')),
     Field('phone', 'string', label=T('Phone')),
+    Field('mobile_phone', 'string', label=T('Mobile Phone')),
     Field('address', 'string', label=T('Address')),
     Field('city', 'string', label=T('City')),
     Field('province', 'string', label=T('Province')),
@@ -115,12 +116,13 @@ db.auth_user.email.requires = IS_EMAIL()
 db.auth_user.province.requires = IS_IN_SET(['Buenos Aires', 'Catamarca', 'Chaco', 'Chubut', 'Ciudad Autonoma de Buenos Aires', 'Córdoba', 'Corrientes', 'Entre Ríos', 'Formosa', 'Jujuy', 'La Pampa', 'La Rioja', 'Mendoza', 'Misiones', 'Neuquén', 'Río Negro', 'Salta', 'San Juan', 'San Luis', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero', 'Tierra del Fuego', 'Tucumán'])
 db.auth_user.career.requires = IS_IN_SET([T('Aspirante a Cadete de la Policía de Tucumán'),T('Aspirante a Cadete del Servicio Penitenciario de Tucumán')],zero=T('Choose one'))
 db.auth_user.city.requires = IS_NOT_EMPTY(error_message=T("Please complete the city field"))
-db.auth_user.phone.requires = IS_NOT_EMPTY(error_message=T("Please complete the phone field"))
+#db.auth_user.phone.requires = IS_NOT_EMPTY(error_message=T("Please complete the phone field"))
+db.auth_user.mobile_phone.requires = IS_NOT_EMPTY(error_message=T("Please complete the mobile phone field"))
 db.auth_user.address.requires = IS_NOT_EMPTY(error_message=T("Please complete the address field"))
 db.auth_user.birth_date.requires = IS_DATE_IN_RANGE(format=T('%Y-%m-%d'), minimum=datetime.date(1994,2,1), maximum=datetime.date(2000,2,1),error_message='Ud. debe tener 18 años cumplidos y menos de 24 años al 01/02/2018')
 db.auth_user.high_school.requires = IS_NOT_EMPTY(error_message=T("Please complete the high school field"))
-db.auth_user.police_station.requires = IS_IN_SET(['Comisaria 1era', 'Comisaria 2da', 'Comisaria 3ra', 'Comisaria 4ta', 'Comisaria 5ta', 'Comisaria 6ta','Comisaria 7ma',
-                                                'Comisaria 8va', 'Comisaria 9na', 'Comisaria 10ma', 'Comisaria 11va', 'Comisaria 12va', 'Comisaria 13va', 'Comisaria 14va',
+db.auth_user.police_station.requires = IS_IN_SET(['Comisaría 1era', 'Comisaría 2da', 'Comisaría 3ra', 'Comisaría 4ta', 'Comisaría 5ta', 'Comisaría 6ta','Comisaría 7ma',
+                                                'Comisaría 8va', 'Comisaría 9na', 'Comisaría 10ma', 'Comisaría 11va', 'Comisaría 12va', 'Comisaría 13va', 'Comisaría 14va',
                                                 'Acheral', 'Agua Dulce', 'Aguilares', 'Alberdi', 'Alderete', 'Alpachiri', 'Amaicha del Valle', 'Amberes', 'Arcadia', 'Ataona',
                                                  'Banda del Río Sali', 'Bella Vista', 'Burruyacú', 'Campo el Químil', 'Cápitan Caceres', 'Chicligasta', 'Chilcas', 'Choromoro',
                                                  'Chusca', 'Colalao Del Valle', 'Colombres', 'Concepción', 'Delfín Gallo', 'El Bracho', 'El Cadillal', 'El Cajón', 'El Chañar',
