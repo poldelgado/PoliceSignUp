@@ -127,7 +127,7 @@ db.auth_user.police_station.requires = IS_IN_SET(['Comisaria 1era', 'Comisaria 2
                                                  'El Colmenar', 'El Corte', 'El Manantial', 'El Menor', 'El Mojon', 'El Naranjo', 'El Polear', 'El Puestito', 'El Timbo', 'Escaba',
                                                  'Esquina', 'Estación Aráoz', 'Famailla', 'Garmendia', 'Graneros', 'Huasa Pampa Sud', 'Ingenio Leales', 'La Cocha', 'La Florida',
                                                  'La Fronterita', 'La Invernada', 'La Ramada', 'La Reducción', 'La Trinidad', 'Lamadrid', 'Las Cejas', 'Las Talitas',
-                                                 'Lastenia', 'León Rouges', 'Los Aguirre', 'Los Bulacio', 'Los Gomez', 'Los Herrera', 'Los Medinas', 'Los Nogales', 'Los Pocitos',
+                                                 'Lastenia', 'León Rouges', 'Lomas de Tafí', 'Los Aguirre', 'Los Bulacio', 'Los Gomez', 'Los Herrera', 'Los Medinas', 'Los Nogales', 'Los Pocitos',
                                                  'Los Puestos', 'Los Ralos', 'Los Sarmientos', 'Los Sosa', 'Los Sueldos', 'Lules', 'Mancopa', 'Marti Coll', 'Mixta', 'Monteagudo',
                                                  'Monteros', 'Pozo del Alto', 'Quilmes', 'Raco', 'Ranchillos', 'Río Colorado', 'Río Seco', 'Río Tala', 'Romera Pozo', 'Rumi Punco',
                                                  'San Andres', 'San Ignacio', 'San Pablo', 'San Pedro del Colalao', 'Santa Ana', 'Santa Cruz', 'Santa Lucía', 'Santa Rosa de Leales',
