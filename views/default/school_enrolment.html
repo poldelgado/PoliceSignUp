@@ -14,6 +14,17 @@
     </div>
 </div>
 <div class="row">
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-1">
+        <div class="panel panel-info panel-enrollment">
+            <div class="panel-heading text-center"><h4><strong>Como Preinscribirse</strong></h4></div>
+            <div class="panel-body">
+                <h4 class="text-justify">Instructivo de ejemplo paso a paso de como realizar una preinscripción exitosa.</h4><br><br>
+                <a class="btn btn-primary btn-block" href="{{=URL('default','inscription_instructions')}}">Ver Instrucciones</a>
+            </div>
+        </div>
+    </div>
+</div>
 	<div class="col-md-offset-3 col-md-3 col-sm-8">
 		<div class="panel panel-info panel-enrollment">
 			<div class="panel-heading text-center"><strong>Preinscripción 2018</strong></div>
@@ -21,7 +32,7 @@
 		     Sección hábilitada desde las <strong>00:00hs</strong>
 		     del <strong>01/12/17</strong> hasta las <strong>23:55hs</strong>
 		     del <strong>10/12/17</strong>. 
-		     	<a href="#" class="btn btn-primary btn-block" style="margin-top: 18px;">PREINSCRIBIRSE</a>
+		     	<a href="{{=URL('candidate','register')}}" class="btn btn-primary btn-block" style="margin-top: 18px;">PREINSCRIBIRSE</a>
 		     {{pass}}
 		  </div>
 
@@ -60,19 +71,9 @@
         </div>
     </a>
 </div>
-<div class="row">
-    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-1">
-        <div class="panel panel-info panel-enrollment">
-            <div class="panel-heading text-center"><strong>Como Preinscribirse</strong></div>
-            <div class="panel-body">
-                <p>Instructivo de ejemplo paso a paso de como realizar una preinscripción exitosa.</p>
-                <a class="btn btn-primary btn-block" href="{{=URL('default','inscription_instructions')}}">Ver Instrucciones</a>
-            </div>
-        </div>
-    </div>
-</div>
+{{end}}
 
-{{end}} {{block script}}
+{{block script}}
 <script>
     $(document).ready(function() {
         $("body").css({

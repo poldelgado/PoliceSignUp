@@ -1,6 +1,7 @@
 {{extend 'layout_candidate.html'}}
 
 {{block center }}
+  {{if control_time:}}
     <div class="modal" id="tos" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -44,11 +45,15 @@
     </div> <!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <div class="col-md-8 col-md-offset-2">
-        <h2 class="text-center">Formulario de Preinscripción</h2><br><br>
-        {{=form}}
-
-    </div>
+      <div class="col-md-8 col-md-offset-2">
+          <h2 class="text-center">Formulario de Preinscripción</h2><br><br>
+          {{=form}}
+      </div>
+    {{else:}}
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="text-justify">Las inscripciones estarán habilitadas a partir de las 00:00 hs del día 01/12/2017 hasta las 23:55 hs del día 10/12/2017.</h2>
+      </div>
+    {{pass}}
 
 {{end}}
 
