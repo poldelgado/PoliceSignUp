@@ -125,3 +125,7 @@ def school_enrolment():
 def entry_requirements():
         categories = db(db.post_category).select().sort(lambda post_category: len(post_category.name)) #post category sorted by name size
         return dict(categories = categories)
+
+def inscription_instructions():
+        categories = db(db.post_category).select().sort(lambda post_category: len(post_category.name)) #post category sorted by name size
+        return dict(categories = categories)
