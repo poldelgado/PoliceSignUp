@@ -1,0 +1,88 @@
+{{extend 'layout_institutional.html'}}
+
+{{block navbar}}
+
+    {{include 'navbar-2.html'}}
+
+{{end}}
+
+
+{{block header}}
+
+	
+{{end}}
+
+{{block content}}
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<h1 class="text-center">Instructivo para preinscribirse en el sistema</h1><br>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 1</h3>
+		<img src="{{=URL('static','img/instructions/PaginaInicio.jpg')}}" alt="">
+		<h4 class="pull-right">Haga "click" en el botón "Ingreso 2018"</h4>
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 2</h3>
+		<img src="{{=URL('static','img/instructions/pantallaIngreso2018.jpg')}}" alt="">
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 3</h3>
+		<img src="{{=URL('static','img/instructions/terminosYCondiciones.jpg')}}" alt="">
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 4</h3>
+		<img src="{{=URL('static','img/instructions/TerminosYCondicionesAceptados.jpg')}}" alt="">
+		<h4 class="pull-right">Haga "click" en el botón "Acepto"</h4>
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 5</h3>
+		<img src="{{=URL('static','img/instructions/formularioPreinscripcion.jpg')}}" alt="">
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 6</h3>
+		<img src="{{=URL('static','img/instructions/seleccionarCarrera.jpg')}}" alt="">
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 7</h3>
+		<img src="{{=URL('static','img/instructions/seleccionar_comisaria_jurisdiccional.jpg')}}" alt="">
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 8</h3>
+		<img src="{{=URL('static','img/instructions/click_registrarse.jpg')}}" alt="">
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 9</h3>
+		<img src="{{=URL('static','img/instructions/profile_turno_asignado.jpg')}}" alt="">
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 10</h3>
+		<img src="{{=URL('static','img/instructions/formulario_01.jpg')}}" alt="">
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<h3>Paso 11</h3>
+		<img src="{{=URL('static','img/instructions/formulario_02.jpg')}}" alt="">
+	</div>
+</div>
+
+{{end}}
+
+{{block script}}
+	<script>        
+	        $(document).ready(function(){
+	            $("body").css({'padding-top':'80px'});
+	        });
+	</script>
+{{end}}

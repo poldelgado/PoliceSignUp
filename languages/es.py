@@ -75,7 +75,7 @@
 'Aspirante a Cadete de la Policía de Tucumán': 'Aspirante a Cadete de la Policía de Tucumán',
 'Aspirante a Cadete del Servicio Penitenciario de Tucumán': 'Aspirante a Cadete del Servicio Penitenciario de Tucumán',
 'Assign Shift': 'Asignar Turno',
-'Assign Shift List': 'Assign Shift List',
+'Assign Shift List': 'Lista de Inscriptos',
 'at': 'en',
 'ATTENTION: Login requires a secure (HTTPS) connection or running on localhost.': 'ATENCION: Inicio de sesión requiere una conexión segura (HTTPS) o localhost.',
 'ATTENTION: TESTING IS NOT THREAD SAFE SO DO NOT PERFORM MULTIPLE TESTS CONCURRENTLY.': 'ATENCION: NO EJECUTE VARIAS PRUEBAS SIMULTANEAMENTE, NO SON THREAD SAFE.',
