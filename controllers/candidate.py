@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
+
 
 table = db.auth_user
 inscription = db.inscription
@@ -153,9 +155,15 @@ def profile():
         groupal_psychological_examination = groupal_psychological_examination, psychological_interview = psychological_interview)
 
 def register():
+    control_time = False 
+    limitI = datetime(2017,12,30,21,0,0)
+    limitF = datetime(2017,12,10,20,55,0)
+    actual_time = datetime.now()
+    if actual_time<limitF and actual_time>limitI:
+        control_time = True
     auth.settings.register_onaccept = add_user_shift
     auth.settings.register_next = URL(c='candidate',f='profile')
-    return dict(form = auth.register())
+    return dict(form = auth.register(), control_time = control_time)
 
 @auth.requires_login()
 def forms():
@@ -233,3 +241,10 @@ def print_inscription_form():
     # inscription = db(db.inscription.auth_user == candidate.id).select().last()
     shift = db(db.shift_candidate.auth_user == candidate.id).select().last()
     return dict(shift = shift)
+
+def hidden_candidate_register():
+    auth.settings.register_onaccept = add_user_shift
+    auth.settings.register_next = URL(c='candidate',f='profile')
+    return dict(form = auth.register())
+
+    
