@@ -629,7 +629,7 @@ margin-bottom: 200px;
         color:#F5D4D4;
         position:absolute;
         z-index:12;
-        top:80%;
+        top:72%;
         /* left:30%; */
         width:100%;
         text-align:center;
@@ -953,4 +953,8 @@ margin-bottom: 200px;
 
 .panel-enrollment{
     min-height: 215px;
+}
+
+.row-inscription{
+    margin: 0;
 }
