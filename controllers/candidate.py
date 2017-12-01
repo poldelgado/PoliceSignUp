@@ -156,8 +156,8 @@ def profile():
 
 def register():
     control_time = False 
-    limitI = datetime(2017,12,30,21,0,0)
-    limitF = datetime(2017,12,10,20,55,0)
+    limitI = datetime(2017,12,1,3,0,0)
+    limitF = datetime(2017,12,11,2,55,0)
     actual_time = datetime.now()
     if actual_time<limitF and actual_time>limitI:
         control_time = True
