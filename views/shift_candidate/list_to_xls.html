@@ -24,7 +24,7 @@
 	</tr>
 {{for register in assigned_shift:}}
 	<tr>
-		<td>{{=register.shift.id}}</td>
+		<td>{{=register.shift_candidate.id}}</td>
 		<td class="date">{{=register.shift.shift_date.strftime("%d/%m/%Y")}}</td>
 		<td>{{=register.shift.shift_time}}</td>
 		<td>{{=register.auth_user.username}}</td>
