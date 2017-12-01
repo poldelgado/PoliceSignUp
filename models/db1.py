@@ -119,7 +119,7 @@ db.auth_user.city.requires = IS_NOT_EMPTY(error_message=T("Please complete the c
 #db.auth_user.phone.requires = IS_NOT_EMPTY(error_message=T("Please complete the phone field"))
 db.auth_user.mobile_phone.requires = IS_NOT_EMPTY(error_message=T("Please complete the mobile phone field"))
 db.auth_user.address.requires = IS_NOT_EMPTY(error_message=T("Please complete the address field"))
-db.auth_user.birth_date.requires = IS_DATE_IN_RANGE(format=T('%Y-%m-%d'), minimum=datetime.date(1993,2,2), maximum=datetime.date(2000,2,1),error_message='Ud. debe tener 18 años cumplidos y menos de 24 años al 01/02/2018')
+db.auth_user.birth_date.requires = IS_DATE_IN_RANGE(format=T('%Y-%m-%d'), minimum=datetime.date(1993,2,3), maximum=datetime.date(1999,2,3),error_message='Ud. debe tener 18 años cumplidos y menos de 24 años al 01/02/2018')
 db.auth_user.high_school.requires = IS_NOT_EMPTY(error_message=T("Please complete the high school field"))
 db.auth_user.police_station.requires = IS_IN_SET(['Comisaría 1era', 'Comisaría 2da', 'Comisaría 3ra', 'Comisaría 4ta', 'Comisaría 5ta', 'Comisaría 6ta','Comisaría 7ma',
                                                 'Comisaría 8va', 'Comisaría 9na', 'Comisaría 10ma', 'Comisaría 11va', 'Comisaría 12va', 'Comisaría 13va', 'Comisaría 14va',
