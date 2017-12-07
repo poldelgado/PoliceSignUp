@@ -18,6 +18,15 @@
     </li>
 
     <li class="treeview">
+    {{=sidebar_menu_item('Aspirantes', icon='clock-o')}}
+        <ul class="treeview-menu">
+            {{if auth.user and is_user_member('Admin'):}}
+                {{=sidebar_menu_item('Ver Aspirantes', URL('candidate', 'list'), icon='list')}}
+            {{pass}}
+        </ul>
+    </li>
+
+    <li class="treeview">
     {{=sidebar_menu_item(T('Shifts'), icon='clock-o')}}
         <ul class="treeview-menu">
         {{=sidebar_menu_item('View Shifts', URL('shift', 'list'), icon='list')}}
