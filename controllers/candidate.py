@@ -247,4 +247,3 @@ def hidden_candidate_register():
     auth.settings.register_next = URL(c='candidate',f='profile')
     return dict(form = auth.register())
 
-    
