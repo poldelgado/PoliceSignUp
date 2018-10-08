@@ -106,6 +106,7 @@ def entry_program():
     categories = db(db.post_category).select().sort(lambda post_category: len(post_category.name)) #post category sorted by name size
     return dict(categories = categories)
 
+@auth.requires_membership("admin") #just making it private temporary
 def school_enrolment():
     form = FORM(INPUT(_name='dni',_placeholder='Ingrese DNI',_class='form-control', requires=IS_NOT_EMPTY()),
         INPUT(_type='submit',_value='Buscar',_class='btn btn-primary btn-block'),_class='form-group', _id='search_form')
