@@ -170,7 +170,7 @@ def listado_inscriptos():
     ws.write(0, 15, 'Titulo Terciario', style0)
 
     #completa filas con datos de inscriptos
-    for i in xrange(0,len(inscriptions)-1):
+    for i in xrange(0,len(inscriptions)):
         ws.write(i+1, 0, inscriptions[i].shift.id, style2)
         ws.write(i+1, 1, inscriptions[i].shift.shift_date, style1)
         ws.write(i+1, 2, inscriptions[i].shift.shift_time, style3)
