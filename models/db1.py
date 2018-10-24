@@ -15,7 +15,7 @@ request.now = request.utcnow
 if request.global_settings.web2py_version < "2.14.1":
     raise HTTP(500, "Requires web2py 2.14.1 or newer")
 
-#request.requires_https()
+request.requires_https()
 
 # application configuration using private/appconfig.ini
 from gluon.contrib.appconfig import AppConfig
