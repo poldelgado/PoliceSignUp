@@ -15,7 +15,7 @@ request.now = request.utcnow
 if request.global_settings.web2py_version < "2.14.1":
     raise HTTP(500, "Requires web2py 2.14.1 or newer")
 
-request.requires_https()
+#request.requires_https()
 
 # application configuration using private/appconfig.ini
 from gluon.contrib.appconfig import AppConfig
@@ -78,8 +78,10 @@ auth.settings.extra_fields['auth_user'] = [
     zero=T('Choose one'))),
     Field('marital_status', label=T('Marital Status') , requires = IS_IN_SET([T('single'),T('married'),T('divorced'),T('widowed')],
     zero=T('Choose one'))),
+    Field('nationality', label=T('Nationality')),
     Field('career', label=T('Career')),
     Field('high_school', label=T('High School')),
+    Field('tertiary_title', label=T('Tertiary Title')),
     Field('phone', 'string', label=T('Phone')),
     Field('mobile_phone', 'string', label=T('Mobile Phone')),
     Field('address', 'string', label=T('Address')),
@@ -117,6 +119,7 @@ db.auth_user.province.requires = IS_IN_SET(['Buenos Aires', 'Catamarca', 'Chaco'
 db.auth_user.career.requires = IS_IN_SET([T('Aspirante a Cadete de la Policía de Tucumán'),T('Aspirante a Cadete del Servicio Penitenciario de Tucumán')],zero=T('Choose one'))
 db.auth_user.city.requires = IS_NOT_EMPTY(error_message=T("Please complete the city field"))
 #db.auth_user.phone.requires = IS_NOT_EMPTY(error_message=T("Please complete the phone field"))
+db.auth_user.nationality.requires = IS_NOT_EMPTY(error_message=T("Please complete this information"))
 db.auth_user.mobile_phone.requires = IS_NOT_EMPTY(error_message=T("Please complete the mobile phone field"))
 db.auth_user.address.requires = IS_NOT_EMPTY(error_message=T("Please complete the address field"))
 #db.auth_user.birth_date.requires = IS_DATE_IN_RANGE(format=T('%Y-%m-%d'), minimum=datetime.date(1993,2,3), maximum=datetime.date(2000,2,2),error_message='Ud. debe tener 18 años cumplidos y menos de 24 años al 01/02/2018')

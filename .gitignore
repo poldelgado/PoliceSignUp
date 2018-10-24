@@ -4,7 +4,7 @@
 databases/*
 databases/sql.log
 databases/storage.sqlite
-# private/*
+private/*
 cache/
 errors/
 sessions/

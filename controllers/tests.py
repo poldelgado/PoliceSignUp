@@ -2,7 +2,7 @@ from gluon.contrib.populate import populate
 
 
 def test_candidate_register():
-	for i in xrange(5000):
+	for i in xrange(500):
 		populate(db.auth_user,1)
 		user = db(db.auth_user).select().last()
 		shift = search_shift()

@@ -849,3 +849,629 @@ timestamp: 2017-11-28T17:13:01.354280
 ALTER TABLE `auth_user` ADD `mobile_phone` VARCHAR(512);
 success!
 success!
+timestamp: 2018-10-19T10:27:04.254448
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "username" CHAR(128),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512),
+    "bookmarks" CHAR(4096),
+    "birth_date" DATE,
+    "gender" CHAR(512),
+    "marital_status" CHAR(512),
+    "career" CHAR(512),
+    "high_school" CHAR(512),
+    "phone" CHAR(512),
+    "mobile_phone" CHAR(512),
+    "address" CHAR(512),
+    "city" CHAR(512),
+    "province" CHAR(512),
+    "police_station" CHAR(512),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-19T10:27:04.286905
+CREATE TABLE "message"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "context" CHAR(25),
+    "context_id" INTEGER,
+    "auth_user" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "direction" CHAR(8),
+    "is_read" CHAR(1),
+    "msg_sender" CHAR(100),
+    "msg_from" CHAR(100),
+    "msg_recipient" CHAR(100),
+    "msg_to" CHAR(100),
+    "msg_subject" CHAR(100),
+    "msg_body" CHAR(500),
+    "msg_html" CHAR(500),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-19T10:27:04.301028
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-19T10:27:04.319401
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-19T10:27:04.346971
+CREATE TABLE "post_category"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" CHAR(512),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-19T10:27:04.372613
+CREATE TABLE "post"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "title" CHAR(512),
+    "date_of_post" DATE,
+    "category" INTEGER REFERENCES "post_category" ("id") ON DELETE CASCADE  ,
+    "picture" CHAR(512),
+    "resume" CHAR(512),
+    "content" TEXT,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-20T14:53:58.421425
+CREATE TABLE "inscription"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "auth_user" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-20T14:53:58.440212
+CREATE TABLE "height"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "height" DOUBLE,
+    "aproved" CHAR(1),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:23:35.478143
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2018-10-21T23:23:35.492091
+CREATE TABLE "shift"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "shift_date" DATE,
+    "shift_time" TIME,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:23:35.514487
+CREATE TABLE "shift_candidate"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "shift" INTEGER REFERENCES "shift" ("id") ON DELETE CASCADE  ,
+    "auth_user" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:25:06.490478
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:25:06.506653
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2018-10-21T23:25:06.520715
+CREATE TABLE "intellectual_exam"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "spanish_language" DOUBLE,
+    "history" DOUBLE,
+    "geography" DOUBLE,
+    "aproved" CHAR(1),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:25:06.529710
+CREATE TABLE "medical_exam"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "exam_result" CHAR(1),
+    "reason" CHAR(512),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:25:06.538381
+CREATE TABLE "physical_exam"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "abs_test" INTEGER,
+    "arms" INTEGER,
+    "aerobics" INTEGER,
+    "aproved" CHAR(1),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:25:06.558741
+CREATE TABLE "groupal_psychological_examination"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "exam_result" CHAR(1),
+    "reason" CHAR(512),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:25:06.575365
+CREATE TABLE "psychological_interview"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "inscription" INTEGER REFERENCES "inscription" ("id") ON DELETE CASCADE  ,
+    "exam_result" CHAR(1),
+    "reason" CHAR(512),
+    "available" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:25:06.595346
+CREATE TABLE "notification"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "auth_user" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "date_of_notification" DATE,
+    "message" TEXT,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:25:06.615712
+CREATE TABLE "schedule"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "height_schedule" TEXT,
+    "intellectual_exam_schedule" TEXT,
+    "medical_exam_schedule" TEXT,
+    "physical_exam_schedule" TEXT,
+    "groupal_psychological_examination_schedule" TEXT,
+    "psychological_interview_schedule" TEXT,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-10-21T23:25:06.641037
+CREATE TABLE "graduation"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "year" INTEGER,
+    "number" INTEGER,
+    "last_name" CHAR(512),
+    "first_name" CHAR(512),
+    "title" CHAR(512)
+);
+success!
+timestamp: 2018-10-23T12:50:01.711807
+ALTER TABLE "auth_user" ADD "nationality" CHAR(512);
+timestamp: 2018-10-23T12:50:01.729441
+ALTER TABLE "auth_user" ADD "tertiary_title" CHAR(512);
+success!
+timestamp: 2018-10-23T21:21:53.233788
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `username` VARCHAR(128),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    `bookmarks` VARCHAR(4096),
+    `birth_date` DATE,
+    `gender` VARCHAR(512),
+    `marital_status` VARCHAR(512),
+    `nationality` VARCHAR(512),
+    `career` VARCHAR(512),
+    `high_school` VARCHAR(512),
+    `tertiary_title` VARCHAR(512),
+    `phone` VARCHAR(512),
+    `mobile_phone` VARCHAR(512),
+    `address` VARCHAR(512),
+    `city` VARCHAR(512),
+    `province` VARCHAR(512),
+    `police_station` VARCHAR(512),
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:21:53.335440
+CREATE TABLE `message`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `context` VARCHAR(25),
+    `context_id` INTEGER,
+    `auth_user` INT  , INDEX `auth_user__idx` (`auth_user`), FOREIGN KEY (`auth_user`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `direction` VARCHAR(8),
+    `is_read` CHAR(1),
+    `msg_sender` VARCHAR(100),
+    `msg_from` VARCHAR(100),
+    `msg_recipient` VARCHAR(100),
+    `msg_to` VARCHAR(100),
+    `msg_subject` VARCHAR(100),
+    `msg_body` VARCHAR(500),
+    `msg_html` VARCHAR(500),
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:21:53.372288
+CREATE TABLE `auth_group`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `role` VARCHAR(512),
+    `description` LONGTEXT,
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:21:53.421171
+CREATE TABLE `auth_membership`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `user_id` INT  , INDEX `user_id__idx` (`user_id`), FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `group_id` INT  , INDEX `group_id__idx` (`group_id`), FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`) ON DELETE CASCADE,
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:21:53.469709
+CREATE TABLE `post_category`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `name` VARCHAR(512),
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:21:53.513449
+CREATE TABLE `post`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `title` VARCHAR(512),
+    `date_of_post` DATE,
+    `category` INT  , INDEX `category__idx` (`category`), FOREIGN KEY (`category`) REFERENCES `post_category` (`id`) ON DELETE CASCADE,
+    `picture` VARCHAR(512),
+    `resume` VARCHAR(512),
+    `content` LONGTEXT,
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:12.597128
+CREATE TABLE `auth_permission`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `group_id` INT  , INDEX `group_id__idx` (`group_id`), FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`) ON DELETE CASCADE,
+    `name` VARCHAR(512),
+    `table_name` VARCHAR(512),
+    `record_id` INTEGER,
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:12.643672
+CREATE TABLE `auth_event`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `time_stamp` DATETIME,
+    `client_ip` VARCHAR(512),
+    `user_id` INT  , INDEX `user_id__idx` (`user_id`), FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `origin` VARCHAR(512),
+    `description` LONGTEXT,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:12.683672
+CREATE TABLE `auth_cas`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `user_id` INT  , INDEX `user_id__idx` (`user_id`), FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `created_on` DATETIME,
+    `service` VARCHAR(512),
+    `ticket` VARCHAR(512),
+    `renew` CHAR(1),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:12.723250
+CREATE TABLE `inscription`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `auth_user` INT  , INDEX `auth_user__idx` (`auth_user`), FOREIGN KEY (`auth_user`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:12.785208
+CREATE TABLE `height`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `inscription` INT  , INDEX `inscription__idx` (`inscription`), FOREIGN KEY (`inscription`) REFERENCES `inscription` (`id`) ON DELETE CASCADE,
+    `height` DOUBLE,
+    `aproved` CHAR(1),
+    `available` CHAR(1),
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:12.838060
+CREATE TABLE `intellectual_exam`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `inscription` INT  , INDEX `inscription__idx` (`inscription`), FOREIGN KEY (`inscription`) REFERENCES `inscription` (`id`) ON DELETE CASCADE,
+    `spanish_language` DOUBLE,
+    `history` DOUBLE,
+    `geography` DOUBLE,
+    `aproved` CHAR(1),
+    `available` CHAR(1),
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:12.877205
+CREATE TABLE `medical_exam`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `inscription` INT  , INDEX `inscription__idx` (`inscription`), FOREIGN KEY (`inscription`) REFERENCES `inscription` (`id`) ON DELETE CASCADE,
+    `exam_result` CHAR(1),
+    `reason` VARCHAR(512),
+    `available` CHAR(1),
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:12.909914
+CREATE TABLE `physical_exam`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `inscription` INT  , INDEX `inscription__idx` (`inscription`), FOREIGN KEY (`inscription`) REFERENCES `inscription` (`id`) ON DELETE CASCADE,
+    `abs_test` INTEGER,
+    `arms` INTEGER,
+    `aerobics` INTEGER,
+    `aproved` CHAR(1),
+    `available` CHAR(1),
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:12.967480
+CREATE TABLE `groupal_psychological_examination`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `inscription` INT  , INDEX `inscription__idx` (`inscription`), FOREIGN KEY (`inscription`) REFERENCES `inscription` (`id`) ON DELETE CASCADE,
+    `exam_result` CHAR(1),
+    `reason` VARCHAR(512),
+    `available` CHAR(1),
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:13.020273
+CREATE TABLE `psychological_interview`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `inscription` INT  , INDEX `inscription__idx` (`inscription`), FOREIGN KEY (`inscription`) REFERENCES `inscription` (`id`) ON DELETE CASCADE,
+    `exam_result` CHAR(1),
+    `reason` VARCHAR(512),
+    `available` CHAR(1),
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:13.060211
+CREATE TABLE `notification`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `auth_user` INT  , INDEX `auth_user__idx` (`auth_user`), FOREIGN KEY (`auth_user`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `date_of_notification` DATE,
+    `message` LONGTEXT,
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:13.116201
+CREATE TABLE `schedule`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `height_schedule` LONGTEXT,
+    `intellectual_exam_schedule` LONGTEXT,
+    `medical_exam_schedule` LONGTEXT,
+    `physical_exam_schedule` LONGTEXT,
+    `groupal_psychological_examination_schedule` LONGTEXT,
+    `psychological_interview_schedule` LONGTEXT,
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:13.182973
+CREATE TABLE `graduation`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `year` INTEGER,
+    `number` INTEGER,
+    `last_name` VARCHAR(512),
+    `first_name` VARCHAR(512),
+    `title` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:13.222492
+CREATE TABLE `shift`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `shift_date` DATE,
+    `shift_time` TIME,
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-10-23T21:22:13.271764
+CREATE TABLE `shift_candidate`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `shift` INT  , INDEX `shift__idx` (`shift`), FOREIGN KEY (`shift`) REFERENCES `shift` (`id`) ON DELETE CASCADE,
+    `auth_user` INT  , INDEX `auth_user__idx` (`auth_user`), FOREIGN KEY (`auth_user`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `is_active` CHAR(1),
+    `created_on` DATETIME,
+    `created_by` INT  , INDEX `created_by__idx` (`created_by`), FOREIGN KEY (`created_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `modified_on` DATETIME,
+    `modified_by` INT  , INDEX `modified_by__idx` (`modified_by`), FOREIGN KEY (`modified_by`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!

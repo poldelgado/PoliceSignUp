@@ -284,3 +284,17 @@ db.psychological_interview.truncate()
 db.inscription.truncate()
 db.commit()
 exit()
+cand = db(db.auth_user.username == 13001001).select().first())
+candidate = db(db.auth_user.username == request.args(0)).select().first()
+candidate.username
+candidate
+print candidate
+candidate = db(db.auth_user.username == 13001001).select().first()
+candidate
+candidate.last_name
+inscription = db(db.shift_candidate.auth_user == candidate.id).select().last()
+inscription
+candidate.id
+print candidate.id
+exit
+exit()

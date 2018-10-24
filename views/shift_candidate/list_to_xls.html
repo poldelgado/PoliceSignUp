@@ -1,7 +1,7 @@
 {{extend 'layout.html'}}
 
-<h2>Lista de Turnos</h2>
-
+<h2>Listado de Inscriptos</h2>
+<a href="{{=URL('shift_candidate','listado_inscriptos.xls')}}" class="btn btn-success">EXCEL</a>
 <table id="shift_list" class="table table-responsive table-hover table-striped">
 	<tr>
 		<th>Formulario</th>
@@ -46,10 +46,10 @@
 {{block script}}
 	<script src="{{=URL('static','js/xlsx.core.min.js')}}"></script>
 	<script src="{{=URL('static','js/FileSaver.min.js')}}"></script>
-	<script src="{{=URL('static','js/tableexport.min.js')}}"></script>
+	<!-- <script src="{{=URL('static','js/tableexport.min.js')}}"></script> -->
 	
   
-	<script>
+	<!-- <script>
 		TableExport(document.getElementsByTagName("table"), {
     		headers: true,                              // (Boolean), display table headers (th or td elements) in the <thead>, (default: true)
     		footers: false,                              // (Boolean), display table footers (th or td elements) in the <tfoot>, (default: false)
@@ -63,5 +63,5 @@
     		trimWhitespace: true                        // (Boolean), remove all leading/trailing newlines, spaces, and tabs from cell text in the exported file(s) (default: false)
 });
 	</script>
-
+ -->
 {{end}}

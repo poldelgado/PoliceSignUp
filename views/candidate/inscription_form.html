@@ -13,8 +13,8 @@
 				</div>
 				
 				<div class="inscription_number">
-					<h3>Formulario Nro: {{=shift.id}}</h3>
-					<h3>Turno: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}} {{=shift.shift.shift_time}}</h3>
+					<h3>Formulario Nro: {{=inscription.id}}</h3>
+					<h3>Turno: {{=inscription.shift.shift_date.strftime("%d/%m/%Y")}} {{=inscription.shift.shift_time}}</h3>
 				</div>
 			</div>
 	</header>
@@ -26,62 +26,62 @@
 		<table>
 			<tr>
 				<td>
-					<h5>Apellido y Nombre: {{=shift.auth_user.last_name + ', ' + shift.auth_user.first_name}}</h5>
+					<h5>Apellido y Nombre: {{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name}}</h5>
 				</td>
 				<td>
-					<h5 class="right-col-form">Carrera: <strong>{{=shift.auth_user.career}}</strong></h5>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<h5>D.N.I: <strong>{{=shift.auth_user.username}}</strong></h5>
-				</td>
-				<td>
-					<h5 class="right-col-form">Fecha de Nacimiento: {{=shift.auth_user.birth_date.strftime("%d/%m/%Y")}}</h5>
+					<h5 class="right-col-form">Carrera: <strong>{{=inscription.auth_user.career}}</strong></h5>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h5>Genero: {{=shift.auth_user.gender}}</h5>
+					<h5>D.N.I: <strong>{{=inscription.auth_user.username}}</strong></h5>
 				</td>
 				<td>
-					<h5 class="right-col-form">Estado Civil: {{=shift.auth_user.marital_status}}</h5>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<h5>Dirección: {{=shift.auth_user.address}}</h5>
+					<h5 class="right-col-form">Fecha de Nacimiento: {{=inscription.auth_user.birth_date.strftime("%d/%m/%Y")}}</h5>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h5>Ciudad: {{=shift.auth_user.city}}</h5>
+					<h5>Genero: {{=inscription.auth_user.gender}}</h5>
 				</td>
 				<td>
-					<h5 class="right-col-form">Provincia: {{=shift.auth_user.province}}</h5>
+					<h5 class="right-col-form">Estado Civil: {{=inscription.auth_user.marital_status}}</h5>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5>Dirección: {{=inscription.auth_user.address}}</h5>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5>Ciudad: {{=inscription.auth_user.city}}</h5>
+				</td>
+				<td>
+					<h5 class="right-col-form">Provincia: {{=inscription.auth_user.province}}</h5>
 				</td>
 			</tr>
 			<tr>
 			</tr>
 			<tr>
 				<td>
-					<h5>Comisaria Jurisdicciónal: {{=shift.auth_user.police_station}}</h5>
+					<h5>Comisaria Jurisdicciónal: {{=inscription.auth_user.police_station}}</h5>
 				</td>
 				<td>
-					<h5 class="right-col-form">Tel Fijo: {{=shift.auth_user.phone}}</h5>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<h5>Titulo Secundario Expedido por: {{=shift.auth_user.high_school}}</h5>
-				</td>
-				<td>
-					<h5 class="right-col-form">Tel. Cel: {{=shift.auth_user.mobile_phone}}</h5>
+					<h5 class="right-col-form">Tel Fijo: {{=inscription.auth_user.phone}}</h5>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h5>Email: {{=shift.auth_user.email}}</h5>
+					<h5>Titulo Secundario Expedido por: {{=inscription.auth_user.high_school}}</h5>
+				</td>
+				<td>
+					<h5 class="right-col-form">Tel. Cel: {{=inscription.auth_user.mobile_phone}}</h5>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5>Email: {{=inscription.auth_user.email}}</h5>
 				</td>
 			</tr>			
 		</table><br>
@@ -120,8 +120,8 @@
 				</div>
 				
 				<div class="inscription_number">
-					<h3>Formulario Nro: {{=shift.id}}</h3>
-					<h3>Turno: {{=shift.shift.shift_date.strftime("%d/%m/%Y")}} {{=shift.shift.shift_time}}</h3>
+					<h3>Formulario Nro: {{=inscription.id}}</h3>
+					<h3>Turno: {{=inscription.shift.shift_date.strftime("%d/%m/%Y")}} {{=inscription.shift.shift_time}}</h3>
 				</div>
 			</div>
 	</header>
@@ -133,61 +133,61 @@
 		<table>
 			<tr>
 				<td>
-					<h5>Apellido y Nombre: {{=shift.auth_user.last_name + ', ' + shift.auth_user.first_name}}</h5>
+					<h5>Apellido y Nombre: {{=inscription.auth_user.last_name + ', ' + inscription.auth_user.first_name}}</h5>
 				</td>
 				<td>
-					<h5 class="right-col-form">Carrera: <strong>{{=shift.auth_user.career}}</strong></h5>
+					<h5 class="right-col-form">Carrera: <strong>{{=inscription.auth_user.career}}</strong></h5>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h5>D.N.I: <strong>{{=shift.auth_user.username}}</strong></h5>
+					<h5>D.N.I: <strong>{{=inscription.auth_user.username}}</strong></h5>
 				</td>
 				<td>
-					<h5 class="right-col-form">Fecha de Nacimiento: {{=shift.auth_user.birth_date.strftime("%d/%m/%Y")}}</h5>
+					<h5 class="right-col-form">Fecha de Nacimiento: {{=inscription.auth_user.birth_date.strftime("%d/%m/%Y")}}</h5>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h5>Genero: {{=shift.auth_user.gender}}</h5>
+					<h5>Genero: {{=inscription.auth_user.gender}}</h5>
 				</td>
 				<td>
-					<h5 class="right-col-form">Estado Civil: {{=shift.auth_user.marital_status}}</h5>
+					<h5 class="right-col-form">Estado Civil: {{=inscription.auth_user.marital_status}}</h5>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h5>Dirección: {{=shift.auth_user.address}}</h5>
+					<h5>Dirección: {{=inscription.auth_user.address}}</h5>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h5>Ciudad: {{=shift.auth_user.city}}</h5>
+					<h5>Ciudad: {{=inscription.auth_user.city}}</h5>
 				</td>
 				<td>
-					<h5 class="right-col-form">Provincia: {{=shift.auth_user.province}}</h5>
+					<h5 class="right-col-form">Provincia: {{=inscription.auth_user.province}}</h5>
 				</td>
 			</tr>
 			<tr>
 			</tr>
 			<tr>
 				<td>
-					<h5>Comisaria Jurisdicciónal: {{=shift.auth_user.police_station}}</h5>
+					<h5>Comisaria Jurisdicciónal: {{=inscription.auth_user.police_station}}</h5>
 				</td>
 				<td>
-					<h5 class="right-col-form">Tel Fijo: {{=shift.auth_user.phone}}</h5>
+					<h5 class="right-col-form">Tel Fijo: {{=inscription.auth_user.phone}}</h5>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h5>Titulo Secundario Expedido por: {{=shift.auth_user.high_school}}</h5>
+					<h5>Titulo Secundario Expedido por: {{=inscription.auth_user.high_school}}</h5>
 				</td>
 				<td>
-					<h5 class="right-col-form">Tel. Cel: {{=shift.auth_user.mobile_phone}}</h5>
+					<h5 class="right-col-form">Tel. Cel: {{=inscription.auth_user.mobile_phone}}</h5>
 				</td>
 			</tr>
 			<tr>
-				<td><h5>Email: {{=shift.auth_user.email}}</h5></td>
+				<td><h5>Email: {{=inscription.auth_user.email}}</h5></td>
 			</tr>			
 		</table><br>
 		<h5>Estatura: ................... (La estatura será completada por personal del IES de Policia Gral. San Martín)</h5>
