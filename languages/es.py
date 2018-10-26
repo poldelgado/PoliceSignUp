@@ -684,6 +684,7 @@
 'TSV (Spreadsheets, hidden cols)': 'TSV (Spreadsheets, hidden cols)',
 'Twitter': 'Twitter',
 'Ud. debe tener 18 años cumplidos y menos de 24 años al 01/02/2018': 'Ud. debe tener 18 años cumplidos y menos de 24 años al 01/02/2018',
+'Ud. debe tener 18 años cumplidos y menos de 24 años al 01/03/2019': 'Ud. debe tener 18 años cumplidos y menos de 24 años al 01/03/2019',
 'Unable to check for upgrades': 'No es posible verificar la existencia de actualizaciones',
 'unable to create application "%s"': 'no es posible crear la aplicación "%s"',
 'unable to delete file "%(filename)s"': 'no es posible eliminar el archivo "%(filename)s"',
