@@ -1,7 +1,7 @@
 {{extend 'layout_candidate.html'}}
 
 {{block center }}
-  {{#if control_time:}}
+  {{if control_time:}}
     <div class="modal" id="tos" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -51,11 +51,11 @@
           <h3 class="text-center">Complete con sus datos</h3>
           {{=form}}
       </div>
-    {{#else:}}
+    {{else:}}
       <div class="col-md-8 col-md-offset-2">
         <h2 class="text-center">LAS INSCRIPCIONES ESTARÁN HABILITADAS DESDE LAS 00:00hs del 01/11/2018 hasta las 23:55hs del 11/11/2018.</h2>
       </div>
-    {{#pass}}
+    {{pass}}
 
 {{end}}
 
