@@ -127,7 +127,7 @@ def shifts_for_day():
     if formulario.accepts(request,session):
         response.flash = 'Turnos generados para la fecha:' + request.vars.date
         shift_date = datetime.datetime.strptime(request.vars.date, '%d/%m/%Y').date()
-        for i in range(8,13):
+        for i in range(14,19):
             j = 0
             while j <= 55:
                 shift_time = `i`+":"+`j`

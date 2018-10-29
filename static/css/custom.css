@@ -121,3 +121,11 @@
 	color: red;
 	padding-bottom: 10px;
 }
+
+.modal-dialog{
+      overflow-y;
+}
+.modal-body{
+  height: 630px;
+  overflow-y: auto;
+}
