@@ -159,7 +159,7 @@ def register():
         auth.logout()
         redirect(URL('candidate','register'))
     control_time = False 
-    limitI = datetime(2018,11,1,16,0,0)
+    limitI = datetime(2018,11,1,3,0,0)
     limitF = datetime(2018,11,12,2,55,0)
     actual_time = datetime.now()
     if actual_time<limitF and actual_time>limitI:
