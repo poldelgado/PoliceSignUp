@@ -172,13 +172,13 @@ def listado_inscriptos():
 
     #completa filas con datos de inscriptos
     for i in xrange(0,len(inscriptions)):
-        ws.write(i+1, 0, inscriptions[i].shift.id, style2)
+        ws.write(i+1, 0, inscriptions[i].id, style2)
         ws.write(i+1, 1, inscriptions[i].shift.shift_date, style1)
         ws.write(i+1, 2, inscriptions[i].shift.shift_time, style3)
         ws.write(i+1, 3, inscriptions[i].auth_user.username, style2)
         ws.write(i+1, 4, unicode(inscriptions[i].auth_user.last_name + ', ' + inscriptions[i].auth_user.first_name,'utf-8'), style2)
         ws.write(i+1, 5, inscriptions[i].auth_user.birth_date, style1)
-        ws.write(i+1, 6, calculate_age(inscriptions[i].auth_user.birth_date), style1)
+        ws.write(i+1, 6, calculate_age(inscriptions[i].auth_user.birth_date), style2)
         ws.write(i+1, 7, inscriptions[i].auth_user.gender, style2)
         ws.write(i+1, 8, inscriptions[i].auth_user.marital_status, style2)
         ws.write(i+1, 9, unicode(inscriptions[i].auth_user.career,'utf-8'), style2)
