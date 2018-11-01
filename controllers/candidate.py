@@ -196,7 +196,7 @@ def inscription_form():
         #     logoMinSeg = os.path.join(request.folder, "static", "images", "logoMinisterio.png")
         #     self.image(logoIES,165,10,23,26)
         #     self.image(logoMinSeg,45,13,80,20)  
-    titulo_form = unicode('FORMULARIO UNICO DE INSCRIPCIÓN PARA ASPIRANTES A CADETES DE PRIMER AÑO DEL INSTITUTO DE ENSEÑANZA SUPERIOR DE POLICÍA "GRAL. JOSE FRANCISCO DE SAN MARTÍN" - CICLO LECTIVO 2019',"utf-8")
+    titulo_form = unicode('FORMULARIO ÚNICO DE INSCRIPCIÓN PARA ASPIRANTES A CADETES DE PRIMER AÑO DEL INSTITUTO DE ENSEÑANZA SUPERIOR DE POLICÍA "GRAL. JOSE FRANCISCO DE SAN MARTÍN" - CICLO LECTIVO 2019',"utf-8")
     #aclaracion = unicode('Los datos consignados en este formulario tienen carácter de "Declaración Jurada". La presentación del presente formulario implica conocer y aceptar los términos de la convocatoria y proceso de selección. La presentación de este formulario es de carácter GRATUITO','utf-8')
     declaracion_jurada = unicode('Declaro bajo juramento de ley: 1°) Que los datos consignados son verdaderos; 2°) Que he tomado conocimiento y acepto los términos de la presente convocatoria y proceso de selección, conforme el Decreto respectivo, como así tambien las pautas establecidas por el I.E.S. de Policía "GJFSM"; 3°) Que no registro antecedentes judiciales ni penales de carácter doloso ni contravencionales policiales, ni me encuentro procesado por la justicia provincial o nacional. En consecuencia, quedo sujeto a las normas que rigen administrativa y jurídicamente en la materia (Art. 172, 292 y c.c. Código Penal Argentino), y además obligado a comunicar toda variante dentro de los 15 (quince) días corridos a partir de la fecha en que éstas se hayan producido.','utf-8')
 
@@ -551,7 +551,7 @@ def print_inscription_form():
         #     self.image(logoIES,165,10,23,26)
         #     self.image(logoMinSeg,45,13,80,20)  
 
-    titulo_form = unicode('FORMULARIO UNICO DE INSCRIPCIÓN PARA ASPIRANTES A CADETES DE PRIMER AÑO DEL INSTITUTO DE ENSEÑANZA SUPERIOR DE POLICÍA "GRAL. JOSE FRANCISCO DE SAN MARTÍN" - CICLO LECTIVO 2019',"utf-8")
+    titulo_form = unicode('FORMULARIO ÚNICO DE INSCRIPCIÓN PARA ASPIRANTES A CADETES DE PRIMER AÑO DEL INSTITUTO DE ENSEÑANZA SUPERIOR DE POLICÍA "GRAL. JOSE FRANCISCO DE SAN MARTÍN" - CICLO LECTIVO 2019',"utf-8")
     #aclaracion = unicode('Los datos consignados en este formulario tienen carácter de "Declaración Jurada". La presentación del presente formulario implica conocer y aceptar los términos de la convocatoria y proceso de selección. La presentación de este formulario es de carácter GRATUITO','utf-8')
     declaracion_jurada = unicode('Declaro bajo juramento de ley: 1°) Que los datos consignados son verdaderos; 2°) Que he tomado conocimiento y acepto los términos de la presente convocatoria y proceso de selección, conforme el Decreto respectivo, como así tambien las pautas establecidas por el I.E.S. de Policía "GJFSM"; 3°) Que no registro antecedentes judiciales ni penales de carácter doloso ni contravencionales policiales, ni me encuentro procesado por la justicia provincial o nacional. En consecuencia, quedo sujeto a las normas que rigen administrativa y jurídicamente en la materia (Art. 172, 292 y c.c. Código Penal Argentino), y además obligado a comunicar toda variante dentro de los 15 (quince) días corridos a partir de la fecha en que éstas se hayan producido.','utf-8')
     pdf = FPDF('P', 'mm', 'A4')
@@ -839,146 +839,6 @@ def calculate_age(dob):
         return age
     else:
         return 0
-
-
-
-# IMPRESION EN A4
-# def inscription_form():
-#     import os
-#     from gluon.contrib.pyfpdf import FPDF
-
-#     candidate = db(db.auth_user.id == auth.user_id).select().first()
-#     inscription = db(db.shift_candidate.auth_user == auth.user_id).select().last()
-#     age = calculate_age(candidate.birth_date)
-    
-#     class PDF(FPDF):
-#         def header(self):
-#             #LOGOS
-#             logoIES = os.path.join(request.folder, "static", "images", "logo_ies.png")
-#             logoMinSeg = os.path.join(request.folder, "static", "images", "logoMinisterio.png")
-#             self.image(logoIES,165,10,23,26)
-#             self.image(logoMinSeg,45,13,80,20)
-         
-#     titulo_form = unicode('FORMULARIO UNICO DE INSCRIPCION PARA ASPIRANTES A CADETES DE PRIMER AÑO DEL INSTITUTO DE ENSEÑANZA SUPERIOR DE POLICIA "GRAL. JOSE FRANCISCO DE SAN MARTIN" - CICLO LECTIVO 2019',"utf-8")
-#     aclaracion = unicode('Los datos consignados en este formulario tienen carácter de "Declaración Jurada". La presentación del presente formulario implica conocer y aceptar los términos de la convocatoria y proceso de selección. La presentación de este formulario es de carácter GRATUITO','utf-8')
-#     pdf = PDF('P', 'mm', 'A4')
-#     pdf.add_page()
-#     pdf.set_font('Arial', 'B', 12)
-#     #pdf.cell(40, 10, 'Hello World!')
-#     pdf.line(30,37,200,37)
-#     pdf.line(30,37,30,290)
-#     pdf.line(200,37,200,290)
-#     pdf.line(30,290,200,290)
-#     pdf.line(30,75,200,75)
-#     pdf.line(120,37,120,75)
-#     pdf.line(30,240,200,240)
-#     pdf.dashed_line(35,65,115,65) #FIRMA CONTROLADOR FORMULARIO
-#     pdf.dashed_line(141,280,195,280) #FIRMA CONTROLADOR FISICO
-
-#     pdf.text(40,43,'DOCUMENTACION CONTROLADA')
-#     pdf.text(138,43,'FORMULARIO NRO:')
-#     pdf.text(33,50,'FECHA:         /         /    ')
-#     pdf.text(37,70,'FIRMA Y SELLO DEL CONTROLADOR')
-#     pdf.text(150,63,'TURNO:')
-#     pdf.text(125,69,'DIA: ' + inscription.shift.shift_date.strftime("%d/%m/%Y"))
-#     pdf.text(125,74,'HORA: ' + inscription.shift.shift_time.strftime("%H:%M"))
-#     pdf.set_xy(38,85)
-#     pdf.multi_cell(157,5, titulo_form,0,'C',False)
-#     #DATOS DEL POSTULANTE
-#     pdf.set_font('Arial','',11)
-#     pdf.text(34,110,'APELLIDO/S: ' + unicode(inscription.auth_user.last_name,'utf-8'))
-#     pdf.text(34,115,'NOMBRE/S: ' + unicode(inscription.auth_user.first_name,'utf-8'))
-#     pdf.text(34,120,'FECHA DE NACIMIENTO: ' + inscription.auth_user.birth_date.strftime("%d/%m/%Y"))
-#     pdf.text(34,125,'EDAD: ' + str(age))
-#     pdf.text(34,130,'GENERO: ' + unicode(inscription.auth_user.gender,'utf-8'))
-#     pdf.text(34,135,'ESTADO CIVIL: ' + unicode(inscription.auth_user.marital_status, 'utf-8'))
-#     pdf.text(34,140,'NACIONALIDAD: ' + unicode(inscription.auth_user.nationality, 'utf-8'))
-#     pdf.text(34,145, 'DOMICILIO: ' + unicode(inscription.auth_user.address, 'utf-8'))
-#     pdf.text(34,150, 'CIUDAD / LOCALIDAD: ' + unicode(inscription.auth_user.city,'utf-8'))
-#     pdf.text(34,155,'PROVINCIA: ' + unicode(inscription.auth_user.province,'utf-8'))
-#     pdf.text(34,160, unicode('COMISARIA JURISDICCIONAL: ' + inscription.auth_user.police_station, 'utf-8'))
-#     pdf.text(34,165,'TEL. FIJO: ' + inscription.auth_user.phone)
-#     pdf.text(34,170,'TEL. FIJO: ' + inscription.auth_user.mobile_phone)
-#     pdf.text(34,175,'CORREO ELECTRONICO: ' + unicode(inscription.auth_user.email,'utf-8'))
-#     pdf.text(34,180, unicode('TITULO SECUNDARIO EXPEDIDO POR: ' + inscription.auth_user.high_school,'utf-8'))
-#     pdf.text(34,185, unicode('TITULO TERCIARIO: ' + inscription.auth_user.tertiary_title,'utf-8'))   
-#     pdf.text(38,248, unicode('ESTOS DATOS SERÁN COMPLETADOS POR PERSONAL DEL I.E.S.P "G.J.F.S.M"','utf-8'))
-#     pdf.text(34,260, 'ESTATURA:..........')
-#     pdf.text(34,268, 'PESO:..............')
-#     pdf.text(34,276, 'I.M.C.:............')
-
-#     pdf.set_font('Arial','',9)
-#     pdf.text(34,200,unicode('FIRMA DEL ASPIRANTE AL MOMENTO DE PRESENTAR LA DOCUMENTACIÓN: ...............................................','utf-8'))
-#     pdf.text(34,208,unicode('ACLARACIÓN...............................................................................................................................................................','utf-8'))
-#     pdf.set_xy(34,220)
-#     pdf.multi_cell(160,5, aclaracion,0,'J',False)
-#     pdf.text(140,285, 'FIRMA Y SELLO DEL CONTROLADOR')
-
-
-#     #NRO DE FORMULARIO
-#     pdf.set_font('Arial','B',40)
-#     pdf.text(145,57, str(inscription.id))
-
-#     #SEGUNDA PAGINA
-
-#     pdf.add_page()
-#     pdf.set_font('Arial', 'B', 12)
-#     #pdf.cell(40, 10, 'Hello World!')
-#     pdf.line(30,37,200,37)
-#     pdf.line(30,37,30,290)
-#     pdf.line(200,37,200,290)
-#     pdf.line(30,290,200,290)
-#     pdf.line(30,75,200,75)
-#     pdf.line(120,37,120,75)
-#     pdf.line(30,240,200,240)
-#     pdf.dashed_line(35,65,115,65) #FIRMA CONTROLADOR FORMULARIO
-#     pdf.dashed_line(141,280,195,280) #FIRMA CONTROLADOR FISICO
-
-#     pdf.text(40,43,'DOCUMENTACION CONTROLADA')
-#     pdf.text(138,43,'FORMULARIO NRO:')
-#     pdf.text(33,50,'FECHA:         /         /    ')
-#     pdf.text(37,70,'FIRMA Y SELLO DEL CONTROLADOR')
-#     pdf.text(150,63,'TURNO:')
-#     pdf.text(125,69,'DIA: ' + inscription.shift.shift_date.strftime("%d/%m/%Y"))
-#     pdf.text(125,74,'HORA: ' + inscription.shift.shift_time.strftime("%H:%M"))
-#     pdf.set_xy(38,85)
-#     pdf.multi_cell(157,5, titulo_form,0,'C',False)
-#     #DATOS DEL POSTULANTE
-#     pdf.set_font('Arial','',11)
-#     pdf.text(34,110,'APELLIDO/S: ' + unicode(inscription.auth_user.last_name,'utf-8'))
-#     pdf.text(34,115,'NOMBRE/S: ' + unicode(inscription.auth_user.first_name,'utf-8'))
-#     pdf.text(34,120,'FECHA DE NACIMIENTO: ' + inscription.auth_user.birth_date.strftime("%d/%m/%Y"))
-#     pdf.text(34,125,'EDAD: ' + str(age))
-#     pdf.text(34,130,'GENERO: ' + unicode(inscription.auth_user.gender,'utf-8'))
-#     pdf.text(34,135,'ESTADO CIVIL: ' + unicode(inscription.auth_user.marital_status, 'utf-8'))
-#     pdf.text(34,140,'NACIONALIDAD: ' + unicode(inscription.auth_user.nationality, 'utf-8'))
-#     pdf.text(34,145, 'DOMICILIO: ' + unicode(inscription.auth_user.address, 'utf-8'))
-#     pdf.text(34,150, 'CIUDAD / LOCALIDAD: ' + unicode(inscription.auth_user.city,'utf-8'))
-#     pdf.text(34,155,'PROVINCIA: ' + unicode(inscription.auth_user.province,'utf-8'))
-#     pdf.text(34,160, unicode('COMISARIA JURISDICCIONAL: ' + inscription.auth_user.police_station, 'utf-8'))
-#     pdf.text(34,165,'TEL. FIJO: ' + inscription.auth_user.phone)
-#     pdf.text(34,170,'TEL. FIJO: ' + inscription.auth_user.mobile_phone)
-#     pdf.text(34,175,'CORREO ELECTRONICO: ' + unicode(inscription.auth_user.email,'utf-8'))
-#     pdf.text(34,180, unicode('TITULO SECUNDARIO EXPEDIDO POR: ' + inscription.auth_user.high_school,'utf-8'))
-#     pdf.text(34,185, unicode('TITULO TERCIARIO: ' + inscription.auth_user.tertiary_title,'utf-8'))
-#     pdf.text(38,248, unicode('ESTOS DATOS SERÁN COMPLETADOS POR PERSONAL DEL I.E.S.P "G.J.F.S.M"','utf-8'))
-#     pdf.text(34,260, 'ESTATURA:..........')
-#     pdf.text(34,268, 'PESO:..............')
-#     pdf.text(34,276, 'I.M.C.:............')
-
-#     pdf.set_font('Arial','',9)
-#     pdf.text(34,200,unicode('FIRMA DEL ASPIRANTE AL MOMENTO DE PRESENTAR LA DOCUMENTACIÓN: ...............................................','utf-8'))
-#     pdf.text(34,208,unicode('ACLARACIÓN...............................................................................................................................................................','utf-8'))
-#     pdf.set_xy(34,220)
-#     pdf.multi_cell(160,5, aclaracion,0,'J',False)
-#     pdf.text(140,285, 'FIRMA Y SELLO DEL CONTROLADOR')
-
-
-#     #NRO DE FORMULARIO
-#     pdf.set_font('Arial','B',40)
-#     pdf.text(145,57, str(inscription.id))
-#     return pdf.output(dest='S')
-
 
 
 def test_register():
