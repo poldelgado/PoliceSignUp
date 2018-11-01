@@ -298,3 +298,23 @@ candidate.id
 print candidate.id
 exit
 exit()
+inscriptions = db(db.shift_candidate).select()
+inscriptions
+inscriptions[1].id
+inscriptions.[1].auth_user
+inscriptions.[1].auth_user.first_name
+db.shift_candidate
+db.shift_candidate.auth_user
+db.shift_candidate.select(id=10)
+db.shift_candidate.select()
+db(db.shift_candidate).select(id=10)
+    inscriptions = db((db.shift.id == db.shift_candidate.shift) & (db.auth_user.id == db.shift_candidate.auth_user)).select(orderby=db.shift.shift_date|db.shift.shift_time)
+inscriptions = db((db.shift.id == db.shift_candidate.shift) & (db.auth_user.id == db.shift_candidate.auth_user)).select(orderby=db.shift.shift_date|db.shift.shift_time)
+inscriptions
+print inscriptions
+inscriptions[1]
+inscriptions[1].id
+inscriptions[1].shift_candidate
+inscriptions[1].shift_candidate.id
+exit
+exit()
