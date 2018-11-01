@@ -158,16 +158,17 @@ def listado_inscriptos():
     ws.write(0, 3, 'DNI', style0)
     ws.write(0, 4, 'Apellido y Nombre/s', style0)
     ws.write(0, 5, 'F.Nac', style0)
-    ws.write(0, 6, 'Genero', style0)
-    ws.write(0, 7, 'Estado Civil', style0)
-    ws.write(0, 8, 'Carrera', style0)
-    ws.write(0, 9, 'Tel. Fijo', style0)
-    ws.write(0, 10, 'Tel. Celular', style0)
-    ws.write(0, 11, 'Direccion', style0)
-    ws.write(0, 12, 'Provincia', style0)
-    ws.write(0, 13, 'Comisaria Jur.', style0)
-    ws.write(0, 14, 'Col. Secundario', style0)
-    ws.write(0, 15, 'Titulo Terciario', style0)
+    ws.write(0, 6, 'EDAD', style0)
+    ws.write(0, 7, 'Genero', style0)
+    ws.write(0, 8, 'Estado Civil', style0)
+    ws.write(0, 9, 'Carrera', style0)
+    ws.write(0, 10, 'Tel. Fijo', style0)
+    ws.write(0, 11, 'Tel. Celular', style0)
+    ws.write(0, 12, 'Direccion', style0)
+    ws.write(0, 13, 'Provincia', style0)
+    ws.write(0, 14, 'Comisaria Jur.', style0)
+    ws.write(0, 15, 'Col. Secundario', style0)
+    ws.write(0, 16, 'Titulo Terciario', style0)
 
     #completa filas con datos de inscriptos
     for i in xrange(0,len(inscriptions)):
@@ -177,16 +178,17 @@ def listado_inscriptos():
         ws.write(i+1, 3, inscriptions[i].auth_user.username, style2)
         ws.write(i+1, 4, unicode(inscriptions[i].auth_user.last_name + ', ' + inscriptions[i].auth_user.first_name,'utf-8'), style2)
         ws.write(i+1, 5, inscriptions[i].auth_user.birth_date, style1)
-        ws.write(i+1, 6, inscriptions[i].auth_user.gender, style2)
-        ws.write(i+1, 7, inscriptions[i].auth_user.marital_status, style2)
-        ws.write(i+1, 8, unicode(inscriptions[i].auth_user.career,'utf-8'), style2)
-        ws.write(i+1, 9, unicode(inscriptions[i].auth_user.phone,'utf-8'), style2)
-        ws.write(i+1, 10, unicode(inscriptions[i].auth_user.mobile_phone,'utf-8'), style2)
-        ws.write(i+1, 11, unicode(inscriptions[i].auth_user.address,'utf-8'), style2)
-        ws.write(i+1, 12, unicode(inscriptions[i].auth_user.province,'utf-8'), style2)
-        ws.write(i+1, 13, unicode(inscriptions[i].auth_user.police_station,'utf-8'), style2)
-        ws.write(i+1, 14, unicode(inscriptions[i].auth_user.high_school,'utf-8'), style2)
-        ws.write(i+1, 15, unicode(inscriptions[i].auth_user.tertiary_title,'utf-8'), style2)
+        ws.write(i+1, 6, calculate_age(inscriptions[i].auth_user.birth_date), style1)
+        ws.write(i+1, 7, inscriptions[i].auth_user.gender, style2)
+        ws.write(i+1, 8, inscriptions[i].auth_user.marital_status, style2)
+        ws.write(i+1, 9, unicode(inscriptions[i].auth_user.career,'utf-8'), style2)
+        ws.write(i+1, 10, unicode(inscriptions[i].auth_user.phone,'utf-8'), style2)
+        ws.write(i+1, 11, unicode(inscriptions[i].auth_user.mobile_phone,'utf-8'), style2)
+        ws.write(i+1, 12, unicode(inscriptions[i].auth_user.address,'utf-8'), style2)
+        ws.write(i+1, 13, unicode(inscriptions[i].auth_user.province,'utf-8'), style2)
+        ws.write(i+1, 14, unicode(inscriptions[i].auth_user.police_station,'utf-8'), style2)
+        ws.write(i+1, 15, unicode(inscriptions[i].auth_user.high_school,'utf-8'), style2)
+        ws.write(i+1, 16, unicode(inscriptions[i].auth_user.tertiary_title,'utf-8'), style2)
 
     wb.save(tmpfilename)
 
@@ -195,3 +197,17 @@ def listado_inscriptos():
     response.headers['Content-Type']='application/vnd.ms-excel'
 
     return data
+
+def calculate_age(dob):
+    from datetime import date
+    today = date.today()
+    if today > dob:
+        age = today.year - dob.year
+        if dob.month > today.month:
+            age -= 1
+        if today.month == dob.month:
+            if dob.day > dob.month:
+                age -= 1        
+        return age
+    else:
+        return 0
