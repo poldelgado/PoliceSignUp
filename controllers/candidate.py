@@ -189,17 +189,9 @@ def inscription_form():
     logoIES = os.path.join(request.folder, "static", "images", "logo_ies.png")
     logoMinSeg = os.path.join(request.folder, "static", "images", "logoMinisterio.png")
     
-    # class PDF(FPDF):
-        # def header(self):
-        #     #LOGOS
-        #     logoIES = os.path.join(request.folder, "static", "images", "logo_ies.png")
-        #     logoMinSeg = os.path.join(request.folder, "static", "images", "logoMinisterio.png")
-        #     self.image(logoIES,165,10,23,26)
-        #     self.image(logoMinSeg,45,13,80,20)  
+        
     titulo_form = unicode('FORMULARIO ÚNICO DE INSCRIPCIÓN PARA ASPIRANTES A CADETES DE PRIMER AÑO DEL INSTITUTO DE ENSEÑANZA SUPERIOR DE POLICÍA "GRAL. JOSE FRANCISCO DE SAN MARTÍN" - CICLO LECTIVO 2019',"utf-8")
-    #aclaracion = unicode('Los datos consignados en este formulario tienen carácter de "Declaración Jurada". La presentación del presente formulario implica conocer y aceptar los términos de la convocatoria y proceso de selección. La presentación de este formulario es de carácter GRATUITO','utf-8')
     declaracion_jurada = unicode('Declaro bajo juramento de ley: 1°) Que los datos consignados son verdaderos; 2°) Que he tomado conocimiento y acepto los términos de la presente convocatoria y proceso de selección, conforme el Decreto respectivo, como así tambien las pautas establecidas por el I.E.S. de Policía "GJFSM"; 3°) Que no registro antecedentes judiciales ni penales de carácter doloso ni contravencionales policiales, ni me encuentro procesado por la justicia provincial o nacional. En consecuencia, quedo sujeto a las normas que rigen administrativa y jurídicamente en la materia (Art. 172, 292 y c.c. Código Penal Argentino), y además obligado a comunicar toda variante dentro de los 15 (quince) días corridos a partir de la fecha en que éstas se hayan producido.','utf-8')
-
     pdf = FPDF('P', 'mm', 'A4')
     pdf.add_page()
     #LOGOS
@@ -242,15 +234,30 @@ def inscription_form():
     pdf.text(34,160,'TEL. FIJO: ' + inscription.auth_user.phone)
     pdf.text(34,165,'TEL. CEL.: ' + inscription.auth_user.mobile_phone)
     pdf.text(34,170,unicode('CORREO ELECTRÓNICO: ','utf-8') + unicode(inscription.auth_user.email,'utf-8').lower())
-    pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR: ' + inscription.auth_user.high_school,'utf-8').upper())
-    pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ' + inscription.auth_user.tertiary_title,'utf-8').upper())
+    if(len(inscription.auth_user.high_school)<=40):
+        pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR: ' + inscription.auth_user.high_school,'utf-8').upper())
+    else:
+        pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR:','utf-8'))
+        pdf.set_xy(110,171)
+        pdf.set_font('Times','',9)
+        pdf.multi_cell(85,2.8,unicode(inscription.auth_user.high_school,'utf-8').upper(),0,'J',False)
+        pdf.set_font('Times','',12)
+    if(len(inscription.auth_user.high_school)<=40):
+        pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ' + inscription.auth_user.tertiary_title,'utf-8').upper())
+    else:
+        pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ','utf-8'))
+        pdf.set_xy(108,176)
+        pdf.set_font('Times','',9)
+        pdf.multi_cell(85,2.8,unicode(inscription.auth_user.tertiary_title,'utf-8').upper(),0,'J',False)
+        pdf.set_font('Times','',12)
+
     pdf.set_font('Times','B',12)
     pdf.text(37,245, unicode('ESTOS DATOS SERÁN COMPLETADOS POR PERSONAL DEL I.E.S.P "G.J.F.S.M"','utf-8'))
     pdf.set_font('Times','',12)
     pdf.text(34,257, 'ESTATURA:..................')
     pdf.text(34,267, 'PESO:.............................')
     pdf.text(34,277, 'I.M.C.:............................')
-    pdf.set_xy(34,184)
+    pdf.set_xy(34,185.7)
     pdf.set_font('Times','',12)
     pdf.multi_cell(160,4, declaracion_jurada,0,'J',False)
     pdf.set_font('Times','',9)
@@ -308,15 +315,30 @@ def inscription_form():
     pdf.text(34,160,'TEL. FIJO: ' + inscription.auth_user.phone)
     pdf.text(34,165,'TEL. CEL.: ' + inscription.auth_user.mobile_phone)
     pdf.text(34,170,unicode('CORREO ELECTRÓNICO: ','utf-8') + unicode(inscription.auth_user.email,'utf-8').lower())
-    pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR: ' + inscription.auth_user.high_school,'utf-8').upper())
-    pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ' + inscription.auth_user.tertiary_title,'utf-8').upper())
+    if(len(inscription.auth_user.high_school)<=40):
+        pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR: ' + inscription.auth_user.high_school,'utf-8').upper())
+    else:
+        pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR:','utf-8'))
+        pdf.set_xy(110,171)
+        pdf.set_font('Times','',9)
+        pdf.multi_cell(85,2.8,unicode(inscription.auth_user.high_school,'utf-8').upper(),0,'J',False)
+        pdf.set_font('Times','',12)
+    if(len(inscription.auth_user.high_school)<=40):
+        pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ' + inscription.auth_user.tertiary_title,'utf-8').upper())
+    else:
+        pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ','utf-8'))
+        pdf.set_xy(108,176)
+        pdf.set_font('Times','',9)
+        pdf.multi_cell(85,2.8,unicode(inscription.auth_user.tertiary_title,'utf-8').upper(),0,'J',False)
+        pdf.set_font('Times','',12)
+
     pdf.set_font('Times','B',12)
     pdf.text(37,245, unicode('ESTOS DATOS SERÁN COMPLETADOS POR PERSONAL DEL I.E.S.P "G.J.F.S.M"','utf-8'))
     pdf.set_font('Times','',12)
     pdf.text(34,257, 'ESTATURA:..................')
     pdf.text(34,267, 'PESO:.............................')
     pdf.text(34,277, 'I.M.C.:............................')
-    pdf.set_xy(34,184)
+    pdf.set_xy(34,185.7)
     pdf.set_font('Times','',12)
     pdf.multi_cell(160,4, declaracion_jurada,0,'J',False)
     pdf.set_font('Times','',9)
@@ -331,6 +353,7 @@ def inscription_form():
     pdf.set_font('Arial','B',40)
     pdf.set_xy(120,47)
     pdf.cell(75,10,str(inscription.id),0,0,'C')
+
 
     #FORMULARIO NOTAS EXAMEN INTELECTUAL
     pdf.add_page()
@@ -543,16 +566,7 @@ def print_inscription_form():
     logoIES = os.path.join(request.folder, "static", "images", "logo_ies.png")
     logoMinSeg = os.path.join(request.folder, "static", "images", "logoMinisterio.png")
     
-    # class PDF(FPDF):
-        # def header(self):
-        #     #LOGOS
-        #     logoIES = os.path.join(request.folder, "static", "images", "logo_ies.png")
-        #     logoMinSeg = os.path.join(request.folder, "static", "images", "logoMinisterio.png")
-        #     self.image(logoIES,165,10,23,26)
-        #     self.image(logoMinSeg,45,13,80,20)  
-
     titulo_form = unicode('FORMULARIO ÚNICO DE INSCRIPCIÓN PARA ASPIRANTES A CADETES DE PRIMER AÑO DEL INSTITUTO DE ENSEÑANZA SUPERIOR DE POLICÍA "GRAL. JOSE FRANCISCO DE SAN MARTÍN" - CICLO LECTIVO 2019',"utf-8")
-    #aclaracion = unicode('Los datos consignados en este formulario tienen carácter de "Declaración Jurada". La presentación del presente formulario implica conocer y aceptar los términos de la convocatoria y proceso de selección. La presentación de este formulario es de carácter GRATUITO','utf-8')
     declaracion_jurada = unicode('Declaro bajo juramento de ley: 1°) Que los datos consignados son verdaderos; 2°) Que he tomado conocimiento y acepto los términos de la presente convocatoria y proceso de selección, conforme el Decreto respectivo, como así tambien las pautas establecidas por el I.E.S. de Policía "GJFSM"; 3°) Que no registro antecedentes judiciales ni penales de carácter doloso ni contravencionales policiales, ni me encuentro procesado por la justicia provincial o nacional. En consecuencia, quedo sujeto a las normas que rigen administrativa y jurídicamente en la materia (Art. 172, 292 y c.c. Código Penal Argentino), y además obligado a comunicar toda variante dentro de los 15 (quince) días corridos a partir de la fecha en que éstas se hayan producido.','utf-8')
     pdf = FPDF('P', 'mm', 'A4')
     pdf.add_page()
@@ -596,15 +610,30 @@ def print_inscription_form():
     pdf.text(34,160,'TEL. FIJO: ' + inscription.auth_user.phone)
     pdf.text(34,165,'TEL. CEL.: ' + inscription.auth_user.mobile_phone)
     pdf.text(34,170,unicode('CORREO ELECTRÓNICO: ','utf-8') + unicode(inscription.auth_user.email,'utf-8').lower())
-    pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR: ' + inscription.auth_user.high_school,'utf-8').upper())
-    pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ' + inscription.auth_user.tertiary_title,'utf-8').upper())
+    if(len(inscription.auth_user.high_school)<=40):
+        pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR: ' + inscription.auth_user.high_school,'utf-8').upper())
+    else:
+        pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR:','utf-8'))
+        pdf.set_xy(110,171)
+        pdf.set_font('Times','',9)
+        pdf.multi_cell(85,2.8,unicode(inscription.auth_user.high_school,'utf-8').upper(),0,'J',False)
+        pdf.set_font('Times','',12)
+    if(len(inscription.auth_user.high_school)<=40):
+        pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ' + inscription.auth_user.tertiary_title,'utf-8').upper())
+    else:
+        pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ','utf-8'))
+        pdf.set_xy(108,176)
+        pdf.set_font('Times','',9)
+        pdf.multi_cell(85,2.8,unicode(inscription.auth_user.tertiary_title,'utf-8').upper(),0,'J',False)
+        pdf.set_font('Times','',12)
+
     pdf.set_font('Times','B',12)
     pdf.text(37,245, unicode('ESTOS DATOS SERÁN COMPLETADOS POR PERSONAL DEL I.E.S.P "G.J.F.S.M"','utf-8'))
     pdf.set_font('Times','',12)
     pdf.text(34,257, 'ESTATURA:..................')
     pdf.text(34,267, 'PESO:.............................')
     pdf.text(34,277, 'I.M.C.:............................')
-    pdf.set_xy(34,184)
+    pdf.set_xy(34,185.7)
     pdf.set_font('Times','',12)
     pdf.multi_cell(160,4, declaracion_jurada,0,'J',False)
     pdf.set_font('Times','',9)
@@ -662,15 +691,30 @@ def print_inscription_form():
     pdf.text(34,160,'TEL. FIJO: ' + inscription.auth_user.phone)
     pdf.text(34,165,'TEL. CEL.: ' + inscription.auth_user.mobile_phone)
     pdf.text(34,170,unicode('CORREO ELECTRÓNICO: ','utf-8') + unicode(inscription.auth_user.email,'utf-8').lower())
-    pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR: ' + inscription.auth_user.high_school,'utf-8').upper())
-    pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ' + inscription.auth_user.tertiary_title,'utf-8').upper())
+    if(len(inscription.auth_user.high_school)<=40):
+        pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR: ' + inscription.auth_user.high_school,'utf-8').upper())
+    else:
+        pdf.text(34,175, unicode('TÍTULO SECUNDARIO EXPEDIDO POR:','utf-8'))
+        pdf.set_xy(110,171)
+        pdf.set_font('Times','',9)
+        pdf.multi_cell(85,2.8,unicode(inscription.auth_user.high_school,'utf-8').upper(),0,'J',False)
+        pdf.set_font('Times','',12)
+    if(len(inscription.auth_user.high_school)<=40):
+        pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ' + inscription.auth_user.tertiary_title,'utf-8').upper())
+    else:
+        pdf.text(34,180, unicode('TÍTULO TERCIARIO/UNIVERSITARIO: ','utf-8'))
+        pdf.set_xy(108,176)
+        pdf.set_font('Times','',9)
+        pdf.multi_cell(85,2.8,unicode(inscription.auth_user.tertiary_title,'utf-8').upper(),0,'J',False)
+        pdf.set_font('Times','',12)
+
     pdf.set_font('Times','B',12)
     pdf.text(37,245, unicode('ESTOS DATOS SERÁN COMPLETADOS POR PERSONAL DEL I.E.S.P "G.J.F.S.M"','utf-8'))
     pdf.set_font('Times','',12)
     pdf.text(34,257, 'ESTATURA:..................')
     pdf.text(34,267, 'PESO:.............................')
     pdf.text(34,277, 'I.M.C.:............................')
-    pdf.set_xy(34,184)
+    pdf.set_xy(34,185.7)
     pdf.set_font('Times','',12)
     pdf.multi_cell(160,4, declaracion_jurada,0,'J',False)
     pdf.set_font('Times','',9)
@@ -685,6 +729,7 @@ def print_inscription_form():
     pdf.set_font('Arial','B',40)
     pdf.set_xy(120,47)
     pdf.cell(75,10,str(inscription.id),0,0,'C')
+
 
     #FORMULARIO NOTAS EXAMEN INTELECTUAL
     pdf.add_page()
