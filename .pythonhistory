@@ -318,3 +318,79 @@ inscriptions[1].shift_candidate
 inscriptions[1].shift_candidate.id
 exit
 exit()
+users = db.auth_user
+users = db(db.auth_user)
+exit
+exit()
+db
+users = db(auth_user).select()
+users = db(auth_user)
+users = db(db.auth_user).select()
+users
+users = db(db.auth_user).select()
+exit
+exit()
+users = db().select(auth_user.ALL, db.auth_membership.ALL, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+users = db().select(db.auth_user.ALL, db.auth_membership.ALL, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+users
+for user in users
+for user in users:
+  print user
+users = db().select(db.auth_user.nombre, db.auth_membership.ALL, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+users = db().select(db.auth_user.username, db.auth_membership.ALL, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+for user in users:
+  print user
+users = db().select(db.auth_user.username, db.auth_membership.ALL, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id && db.auth_membership.user_id == None))
+users = db().select(db.auth_user.username, db.auth_membership.ALL, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id) && db.auth_membership.user_id == None)
+users = db().select(db.auth_user.username, db.auth_membership.ALL, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id) && (db.auth_membership.user_id==None))
+users = db(db.auth_user.username!='28851724').select()
+users
+users = db(db.auth_membership.user_id==None).select(db.auth_user.username, db.auth_membership.ALL, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+users
+for user in users:
+  print user
+users = db(db.auth_membership.user_id==None).select(db.auth_user.username, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+for user in users:
+  print user
+users = db(db.auth_membership.user_id==None).select(db.auth_user, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+users = db(db.auth_membership.user_id==None).select(db.auth_user.id,db.auth_user.username, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+for user in users:
+  print user
+users = db(db.auth_membership.user_id==None).select(db.auth_user.id,db.auth_user.username, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+for user in users:
+  print user.id
+users
+users = db(db.auth_membership.user_id==None).select(db.auth_user.id,db.auth_user.username, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+users
+for user in users:
+  print user.username
+exit()
+users = db(db.auth_membership.user_id==None).select(db.auth_user.id,db.auth_user.username, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+for user in users:
+  print user.username
+users
+exit()
+users = db(db.auth_user).select()
+users
+users[2]
+users[1]
+users[1].inscription
+users[1].inscription.id
+aprobados = users = db(db.auth_user.inscription.id==db.psychological_interview.inscription.id).select()
+aprobados = users = db(db.auth_user.id==db.inscription.auth_user & db.psychological_exam.id==db.inscription).select()
+    inscriptions = db(db.inscription.id == db.psychological_interview.inscription.id).select()
+inscriptions = db(db.inscription.id == db.psychological_interview.inscription.id).select()
+inscriptions = db(db.inscription.id == db.psychological_interview.inscription).select()
+inscriptions
+inscriptions[1].auth_user
+inscriptions[1]
+inscriptions
+inscriptions
+inscriptions[1]
+inscriptions
+dict(insc = inscriptions)
+insc
+print insc
+print inscriptions
+inscriptions[1].inscription.auth_user
+exit()

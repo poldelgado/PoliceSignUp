@@ -122,7 +122,7 @@ def shifts_for_day():
     formulario = FORM('Fecha: ',
                 INPUT(_class='form-control', _name = 'date', _id='date', _type = 'text' , _placeholder='dd/mm/aaaa', requires=IS_DATE(format=T('%d/%m/%Y'),
                    error_message='¡Debe ser dd/mm/aaaa')),
-                 INPUT(_class='btn btn-success' ,_type='submit')
+                 INPUT(_class='btn btn-success' ,_type='submit', _value='Crear Turnos')
                 )
     if formulario.accepts(request,session):
         response.flash = 'Turnos generados para la fecha:' + request.vars.date

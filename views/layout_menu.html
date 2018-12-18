@@ -22,6 +22,8 @@
         <ul class="treeview-menu">
             {{if auth.user and is_user_member('Admin'):}}
                 {{=sidebar_menu_item('Ver Aspirantes', URL('candidate', 'list'), icon='list')}}
+                {{=sidebar_menu_item('Assign Shift List', URL('shift_candidate', 'list_to_xls'), icon='table')}}
+                {{=sidebar_menu_item('Lista de Aprobados', URL('candidate', 'list_aproved'), icon='list')}}
             {{pass}}
         </ul>
     </li>
@@ -34,7 +36,6 @@
             {{=sidebar_menu_item('Insert Shifts', URL('shift', 'shifts_for_day'), icon='pencil-square-o')}}
         {{pass}}
         {{=sidebar_menu_item('Assign Shift', URL('shift_candidate', 'create'), icon='pencil-square-o')}}
-        {{=sidebar_menu_item('Assign Shift List', URL('shift_candidate', 'list_to_xls'), icon='table')}}
               </ul>
     </li>
 

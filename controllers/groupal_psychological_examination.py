@@ -114,4 +114,4 @@ def launch_gpe():
     inscriptions_gpe = db((db.auth_user.id == db.inscription.auth_user) & (db.physical_exam.inscription == db.inscription.id)).select()
     for gpe in inscriptions_gpe:
         if gpe.physical_exam.aproved:
-            table.insert(inscription = med_exam.inscription.id)
+            table.insert(inscription = gpe.inscription.id)

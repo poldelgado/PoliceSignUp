@@ -110,7 +110,8 @@ def update():
     redirect(URL('list'))
 
 @auth.requires_membership('Super Admin')
-inscriptions_psychological_exam = db((db.auth_user.id == db.inscription.auth_user) & (db.groupal_psychological_examination.inscription == db.inscription.id)).select()
+def launch():
+    inscriptions_psychological_exam = db((db.auth_user.id == db.inscription.auth_user) & (db.groupal_psychological_examination.inscription == db.inscription.id)).select()
     for psychological in inscriptions_psychological_exam:
         if psychological.groupal_psychological_examination.exam_result:
             table.insert(inscription = psychological.inscription.id)

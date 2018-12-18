@@ -15,7 +15,7 @@ request.now = request.utcnow
 if request.global_settings.web2py_version < "2.14.1":
     raise HTTP(500, "Requires web2py 2.14.1 or newer")
 
-request.requires_https()
+#request.requires_https()
 
 # application configuration using private/appconfig.ini
 from gluon.contrib.appconfig import AppConfig
@@ -95,7 +95,7 @@ auth.settings.extra_fields['auth_user'] = [
 auth.define_tables(username=True, signature=True)
 
 # add auth formatting, validation, and representation
-db.auth_user._format = '%(last_name)s %(first_name)s (%(id)s)'  # defaults to '%(username)'
+db.auth_user._format = '(%(username)s %(last_name)s %(first_name)s)'  # defaults to '%(username)'
 
 # configure email
 mail = auth.settings.mailer

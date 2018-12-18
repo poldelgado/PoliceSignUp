@@ -886,16 +886,91 @@ def calculate_age(dob):
         return 0
 
 
-def test_register():
-    if auth.is_logged_in():
-        auth.logout()
-        redirect(URL('candidate','register'))
-    control_time = False 
-    limitI = datetime(2018,11,1,3,0,0)
-    limitF = datetime(2018,11,12,2,55,0)
-    actual_time = datetime.now()
-    if actual_time<limitF and actual_time>limitI:
-        control_time = True
-    auth.settings.register_onaccept = add_user_shift
-    auth.settings.register_next = URL(c='candidate',f='profile')
-    return dict(form = auth.register(), control_time = control_time)
+def list_aproved():
+    aspirantes = db(db.inscription.id == db.psychological_interview.inscription).select(join=db.auth_user.on(db.auth_user.id==db.inscription.auth_user))    
+    return dict(aprobados = aspirantes)
+
+
+def listado_aprobados():
+    import os
+    import xlwt
+    from datetime import datetime
+    inscriptions = db(db.inscription.id == db.psychological_interview.inscription).select(join=db.auth_user.on(db.auth_user.id==db.inscription.auth_user))    
+    tmpfilename=os.path.join(request.folder,'private',str("tem.xls"))
+
+    font0 = xlwt.Font()
+    font0.name = 'Arial'
+    font0.bold = True
+
+    style0 = xlwt.XFStyle()
+    style0.font = font0
+    #Formato para fechas
+    style1 = xlwt.XFStyle()
+    style1.num_format_str = 'DD-MMMM-YYYY'
+    #formato para datos en texto
+    style2 = xlwt.XFStyle()
+    style2.font.name = 'Arial'
+    style2.font.bold = False
+    #formato para datos de hora
+    style3 = xlwt.XFStyle()
+    style3.num_format_str = 'HH:MM'
+
+
+    wb = xlwt.Workbook()
+    ws = wb.add_sheet('Sample report')
+    #encabezado
+    ws.write(0, 0, 'Formulario', style0)
+    ws.write(0, 3, 'DNI', style0)
+    ws.write(0, 4, 'Apellido y Nombre/s', style0)
+    ws.write(0, 5, 'F.Nac', style0)
+    ws.write(0, 6, 'EDAD', style0)
+    ws.write(0, 7, 'Genero', style0)
+    ws.write(0, 8, 'Estado Civil', style0)
+    ws.write(0, 9, 'Carrera', style0)
+    ws.write(0, 10, 'Tel. Fijo', style0)
+    ws.write(0, 11, 'Tel. Celular', style0)
+    ws.write(0, 12, 'Direccion', style0)
+    ws.write(0, 13, 'Provincia', style0)
+    ws.write(0, 14, 'Comisaria Jur.', style0)
+    ws.write(0, 15, 'Col. Secundario', style0)
+    ws.write(0, 16, 'Titulo Terciario', style0)
+
+    #completa filas con datos de inscriptos
+    for i in xrange(0,len(inscriptions)):
+        ws.write(i+1, 0, inscriptions[i].inscription.id, style2)
+        ws.write(i+1, 3, inscriptions[i].auth_user.username, style2)
+        ws.write(i+1, 4, unicode(inscriptions[i].auth_user.last_name + ', ' + inscriptions[i].auth_user.first_name,'utf-8'), style2)
+        ws.write(i+1, 5, inscriptions[i].auth_user.birth_date, style1)
+        ws.write(i+1, 6, calculate_age(inscriptions[i].auth_user.birth_date), style2)
+        ws.write(i+1, 7, inscriptions[i].auth_user.gender, style2)
+        ws.write(i+1, 8, inscriptions[i].auth_user.marital_status, style2)
+        ws.write(i+1, 9, unicode(inscriptions[i].auth_user.career,'utf-8'), style2)
+        ws.write(i+1, 10, unicode(inscriptions[i].auth_user.phone,'utf-8'), style2)
+        ws.write(i+1, 11, unicode(inscriptions[i].auth_user.mobile_phone,'utf-8'), style2)
+        ws.write(i+1, 12, unicode(inscriptions[i].auth_user.address,'utf-8'), style2)
+        ws.write(i+1, 13, unicode(inscriptions[i].auth_user.province,'utf-8'), style2)
+        ws.write(i+1, 14, unicode(inscriptions[i].auth_user.police_station,'utf-8'), style2)
+        ws.write(i+1, 15, unicode(inscriptions[i].auth_user.high_school,'utf-8'), style2)
+        ws.write(i+1, 16, unicode(inscriptions[i].auth_user.tertiary_title,'utf-8'), style2)
+
+    wb.save(tmpfilename)
+
+    data = open(tmpfilename,"rb").read()
+    os.unlink(tmpfilename)
+    response.headers['Content-Type']='application/vnd.ms-excel'
+
+    return data
+
+def calculate_age(dob):
+    from datetime import date
+    today = date.today()
+    if today > dob:
+        age = today.year - dob.year
+        if dob.month > today.month:
+            age -= 1
+        if today.month == dob.month:
+            if dob.day > dob.month:
+                age -= 1        
+        return age
+    else:
+        return 0

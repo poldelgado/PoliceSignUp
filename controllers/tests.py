@@ -30,3 +30,13 @@ def search_shift():
                     return shifts[i].id
     if flag:
         return first_id
+
+
+
+def assign_shift_to_candidate():
+    users = db(db.auth_membership.user_id==None).select(db.auth_user.ALL, left=db.auth_membership.on(db.auth_user.id==db.auth_membership.user_id))
+    for user in users:
+        shift = search_shift()
+        db.shift_candidate.insert(auth_user = user.id, shift = shift)
+        db.inscription.insert(auth_user = user.id)
+
